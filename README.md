@@ -4,7 +4,7 @@
 
 ソースの保存先は [Ito-Hideki-95/portfolio](https://github.com/Ito-Hideki-95/portfolio)、メインブランチは `main` です。`D:\portfolio` の `origin` にこのリポジトリを設定しています。
 
-公開URL：**https://ito-hideki-95-portfolio.vercel.app**
+公開URL：**https://negitoro-95-portfolio.vercel.app**
 
 Vercelの `ito-hideki-95-portfolio` プロジェクトにGitHubを連携済みです。`main` にpushすると、本番サイトが自動デプロイされます。
 

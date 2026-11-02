@@ -6,7 +6,7 @@
 
 ## このプロジェクトの公開先
 
-- 公開URL：**https://ito-hideki-95-portfolio.vercel.app**
+- 公開URL：**https://negitoro-95-portfolio.vercel.app**
 - Vercelプロジェクト：`ito-hideki-95-portfolio`
 - GitHub連携：`Ito-Hideki-95/portfolio` の `main`
 - 公開設定：`vercel.json`、配信するソースの除外設定：`.vercelignore`
