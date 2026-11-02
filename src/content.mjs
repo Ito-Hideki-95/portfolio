@@ -6,7 +6,7 @@ export const site = {
   role: '業務システム・AI・Web / アプリ開発',
   contactUrl: '', // ご自身のランサーズプロフィールなどの https:// URL
   contactLabel: 'ランサーズで相談する',
-  siteUrl: '', // 例: https://ご自身のプロジェクト.vercel.app
+  siteUrl: 'https://ito-hideki-95-portfolio.vercel.app',
   indexable: false, // 内容の確認・連絡先の設定後に true にすると検索登録を許可
   description: '開発歴11年、高評価40件以上。業務システム・AI・Web／アプリ開発を、業務理解から設計・実装・テスト・公開・保守まで一貫して支援します。',
   experienceYears: 11,

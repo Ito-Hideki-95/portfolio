@@ -4,6 +4,10 @@
 
 ソースの保存先は [Ito-Hideki-95/portfolio](https://github.com/Ito-Hideki-95/portfolio)、メインブランチは `main` です。`D:\portfolio` の `origin` にこのリポジトリを設定しています。
 
+公開URL：**https://ito-hideki-95-portfolio.vercel.app**
+
+Vercelの `ito-hideki-95-portfolio` プロジェクトにGitHubを連携済みです。`main` にpushすると、本番サイトが自動デプロイされます。
+
 Node.js の標準機能でHTMLを生成する静的サイトです。外部パッケージのインストールは不要です。Vercelで配信するファイルは `dist/` に生成されます。
 
 ## すぐに確認する

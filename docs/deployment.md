@@ -4,6 +4,17 @@
 
 このプロジェクトの保存先は **[Ito-Hideki-95/portfolio](https://github.com/Ito-Hideki-95/portfolio)**、ブランチは **main** です。リポジトリは作成済みで、ローカルの `origin` に設定しています。通常の更新では手順2・3の新規作成を繰り返す必要はありません。Vercelの初回設定は手順4、日常の更新は手順6を参照してください。
 
+## このプロジェクトの公開先
+
+- 公開URL：**https://ito-hideki-95-portfolio.vercel.app**
+- Vercelプロジェクト：`ito-hideki-95-portfolio`
+- GitHub連携：`Ito-Hideki-95/portfolio` の `main`
+- 公開設定：`vercel.json`、配信するソースの除外設定：`.vercelignore`
+
+Vercelのプロジェクト作成とGitHub連携は完了しています。以降の通常更新では手順4の初回設定を繰り返す必要はありません。手順6のcommit / pushで更新します。
+
+公開名とお問い合わせ先は `src/content.mjs` で設定できます。現在は `indexable: false` のため検索エンジンへの登録を抑止していますが、上記URLを知っている方はログインなしで閲覧できます。
+
 ## 1. ローカルで内容を確認する
 
 ```powershell
