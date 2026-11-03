@@ -85,7 +85,11 @@ export function renderPage() {
   <section id="reviews" class="section reviews-section" aria-labelledby="reviews-heading"><div class="container">
     <div class="section-heading">${sectionLabel('02', 'CLIENT VOICES')}<div class="heading-row"><h2 id="reviews-heading">ご一緒した方々の、<br>言葉をそのまま。</h2><p>ランサーズに寄せられた評価から、<br>クライアントの声をご紹介します。</p></div></div>
     <div class="reviews-grid">${reviews.map((review, i) => `<figure class="review-card ${i === 0 ? 'review-featured' : ''}">
-      <figcaption><span class="review-rating">評価：${e(review.rating)}</span><h3>${e(review.project)}</h3><div class="review-source"><span>ランサーズ</span><time datetime="${e(review.date)}">${e(review.date.replace(/-/g, '.'))}</time></div></figcaption>
+      <figcaption>
+        ${review.image ? `<div class="review-media"><a class="review-image${review.imageFit === 'contain' ? ' review-image-contain' : ''}" href="${e(review.image)}" target="_blank" rel="noopener noreferrer" aria-label="${e(review.project)}の画像を拡大（新しいタブで開きます）"><img src="${e(review.image)}" alt="${e(review.imageAlt)}" width="${review.imageWidth}" height="${review.imageHeight}" loading="lazy" decoding="async"><span class="review-image-zoom" aria-hidden="true">画像を拡大 ${northeast}</span></a><p class="review-image-caption">${e(review.imageCaption)}</p></div>` : ''}
+        <span class="review-rating">評価：${e(review.rating)}</span><h3>${e(review.project)}</h3><div class="review-source"><span>ランサーズ</span><time datetime="${e(review.date)}">${e(review.date.replace(/-/g, '.'))}</time></div>
+        ${review.projectUrl ? `<a class="review-project-link" href="${e(review.projectUrl)}" target="_blank" rel="noopener noreferrer">${e(review.projectLinkLabel)} ${northeast}<span class="sr-only">（新しいタブで開きます）</span></a>` : ''}
+      </figcaption>
       <blockquote>${review.comment.split('\n\n').map(paragraph => `<p>${e(paragraph).replace(/\n/g, '<br>')}</p>`).join('')}</blockquote>
     </figure>`).join('')}</div>
     <p class="section-note">ランサーズでいただいた評価コメントを、原文のまま掲載しています。</p>

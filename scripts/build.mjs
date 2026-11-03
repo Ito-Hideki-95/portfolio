@@ -2,7 +2,7 @@ import { cp, mkdir, readFile, rm, writeFile, lstat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderPage, escapeHtml } from '../src/page.mjs';
-import { site, experiences } from '../src/content.mjs';
+import { site, experiences, reviews } from '../src/content.mjs';
 
 const root = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
 const output = path.resolve(root, 'dist');
@@ -17,7 +17,7 @@ for (const key of ['contactUrl', 'siteUrl']) {
 if (site.indexable && (!site.ownerName || !site.contactUrl || !site.siteUrl)) {
   throw new Error('検索公開前に src/content.mjs の ownerName / contactUrl / siteUrl を設定してください。');
 }
-for (const work of experiences) {
+for (const work of [...experiences, ...reviews]) {
   if (work.image) {
     if (!work.image.startsWith('/images/') || work.image.includes('..') || work.image.includes('\\')) throw new Error('実績画像は public/images/ 内を指定してください。');
     if (!work.imageAlt.trim()) throw new Error('実績画像には imageAlt を指定してください。');

@@ -1720,10 +1720,87 @@ summary::-webkit-details-marker {
   border-radius:3px;
 }
 
+.review-media {
+  margin-bottom:22px
+}
+
+.review-image {
+  position:relative;
+  display:block;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  border:1px solid #d4dece;
+  border-radius:var(--radius);
+  background:#fff
+}
+
+.review-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover
+}
+
+.review-image-contain img {
+  object-fit:contain
+}
+
+.review-image-zoom {
+  position:absolute;
+  bottom:10px;
+  right:10px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:5px 10px;
+  background:var(--ink);
+  color:white;
+  border-radius:3px;
+  font-size:.875rem;
+  line-height:1.6
+}
+
+.review-image-zoom svg,.review-project-link svg {
+  width:18px;
+  height:18px;
+  flex:none
+}
+
+.review-image:hover .review-image-zoom,.review-image:focus-visible .review-image-zoom {
+  background:#355b58
+}
+
+.review-image-caption {
+  margin-top:10px;
+  color:var(--muted);
+  font-size:.875rem;
+  line-height:1.8
+}
+
+.review-project-link {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-height:44px;
+  margin-top:12px;
+  font-size:1rem;
+  font-weight:600;
+  text-decoration:underline;
+  text-underline-offset:4px
+}
+
+.review-project-link:hover {
+  color:#4b6a3a
+}
+
+.review-card figcaption {
+  min-width:0
+}
+
 .review-card h3 {
   font-size:1.25rem;
   margin-top:18px;
   line-height:1.7;
+  text-wrap:balance
 }
 
 .review-source {
