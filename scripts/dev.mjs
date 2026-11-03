@@ -48,7 +48,8 @@ const server = http.createServer(async (req, res) => {
     if (!['GET', 'HEAD'].includes(req.method)) { res.writeHead(405, { Allow: 'GET, HEAD' }); return res.end(); }
     await rebuild;
     const requested = decodeURIComponent(url.pathname);
-    const location = path.resolve(output, `.${requested === '/' ? '/index.html' : requested}`);
+    if (requested === '/en') { res.writeHead(308, { Location: `/en/${url.search}` }); return res.end(); }
+    const location = path.resolve(output, `.${requested.endsWith('/') ? `${requested}index.html` : requested}`);
     if (!location.startsWith(`${output}${path.sep}`)) { res.writeHead(403); return res.end('Forbidden'); }
     let body, status = 200, extension = path.extname(location);
     try {

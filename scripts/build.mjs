@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderPage, escapeHtml } from '../src/page.mjs';
 import { site, experiences, reviews } from '../src/content.mjs';
+import { stackLogos } from '../src/locales.mjs';
 
 const root = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
 const output = path.resolve(root, 'dist');
@@ -25,17 +26,21 @@ for (const work of [...experiences, ...reviews]) {
   }
 }
 
-const html = renderPage();
+for (const [, slug] of stackLogos) await readFile(path.join(root, 'public', 'images', 'stack', `${slug}.svg`));
+const html = renderPage('ja');
+const englishHtml = renderPage('en');
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 await cp(path.join(root, 'public'), output, { recursive: true });
 await writeFile(path.join(output, 'index.html'), html, 'utf8');
+await mkdir(path.join(output, 'en'), { recursive: true });
+await writeFile(path.join(output, 'en', 'index.html'), englishHtml, 'utf8');
 const canonical = site.siteUrl ? `${site.siteUrl.replace(/\/$/, '')}/` : '';
 await writeFile(path.join(output, 'robots.txt'), site.indexable
   ? `User-agent: *\nAllow: /\nSitemap: ${canonical}sitemap.xml\n`
   : 'User-agent: *\nDisallow: /\n', 'utf8');
 if (canonical && site.indexable) {
-  await writeFile(path.join(output, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${escapeHtml(canonical)}</loc></url></urlset>`, 'utf8');
+  await writeFile(path.join(output, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${escapeHtml(canonical)}</loc></url><url><loc>${escapeHtml(canonical)}en/</loc></url></urlset>`, 'utf8');
 }
 await writeFile(path.join(output, '404.html'), '<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>ページが見つかりません</title><link rel="stylesheet" href="/styles.css"><main class="container section"><p class="eyebrow">404 / NOT FOUND</p><h1 class="error-title">ページが見つかりません。</h1><p>URLをご確認いただくか、トップページからご覧ください。</p><a class="button button-dark" href="/">トップページへ</a></main></html>', 'utf8');
 console.log('Build complete: dist/');

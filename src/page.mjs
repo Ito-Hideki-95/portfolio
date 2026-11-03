@@ -1,128 +1,57 @@
-import { site, experiences, reviews, services, technologies, faqs } from './content.mjs';
-
-export const escapeHtml = (value = '') => String(value).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+import { site } from './content.mjs';
+import { getContent, stackLogos } from './locales.mjs';
+export const escapeHtml = (value = '') => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const e = escapeHtml;
-const arrow = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-const northeast = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-const mark = '<svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="m14 10-10 10 10 10m12-20 10 10-10 10M23 7l-6 26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-const categoryLabels = { ai: 'AI・自動化', system: '業務システム', web: 'Web・EC' };
-const sectionLabel = (n, text) => `<div class="eyebrow"><span class="section-number">${n}</span>${text}</div>`;
-
-function workVisual(work) {
-  if (work.image) return `<div class="work-visual has-image"><img src="${e(work.image)}" alt="${e(work.imageAlt)}" width="1200" height="800" loading="lazy"></div>`;
-  const content = {
-    business: `<div class="system-diagram"><div class="diagram-header"><span class="diagram-dots">● ● ●</span><span>業務管理</span></div><div class="diagram-body"><b>業務の流れを、ひとつに。</b><div class="diagram-rows"><span><i>01</i>条件の確認</span><span><i>02</i>申請・承認</span><span><i>03</i>帳票の出力</span></div><p>権限管理・操作履歴</p></div></div>`,
-    reservation: `<div class="booking-card"><div class="booking-top"><span>予約・会員サービス</span><span>↗</span></div><b>つながる、サービス体験。</b><div class="booking-grid">${Array.from({ length: 7 }, (_, i) => `<span class="${[2, 3, 5].includes(i) ? 'selected' : ''}">${String(i + 1).padStart(2, '0')}</span>`).join('')}</div><div class="booking-footer"><span>予約</span><i>→</i><span>通知</span><i>→</i><span>決済</span></div></div>`,
-    automation: `<div class="automation-diagram"><span class="diagram-label">日々の作業を、自動化。</span><div class="automation-steps"><div><span>資料・データ</span></div><i>→</i><div class="automation-core">${mark}<b>AI</b></div><i>→</i><div><span>検索・集計</span></div></div><p>必要な情報を、使いやすい形に。</p></div>`,
-  };
-  return `<div class="work-visual ${e(work.theme)}" role="img" aria-label="${e(work.domain)}の構成イメージ。実際の納品画面ではありません。"><div class="visual-content" aria-hidden="true">${content[work.theme]}</div><span class="visual-note">構成イメージ</span></div>`;
+const lines = value => e(value).replace(/\n/g, '<br>');
+const svg = path => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`;
+const arrow = svg('<path d="M4 12h16m-6-6 6 6-6 6"/>');
+const northeast = svg('<path d="M6 18 18 6M6 6h12v12"/>');
+const mark = svg('<path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18"/>');
+const sun = svg('<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/>');
+const moon = svg('<path d="M20.8 13A9 9 0 0 1 11 3.2 9 9 0 1 0 20.8 13Z"/>');
+const pause = svg('<path d="M9 5v14M15 5v14"/>');
+const play = svg('<path d="m8 5 11 7-11 7Z"/>');
+const label = (n, text) => `<p class="eyebrow"><span class="section-number">${n}</span>${text}</p>`;
+const heading = (n, eyebrow, id, title, text) => `<div class="section-heading reveal">${label(n, eyebrow)}<div class="heading-row"><h2 id="${id}">${lines(title)}</h2><p>${lines(text)}</p></div></div>`;
+function workVisual(work, i, c) {
+  if (work.image) return `<div class="work-visual"><img src="${e(work.image)}" alt="${e(work.imageAlt)}" width="1200" height="800" loading="lazy"></div>`;
+  const t = c.diagramLabels[i];
+  const content = [
+    `<div class="system-window"><div class="diagram-bar"><span>● ● ●</span><b>${e(t[0])}</b><span>↗</span></div><div class="system-rows">${t.slice(1, 4).map((s, j) => `<div><span>0${j + 1}</span><b>${e(s)}</b><i></i></div>`).join('')}</div><small>${e(t[4])}</small></div>`,
+    `<div class="booking-window"><span class="mono">${e(t[0])}</span><div class="booking-grid">${Array.from({ length: 7 }, (_, j) => `<span class="${[2, 3, 5].includes(j) ? 'selected' : ''}">${j + 1}</span>`).join('')}</div><div class="booking-flow">${t.slice(1, 4).map(s => `<b>${e(s)}</b>`).join('<span>→</span>')}</div><small>${e(t[4])}</small></div>`,
+    `<div class="automation-window"><span class="mono">${e(t[0])}</span><div class="automation-flow"><span>${e(t[1])}</span><i>→</i><div class="automation-core">${mark}<b>AI</b></div><i>→</i><span>${e(t[2])}</span></div><small>${e(t[3])}</small></div>`,
+  ];
+  return `<div class="work-visual visual-${i}" role="img" aria-label="${e(work.domain)} — ${e(c.diagram)}"><div aria-hidden="true">${content[i]}</div><span class="visual-note">${e(c.diagram)}</span></div>`;
 }
-
-export function renderPage() {
-  const title = `${site.ownerName || site.brandName} | 業務システム・AI・Web開発`;
-  const contactLink = site.contactUrl ? `<a class="button button-lime" href="${e(site.contactUrl)}" target="_blank" rel="noopener noreferrer">${e(site.contactLabel)}<span class="sr-only">（新しいタブで開きます）</span>${northeast}</a>` : '';
+export function renderPage(locale = 'ja') {
+  const { copy: c, experiences, reviews, services, technologies, faqs } = getContent(locale);
+  const title = `${site.ownerName || site.brandName} | ${c.title}`;
+  const base = site.siteUrl.replace(/\/$/, '');
+  const pageUrl = `${base}${locale === 'en' ? '/en/' : '/'}`;
+  const newTab = `<span class="sr-only"> (${e(c.newTab)})</span>`;
+  const motionControl = (extra = '') => `<button type="button" class="motion-toggle ${extra}" data-pause="${e(c.pause)}" data-resume="${e(c.resume)}" data-reduced="${e(c.reduced)}" aria-label="${e(c.pause)}" aria-pressed="false" hidden><span class="pause-icon">${pause}</span><span class="play-icon">${play}</span><span class="motion-label">${e(c.pause)}</span></button>`;
+  const brand = `<span class="brand-mark">${mark}</span><span class="brand-name">${site.brandName === 'Development Partner' ? 'Development<br><strong>Partner.</strong>' : `<strong>${e(site.brandName)}</strong>`}</span>`;
+  const quote = text => text.split('\n\n').map(p => `<p>${lines(p)}</p>`).join('');
+  const logoList = (items, duplicate = false) => `<ul class="marquee-group"${duplicate ? ' aria-hidden="true"' : ''}>${items.map(([name, slug]) => `<li><img src="/images/stack/${slug}.svg" alt="" width="44" height="44" loading="lazy" decoding="async"><span>${e(name)}</span></li>`).join('')}</ul>`;
   return `<!doctype html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f7f2">
-  <title>${e(title)}</title>
-  <meta name="description" content="${e(site.description)}">
-  <meta name="robots" content="${site.indexable ? 'index,follow' : 'noindex,nofollow'}">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="ja_JP">
-  <meta property="og:title" content="${e(title)}">
-  <meta property="og:description" content="${e(site.description)}">
-  <meta property="og:site_name" content="${e(site.brandName)}">
-  ${site.siteUrl ? `<link rel="canonical" href="${e(site.siteUrl)}"><meta property="og:url" content="${e(site.siteUrl)}">` : ''}
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/styles.css">
-  <script src="/app.js" defer></script>
-</head>
-<body>
-<a class="skip-link" href="#main">本文へ移動</a>
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="#top" aria-label="${e(site.brandName)} トップへ"><span class="brand-mark">${mark}</span><span>${e(site.brandName)}</span></a>
-    <button class="menu-toggle" type="button" aria-label="メニューを開閉" aria-expanded="false" aria-controls="main-nav" hidden><span>メニュー</span><span class="menu-lines" aria-hidden="true"></span></button>
-    <nav id="main-nav" aria-label="メインナビゲーション"><a href="#experience">開発経験</a><a href="#reviews">お客様の声</a><a href="#services">サービス</a><a href="#about">私について</a><a class="nav-contact" href="#contact">ご相談はこちら ${northeast}</a></nav>
-  </div>
-</header>
+<html lang="${locale}"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#f8f8f6">
+<title>${e(title)}</title><meta name="description" content="${e(c.description)}"><meta name="robots" content="${site.indexable ? 'index,follow' : 'noindex,nofollow'}">
+<meta property="og:type" content="website"><meta property="og:locale" content="${locale === 'ja' ? 'ja_JP' : 'en_US'}"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(c.description)}"><meta property="og:site_name" content="${e(site.brandName)}">
+${base ? `<link rel="canonical" href="${e(pageUrl)}"><meta property="og:url" content="${e(pageUrl)}"><link rel="alternate" hreflang="ja" href="${e(base)}/"><link rel="alternate" hreflang="en" href="${e(base)}/en/"><link rel="alternate" hreflang="x-default" href="${e(base)}/">` : ''}
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><script src="/preferences.js"></script><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script>
+</head><body>
+<a class="skip-link" href="#main">${e(c.skip)}</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="#top" aria-label="${e(site.brandName)} — ${e(c.home)}">${brand}</a><nav id="main-nav" aria-label="${e(c.navLabel)}">${['experience', 'reviews', 'services', 'about', 'contact'].map((id, i) => `<a href="#${id}"${i === 4 ? ' class="nav-contact"' : ''}>${e(c.nav[i])}${i === 4 ? northeast : ''}</a>`).join('')}</nav><div class="header-controls"><div class="language-switch" role="group" aria-label="Language / 言語"><a href="/" lang="ja" hreflang="ja" data-language="ja"${locale === 'ja' ? ' aria-current="page"' : ''} aria-label="日本語">JP</a><a href="/en/" lang="en" hreflang="en" data-language="en"${locale === 'en' ? ' aria-current="page"' : ''} aria-label="English">EN</a></div><button class="theme-toggle" type="button" hidden data-day="${e(c.day)}" data-night="${e(c.night)}" data-to-day="${e(c.toDay)}" data-to-night="${e(c.toNight)}" aria-label="${e(c.toNight)}"><span class="sun-icon">${sun}</span><span class="moon-icon">${moon}</span><span class="theme-label">${e(c.day)}</span></button>${motionControl('header-motion')}<button class="menu-toggle" type="button" aria-label="${e(c.menu)}" aria-expanded="false" aria-controls="main-nav" hidden><span></span><span></span></button></div></div></header>
 <main id="main">
-  <section class="hero container" id="top" aria-labelledby="hero-heading">
-    <div class="hero-copy">
-      <p class="eyebrow hero-eyebrow"><span class="status-dot"></span> YOUR DEVELOPMENT PARTNER</p>
-      <h1 id="hero-heading">事業に寄り添う。<br>技術で、<span class="hero-emphasis">前へ。</span></h1>
-      <p class="hero-lead"><span>業務を理解し、</span><span>使い続けられるシステムへ。</span></p>
-      <p class="hero-description">業務システム・AI・Web／アプリ開発。<br>課題の整理から設計・実装、公開後の運用まで。<br>あなたの事業に、技術のパートナーを。</p>
-      <div class="hero-actions"><a class="button button-dark" href="#contact">プロジェクトを相談する ${northeast}</a><a class="text-link" href="#experience">開発経験を見る ${arrow}</a></div>
-      <p class="hero-footnote">小さな改善も、構想段階のご相談も。</p>
-    </div>
-    <figure class="hero-art">
-      <div class="art-grid" aria-hidden="true"></div>
-      <div class="art-caption" aria-hidden="true"><span>DEVELOPMENT FLOW</span><span>01 — 04</span></div>
-      <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
-      <div class="blueprint-card" aria-hidden="true">
-        <div class="blueprint-top"><span class="tiny-cross">＋</span> 課題から、運用まで <span>↗</span></div>
-        <div class="blueprint-title">想いを、仕組みに。</div>
-        <div class="blueprint-nodes"><div><span>01</span><b>理解</b></div><i>→</i><div><span>02</span><b>設計</b></div><i>→</i><div><span>03</span><b>実装</b></div></div>
-      </div>
-      <div class="operation-card" aria-hidden="true"><span class="operation-icon">${mark}</span><div><small>04 / 運用</small><b>つくった、その先まで。</b><span>テスト・公開・保守・引き継ぎ</span></div><span class="operation-check">✓</span></div>
-      <figcaption><span class="art-cross">＋</span> 課題の整理から、日々の運用まで。<span>＋</span></figcaption>
-    </figure>
-  </section>
-
-  <section id="experience" class="section container" aria-labelledby="experience-heading">
-    <div class="section-heading">${sectionLabel('01', 'EXPERIENCE')}<div class="heading-row"><h2 id="experience-heading">業務の現場に、<br class="mobile-only">技術を届ける。</h2><p>複雑なルールも、日々の手作業も。<br>業務の背景を理解するところから始めます。</p></div></div>
-    <div class="works-grid">${experiences.map((w, i) => `<article class="work-card ${i === 0 ? 'work-featured' : ''}">
-      ${workVisual(w)}
-      <div class="work-copy"><div class="work-meta"><span>${w.number} / ${e(w.category)}</span><span>↗</span></div><h3>${e(w.title).replace(/\n/g, '<br>')}</h3><p class="work-domain">${e(w.domain)}</p><p class="work-description">${e(w.description)}</p><ul class="tag-list">${w.tags.map(t => `<li>${e(t)}</li>`).join('')}</ul><details class="work-detail"><summary>経験した内容と大切にしていること<span aria-hidden="true">＋</span></summary><div><p><b>経験した内容</b>${e(w.scope)}</p><p><b>設計で大切にしていること</b>${e(w.consideration)}</p></div></details></div>
-    </article>`).join('')}</div>
-    <p class="section-note">開発経験の概要を掲載しています。構成イメージは説明用の図で、実際の納品画面ではありません。</p>
-  </section>
-
-  <section id="reviews" class="section reviews-section" aria-labelledby="reviews-heading"><div class="container">
-    <div class="section-heading">${sectionLabel('02', 'CLIENT VOICES')}<div class="heading-row"><h2 id="reviews-heading">ご一緒した方々の、<br>言葉をそのまま。</h2><p>ランサーズに寄せられた評価から、<br>クライアントの声をご紹介します。</p></div></div>
-    <div class="reviews-grid">${reviews.map((review, i) => `<figure class="review-card ${i === 0 ? 'review-featured' : ''}">
-      <figcaption>
-        ${review.image ? `<div class="review-media"><a class="review-image${review.imageFit === 'contain' ? ' review-image-contain' : ''}" href="${e(review.image)}" target="_blank" rel="noopener noreferrer" aria-label="${e(review.project)}の画像を拡大（新しいタブで開きます）"><img src="${e(review.image)}" alt="${e(review.imageAlt)}" width="${review.imageWidth}" height="${review.imageHeight}" loading="lazy" decoding="async"><span class="review-image-zoom" aria-hidden="true">画像を拡大 ${northeast}</span></a><p class="review-image-caption">${e(review.imageCaption)}</p></div>` : ''}
-        <span class="review-rating">評価：${e(review.rating)}</span><h3>${e(review.project)}</h3><div class="review-source"><span>ランサーズ</span><time datetime="${e(review.date)}">${e(review.date.replace(/-/g, '.'))}</time></div>
-        ${review.projectUrl ? `<a class="review-project-link" href="${e(review.projectUrl)}" target="_blank" rel="noopener noreferrer">${e(review.projectLinkLabel)} ${northeast}<span class="sr-only">（新しいタブで開きます）</span></a>` : ''}
-      </figcaption>
-      <blockquote>${review.comment.split('\n\n').map(paragraph => `<p>${e(paragraph).replace(/\n/g, '<br>')}</p>`).join('')}</blockquote>
-    </figure>`).join('')}</div>
-    <p class="section-note">ランサーズでいただいた評価コメントを、原文のまま掲載しています。</p>
-  </div></section>
-
-  <section id="services" class="section services-section" aria-labelledby="services-heading"><div class="container">
-    <div class="section-heading">${sectionLabel('03', 'WHAT I CAN DO')}<div class="heading-row"><h2 id="services-heading">いま必要なことから、<br>その先の成長まで。</h2><p>目的に合わせて、技術と規模を選びます。<br>まずは課題に近いサービスをご覧ください。</p></div></div>
-    <div class="service-toolbar" hidden><div class="filter-group" role="group" aria-label="サービスのカテゴリー"><button type="button" class="filter active" data-filter="all" aria-pressed="true">すべて <span>${services.length}</span></button>${Object.entries(categoryLabels).map(([key, label]) => `<button type="button" class="filter" data-filter="${key}" aria-pressed="false">${label}<span>${services.filter(s => s.category === key).length}</span></button>`).join('')}</div><p class="service-count" aria-live="polite" aria-atomic="true"></p></div>
-    <div class="services-grid">${services.map(s => `<article class="service-item" data-category="${s.category}" data-service="${e(s.title)}"><span class="service-index">${s.id}</span><div class="service-content"><span class="service-category">${categoryLabels[s.category]}</span><h3>${e(s.title)}</h3><p>${e(s.text)}</p><details><summary>対応内容を見る <span aria-hidden="true">＋</span></summary><div class="service-details"><p>${e(s.scope)}</p><a href="#contact" data-inquiry="${e(s.title)}">この内容で相談を整理する ${arrow}</a></div></details></div></article>`).join('')}</div>
-    <div class="services-more" hidden><button class="button button-outline" id="show-all-services" type="button" aria-expanded="false">すべてのサービスを見る ${arrow}</button></div>
-    <div class="maintenance-note"><div class="maintenance-symbol">＋</div><div><h3>既存システムの改善・保守、アプリ開発も。</h3><p>障害の切り分け、性能・セキュリティ改善、他社制作物の引き継ぎまで。<br>掲載内容に当てはまらないご相談も、お聞かせください。</p></div><a class="text-link" href="#contact">相談する ${northeast}</a></div>
-    <p class="section-note">費用・納期は、対応範囲や利用環境を確認して個別にお見積もりします。</p>
-  </div></section>
-
-  <section id="process" class="section container" aria-labelledby="process-heading"><div class="process-layout"><div class="process-intro">${sectionLabel('04', 'HOW WE WORK')}<h2 id="process-heading">見通しのある開発を、<br>一緒に。</h2><p>専門用語より、わかりやすい対話を。<br>「何を、いつまでに、どこまで」を共有し、<br>納得して進められる開発を大切にします。</p><a class="text-link" href="#contact">まだ曖昧な構想でも、ご相談ください ${arrow}</a></div><ol class="process-steps">
-    <li><span>01</span><div><h3>お話を聞く、業務を知る</h3><p>現状のフローと課題を確認。優先順位を整理し、必要な機能と実装方法を考えます。</p></div></li>
-    <li><span>02</span><div><h3>範囲とゴールを揃える</h3><p>対象範囲・納期・受入条件を着手前に明確化。費用対効果と拡張性も踏まえてご提案します。</p></div></li>
-    <li><span>03</span><div><h3>つくる、確かめる、共有する</h3><p>設計・実装を進めながら進捗と課題を共有。実際の業務を想定して品質と動作を確認します。</p></div></li>
-    <li><span>04</span><div><h3>公開する、運用につなぐ</h3><p>テスト結果と操作資料を揃えて引き継ぎ。公開後の運用・保守も、合意した範囲で対応します。</p></div></li>
-  </ol></div></section>
-
-  <section id="about" class="about-section" aria-labelledby="about-heading"><div class="container about-layout"><div class="about-title">${sectionLabel('05', 'ABOUT ME')}<h2 id="about-heading">つくる前から、<br>つくった後まで。</h2><div class="about-signature">${mark}<span>${e(site.ownerName || site.brandName)}<small>${e(site.role)}</small></span></div></div><div class="about-copy"><p class="about-lead">${site.experienceYears}年の開発経験を、<br>現場で使い続けられる仕組みへ。</p><p>プロフィールをご覧いただき、ありがとうございます。業務理解から設計・実装・テスト・公開・保守まで、一貫した開発を得意としています。</p><p>課題が明確でない段階でも、業務フローと優先順位を整理し、費用対効果や拡張性を踏まえて実装方法をご提案します。部分改修や、小規模なご相談も歓迎します。</p><details class="tech-details"><summary>対応技術を見る<span aria-hidden="true">＋</span></summary><dl>${technologies.map(([label, tech]) => `<div><dt>${e(label)}</dt><dd>${e(tech)}</dd></div>`).join('')}</dl></details></div></div></section>
-
-  <section id="faq" class="section container faq-section" aria-labelledby="faq-heading"><div>${sectionLabel('06', 'QUESTIONS')}<h2 id="faq-heading">ご相談の前に。</h2><p>よくいただくご相談について。</p></div><div class="faq-list">${faqs.map(([q, a], i) => `<details><summary><span class="faq-number">Q${String(i + 1).padStart(2, '0')}</span><span>${e(q)}</span><span class="faq-plus" aria-hidden="true">＋</span></summary><p>${e(a)}</p></details>`).join('')}</div></section>
-
-  <section id="contact" class="contact-section" aria-labelledby="contact-heading"><div class="container contact-layout"><div class="contact-intro">${sectionLabel('07', 'LET’S TALK')}<h2 id="contact-heading">その「できたら」を、<br>一緒にかたちに。</h2><p>要件がまとまっていなくても大丈夫です。<br>いま困っていること、実現したいこと。<br>そこから、次の一歩を考えましょう。</p>${contactLink}<div class="contact-note"><span>FIRST STEP</span><p>ご相談の前に、フォームで<br class="desktop-only">伝えたい内容を整理できます。</p></div></div>
-    <div class="brief-panel"><p class="brief-eyebrow">PROJECT BRIEF</p><h3><span>相談内容を、</span><span>かんたんに整理。</span></h3><p class="brief-description">入力した内容から相談文を作成できます。<br>このフォームからの送信・保存は行いません。</p><noscript><p class="no-js-note">相談文の作成にはJavaScriptを有効にしてください。ご相談の際は、内容・予算・希望時期をお知らせください。</p></noscript>
-      <form id="brief-form"><label for="brief-topic">ご相談の内容</label><select id="brief-topic" name="topic"><option value="まだ決まっていない・まずは相談したい">まだ決まっていない・まずは相談したい</option>${services.map(s => `<option value="${e(s.title)}">${e(s.title)}</option>`).join('')}<option>既存システムの改善・保守</option><option>アプリ開発</option><option>その他</option></select><div class="form-row"><div><label for="brief-budget">ご予算の目安</label><select id="brief-budget" name="budget"><option>相談して決めたい</option>10万円未満</option><option>10〜30万円</option><option>30〜100万円</option><option>100万円以上</option></select></div><div><label for="brief-timing">ご希望の時期</label><select id="brief-timing" name="timing"><option>相談して決めたい</option><option>できるだけ早く</option><option>1〜3か月以内</option><option>3か月以降</option></select></div></div><label for="brief-message">困っていること・実現したいこと <span>任意</span></label><textarea id="brief-message" name="message" rows="3" maxlength="3000" placeholder="例：Excelで管理している案件情報を、チームで共有できるようにしたい。"></textarea><button class="button button-dark brief-submit" type="submit" disabled>相談文を作成する ${arrow}</button><p class="form-privacy">個人情報や機密情報の入力はお控えください。</p></form>
-      <div class="brief-result" hidden><label for="brief-output">作成した相談文</label><textarea id="brief-output" rows="9" readonly></textarea><button class="button button-outline" id="copy-brief" type="button">相談文をコピー ${arrow}</button><p>コピーした文章を、ご利用の連絡先${site.contactUrl ? '（上記の相談ボタン）' : ''}からお送りください。</p></div><p class="brief-status" role="status" aria-live="polite"></p>
-    </div>
-  </div></section>
-</main>
-<footer class="site-footer"><div class="container footer-main"><a class="brand" href="#top"><span class="brand-mark">${mark}</span><span>${e(site.brandName)}</span></a><a class="back-top" href="#top">ページの先頭へ <span aria-hidden="true">↑</span></a></div><div class="container footer-bottom"><small>© ${new Date().getUTCFullYear()} ${e(site.ownerName || site.brandName)}</small><span>DESIGNED AROUND YOUR BUSINESS.</span></div></footer>
-</body>
-</html>`;
+<section id="top" class="hero container" aria-labelledby="hero-heading"><div class="hero-copy"><p class="eyebrow hero-eyebrow"><span class="status-dot"></span> INDEPENDENT DEVELOPMENT PARTNER</p><h1 id="hero-heading"><span>${e(c.hero[0])}</span><span class="hero-outline">${e(c.hero[1])}</span></h1><p class="hero-lead">${e(c.heroLead)}</p><p class="hero-description">${e(c.heroText)}</p><div class="hero-actions"><a class="button button-dark" href="#contact">${e(c.consult)}${northeast}</a><a class="text-link" href="#experience">${e(c.explore)}${arrow}</a></div><p class="hero-footnote">${e(c.smallStart)}</p></div><figure class="hero-art" aria-label="${e(c.artTitle)}"><div class="art-grid" aria-hidden="true"></div><div class="art-coordinate" aria-hidden="true">IDEA → DESIGN → DEVELOPMENT</div><div class="sculpture" aria-hidden="true"><div class="sculpture-orbit"></div><div class="cube-scene"><div class="cube">${['front', 'back', 'left', 'right', 'top', 'bottom'].map((side, i) => `<div class="cube-face face-${side}"><span>${['BUILD', 'THINK', 'CREATE', 'EVOLVE', '+', '+'][i]}</span></div>`).join('')}</div></div></div><div class="glass-panel art-panel" aria-hidden="true"><span class="art-panel-index">01 — 04 / DEVELOPMENT</span><strong>${e(c.artTitle)}</strong><div>${c.art.map((s, i) => `<span><i>0${i + 1}</i>${e(s)}</span>`).join('')}</div></div><figcaption><span class="cross">+</span> THOUGHTFULLY BUILT. <span class="cross">+</span></figcaption></figure><div class="hero-bottom"><span class="mono">FROM UNDERSTANDING TO OPERATION</span><div>${c.disciplines.map(d => `<span>${e(d)}</span>`).join('')}</div><a href="#experience" aria-label="${e(c.explore)}">↓</a></div></section>
+<section id="experience" class="section container" aria-labelledby="experience-heading">${heading('01', 'EXPERIENCE', 'experience-heading', c.experienceHeading, c.experienceText)}<div class="works-grid">${experiences.map((w, i) => `<article class="work-card reveal reveal-wipe" style="--reveal-delay:${i * 90}ms">${workVisual(w, i, c)}<div class="work-copy"><p class="work-meta mono">${e(w.number)} / ${e(w.category)}</p><h3>${lines(w.title)}</h3><p class="work-domain">${e(w.domain)}</p><p class="work-description">${e(w.description)}</p><ul class="tag-list">${w.tags.map(t => `<li>${e(t)}</li>`).join('')}</ul><details class="work-detail"><summary>${e(c.workDetails)}<span aria-hidden="true">+</span></summary><div><p><b>${e(c.scope)}</b>${e(w.scope)}</p><p><b>${e(c.approach)}</b>${e(w.consideration)}</p></div></details></div></article>`).join('')}</div><p class="section-note">${e(c.diagramNote)}</p></section>
+<section id="reviews" class="section reviews-section" aria-labelledby="reviews-heading"><div class="container">${heading('02', 'SELECTED WORK & CLIENT VOICES', 'reviews-heading', c.reviewsHeading, c.reviewsText)}<div class="review-toolbar"><p class="swipe-hint">${arrow}${e(c.swipe)}</p><div class="review-controls" hidden><button class="review-prev icon-button" type="button" aria-label="${e(c.previous)}" aria-controls="review-track">${arrow}</button><span class="review-position mono" aria-live="polite" aria-atomic="true">01 / 04</span><button class="review-next icon-button" type="button" aria-label="${e(c.next)}" aria-controls="review-track">${arrow}</button></div></div></div><div class="review-track container" id="review-track" role="region" aria-label="${e(c.reviewRegion)}" tabindex="0">${reviews.map((r, i) => `<figure class="review-card" aria-label="${i + 1} / ${reviews.length}"><figcaption><div class="review-project-number mono">PROJECT / 0${i + 1}<span>${e(r.date.replaceAll('-', '.'))}</span></div><div class="review-media"><a class="review-image review-image-contain" href="${e(r.image)}" target="_blank" rel="noopener noreferrer" aria-label="${e(r.project)} — ${e(c.zoom)} (${e(c.newTab)})"><img src="${e(r.image)}" alt="${e(r.imageAlt)}" width="${r.imageWidth}" height="${r.imageHeight}" loading="lazy" decoding="async" draggable="false"><span class="review-image-zoom" aria-hidden="true">${e(c.zoom)} ${northeast}</span></a><p class="review-image-caption">${e(r.imageCaption)}</p></div><h3>${e(r.project)}</h3><a class="review-project-link text-link" href="${e(r.projectUrl)}" target="_blank" rel="noopener noreferrer">${e(r.projectLinkLabel)}${northeast}${newTab}</a></figcaption><div class="review-quote"><span class="quote-mark" aria-hidden="true">“</span><div class="review-source"><span>${e(c.platform)}</span><span class="review-rating">${e(c.rating)}：${e(r.rating)}</span><time class="sr-only" datetime="${r.date}">${r.date}</time></div><blockquote>${quote(r.comment)}</blockquote>${r.originalComment ? `<details class="original-review"><summary>${e(c.original)}<span aria-hidden="true">+</span></summary><div lang="ja">${quote(r.originalComment)}</div></details>` : ''}</div></figure>`).join('')}</div><div class="container"><p class="section-note">${e(c.reviewNote)}</p></div></section>
+<section id="services" class="section container" aria-labelledby="services-heading">${heading('03', 'SERVICES', 'services-heading', c.servicesHeading, c.servicesText)}<div class="service-toolbar" hidden><div class="filter-group" role="group" aria-label="${e(c.categoryLabel)}">${Object.entries(c.categories).map(([key, text]) => `<button type="button" class="filter${key === 'all' ? ' active' : ''}" data-filter="${key}" aria-pressed="${key === 'all'}">${e(text)}<span>${key === 'all' ? services.length : services.filter(s => s.category === key).length}</span></button>`).join('')}</div><p class="service-count mono" aria-live="polite" aria-atomic="true"></p></div><div class="services-grid">${services.map(s => `<article class="service-item" data-category="${s.category}" data-service="${e(s.title)}"><span class="service-index mono">${s.id}</span><div class="service-content"><span class="service-category">${e(c.categories[s.category])}</span><h3>${e(s.title)}</h3><p>${e(s.text)}</p><details><summary>${e(c.serviceDetails)}<span aria-hidden="true">+</span></summary><div class="service-details"><p>${e(s.scope)}</p><a class="text-link" href="#contact" data-inquiry="${e(s.title)}">${e(c.serviceContact)}${arrow}</a></div></details></div></article>`).join('')}</div><div class="services-more" hidden><button class="button button-outline" id="show-all-services" type="button" aria-expanded="false">${e(c.allServices)}${arrow}</button></div><div class="maintenance-note reveal"><span class="maintenance-symbol" aria-hidden="true">↗</span><div><h3>${e(c.maintenanceHeading)}</h3><p>${e(c.maintenance)}</p></div><a class="text-link" href="#contact">${e(c.nav[4])}${northeast}</a></div><p class="section-note">${e(c.estimate)}</p></section>
+<section id="stack" class="section stack-section" aria-labelledby="stack-heading"><div class="container">${heading('04', 'TECHNOLOGY STACK', 'stack-heading', c.stackHeading, c.stackText)}<div class="stack-toolbar"><span class="mono">FRONTEND / BACKEND / CLOUD / AI</span>${motionControl('stack-motion')}</div></div><div class="stack-marquees" role="group" aria-label="${e(c.stackLabel)}">${[stackLogos.slice(0, 16), stackLogos.slice(16)].map((items, i) => `<div class="marquee" style="--marquee-duration:${i ? 65 : 55}s"><div class="marquee-track">${logoList(items)}${logoList(items, true)}</div></div>`).join('')}</div><div class="container"><details class="tech-details"><summary>${e(c.allStack)}<span aria-hidden="true">+</span></summary><dl>${technologies.map(([name, text]) => `<div><dt class="mono">${e(name)}</dt><dd>${e(text)}</dd></div>`).join('')}</dl></details></div></section>
+<section id="process" class="section container" aria-labelledby="process-heading"><div class="process-layout"><div class="process-intro reveal">${label('05', 'PROCESS')}<h2 id="process-heading">${lines(c.processHeading)}</h2><p>${lines(c.processText)}</p><span class="process-cross" aria-hidden="true">✳</span></div><ol class="process-steps">${c.process.map(([tag, name, text], i) => `<li class="process-step reveal reveal-slide"><span class="process-number mono">0${i + 1}</span><div><span class="mono process-tag">${tag}</span><h3>${e(name)}</h3><p>${e(text)}</p></div></li>`).join('')}</ol></div></section>
+<section id="about" class="section about-section" aria-labelledby="about-heading"><div class="container about-layout"><div class="about-title reveal">${label('06', 'ABOUT ME')}<h2 id="about-heading">${lines(c.aboutHeading)}</h2><div class="experience-number"><span>${site.experienceYears}</span><div class="year-orbit" aria-hidden="true">${mark}</div><p class="mono">${e(c.yearsLabel)}</p></div></div><div class="about-copy glass-panel reveal"><p class="about-lead">${lines(c.aboutLead)}</p>${c.about.map(p => `<p>${e(p)}</p>`).join('')}<ul class="principles">${c.principles.map((p, i) => `<li><span class="mono">0${i + 1}</span>${e(p)}</li>`).join('')}</ul></div></div></section>
+<section id="faq" class="section container faq-section" aria-labelledby="faq-heading"><div class="reveal">${label('07', 'FAQ')}<h2 id="faq-heading">${lines(c.faqHeading)}</h2><p>${e(c.faqText)}</p></div><div class="faq-list">${faqs.map(([q, a], i) => `<details><summary><span class="faq-number mono">0${i + 1}</span><span>${e(q)}</span><span class="faq-plus" aria-hidden="true">+</span></summary><p>${e(a)}</p></details>`).join('')}</div></section>
+<section id="contact" class="section contact-section" aria-labelledby="contact-heading"><div class="container contact-layout"><div class="contact-intro reveal">${label('08', 'LET’S TALK')}<h2 id="contact-heading">${lines(c.contactHeading)}</h2><p>${lines(c.contactText)}</p>${site.contactUrl ? `<a class="button button-dark" href="${e(site.contactUrl)}" target="_blank" rel="noopener noreferrer">${e(c.contactButton)}${northeast}${newTab}</a>` : ''}<span class="contact-arrow" aria-hidden="true">↗</span></div><div class="brief-panel glass-panel"><p class="eyebrow">PROJECT BRIEF</p><h3>${e(c.briefHeading)}</h3><p class="brief-description">${e(c.briefText)}</p><noscript><p>${e(c.noJs)}</p></noscript><form id="brief-form"><label for="brief-topic">${e(c.topic)}</label><select id="brief-topic" name="topic"><option>${e(c.topics[0])}</option>${services.map(s => `<option>${e(s.title)}</option>`).join('')}${c.topics.slice(1).map(t => `<option>${e(t)}</option>`).join('')}</select><div class="form-row"><div><label for="brief-budget">${e(c.budget)}</label><select id="brief-budget" name="budget">${c.budgets.map(t => `<option>${e(t)}</option>`).join('')}</select></div><div><label for="brief-timing">${e(c.timing)}</label><select id="brief-timing" name="timing">${c.timings.map(t => `<option>${e(t)}</option>`).join('')}</select></div></div><label for="brief-message">${e(c.message)}<span>${e(c.optional)}</span></label><textarea id="brief-message" name="message" rows="4" maxlength="3000" placeholder="${e(c.placeholder)}"></textarea><button class="button button-dark brief-submit" type="submit" disabled>${e(c.generate)}${arrow}</button><p class="form-privacy">${e(c.privacy)}</p></form><div class="brief-result" hidden><label for="brief-output">${e(c.output)}</label><textarea id="brief-output" rows="9" readonly></textarea><button class="button button-outline" id="copy-brief" type="button">${e(c.copy)}${arrow}</button><p>${e(c.sendNote)}</p></div><p class="brief-status" role="status" aria-live="polite"></p></div></div></section>
+</main><footer class="site-footer"><div class="container footer-main"><a class="brand" href="#top">${brand}</a><a class="back-top text-link" href="#top">${e(c.top)}<span aria-hidden="true">↑</span></a></div><div class="container footer-bottom"><small>© ${new Date().getUTCFullYear()} ${e(site.ownerName || site.brandName)}</small><span class="mono">THINK DEEPLY. BUILD THOUGHTFULLY.</span></div></footer></body></html>`;
 }

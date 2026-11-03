@@ -6,6 +6,10 @@
 
 公開URL：**https://negitoro-95-portfolio.vercel.app**
 
+英語版：**https://negitoro-95-portfolio.vercel.app/en/**
+
+白黒を基調にした昼間／夜間テーマと日英の切り替えに対応しています。テーマは端末設定を初期値とし、手動で選んだ表示を保存します。回転・半透明・スクロール・スワイプの演出と、32種類の技術ロゴのマーキーを実装しています。ヘッダーの一時停止ボタンで動きを止められます。
+
 Vercelの `ito-hideki-95-portfolio` プロジェクトにGitHubを連携済みです。`main` にpushすると、本番サイトが自動デプロイされます。
 
 Node.js の標準機能でHTMLを生成する静的サイトです。外部パッケージのインストールは不要です。Vercelで配信するファイルは `dist/` に生成されます。
@@ -23,6 +27,7 @@ npm.cmd run dev
 
 ```powershell
 npm.cmd run check
+npm.cmd test
 npm.cmd run build
 npm.cmd run preview
 ```
@@ -34,9 +39,11 @@ npm.cmd run preview
 | 変更内容 | ファイル |
 | --- | --- |
 | 公開名、問い合わせ先、公開URL、開発経験、クライアントの評価、サービス、技術、FAQ | `src/content.mjs` |
-| ページ構成、メインコピー、仕事の進め方 | `src/page.mjs` |
+| 日本語・英語の紹介文、見出し、仕事の進め方、英訳、ロゴ一覧 | `src/locales.mjs` |
+| ページ構成、各セクションのHTML | `src/page.mjs` |
 | 色、余白、フォント、スマートフォン表示 | `public/styles.css` |
-| 絞り込み、メニュー、相談文の生成 | `public/app.js` |
+| 表示設定、スワイプ、演出、絞り込み、メニュー、相談文の生成 | `public/app.js` |
+| 描画前のテーマ・動きの設定 | `public/preferences.js` |
 | 掲載許可を得た実績画像 | `public/images/` に追加 |
 | Vercelのビルド設定 | `vercel.json` |
 
@@ -95,7 +102,9 @@ git push
 - 3種類の図は説明用の構成イメージです。納品画面のスクリーンショットではありません。
 - 添付原稿は「全20サービス」という表題ですが、受領した本文は13番の途中までです。01〜13の確認できた内容を掲載しています。
 - 原稿中の料金・納期は出品設定案のため、サイトでは個別見積もりとしています。
-- 外部フォント、解析タグ、Cookie、外部APIへの送信は使用していません。
+- 外部フォント、解析タグ、Cookie、外部APIへの送信は使用していません。テーマと動きの設定のみブラウザーのlocalStorageに保存します。相談フォームの入力は保存しません。
+- 英語ページの評価コメントは翻訳であることを明示し、日本語の原文も開いて確認できます。
+- 技術ロゴはSimple Icons 16.0.0のSVGをローカル配信しています。[ライセンス](docs/licenses/simple-icons.md) と [表示・編集ガイド](docs/display-guide.md) を参照してください。
 
 ## 技術的な構成
 
