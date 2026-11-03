@@ -23,7 +23,7 @@
   document.addEventListener('click', (event) => {
     if (!event.target.closest('.site-header')) closeMenu();
   });
-  window.matchMedia('(min-width: 701px)').addEventListener('change', () => closeMenu());
+  window.matchMedia('(min-width: 1051px)').addEventListener('change', () => closeMenu());
 
   // サービスの一覧はHTMLにも含まれるため、JavaScriptなしでも閲覧できます。
   const serviceCards = [...document.querySelectorAll('.service-item')];
