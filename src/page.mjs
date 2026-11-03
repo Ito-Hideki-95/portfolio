@@ -88,7 +88,7 @@ export function renderPage() {
       <figcaption><span class="review-rating">評価：${e(review.rating)}</span><h3>${e(review.project)}</h3><div class="review-source"><span>ランサーズ</span><time datetime="${e(review.date)}">${e(review.date.replace(/-/g, '.'))}</time></div></figcaption>
       <blockquote>${review.comment.split('\n\n').map(paragraph => `<p>${e(paragraph).replace(/\n/g, '<br>')}</p>`).join('')}</blockquote>
     </figure>`).join('')}</div>
-    <p class="section-note">評価コメントは原文のまま掲載しています。案件名は内容が伝わるよう簡潔に表記しています。</p>
+    <p class="section-note">ランサーズでいただいた評価コメントを、原文のまま掲載しています。</p>
   </div></section>
 
   <section id="services" class="section services-section" aria-labelledby="services-heading"><div class="container">
