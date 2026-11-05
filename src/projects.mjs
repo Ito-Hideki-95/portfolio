@@ -78,7 +78,7 @@ export const projects = [
       "ja": "美容・化粧品を手がけるピアスグループの採用サイト。職種や事業の魅力、応募情報を紹介しています。",
       "en": "A graduate recruitment website for the beauty and cosmetics group, introducing careers, its businesses and application information."
     },
-    "image": "/images/projects/pias-recruit.webp",
+    "image": "/images/projects/pias-recruit-screen.jpg",
     "imageKind": "screen",
     "imageWidth": 1440,
     "imageHeight": 900
@@ -282,7 +282,7 @@ export const projects = [
       "ja": "美容サービス職に特化した採用サイト。ブランドや仕事の紹介から募集情報へつなげます。",
       "en": "A dedicated recruitment website for beauty professionals, introducing brands, roles and current opportunities."
     },
-    "image": "/images/projects/pias-ats.webp",
+    "image": "/images/projects/pias-ats-screen.jpg",
     "imageKind": "screen",
     "imageWidth": 1440,
     "imageHeight": 900
@@ -1396,10 +1396,10 @@ export const projects = [
       "ja": "福井・越前のオーシャンビューヴィラのサイト。海辺の景色と客室写真で、滞在の魅力を伝えます。",
       "en": "An oceanfront villa website in Echizen, Fukui, presenting the stay through coastal views and room photography."
     },
-    "image": "/images/projects/blue-square.avif",
+    "image": "/images/projects/blue-square-main.jpg",
     "imageKind": "visual",
-    "imageWidth": 2880,
-    "imageHeight": 1800
+    "imageWidth": 1440,
+    "imageHeight": 900
   },
   {
     "id": "yroom",

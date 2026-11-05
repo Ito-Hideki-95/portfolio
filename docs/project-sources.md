@@ -9,7 +9,8 @@
 ## 個別の取り扱い
 
 - オレンジライフ：ブラウザーのロード表示が完了しなかったため、公式OGPに使用されているトップ画面のビジュアルを掲載。
-- BLUE SQUARE：ロード画面が残るため、トップページで使われている公式の背景画像を掲載。
+- BLUE SQUARE：ロード画面が残るため、トップページで使われている公式の背景画像を掲載。表示互換性と読み込み速度を改善するため、1440 × 900のJPEGを配信（約1.73 MBから約127 KBに削減）。
+- ピアスグループ：新卒採用・美容職採用の2ページを再取得し、文字やボタンを含む実際の画面をJPEGで配信。
 - MOFT：案内ポップアップが重なるため、公式トップバナーを掲載。
 - 宿いとう：画面取得時のアクセス制限のため、公式ページに参照があるトップスライド写真を掲載。
 - Japan Trend Shop：ブラウザーの検証画面が完了しないため、[urlscanの公開サイト記録](https://urlscan.io/result/01a032ae-748b-778b-af89-605875ab387a/)にある実際のスクリーンショットを掲載。今回取得した現在の画面ではなく、記録画像であることをaltに明記しています。記録の撮影日は取得できなかったため記載していません。
@@ -20,7 +21,7 @@
 | サイト | リンク | 出典 | ローカル画像 | 種別・補足 |
 | --- | --- | --- | --- | --- |
 | ONE PILATES STUDIO | [公開URL](https://one-pilates.jp/) | [画像取得元](https://one-pilates.jp/) | `/images/projects/one-pilates.webp` | 公開ページの画面取得（1440 × 900） |
-| ピアスグループ 新卒採用 | [公開URL](https://www.pias-recruit.jp/) | [画像取得元](https://www.pias-recruit.jp/) | `/images/projects/pias-recruit.webp` | 公開ページの画面取得（1440 × 900） |
+| ピアスグループ 新卒採用 | [公開URL](https://www.pias-recruit.jp/) | [画像取得元](https://www.pias-recruit.jp/) | `/images/projects/pias-recruit-screen.jpg` | 公開ページの画面取得（1440 × 900、JPEG） |
 | tasumo | [公開URL](https://tasumo.jp/) | [画像取得元](https://tasumo.jp/) | `/images/projects/tasumo.webp` | 公開ページの画面取得（1440 × 900） |
 | 出前館 採用サイト | [公開URL](https://recruit.demae-can.co.jp/) | [画像取得元](https://recruit.demae-can.co.jp/) | `/images/projects/demaecan-recruit.webp` | 公開ページの画面取得（1440 × 900） |
 | PARTNERS | [公開URL](https://partners-re.co.jp/) | [画像取得元](https://partners-re.co.jp/) | `/images/projects/partners.webp` | 公開ページの画面取得（1440 × 900） |
@@ -30,7 +31,7 @@
 | プラスアール 採用サイト | [公開URL](https://www.plusr.jp/recruit/) | [画像取得元](https://www.plusr.jp/recruit/) | `/images/projects/plusr.webp` | 公開ページの画面取得（1440 × 900） |
 | オートテクニックジャパン 採用 | [公開URL](https://www.autotechnic.co.jp/recruit/) | [画像取得元](https://www.autotechnic.co.jp/recruit/) | `/images/projects/autotechnic.webp` | 公開ページの画面取得（1440 × 900） |
 | HBA 採用サイト | [公開URL](https://www.hba.co.jp/recruit/) | [画像取得元](https://www.hba.co.jp/recruit/) | `/images/projects/hba.webp` | 公開ページの画面取得（1440 × 900） |
-| ピアスグループ 美容職採用 | [公開URL](https://www.pias-recruit.jp/ats/) | [画像取得元](https://www.pias-recruit.jp/ats/) | `/images/projects/pias-ats.webp` | 公開ページの画面取得（1440 × 900） |
+| ピアスグループ 美容職採用 | [公開URL](https://www.pias-recruit.jp/ats/) | [画像取得元](https://www.pias-recruit.jp/ats/) | `/images/projects/pias-ats-screen.jpg` | 公開ページの画面取得（1440 × 900、JPEG） |
 | オレンジライフ 採用サイト | [公開URL](https://orange-life-recruit.jp/) | [画像取得元](https://orange-life-recruit.jp/app/wp-content/uploads/2025/05/OGP.jpg) | `/images/projects/orange-life.jpg` | 公式ページのメインビジュアル |
 | 日本ハウスコーティング協会 | [公開URL](https://j-h-c-a.com/) | [画像取得元](https://j-h-c-a.com/) | `/images/projects/jhca.webp` | 公開ページの画面取得（1440 × 900） |
 | ABC幼稚園 | [公開URL](https://me-create.net/kindergarten/) | [画像取得元](https://me-create.net/kindergarten/) | `/images/projects/me-create.webp` | 公開ページの画面取得（1440 × 900） |
@@ -85,7 +86,7 @@
 | 高屋歯科医院 インプラント | [公開URL](https://takayadentalsonobe.com/lp/implant/) | [画像取得元](https://takayadentalsonobe.com/lp/implant/) | `/images/projects/takaya-dental.webp` | 公開ページの画面取得（1440 × 900） |
 | 清水歯科藤沢院 矯正治療 | [公開URL](https://www.fujisawa-kyouseishika.com/invisalign/) | [画像取得元](https://www.fujisawa-kyouseishika.com/invisalign/) | `/images/projects/fujisawa-dental.webp` | 公開ページの画面取得（1440 × 900） |
 | SHElikes | [公開URL](https://shelikes.jp/landing_pages/jp_a/) | [画像取得元](https://shelikes.jp/landing_pages/jp_a/) | `/images/projects/shelikes.webp` | 公開ページの画面取得（1440 × 900） |
-| BLUE SQUARE | [公開URL](https://bluesquare-echizen.com/) | [画像取得元](https://bluesquare-echizen.com/wp-content/themes/bluesquare/assets/images/sun_bg.avif) | `/images/projects/blue-square.avif` | 公式ページのメインビジュアル |
+| BLUE SQUARE | [公開URL](https://bluesquare-echizen.com/) | [画像取得元](https://bluesquare-echizen.com/wp-content/themes/bluesquare/assets/images/sun_bg.avif) | `/images/projects/blue-square-main.jpg` | 公式ページのメインビジュアル（1440 × 900、JPEG） |
 | YOURROOM | [公開URL](https://yroom.jp/) | [画像取得元](https://yroom.jp/) | `/images/projects/yroom.webp` | 公開ページの画面取得（1440 × 900） |
 | 山人 -oga- | [公開URL](https://oga.yamado.co.jp/) | [画像取得元](https://oga.yamado.co.jp/) | `/images/projects/oga-yamado.webp` | 公開ページの画面取得（1440 × 900） |
 | 十八楼 離れ 宿いとう | [公開URL](https://yadoito.18rou.com/) | [画像取得元](https://yadoito.18rou.com/wp/wp-content/uploads/2023/04/hero-slide01.jpg) | `/images/projects/yadoito.jpg` | 公式ページのメインビジュアル |
