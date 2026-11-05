@@ -36,7 +36,7 @@ export function renderPage(locale = 'ja') {
   const logoList = (items, duplicate = false) => `<ul class="marquee-group"${duplicate ? ' aria-hidden="true"' : ''}>${items.map(([name, slug]) => `<li><img src="/images/stack/${slug}.svg" alt="" width="44" height="44" loading="lazy" decoding="async"><span>${e(name)}</span></li>`).join('')}</ul>`;
   return `<!doctype html>
 <html lang="${locale}"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#102544">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="theme-color" content="#e5f4fc">
 <title>${e(title)}</title><meta name="description" content="${e(c.description)}"><meta name="robots" content="${site.indexable ? 'index,follow' : 'noindex,nofollow'}">
 <meta property="og:type" content="website"><meta property="og:locale" content="${locale === 'ja' ? 'ja_JP' : 'en_US'}"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(c.description)}"><meta property="og:site_name" content="${e(site.brandName)}">
 ${base ? `<link rel="canonical" href="${e(pageUrl)}"><meta property="og:url" content="${e(pageUrl)}"><link rel="alternate" hreflang="ja" href="${e(base)}/"><link rel="alternate" hreflang="en" href="${e(base)}/en/"><link rel="alternate" hreflang="x-default" href="${e(base)}/">` : ''}
