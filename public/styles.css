@@ -1,13 +1,13 @@
 @charset "UTF-8";
 :root {
   color-scheme:light;
-  --paper:#e5f4fc;
-  --surface:#f2f9fd;
+  --paper:#87ceeb;
+  --surface:#bde5f6;
   --ink:#18364d;
-  --muted:#456579;
-  --line:#91b6cc;
-  --soft:#d5ebf7;
-  --glass:rgba(242,249,253,.78);
+  --muted:#284d63;
+  --line:#4c91b0;
+  --soft:#79c4e4;
+  --glass:rgba(189,229,246,.78);
   --shadow:0 24px 80px #143b521a;
   --logo-filter:none;
   --font:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
@@ -16,13 +16,13 @@
 
 :root[data-theme=dark] {
   color-scheme:light;
-  --paper:#abcbdc;
-  --surface:#c1dbe9;
+  --paper:#66b4d6;
+  --surface:#9acfe6;
   --ink:#112e43;
-  --muted:#2c4b60;
-  --line:#7097af;
-  --soft:#9ebfd4;
-  --glass:rgba(193,219,233,.82);
+  --muted:#15384e;
+  --line:#3d7b9b;
+  --soft:#5daacc;
+  --glass:rgba(154,207,230,.82);
   --shadow:0 24px 80px #143b5226;
   --logo-filter:none
 }
@@ -30,13 +30,13 @@
 @media(prefers-color-scheme:dark) {
   :root:not([data-theme]) {
     color-scheme:light;
-    --paper:#abcbdc;
-    --surface:#c1dbe9;
+    --paper:#66b4d6;
+    --surface:#9acfe6;
     --ink:#112e43;
-    --muted:#2c4b60;
-    --line:#7097af;
-    --soft:#9ebfd4;
-    --glass:rgba(193,219,233,.82);
+    --muted:#15384e;
+    --line:#3d7b9b;
+    --soft:#5daacc;
+    --glass:rgba(154,207,230,.82);
     --shadow:0 24px 80px #143b5226;
     --logo-filter:none
   }
