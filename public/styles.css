@@ -1190,18 +1190,6 @@ details[open]>div,details[open]>p,details[open]>dl {
   height:42px
 }
 
-.review-source {
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-  font-size:13px;
-  color:var(--muted);
-  border-bottom:1px solid var(--line);
-  padding-bottom:16px;
-  margin-bottom:20px
-}
-
 .review-card blockquote {
   font-size:18px;
   line-height:1.95
@@ -2761,9 +2749,6 @@ details[open]>div,details[open]>p,details[open]>dl {
   .review-card blockquote {
     font-size:17px
   }
-  .review-source {
-    font-size:13px
-  }
   .section-note {
     font-size:14px;
     margin-top:24px
@@ -3100,7 +3085,7 @@ details[open]>div,details[open]>p,details[open]>dl {
 }
 
 /* Supporting copy stays readable alongside the larger body type. */
-.review-project-number,.review-image-caption,.review-image-zoom,.review-source,.service-category,.tag-list li,.filter,.service-count,.swipe-hint,.marquee-group li,.form-privacy {
+.review-project-number,.review-image-caption,.review-image-zoom,.service-category,.tag-list li,.filter,.service-count,.swipe-hint,.marquee-group li,.form-privacy {
   font-size:14px
 }
 

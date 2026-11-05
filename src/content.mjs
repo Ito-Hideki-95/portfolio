@@ -66,7 +66,7 @@ export const reviews = [
     projectUrl: 'https://www.lancers.jp/menu/detail/1351229',
     projectLinkLabel: 'サービス紹介を見る',
     image: '/images/reviews/data-collection.jpg',
-    imageAlt: 'ランサーズのデータ収集サービス紹介画像。情報の自動収集、整形、CSV出力の流れを説明',
+    imageAlt: 'データ収集サービス紹介画像。情報の自動収集、整形、CSV出力の流れを説明',
     imageCaption: 'データ収集サービスの紹介画像',
     imageWidth: 999,
     imageHeight: 562,
