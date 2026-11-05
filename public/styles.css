@@ -1,13 +1,13 @@
 @charset "UTF-8";
 :root {
   color-scheme:light;
-  --paper:#87ceeb;
-  --surface:#bde5f6;
-  --ink:#18364d;
-  --muted:#284d63;
-  --line:#4c91b0;
-  --soft:#79c4e4;
-  --glass:rgba(189,229,246,.78);
+  --paper:#ffffff;
+  --surface:#f5f7fa;
+  --ink:#142133;
+  --muted:#49596b;
+  --line:#b5c2d0;
+  --soft:#eaf0f6;
+  --glass:rgba(255,255,255,.94);
   --shadow:0 24px 80px #143b521a;
   --logo-filter:none;
   --font:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
@@ -15,30 +15,30 @@
 }
 
 :root[data-theme=dark] {
-  color-scheme:light;
-  --paper:#66b4d6;
-  --surface:#9acfe6;
-  --ink:#112e43;
-  --muted:#15384e;
-  --line:#3d7b9b;
-  --soft:#5daacc;
-  --glass:rgba(154,207,230,.82);
+  color-scheme:dark;
+  --paper:#111820;
+  --surface:#1a2531;
+  --ink:#f5f8fc;
+  --muted:#c2cfde;
+  --line:#52677d;
+  --soft:#223244;
+  --glass:rgba(17,24,32,.94);
   --shadow:0 24px 80px #143b5226;
-  --logo-filter:none
+  --logo-filter:invert(1)
 }
 
 @media(prefers-color-scheme:dark) {
   :root:not([data-theme]) {
-    color-scheme:light;
-    --paper:#66b4d6;
-    --surface:#9acfe6;
-    --ink:#112e43;
-    --muted:#15384e;
-    --line:#3d7b9b;
-    --soft:#5daacc;
-    --glass:rgba(154,207,230,.82);
+    color-scheme:dark;
+    --paper:#111820;
+    --surface:#1a2531;
+    --ink:#f5f8fc;
+    --muted:#c2cfde;
+    --line:#52677d;
+    --soft:#223244;
+    --glass:rgba(17,24,32,.94);
     --shadow:0 24px 80px #143b5226;
-    --logo-filter:none
+    --logo-filter:invert(1)
   }
 }
 

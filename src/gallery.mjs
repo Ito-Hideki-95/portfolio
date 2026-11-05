@@ -31,7 +31,7 @@ export function renderGallery(locale, escape) {
   const categories = { all: { ja: copy.ja.all, en: copy.en.all }, ...projectCategories };
   const featured = ['one-pilates', 'blue-square', 'anker', 'hakuhodo-technologies', 'ohora', 'partners'];
   const ordered = [...featured.map(id => projects.find(p => p.id === id)), ...projects.filter(p => !featured.includes(p.id))];
-  return `<section id="projects" class="section projects-section" aria-labelledby="projects-heading">
+  return `<section id="projects" class="section projects-section color-section" aria-labelledby="projects-heading">
     <div class="container">
       <div class="section-heading reveal">
         <p class="eyebrow"><span class="section-number">01</span>SELECTED WORK</p>

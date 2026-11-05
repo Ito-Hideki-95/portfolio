@@ -17,7 +17,7 @@
     const paused = reducedMedia.matches || motionChoice === 'paused';
     root.dataset.theme = dark ? 'dark' : 'light';
     root.dataset.motion = paused ? 'paused' : 'running';
-    document.querySelector('meta[name="theme-color"]').content = dark ? '#66b4d6' : '#87ceeb';
+    document.querySelector('meta[name="theme-color"]').content = dark ? '#111820' : '#ffffff';
     themeButton.querySelector('.theme-label').textContent = dark ? themeButton.dataset.night : themeButton.dataset.day;
     themeButton.setAttribute('aria-label', dark ? themeButton.dataset.toDay : themeButton.dataset.toNight);
     themeButton.title = themeButton.getAttribute('aria-label');
