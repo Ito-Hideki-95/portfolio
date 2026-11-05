@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { renderPage, escapeHtml } from '../src/page.mjs';
 import { site, experiences, reviews } from '../src/content.mjs';
 import { stackLogos } from '../src/locales.mjs';
+import { projects, projectCategories } from '../src/projects.mjs';
 
 const root = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
 const output = path.resolve(root, 'dist');
@@ -27,6 +28,19 @@ for (const work of [...experiences, ...reviews]) {
 }
 
 for (const [, slug] of stackLogos) await readFile(path.join(root, 'public', 'images', 'stack', `${slug}.svg`));
+const projectIds = new Set();
+const projectUrls = new Set();
+for (const project of projects) {
+  if (!project.id || projectIds.has(project.id)) throw new Error('Project IDs must be unique');
+  const url = new URL(project.url);
+  const normalizedUrl = url.href.replace(/\/$/, '');
+  if (url.protocol !== 'https:' || projectUrls.has(normalizedUrl)) throw new Error(`Invalid or duplicate project URL: ${project.id}`);
+  projectIds.add(project.id); projectUrls.add(normalizedUrl);
+  if (!project.categories.length || project.categories.some(key => !projectCategories[key])) throw new Error(`Invalid project category: ${project.id}`);
+  for (const locale of ['ja', 'en']) if (!project.name[locale]?.trim() || !project.description[locale]?.trim()) throw new Error(`Missing ${locale} project copy: ${project.id}`);
+  if (!project.image.startsWith('/images/projects/') || project.image.includes('..') || project.image.includes('\\')) throw new Error(`Invalid project image: ${project.id}`);
+  await readFile(path.join(root, 'public', project.image));
+}
 const html = renderPage('ja');
 const englishHtml = renderPage('en');
 await rm(output, { recursive: true, force: true });

@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { renderPage, escapeHtml } from '../src/page.mjs';
 import { getContent, stackLogos } from '../src/locales.mjs';
 import { reviews, services, site } from '../src/content.mjs';
+import { projects, projectCategories } from '../src/projects.mjs';
 
 test('both languages contain complete content, matching canonical URLs and language alternatives', () => {
   for (const locale of ['ja', 'en']) {
@@ -42,4 +43,26 @@ test('all screenshot and stack assets exist locally, without external image depe
 
 test('content escaping preserves text without allowing markup injection', () => {
   assert.equal(escapeHtml('<img src=x onerror="x"> & \'hi\''), '&lt;img src=x onerror=&quot;x&quot;&gt; &amp; &#39;hi&#39;');
+});
+
+test('all 71 supplied pages are unique, translated, linked, categorized and backed by local images', async () => {
+  assert.equal(projects.length, 71);
+  assert.equal(new Set(projects.map(p => p.id)).size, 71);
+  assert.equal(new Set(projects.map(p => p.url.replace(/\/$/, ''))).size, 71);
+  for (const project of projects) {
+    assert.equal(new URL(project.url).protocol, 'https:');
+    assert.ok(project.categories.every(key => projectCategories[key]));
+    assert.ok((await readFile(new URL(`../public${project.image}`, import.meta.url))).length > 1000);
+    for (const locale of ['ja', 'en']) {
+      const html = renderPage(locale);
+      assert.ok(html.includes(`href="${escapeHtml(project.url)}"`));
+      assert.ok(html.includes(`<h3>${escapeHtml(project.name[locale])}</h3>`));
+      assert.ok(html.includes(escapeHtml(project.description[locale])));
+    }
+  }
+  for (const locale of ['ja', 'en']) {
+    const html = renderPage(locale);
+    assert.equal((html.match(/class="project-card"/g) || []).length, 71);
+    assert.ok(html.includes('id="project-search"') && html.includes('id="project-dialog"'));
+  }
 });
