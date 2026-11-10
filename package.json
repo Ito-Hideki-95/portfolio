@@ -7,7 +7,7 @@
     "dev": "node scripts/dev.mjs",
     "build": "npm run check && node scripts/build.mjs",
     "preview": "node scripts/dev.mjs --preview",
-    "check": "node --check src/content.mjs && node --check src/locales.mjs && node --check src/projects.mjs && node --check src/featured.mjs && node --check src/gallery.mjs && node --check src/page.mjs && node --check public/preferences.js && node --check public/app.js && node --check public/gallery.js && node --check scripts/build.mjs && node --check scripts/dev.mjs",
+    "check": "node --check src/content.mjs && node --check src/locales.mjs && node --check src/projects.mjs && node --check src/featured.mjs && node --check src/gallery.mjs && node --check src/sections.mjs && node --check src/page.mjs && node --check public/preferences.js && node --check public/app.js && node --check public/gallery.js && node --check scripts/build.mjs && node --check scripts/dev.mjs",
     "test": "node --test"
   },
   "engines": {

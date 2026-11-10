@@ -50,28 +50,7 @@ const cases = [
   },
 ];
 
-const copy = {
-  ja: { scope: '担当した内容', focus: '取り組みのポイント', zoom: '画面を拡大', voice: 'この案件のクライアントの声', inquire: '似た内容を相談する', visit: '公開サイトを見る', newTab: '新しいタブで開きます' },
-  en: { scope: 'My contribution', focus: 'Focus of the work', zoom: 'View image', voice: 'Read this client’s feedback', inquire: 'Discuss a similar project', visit: 'Visit website', newTab: 'Opens in a new tab' },
-};
-
-export function renderFeatured(locale, e) {
-  const { reviews, services, copy: content } = getContent(locale);
-  const c = copy[locale];
-  const inquiryTopics = [content.topics[1], services[11].title, services[9].title];
-  const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg>';
-  return '<div class="featured-cases">' + cases.map((item, index) => {
-    const data = item[locale], review = reviews[item.review];
-    return `<article class="featured-case${index === 0 ? ' featured-case-lead' : ''}" id="case-${item.id}">
-      <figure class="featured-media"><div class="project-browser" aria-hidden="true"><span><i></i><i></i><i></i></span><span>${e(new URL(review.projectUrl).hostname)}</span>${arrow}</div>
-        <a class="project-preview" href="${e(review.image)}" target="_blank" rel="noopener noreferrer" data-project-preview aria-label="${e(data.title)} — ${e(c.zoom)}"><img src="${e(review.image)}" alt="${e(review.imageAlt)}" width="${review.imageWidth}" height="${review.imageHeight}" loading="lazy" decoding="async"><span class="project-preview-label">${e(c.zoom)}${arrow}</span></a>
-        <figcaption>${e(review.imageCaption)}</figcaption>
-      </figure>
-      <div class="featured-copy"><p class="featured-category mono">0${index + 1} / ${item.category}</p><h3>${e(data.title)}</h3><p class="project-description">${e(data.description)}</p>
-        <dl class="featured-scope"><div><dt>${e(c.scope)}</dt><dd>${e(data.scope)}</dd></div><div><dt>${e(c.focus)}</dt><dd>${e(data.focus)}</dd></div></dl>
-        <a class="featured-voice text-link" href="#client-voice-${item.review + 1}">${e(c.voice)}${arrow}</a>
-        <div class="featured-actions"><a class="button button-dark" href="#contact" data-inquiry="${e(inquiryTopics[index])}">${e(c.inquire)}${arrow}</a><a class="project-site text-link" href="${e(review.projectUrl)}" target="_blank" rel="noopener noreferrer">${e(c.visit)}${arrow}<span class="sr-only"> (${e(c.newTab)})</span></a></div>
-      </div>
-    </article>`;
-  }).join('') + '</div>';
+export function getFeatured(locale) {
+  const { reviews } = getContent(locale);
+  return cases.map(item => ({ id: item.id, ...item[locale], category: item.category, review: reviews[item.review], voice: item.review + 1 }));
 }

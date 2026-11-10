@@ -1,68 +1,39 @@
-import { renderFeatured } from './featured.mjs';
 import { projects, projectCategories } from './projects.mjs';
-
+import { getFeatured } from './featured.mjs';
+const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg>';
+export const pagePath = (locale, page = '') => `${locale === 'en' ? '/en/' : '/'}${page ? `${page}/` : ''}`;
 const copy = {
-  ja: {
-    title: '担当した仕事を、\n具体的に。',
-    intro: '公開画像と担当内容でご紹介する、3つの事例。\nそれぞれの案件に、クライアントの声を添えています。',
-    catalog: 'ほかの制作実績を見る', catalogText: '業種・サイト名・技術から探せます。',
-    count: '掲載サイト・ページ', all: 'すべて', categories: '制作実績のカテゴリー',
-    search: '制作実績を検索', placeholder: 'サイト名・業種・技術で探す',
-    view: 'サイトを見る', zoom: '画面を拡大', more: 'もっと見る',
-    noResults: '該当する実績が見つかりませんでした。', reset: '絞り込みをリセット',
-    note: '画像は各サイトの公開画面・メインビジュアルです。現在の表示とは異なる場合があります。',
-    close: 'プレビューを閉じる', newTab: '新しいタブで開きます',
-    unavailable: 'サイトイメージ準備中', image: '公開サイトの画面', paused: '公開先は休止中',
-  },
-  en: {
-    title: 'The work.\nMy contribution.',
-    intro: 'Three projects, with real images and a clear account of my role.\nEach connects to feedback from the client.',
-    catalog: 'Explore more work', catalogText: 'Browse by industry, website or technology.',
-    count: 'WEBSITES & PAGES', all: 'All work', categories: 'Portfolio categories',
-    search: 'Search portfolio', placeholder: 'Search sites, industries or platforms',
-    view: 'Visit website', zoom: 'Preview website', more: 'Show more work',
-    noResults: 'No projects match your search.', reset: 'Reset filters',
-    note: 'Images show public website screens or main visuals. Live websites may have changed.',
-    close: 'Close preview', newTab: 'Opens in a new tab',
-    unavailable: 'Site image coming soon', image: 'Public website screen', paused: 'Public site paused',
-  },
+  ja: { heading: '仕事を知る。\n次の可能性が見える。', intro: '公開サイトのビジュアルと、実際に担当した内容をご紹介します。', all: '制作実績をすべて見る', visit: '公開サイトを見る', preview: 'プロジェクトを見る', close: '閉じる', role: '担当した内容', focus: '取り組みのポイント', voice: 'この案件のクライアントの声', category: 'カテゴリー', search: 'サイト名・業種・技術で探す', more: 'さらに表示', empty: '該当する実績が見つかりませんでした。', reset: '絞り込みをリセット', note: '画像は公開サイトの画面・メインビジュアルです。現在の表示とは異なる場合があります。', library: '制作実績ライブラリ', detail: '掲載サイト・ページ', newTab: '新しいタブで開きます', paused: '公開先は休止中', image: '公開サイトの画像' },
+  en: { heading: 'Real projects.\nThoughtful solutions.', intro: 'Explore real website visuals and the work behind selected projects.', all: 'Explore all projects', visit: 'Visit website', preview: 'View project', close: 'Close project', role: 'My contribution', focus: 'Focus of the work', voice: 'Read this client’s feedback', category: 'Category', search: 'Search sites, industries or platforms', more: 'Show more projects', empty: 'No projects match your search.', reset: 'Reset filters', note: 'Images show public website screens or main visuals. Live websites may have changed.', library: 'Project library', detail: 'WEBSITES & PAGES', newTab: 'Opens in a new tab', paused: 'Public site paused', image: 'Public website image' },
 };
-
-export function renderGallery(locale, escape) {
-  const e = escape, c = copy[locale];
-  const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg>';
-  const categories = { all: { ja: copy.ja.all, en: copy.en.all }, ...projectCategories };
-  const featured = ['one-pilates', 'blue-square', 'anker', 'hakuhodo-technologies', 'ohora', 'partners'];
-  const ordered = [...featured.map(id => projects.find(p => p.id === id)), ...projects.filter(p => !featured.includes(p.id))];
-  return `<section id="projects" class="section projects-section color-section" aria-labelledby="projects-heading">
-    <div class="container">
-      <div class="section-heading reveal">
-        <p class="eyebrow"><span class="section-number">01</span>SELECTED WORK</p>
-        <div class="heading-row"><h2 id="projects-heading">${e(c.title).replace(/\n/g, '<br>')}</h2><div class="projects-intro"><p>${e(c.intro).replace(/\n/g, '<br>')}</p></div></div>
-      </div>
-      ${renderFeatured(locale, e)}
-      <details class="project-catalog" id="project-catalog"><summary><span><strong>${e(c.catalog)}</strong><span>${e(c.catalogText)}</span></span><span class="catalog-count"><b>${projects.length}</b><span>${e(c.count)}</span></span><span class="catalog-plus" aria-hidden="true">＋</span></summary><div class="catalog-content">
-      <div class="project-toolbar" hidden>
-        <label class="project-category-select"><span>${e(c.categories)}</span><select id="project-category" aria-controls="project-grid">${Object.entries(categories).map(([key, value]) => `<option value="${key}">${e(value[locale])} (${key === 'all' ? projects.length : projects.filter(p => p.categories.includes(key)).length})</option>`).join('')}</select></label>
-        <div class="project-filters" role="group" aria-label="${e(c.categories)}">${Object.entries(categories).map(([key, value]) => `<button class="project-filter${key === 'all' ? ' active' : ''}" type="button" data-project-filter="${key}" aria-pressed="${key === 'all'}">${e(value[locale])}<span>${key === 'all' ? projects.length : projects.filter(p => p.categories.includes(key)).length}</span></button>`).join('')}</div>
-        <div class="project-search-row"><label class="project-search"><span class="sr-only">${e(c.search)}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input type="search" id="project-search" placeholder="${e(c.placeholder)}" autocomplete="off" maxlength="120" aria-controls="project-grid"></label><p class="project-count mono" role="status" aria-live="polite" aria-atomic="true"></p></div>
-      </div>
-      <div class="project-grid" id="project-grid">${ordered.map(p => {
-        const name = p.name[locale], description = p.description[locale];
-        const category = projectCategories[p.categories[0]][locale];
-        const platform = locale === 'en' ? ({ 'ペライチ': 'Peraichi', 'カラーミーショップ': 'Color Me Shop' }[p.platform] || p.platform) : p.platform;
-        const alt = `${name} — ${p.imageKind === 'visual' ? (locale === 'ja' ? 'メインビジュアル' : 'Main visual') : p.imageKind === 'archive' ? (locale === 'ja' ? '公開サイトの記録画像' : 'Archived website screen') : c.image}`;
-        const search = [p.name.ja, p.name.en, p.description.ja, p.description.en, p.url, p.platform, ...p.categories.flatMap(key => Object.values(projectCategories[key]))].join(' ');
-        return `<article class="project-card" data-project-id="${e(p.id)}" data-project-categories="${e(p.categories.join(' '))}" data-project-search="${e(search)}">
-          <div class="project-window"><div class="project-browser" aria-hidden="true"><span><i></i><i></i><i></i></span><span>${e(new URL(p.url).hostname.replace(/^www\./, ''))}</span>${arrow}</div>${p.image ? `<a class="project-preview" href="${e(p.image)}" target="_blank" rel="noopener noreferrer" data-project-preview aria-label="${e(name)} — ${e(c.zoom)}"><img src="${e(p.image)}" alt="${e(alt)}" width="${p.imageWidth || 1440}" height="${p.imageHeight || 900}" loading="lazy" decoding="async"><span class="project-preview-label">${e(c.zoom)}${arrow}</span></a>` : `<div class="project-placeholder"><strong>${e(name)}</strong><span>${e(c.unavailable)}</span></div>`}</div>
-          <div class="project-copy"><p class="project-meta"><span>${e(category)}</span>${platform ? `<span>${e(platform)}</span>` : ''}${p.status === 'paused' ? `<span class="project-status">${e(c.paused)}</span>` : ''}</p><h3>${e(name)}</h3><p class="project-description">${e(description)}</p><a class="project-site text-link" href="${e(p.url)}" target="_blank" rel="noopener noreferrer">${e(c.view)}${arrow}<span class="sr-only"> — ${e(name)} (${e(c.newTab)})</span></a></div>
-        </article>`;
-      }).join('')}</div>
-      <div class="project-empty" hidden><p>${e(c.noResults)}</p><button class="text-link" id="project-reset" type="button">${e(c.reset)}${arrow}</button></div>
-      <div class="projects-more" hidden><button class="button button-outline" id="project-more" type="button" aria-controls="project-grid">${e(c.more)}<span class="project-more-count mono"></span><span aria-hidden="true">＋</span></button></div>
-      <p class="section-note">${e(c.note)}</p>
-      </div></details>
-    </div>
-    <dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title"><div class="project-dialog-shell"><div class="project-dialog-header"><h2 id="project-dialog-title"></h2><button type="button" class="icon-button project-dialog-close" aria-label="${e(c.close)}" autofocus><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div><div class="project-dialog-media"><img alt=""></div><div class="project-dialog-footer"><p></p><a class="button button-dark" target="_blank" rel="noopener noreferrer">${e(c.view)}${arrow}<span class="sr-only"> (${e(c.newTab)})</span></a></div></div></dialog>
-  </section>`;
+export function projectCard(p, locale, e, featured = false) {
+  const c = copy[locale], home = pagePath(locale);
+  const name = featured ? p.title : p.name[locale];
+  const description = featured ? p.description : p.description[locale];
+  const image = featured ? p.review.image : p.image;
+  const url = featured ? p.review.projectUrl : p.url;
+  const category = featured ? p.category : projectCategories[p.categories[0]][locale];
+  const platform = !featured && p.platform ? ({ 'ペライチ': 'Peraichi', 'カラーミーショップ': 'Color Me Shop' }[p.platform] || p.platform) : '';
+  const alt = featured ? p.review.imageAlt : `${name} — ${c.image}`;
+  const search = featured ? '' : [p.name.ja,p.name.en,p.description.ja,p.description.en,p.url,p.platform,...p.categories.flatMap(key=>Object.values(projectCategories[key]))].join(' ');
+  return `<article class="project-card${featured ? ' featured-case' : ''}" data-project-id="${e(p.id)}"${featured ? '' : ` data-project-categories="${e(p.categories.join(' '))}" data-project-search="${e(search)}"`}>
+    <div class="project-window"><a class="project-preview" href="${e(image)}" target="_blank" rel="noopener noreferrer" data-project-preview aria-label="${e(name)} — ${e(c.preview)}"><img src="${e(image)}" alt="${e(alt)}" width="${featured ? p.review.imageWidth : p.imageWidth || 1440}" height="${featured ? p.review.imageHeight : p.imageHeight || 900}" loading="lazy" decoding="async"><span class="project-image-tag">${e(category)}</span><span class="project-preview-label">${e(c.preview)} ${arrow}</span></a></div>
+    <div class="project-copy"><p class="project-domain">${e(new URL(url).hostname.replace(/^www\./,''))}</p><h3>${e(name)}</h3><p class="project-description">${e(description)}</p>
+    ${featured ? `<dl class="project-scope"><div><dt>${e(c.role)}</dt><dd>${e(p.scope)}</dd></div><div><dt>${e(c.focus)}</dt><dd>${e(p.focus)}</dd></div></dl><a class="featured-voice text-link" href="${home}#client-voice-${p.voice}">${e(c.voice)} ${arrow}</a>` : `<div class="project-tags"><span>${e(category)}</span>${platform ? `<span>${e(platform)}</span>` : ''}${p.status === 'paused' ? `<span>${e(c.paused)}</span>` : ''}</div>`}
+    <div class="project-card-footer"><button type="button" class="text-link project-details-button" data-open-project hidden>${e(c.preview)} ${arrow}</button><a class="project-site icon-link" href="${e(url)}" target="_blank" rel="noopener noreferrer" aria-label="${e(c.visit)} — ${e(name)} (${e(c.newTab)})">${arrow}</a></div></div>
+  </article>`;
+}
+export function renderGallery(locale, e, full = false) {
+  const c = copy[locale];
+  const picks = ['one-pilates','blue-square','anker','hakuhodo-technologies','ohora','partners'];
+  const ordered = [...picks.map(id => projects.find(p => p.id === id)), ...projects.filter(p => !picks.includes(p.id))];
+  const categories = {all:{ja:'すべて',en:'All work'}, ...projectCategories};
+  return `<section id="projects" class="section projects-section" aria-labelledby="projects-heading" data-catalog="${full}"><div class="container">
+    <div class="project-heading reveal"><div><p class="eyebrow">${full ? 'PROJECT LIBRARY' : 'SELECTED WORK'}</p><h2 id="projects-heading">${e(full ? c.library : c.heading).replace(/\n/g,'<br>')}</h2></div><aside class="discipline-panel"><p class="eyebrow">${full ? `${projects.length} ${c.detail}` : 'DISCIPLINES'}</p><p>${locale === 'ja' ? '業務を支えるシステムから、ブランドの魅力が伝わるWebサイトまで。' : 'From systems that support everyday operations to websites that bring a brand to life.'}</p><div class="pill-list">${['Business systems','AI & automation','Web & commerce','Applications'].map(x=>`<span>${x}</span>`).join('')}</div></aside></div>
+    <p class="section-intro">${e(c.intro)}</p>
+    ${full ? `<div class="project-toolbar" hidden><div class="project-filters" role="group" aria-label="${e(c.category)}">${Object.entries(categories).map(([key,value])=>`<button type="button" class="project-filter${key==='all'?' active':''}" data-project-filter="${key}" aria-pressed="${key==='all'}">${e(value[locale])}<span>${key==='all'?projects.length:projects.filter(p=>p.categories.includes(key)).length}</span></button>`).join('')}</div><div class="project-search-row"><label class="project-category-select"><span class="sr-only">${e(c.category)}</span><select id="project-category" aria-controls="project-grid">${Object.entries(categories).map(([key,value])=>`<option value="${key}">${e(value[locale])}</option>`).join('')}</select></label><label class="project-search"><span class="sr-only">${e(c.search)}</span><input type="search" id="project-search" placeholder="${e(c.search)}" autocomplete="off" maxlength="120" aria-controls="project-grid"></label><p class="project-count" role="status" aria-live="polite"></p></div></div>` : ''}
+    <div class="project-grid" id="project-grid">${full ? ordered.map(p=>projectCard(p,locale,e)).join('') : getFeatured(locale).map(p=>projectCard(p,locale,e,true)).join('')+ordered.slice(0,6).map(p=>projectCard(p,locale,e)).join('')}</div>
+    ${full ? `<div class="project-empty" hidden><p>${e(c.empty)}</p><button class="text-link" id="project-reset" type="button">${e(c.reset)}</button></div><div class="projects-more" hidden><button class="button button-outline" id="project-more" type="button" aria-controls="project-grid">${e(c.more)} <span class="project-more-count"></span> +</button></div>` : `<div class="section-action"><a class="button button-dark" href="${pagePath(locale,'projects')}">${e(c.all)} <span>${projects.length}</span>${arrow}</a></div>`}
+    <p class="section-note">${e(c.note)}</p></div>
+    <dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title"><div class="project-dialog-shell"><button type="button" class="icon-button project-dialog-close" aria-label="${e(c.close)}" autofocus>×</button><div class="project-dialog-media"><img alt=""></div><div class="project-dialog-info"><p class="eyebrow">PROJECT DETAILS</p><h2 id="project-dialog-title"></h2><p class="dialog-description"></p><div class="dialog-scope"></div><a class="dialog-voice text-link" hidden>${e(c.voice)} ${arrow}</a><a class="dialog-site button button-dark" target="_blank" rel="noopener noreferrer">${e(c.visit)} ${arrow}<span class="sr-only"> (${e(c.newTab)})</span></a></div></div></dialog></section>`;
 }

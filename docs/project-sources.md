@@ -97,5 +97,5 @@
 1. `src/projects.mjs` の該当項目を編集します。`name` と `description` は `ja` / `en` の両方を揃えます。
 2. 画像を `public/images/projects/` に追加し、`image`・`imageWidth`・`imageHeight` を設定します。画面は `imageKind: 'screen'`、メイン画像は `'visual'`、記録画像は `'archive'` です。
 3. `categories` は複数指定できます。採用・ECなどの絞り込みと件数は自動計算します。
-4. 最初に表示する6件は `src/gallery.mjs` の `featured` で指定します。
+4. トップページには注目事例3件と、`src/gallery.mjs` の `picks` で指定する6件を表示します。全71件は `/projects/` で9件ずつ追加表示します。
 5. `npm.cmd test` と `npm.cmd run build` を実行し、ローカル表示を確認後、GitHubの `main` にpushします。Vercelが自動で公開を更新します。

@@ -1,12 +1,12 @@
 // このファイルがサイトの文章・リンクの編集窓口です。
-// 初回公開前に ownerName / contactUrl / siteUrl を設定してください。
+// ownerName は任意。名前を表示しない場合は空欄のままにしてください。
 export const site = {
   brandName: 'Development Partner',
   ownerName: '',
   role: '業務システム・AI・Web / アプリ開発',
   contactUrl: 'mailto:discordworks2522@gmail.com', // 公開用メール、または https:// のお問い合わせ先
   contactLabel: 'メールで相談する',
-  siteUrl: 'https://negitoro-95-portfolio.vercel.app',
+  siteUrl: 'https://emoto-negitoro-portfolio.vercel.app',
   indexable: false, // 内容の確認・連絡先の設定後に true にすると検索登録を許可
   description: '業務システム・AI・Web／アプリ開発を、業務理解から設計・実装・テスト・公開・保守まで一貫して支援します。開発経験と、クライアントからいただいた実際の評価をご紹介します。',
   experienceYears: 11,

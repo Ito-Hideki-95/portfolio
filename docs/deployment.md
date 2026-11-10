@@ -6,10 +6,12 @@
 
 ## このプロジェクトの公開先
 
-- 公開URL：**https://negitoro-95-portfolio.vercel.app**
+- 公開URL：**https://emoto-negitoro-portfolio.vercel.app**
 - Vercelプロジェクト：`ito-hideki-95-portfolio`
 - GitHub連携：`Ito-Hideki-95/portfolio` の `main`
 - 公開設定：`vercel.json`、配信するソースの除外設定：`.vercelignore`
+
+新しい公開URLは既存プロジェクトの本番ドメインとして割り当てています。GitHubへの更新はこのURLにも反映されます。個人名は表示しません。
 
 Vercelのプロジェクト作成とGitHub連携は完了しています。以降の通常更新では手順4の初回設定を繰り返す必要はありません。手順6のcommit / pushで更新します。
 
@@ -24,7 +26,7 @@ npm.cmd run dev
 
 <http://localhost:3000> を開きます。画面の表示、文章、スマートフォンのレイアウト、サービスの絞り込み、相談文の作成を確認します。保存するとブラウザが自動更新されます。
 
-公開前に `src/content.mjs` の `ownerName`、`brandName`、`contactUrl`、`contactLabel` を実際の情報へ変更します。`siteUrl` はVercelの初回デプロイ後に設定できます。
+公開前に `src/content.mjs` の `brandName`、`contactUrl`、`contactLabel` を実際の情報へ変更します。`siteUrl` はVercelの初回デプロイ後に設定できます。
 
 ## 2. 自分のGitHubにリポジトリを作る
 

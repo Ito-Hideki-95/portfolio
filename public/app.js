@@ -17,7 +17,7 @@
     const paused = reducedMedia.matches || motionChoice === 'paused';
     root.dataset.theme = dark ? 'dark' : 'light';
     root.dataset.motion = paused ? 'paused' : 'running';
-    document.querySelector('meta[name="theme-color"]').content = dark ? '#111820' : '#ffffff';
+    document.querySelector('meta[name="theme-color"]').content = dark ? '#101a2a' : '#edf6ff';
     themeButton.querySelector('.theme-label').textContent = dark ? themeButton.dataset.night : themeButton.dataset.day;
     themeButton.setAttribute('aria-label', dark ? themeButton.dataset.toDay : themeButton.dataset.toNight);
     themeButton.title = themeButton.getAttribute('aria-label');
@@ -57,7 +57,10 @@
   const sections = [...document.querySelectorAll('main > section[id]')];
   document.querySelectorAll('[data-language]').forEach(link => link.addEventListener('click', () => {
     const current = [...sections].reverse().find(section => section.getBoundingClientRect().top <= 160);
-    link.href = `${link.dataset.language === 'en' ? '/en/' : '/'}${current && current.id !== 'top' ? `#${current.id}` : ''}`;
+    const target = new URL(link.href);
+    target.search = location.search;
+    target.hash = current && current.id !== 'top' ? current.id : '';
+    link.href = target.href;
   }));
 
   const menuButton = document.querySelector('.menu-toggle');
@@ -81,70 +84,72 @@
 
   // Native touch scrolling, arrow controls, keyboard navigation and mouse dragging.
   const track = document.querySelector('.review-track');
-  const cards = [...track.querySelectorAll('.review-card')];
-  const previous = document.querySelector('.review-prev');
-  const next = document.querySelector('.review-next');
-  const position = document.querySelector('.review-position');
-  let currentIndex = 0;
-  function nearestSlide() {
-    const left = track.getBoundingClientRect().left;
-    return cards.reduce((best, card, i) => Math.abs(card.getBoundingClientRect().left - left) < Math.abs(cards[best].getBoundingClientRect().left - left) ? i : best, 0);
-  }
-  function updateCarousel() {
-    currentIndex = nearestSlide();
-    previous.disabled = currentIndex === 0;
-    next.disabled = currentIndex === cards.length - 1;
-    const text = `${String(currentIndex + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
-    if (position.textContent !== text) position.textContent = text;
-  }
-  function goTo(index) {
-    const card = cards[Math.max(0, Math.min(cards.length - 1, index))];
-    const left = track.scrollLeft + card.getBoundingClientRect().left - track.getBoundingClientRect().left;
-    track.scrollTo({ left, behavior: scrollBehavior() });
-  }
-  previous.addEventListener('click', () => goTo(currentIndex - 1));
-  next.addEventListener('click', () => goTo(currentIndex + 1));
-  let scrollTimer;
-  track.addEventListener('scroll', () => { clearTimeout(scrollTimer); scrollTimer = setTimeout(updateCarousel, 80); }, { passive: true });
-  track.addEventListener('keydown', event => {
-    if (event.target !== track) return;
-    const destinations = { ArrowLeft: currentIndex - 1, ArrowRight: currentIndex + 1, Home: 0, End: cards.length - 1 };
-    if (Object.hasOwn(destinations, event.key)) { event.preventDefault(); goTo(destinations[event.key]); }
-  });
-  let drag = null;
-  let suppressClick = false;
-  track.addEventListener('pointerdown', event => {
-    if (event.pointerType !== 'mouse' || event.button !== 0 || event.target.closest('button,summary,input,textarea,select')) return;
-    drag = { id: event.pointerId, x: event.clientX, y: event.clientY, scroll: track.scrollLeft, active: false };
-  });
-  track.addEventListener('pointermove', event => {
-    if (!drag || drag.id !== event.pointerId) return;
-    const dx = event.clientX - drag.x;
-    if (!drag.active && Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(event.clientY - drag.y)) {
-      drag.active = true;
-      suppressClick = true;
-      track.setPointerCapture(event.pointerId);
-      track.classList.add('is-dragging');
+  if (track) {
+    const cards = [...track.querySelectorAll('.review-card')];
+    const previous = document.querySelector('.review-prev');
+    const next = document.querySelector('.review-next');
+    const position = document.querySelector('.review-position');
+    let currentIndex = 0;
+    function nearestSlide() {
+      const left = track.getBoundingClientRect().left;
+      return cards.reduce((best, card, i) => Math.abs(card.getBoundingClientRect().left - left) < Math.abs(cards[best].getBoundingClientRect().left - left) ? i : best, 0);
     }
-    if (drag.active) { event.preventDefault(); track.scrollLeft = drag.scroll - dx; }
-  });
-  function finishDrag() {
-    if (!drag) return;
-    const { id, active } = drag;
-    drag = null;
-    track.classList.remove('is-dragging');
-    if (track.hasPointerCapture(id)) track.releasePointerCapture(id);
-    if (active) { updateCarousel(); goTo(currentIndex); }
-    setTimeout(() => { suppressClick = false; }, 150);
+    function updateCarousel() {
+      currentIndex = nearestSlide();
+      previous.disabled = currentIndex === 0;
+      next.disabled = currentIndex === cards.length - 1;
+      const text = `${String(currentIndex + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
+      if (position.textContent !== text) position.textContent = text;
+    }
+    function goTo(index) {
+      const card = cards[Math.max(0, Math.min(cards.length - 1, index))];
+      const left = track.scrollLeft + card.getBoundingClientRect().left - track.getBoundingClientRect().left;
+      track.scrollTo({ left, behavior: scrollBehavior() });
+    }
+    previous.addEventListener('click', () => goTo(currentIndex - 1));
+    next.addEventListener('click', () => goTo(currentIndex + 1));
+    let scrollTimer;
+    track.addEventListener('scroll', () => { clearTimeout(scrollTimer); scrollTimer = setTimeout(updateCarousel, 80); }, { passive: true });
+    track.addEventListener('keydown', event => {
+      if (event.target !== track) return;
+      const destinations = { ArrowLeft: currentIndex - 1, ArrowRight: currentIndex + 1, Home: 0, End: cards.length - 1 };
+      if (Object.hasOwn(destinations, event.key)) { event.preventDefault(); goTo(destinations[event.key]); }
+    });
+    let drag = null;
+    let suppressClick = false;
+    track.addEventListener('pointerdown', event => {
+      if (event.pointerType !== 'mouse' || event.button !== 0 || event.target.closest('button,summary,input,textarea,select')) return;
+      drag = { id: event.pointerId, x: event.clientX, y: event.clientY, scroll: track.scrollLeft, active: false };
+    });
+    track.addEventListener('pointermove', event => {
+      if (!drag || drag.id !== event.pointerId) return;
+      const dx = event.clientX - drag.x;
+      if (!drag.active && Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(event.clientY - drag.y)) {
+        drag.active = true;
+        suppressClick = true;
+        track.setPointerCapture(event.pointerId);
+        track.classList.add('is-dragging');
+      }
+      if (drag.active) { event.preventDefault(); track.scrollLeft = drag.scroll - dx; }
+    });
+    function finishDrag() {
+      if (!drag) return;
+      const { id, active } = drag;
+      drag = null;
+      track.classList.remove('is-dragging');
+      if (track.hasPointerCapture(id)) track.releasePointerCapture(id);
+      if (active) { updateCarousel(); goTo(currentIndex); }
+      setTimeout(() => { suppressClick = false; }, 150);
+    }
+    window.addEventListener('pointerup', finishDrag);
+    track.addEventListener('pointercancel', finishDrag);
+    track.addEventListener('lostpointercapture', finishDrag);
+    track.addEventListener('dragstart', event => event.preventDefault());
+    track.addEventListener('click', event => { if (suppressClick) { event.preventDefault(); event.stopPropagation(); } }, true);
+    document.querySelector('.review-controls').hidden = false;
+    updateCarousel();
+    window.addEventListener('resize', updateCarousel);
   }
-  window.addEventListener('pointerup', finishDrag);
-  track.addEventListener('pointercancel', finishDrag);
-  track.addEventListener('lostpointercapture', finishDrag);
-  track.addEventListener('dragstart', event => event.preventDefault());
-  track.addEventListener('click', event => { if (suppressClick) { event.preventDefault(); event.stopPropagation(); } }, true);
-  document.querySelector('.review-controls').hidden = false;
-  updateCarousel();
-  window.addEventListener('resize', updateCarousel);
 
   const reveals = [...document.querySelectorAll('.reveal')];
   if ('IntersectionObserver' in window) {
@@ -156,7 +161,7 @@
     const motionObserver = new IntersectionObserver(entries => {
       for (const entry of entries) entry.target.classList.toggle('motion-offscreen', !entry.isIntersecting);
     }, { rootMargin: '150px' });
-    document.querySelectorAll('.hero-art,.stack-section,.about-section').forEach(element => motionObserver.observe(element));
+    document.querySelectorAll('.stack-section,.industries-section').forEach(element => motionObserver.observe(element));
   } else reveals.forEach(element => element.classList.add('is-visible'));
   const progress = document.querySelector('.reading-progress');
   const steps = document.querySelector('.process-steps');
@@ -167,8 +172,8 @@
     const amount = max > 0 ? Math.max(0, Math.min(1, scrollY / max)) : 0;
     root.style.setProperty('--page-progress', amount.toFixed(4));
     progress.style.transform = `scaleX(${amount})`;
-    const bounds = steps.getBoundingClientRect();
-    steps.style.setProperty('--process-progress', Math.max(0, Math.min(1, (innerHeight * 0.65 - bounds.top) / bounds.height)).toFixed(4));
+    const bounds = steps?.getBoundingClientRect();
+    if (steps) steps.style.setProperty('--process-progress', Math.max(0, Math.min(1, (innerHeight * 0.65 - bounds.top) / bounds.height)).toFixed(4));
   }
   const requestProgress = () => { if (!frame) frame = requestAnimationFrame(updateProgress); };
   window.addEventListener('scroll', requestProgress, { passive: true });
@@ -176,26 +181,64 @@
   updateProgress();
 
   const serviceCards = [...document.querySelectorAll('.service-item')];
-  const filters = [...document.querySelectorAll('[data-filter]')];
-  const counter = document.querySelector('.service-count');
-  const more = document.querySelector('.services-more');
-  const showAll = document.querySelector('#show-all-services');
-  let category = 'all';
-  let expanded = false;
-  function updateServices() {
-    const matching = serviceCards.filter(card => category === 'all' || card.dataset.category === category);
-    const visible = category === 'all' && !expanded ? matching.slice(0, 6) : matching;
-    for (const card of serviceCards) card.hidden = !visible.includes(card);
-    for (const filter of filters) { const active = filter.dataset.filter === category; filter.classList.toggle('active', active); filter.setAttribute('aria-pressed', String(active)); }
-    counter.textContent = en ? `Showing ${visible.length} of ${matching.length}` : `${visible.length} / ${matching.length} 件を表示`;
-    more.hidden = category !== 'all' || expanded;
-    showAll.setAttribute('aria-expanded', String(expanded));
-    requestProgress();
+  if (serviceCards.length) {
+    const initialLimit = Number(document.querySelector('.services-grid').dataset.serviceLimit) || 8;
+    const filters = [...document.querySelectorAll('[data-filter]')];
+    const counter = document.querySelector('.service-count');
+    const more = document.querySelector('.services-more');
+    const showAll = document.querySelector('#show-all-services');
+    let category = 'all';
+    let expanded = false;
+    function updateServices() {
+      const matching = serviceCards.filter(card => category === 'all' || card.dataset.category === category);
+      const visible = category === 'all' && !expanded ? matching.slice(0, initialLimit) : matching;
+      for (const card of serviceCards) card.hidden = !visible.includes(card);
+      for (const filter of filters) { const active = filter.dataset.filter === category; filter.classList.toggle('active', active); filter.setAttribute('aria-pressed', String(active)); }
+      counter.textContent = en ? `Showing ${visible.length} of ${matching.length}` : `${visible.length} / ${matching.length} 件を表示`;
+      more.hidden = category !== 'all' || expanded || matching.length <= initialLimit;
+      showAll.setAttribute('aria-expanded', String(expanded));
+      requestProgress();
+    }
+    for (const filter of filters) filter.addEventListener('click', () => { category = filter.dataset.filter; expanded = false; updateServices(); });
+    showAll.addEventListener('click', () => { expanded = true; updateServices(); serviceCards[initialLimit]?.querySelector('summary')?.focus({ preventScroll: true }); });
+    document.querySelector('.service-toolbar').hidden = false;
+    updateServices();
   }
-  for (const filter of filters) filter.addEventListener('click', () => { category = filter.dataset.filter; expanded = false; updateServices(); });
-  showAll.addEventListener('click', () => { expanded = true; updateServices(); serviceCards[6]?.querySelector('summary')?.focus({ preventScroll: true }); });
-  document.querySelector('.service-toolbar').hidden = false;
-  updateServices();
+
+
+  // A user-controlled image carousel: no automatic content changes.
+  const showcase = document.querySelector('.hero-showcase');
+  if (showcase) {
+    const slides = [...showcase.querySelectorAll('.hero-slide')];
+    const dots = [...showcase.querySelectorAll('[data-slide-to]')];
+    let slide = 0;
+    function showSlide(next) {
+      slide = (next + slides.length) % slides.length;
+      slides.forEach((item,index) => { item.hidden = index !== slide; });
+      dots.forEach((dot,index) => dot.setAttribute('aria-pressed', String(index === slide)));
+    }
+    showcase.querySelector('.hero-carousel-controls').hidden = false;
+    showcase.querySelector('.hero-prev').addEventListener('click', () => showSlide(slide - 1));
+    showcase.querySelector('.hero-next').addEventListener('click', () => showSlide(slide + 1));
+    dots.forEach(dot => dot.addEventListener('click', () => showSlide(Number(dot.dataset.slideTo))));
+    let touchStart;
+    showcase.addEventListener('touchstart', event => { touchStart = {x:event.changedTouches[0].clientX,y:event.changedTouches[0].clientY}; }, {passive:true});
+    showcase.addEventListener('touchend', event => {
+      if (!touchStart) return;
+      const dx = event.changedTouches[0].clientX - touchStart.x, dy = event.changedTouches[0].clientY - touchStart.y;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) showSlide(slide + (dx < 0 ? 1 : -1));
+      touchStart = null;
+    }, {passive:true});
+  }
+  const sectionLinks = [...document.querySelectorAll('[data-nav-section]')];
+  if ('IntersectionObserver' in window && document.body.dataset.page === 'home') {
+    const navigationObserver = new IntersectionObserver(entries => {
+      const entry = entries.find(item => item.isIntersecting);
+      if (!entry) return;
+      sectionLinks.forEach(link => link.classList.toggle('is-active', link.dataset.navSection === entry.target.id));
+    }, {rootMargin:'-15% 0px -65% 0px'});
+    sections.forEach(section => navigationObserver.observe(section));
+  }
 
   // Project briefs never leave this page and are not persisted.
   const copyEmail = document.querySelector('#copy-email');
