@@ -2,7 +2,7 @@
 
 業務システム・AI・Web／アプリ開発者のポートフォリオサイトです。ソースコードはこのフォルダ内にあります。
 
-ソースの保存先は [Ito-Hideki-95/portfolio](https://github.com/Ito-Hideki-95/portfolio)、メインブランチは `main` です。`D:\portfolio` の `origin` にこのリポジトリを設定しています。
+ソースの保存先は [Ito-Hideki-95/portfolio](https://github.com/Ito-Hideki-95/portfolio)、メインブランチは `main` です。`D:\04 portfolio` の `origin` にこのリポジトリを設定しています。
 
 公開URL：**https://negitoro-95-portfolio.vercel.app**
 
@@ -10,7 +10,7 @@
 
 セクションごとに異なる配色を使い、トップは指定色 `rgb(1, 98, 180)`（`#0162b4`）、制作実績は白、クライアントの声は黒を背景にしています。その他はアイスブルー、クリーム、チャコール、ラベンダー、ネイビーなどで区切り、カードや文字色も各背景に合わせています。昼間／夜間テーマと日英の切り替えに対応し、手動で選んだ表示を保存します。回転・半透明・スクロール・スワイプの演出と、32種類の技術ロゴのマーキーを実装しています。ヘッダーの一時停止ボタンで動きを止められます。
 
-制作実績は重複を除いた71ページを掲載しています。カテゴリー・キーワード検索、6件ずつの追加表示、画像の拡大に対応しています。画像の出典と更新方法は [制作実績ガイド](docs/project-sources.md) を参照してください。
+制作実績の冒頭に、担当範囲とクライアントの声を結びつけた3つの事例を掲載しています。Flash Reserve、vivum・S’allier、Visual Anatomyの掲載内容は、提供された案件名とコメントに基づきます。ほかの制作実績は折りたたみ一覧から閲覧でき、重複を除いた71ページを掲載しています。カテゴリー・キーワード検索、6件ずつの追加表示、画像の拡大に対応しています。画像の出典と更新方法は [制作実績ガイド](docs/project-sources.md) を参照してください。
 
 Vercelの `ito-hideki-95-portfolio` プロジェクトにGitHubを連携済みです。`main` にpushすると、本番サイトが自動デプロイされます。
 
@@ -21,7 +21,7 @@ Node.js の標準機能でHTMLを生成する静的サイトです。外部パ�
 Node.js 22以上を用意し、このフォルダで実行します。Windows PowerShellで `npm` の実行ポリシーエラーが出る場合は `npm.cmd` を使ってください。
 
 ```powershell
-cd D:\portfolio
+cd "D:\04 portfolio"
 npm.cmd run dev
 ```
 
@@ -43,6 +43,8 @@ npm.cmd run preview
 | 公開名、問い合わせ先、公開URL、開発経験、クライアントの評価、サービス、技術、FAQ | `src/content.mjs` |
 | 日本語・英語の紹介文、見出し、仕事の進め方、英訳、ロゴ一覧 | `src/locales.mjs` |
 | 制作実績のURL、日英の名称・紹介文、画像、カテゴリー | `src/projects.mjs` |
+| 注目事例の説明・担当範囲 | `src/featured.mjs` |
+| 注目事例の見た目 | `public/featured.css` |
 | 実績一覧の構成・文言、先頭の6件 | `src/gallery.mjs` |
 | 実績一覧の見た目・検索・絞り込み・画像拡大 | `public/gallery.css` / `public/gallery.js` |
 | ページ構成、各セクションのHTML | `src/page.mjs` |
@@ -62,15 +64,15 @@ npm.cmd run preview
 export const site = {
   brandName: 'ご自身の屋号',
   ownerName: '公開するお名前・屋号',
-  contactUrl: 'https://www.lancers.jp/profile/ご自身のID',
-  contactLabel: 'ランサーズで相談する',
+  contactUrl: 'mailto:discordworks2522@gmail.com',
+  contactLabel: 'メールで相談する',
   siteUrl: 'https://ご自身のプロジェクト.vercel.app',
   indexable: false,
   // その他の項目は維持
 };
 ```
 
-現時点のお名前は仮のブランド表記です。お問い合わせ先が空欄の間は外部への相談ボタンを表示しません。相談文をコピーする機能は利用できますが、メール送信・フォーム送信は実装していません。
+現時点のお名前は仮のブランド表記です。お問い合わせ先は `discordworks2522@gmail.com` です。メールボタンとメールアドレスのコピー、作成した相談文を宛先・件名・本文つきでメールアプリに開く機能があります。送信は利用者がメールアプリで確認して行います。このサイトのサーバーから送信する機能はありません。`contactUrl` は `https://` の問い合わせ先、または単一の宛先を持つ `mailto:` を設定できます。
 
 原稿を確認し、氏名・連絡先・公開URLを設定した後に `indexable: true` にします。これにより検索エンジン向けの `robots` とサイトマップを切り替えます。`noindex` は閲覧制限ではないため、公開URLを知っている人は閲覧できます。
 

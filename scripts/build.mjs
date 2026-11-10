@@ -13,8 +13,11 @@ if (output !== path.join(root, 'dist') || output === root) throw new Error('Inva
 const oldOutput = await lstat(output).catch(error => { if (error.code !== 'ENOENT') throw error; });
 if (oldOutput?.isSymbolicLink()) throw new Error('dist must not be a symbolic link');
 
-for (const key of ['contactUrl', 'siteUrl']) {
-  if (site[key] && new URL(site[key]).protocol !== 'https:') throw new Error(`${key} must be an https:// URL`);
+if (site.siteUrl && new URL(site.siteUrl).protocol !== 'https:') throw new Error('siteUrl must be an https:// URL');
+if (site.contactUrl) {
+  const contact = new URL(site.contactUrl);
+  const validEmail = contact.protocol === 'mailto:' && /^[^\s@<>?,;]+@[^\s@<>?,;]+\.[^\s@<>?,;]+$/.test(contact.pathname) && !contact.search && !contact.hash;
+  if (contact.protocol !== 'https:' && !validEmail) throw new Error('contactUrl must be an https:// URL or a single mailto: email address');
 }
 if (site.indexable && (!site.ownerName || !site.contactUrl || !site.siteUrl)) {
   throw new Error('検索公開前に src/content.mjs の ownerName / contactUrl / siteUrl を設定してください。');

@@ -61,7 +61,7 @@
     link.addEventListener('click', event => {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button) return;
       event.preventDefault();
-      const card = link.closest('.project-card');
+      const card = link.closest('.project-card, .featured-case');
       const image = dialog.querySelector('img');
       const original = link.querySelector('img');
       dialog.querySelector('h2').textContent = card.querySelector('h3').textContent;

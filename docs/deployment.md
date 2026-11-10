@@ -1,6 +1,6 @@
 # GitHubへのアップロードとVercelでの公開
 
-このサイトは `D:\portfolio` にあるソースをGitHubに保存し、Vercelを連携して公開する構成です。初回連携後は、GitHubへのpushで自動デプロイできます。
+このサイトは `D:\04 portfolio` にあるソースをGitHubに保存し、Vercelを連携して公開する構成です。初回連携後は、GitHubへのpushで自動デプロイできます。
 
 このプロジェクトの保存先は **[Ito-Hideki-95/portfolio](https://github.com/Ito-Hideki-95/portfolio)**、ブランチは **main** です。リポジトリは作成済みで、ローカルの `origin` に設定しています。通常の更新では手順2・3の新規作成を繰り返す必要はありません。Vercelの初回設定は手順4、日常の更新は手順6を参照してください。
 
@@ -18,7 +18,7 @@ Vercelのプロジェクト作成とGitHub連携は完了しています。以�
 ## 1. ローカルで内容を確認する
 
 ```powershell
-cd D:\portfolio
+cd "D:\04 portfolio"
 npm.cmd run dev
 ```
 
@@ -41,7 +41,7 @@ GitHubのCLI操作は [GitHub公式手順](https://docs.github.com/en/migrations
 以下の `あなたのGitHub名`、メールアドレス、URLを、ご自身のものに置き換えます。メールはGitHubで確認済みのアドレス、またはGitHubのSettings → Emailsで表示されるnoreplyアドレスを使用してください。
 
 ```powershell
-cd D:\portfolio
+cd "D:\04 portfolio"
 git init -b main
 git config user.name "あなたのGitHub名"
 git config user.email "GitHubで確認済みのメールアドレス"

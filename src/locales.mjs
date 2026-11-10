@@ -42,8 +42,8 @@ const ja = {
   stackHeading: '目的に合わせて、\n技術を組み合わせる。', stackText: 'フロントエンドから、サーバー・クラウド・AIまで。', allStack: '対応技術をすべて見る', stackLabel: '主な対応技術のロゴ',
   faqHeading: 'はじめの、\n気になること。', faqText: 'ご相談前の疑問にお答えします。',
   contactHeading: 'その「できたら」を、\n次の一歩に。', contactText: '要件が固まっていなくても大丈夫です。\nいま困っていること、実現したいことから\nお聞かせください。',
-  contactButton: 'ランサーズで相談する', briefHeading: '相談のきっかけを、ここから。',
-  briefText: '内容を整理して、そのまま使える相談文を作成します。入力内容は送信・保存されません。',
+  contactButton: 'メールで相談する', briefHeading: '相談のきっかけを、ここから。',
+  briefText: '内容・予算・希望時期をまとめた相談文を作成できます。入力は任意です。このページから送信・保存は行いません。',
   noJs: '相談文の作成にはJavaScriptを有効にしてください。ご相談の際は、内容・予算・希望時期をお知らせください。',
   topic: 'ご相談の内容', budget: 'ご予算の目安', timing: 'ご希望の時期', message: '困っていること・実現したいこと', optional: '任意',
   topics: ['まだ決まっていない・まずは相談したい', '既存システムの改善・保守', 'アプリ開発', 'その他'],
@@ -51,7 +51,8 @@ const ja = {
   timings: ['相談して決めたい', 'できるだけ早く', '1〜3か月以内', '3か月以降'],
   placeholder: '例：Excelで管理している案件情報を、チームで共有できるようにしたい。',
   generate: '相談文を作成する', privacy: '個人情報や機密情報の入力はお控えください。', output: '作成した相談文', copy: '相談文をコピー',
-  sendNote: 'コピーした文章を、ご利用の連絡先からお送りください。', top: 'ページの先頭へ',
+  emailNote: 'メールアプリが開きます。ご相談の内容を確認して送信してください。', emailAddress: 'お問い合わせ先', copyEmail: 'メールアドレスをコピー', emailBrief: '相談文をメールアプリで開く',
+  sendNote: 'メールアプリで内容を確認して送信してください。相談文をコピーして、普段お使いのメールから送ることもできます。', top: 'ページの先頭へ',
 };
 
 const en = {
@@ -96,8 +97,8 @@ const en = {
   stackHeading: 'Different tools.\nOne considered solution.', stackText: 'Across interfaces, servers, cloud platforms and AI.', allStack: 'View the full technology stack', stackLabel: 'Selected technology logos',
   faqHeading: 'A few things\nyou might ask.', faqText: 'Answers before we start a conversation.',
   contactHeading: 'Let’s make\nyour next move.', contactText: 'You do not need all the answers yet.\nTell me what is getting in the way,\nor what you would like to make possible.',
-  contactButton: 'Get in touch on Lancers', briefHeading: 'Start with a simple project brief.',
-  briefText: 'Organize your ideas into a message you can copy. Nothing you enter is sent or saved.',
+  contactButton: 'Email me about a project', briefHeading: 'Start with a simple project brief.',
+  briefText: 'Optionally prepare a brief with your needs, budget and timeline. This page does not send or save your information.',
   noJs: 'Enable JavaScript to create a project brief. When getting in touch, please include your needs, budget and preferred timeline.',
   topic: 'What would you like to discuss?', budget: 'Approximate budget', timing: 'Preferred timeline', message: 'Your challenge or idea', optional: 'Optional',
   topics: ['Not sure yet — I would like to talk', 'System improvements & maintenance', 'App development', 'Something else'],
@@ -105,7 +106,8 @@ const en = {
   timings: ['Let’s discuss', 'As soon as possible', 'Within 1–3 months', '3 months or later'],
   placeholder: 'For example: I would like my team to share project information currently managed in Excel.',
   generate: 'Create my project brief', privacy: 'Please leave out personal or confidential information.', output: 'Your project brief', copy: 'Copy project brief',
-  sendNote: 'Copy this message and send it through your preferred contact channel.', top: 'Back to top',
+  emailNote: 'Opens your email app. Review your message there before sending.', emailAddress: 'Contact email', copyEmail: 'Copy email address', emailBrief: 'Open this brief in my email app',
+  sendNote: 'Review and send the message in your email app, or copy the brief into your usual email service.', top: 'Back to top',
 };
 
 const englishExperiences = [

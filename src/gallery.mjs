@@ -1,9 +1,11 @@
+import { renderFeatured } from './featured.mjs';
 import { projects, projectCategories } from './projects.mjs';
 
 const copy = {
   ja: {
-    title: 'つくったものが、\n語ること。',
-    intro: '企業の顔から、選ばれるお店まで。\nさまざまな業種の制作実績をご紹介します。',
+    title: '担当した仕事を、\n具体的に。',
+    intro: '公開画像と担当内容でご紹介する、3つの事例。\nそれぞれの案件に、クライアントの声を添えています。',
+    catalog: 'ほかの制作実績を見る', catalogText: '業種・サイト名・技術から探せます。',
     count: '掲載サイト・ページ', all: 'すべて', categories: '制作実績のカテゴリー',
     search: '制作実績を検索', placeholder: 'サイト名・業種・技術で探す',
     view: 'サイトを見る', zoom: '画面を拡大', more: 'もっと見る',
@@ -13,8 +15,9 @@ const copy = {
     unavailable: 'サイトイメージ準備中', image: '公開サイトの画面', paused: '公開先は休止中',
   },
   en: {
-    title: 'A closer look\nat the work.',
-    intro: 'From company stories to online stores.\nExplore work across a range of industries.',
+    title: 'The work.\nMy contribution.',
+    intro: 'Three projects, with real images and a clear account of my role.\nEach connects to feedback from the client.',
+    catalog: 'Explore more work', catalogText: 'Browse by industry, website or technology.',
     count: 'WEBSITES & PAGES', all: 'All work', categories: 'Portfolio categories',
     search: 'Search portfolio', placeholder: 'Search sites, industries or platforms',
     view: 'Visit website', zoom: 'Preview website', more: 'Show more work',
@@ -35,8 +38,10 @@ export function renderGallery(locale, escape) {
     <div class="container">
       <div class="section-heading reveal">
         <p class="eyebrow"><span class="section-number">01</span>SELECTED WORK</p>
-        <div class="heading-row"><h2 id="projects-heading">${e(c.title).replace(/\n/g, '<br>')}</h2><div class="projects-intro"><p>${e(c.intro).replace(/\n/g, '<br>')}</p><p class="project-total"><strong>${projects.length}</strong><span>${e(c.count)}</span></p></div></div>
+        <div class="heading-row"><h2 id="projects-heading">${e(c.title).replace(/\n/g, '<br>')}</h2><div class="projects-intro"><p>${e(c.intro).replace(/\n/g, '<br>')}</p></div></div>
       </div>
+      ${renderFeatured(locale, e)}
+      <details class="project-catalog" id="project-catalog"><summary><span><strong>${e(c.catalog)}</strong><span>${e(c.catalogText)}</span></span><span class="catalog-count"><b>${projects.length}</b><span>${e(c.count)}</span></span><span class="catalog-plus" aria-hidden="true">＋</span></summary><div class="catalog-content">
       <div class="project-toolbar" hidden>
         <label class="project-category-select"><span>${e(c.categories)}</span><select id="project-category" aria-controls="project-grid">${Object.entries(categories).map(([key, value]) => `<option value="${key}">${e(value[locale])} (${key === 'all' ? projects.length : projects.filter(p => p.categories.includes(key)).length})</option>`).join('')}</select></label>
         <div class="project-filters" role="group" aria-label="${e(c.categories)}">${Object.entries(categories).map(([key, value]) => `<button class="project-filter${key === 'all' ? ' active' : ''}" type="button" data-project-filter="${key}" aria-pressed="${key === 'all'}">${e(value[locale])}<span>${key === 'all' ? projects.length : projects.filter(p => p.categories.includes(key)).length}</span></button>`).join('')}</div>
@@ -56,6 +61,7 @@ export function renderGallery(locale, escape) {
       <div class="project-empty" hidden><p>${e(c.noResults)}</p><button class="text-link" id="project-reset" type="button">${e(c.reset)}${arrow}</button></div>
       <div class="projects-more" hidden><button class="button button-outline" id="project-more" type="button" aria-controls="project-grid">${e(c.more)}<span class="project-more-count mono"></span><span aria-hidden="true">＋</span></button></div>
       <p class="section-note">${e(c.note)}</p>
+      </div></details>
     </div>
     <dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title"><div class="project-dialog-shell"><div class="project-dialog-header"><h2 id="project-dialog-title"></h2><button type="button" class="icon-button project-dialog-close" aria-label="${e(c.close)}" autofocus><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div><div class="project-dialog-media"><img alt=""></div><div class="project-dialog-footer"><p></p><a class="button button-dark" target="_blank" rel="noopener noreferrer">${e(c.view)}${arrow}<span class="sr-only"> (${e(c.newTab)})</span></a></div></div></dialog>
   </section>`;

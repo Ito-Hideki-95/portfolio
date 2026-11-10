@@ -198,6 +198,20 @@
   updateServices();
 
   // Project briefs never leave this page and are not persisted.
+  const copyEmail = document.querySelector('#copy-email');
+  if (copyEmail) {
+    copyEmail.hidden = false;
+    copyEmail.addEventListener('click', async () => {
+      const emailStatus = document.querySelector('.email-status');
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(copyEmail.dataset.email);
+        emailStatus.textContent = en ? 'Email address copied.' : 'メールアドレスをコピーしました。';
+      } catch {
+        emailStatus.textContent = en ? 'Please select and copy the email address above.' : '上のメールアドレスを選択してコピーしてください。';
+      }
+    });
+  }
   const form = document.querySelector('#brief-form');
   const topic = document.querySelector('#brief-topic');
   const output = document.querySelector('#brief-output');
@@ -224,6 +238,11 @@
       '【困っていること・実現したいこと】', message || 'まずは現状をお伝えし、進め方から相談したいです。', '',
       '対応可能な範囲と、進め方についてご相談させてください。',
     ].join('\n');
+    const emailDraft = document.querySelector('#email-brief');
+    if (emailDraft) {
+      const subject = en ? 'Portfolio inquiry: ' + values.get('topic') : 'ポートフォリオからのご相談：' + values.get('topic');
+      emailDraft.href = 'mailto:' + emailDraft.dataset.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(output.value);
+    }
     result.hidden = false;
     status.textContent = en ? 'Your brief is ready to review and copy. It has not been sent.' : '相談文を作成しました。内容を確認してコピーできます。まだ送信されていません。';
     output.focus({ preventScroll: true });
