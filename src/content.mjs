@@ -4,8 +4,8 @@ export const site = {
   brandName: 'Development Partner',
   ownerName: '',
   role: '業務システム・AI・Web / アプリ開発',
-  contactUrl: 'mailto:discordworks2522@gmail.com', // 公開用メール、または https:// のお問い合わせ先
-  contactLabel: 'メールで相談する',
+  contactUrl: '', // 空欄のときは外部への連絡ボタンを表示しません
+  contactLabel: 'お問い合わせ',
   siteUrl: 'https://emoto-negitoro-portfolio.vercel.app',
   indexable: false, // 内容の確認・連絡先の設定後に true にすると検索登録を許可
   description: '業務システム・AI・Web／アプリ開発を、業務理解から設計・実装・テスト・公開・保守まで一貫して支援します。開発経験と、クライアントからいただいた実際の評価をご紹介します。',

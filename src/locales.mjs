@@ -52,7 +52,7 @@ const ja = {
   placeholder: '例：Excelで管理している案件情報を、チームで共有できるようにしたい。',
   generate: '相談文を作成する', privacy: '個人情報や機密情報の入力はお控えください。', output: '作成した相談文', copy: '相談文をコピー',
   emailNote: 'メールアプリが開きます。ご相談の内容を確認して送信してください。', emailAddress: 'お問い合わせ先', copyEmail: 'メールアドレスをコピー', emailBrief: '相談文をメールアプリで開く',
-  sendNote: 'メールアプリで内容を確認して送信してください。相談文をコピーして、普段お使いのメールから送ることもできます。', top: 'ページの先頭へ',
+  sendNote: '相談文をコピーして、ご自身のメモやご利用の連絡手段でお使いください。', top: 'ページの先頭へ',
 };
 
 const en = {
@@ -107,7 +107,7 @@ const en = {
   placeholder: 'For example: I would like my team to share project information currently managed in Excel.',
   generate: 'Create my project brief', privacy: 'Please leave out personal or confidential information.', output: 'Your project brief', copy: 'Copy project brief',
   emailNote: 'Opens your email app. Review your message there before sending.', emailAddress: 'Contact email', copyEmail: 'Copy email address', emailBrief: 'Open this brief in my email app',
-  sendNote: 'Review and send the message in your email app, or copy the brief into your usual email service.', top: 'Back to top',
+  sendNote: 'Copy this brief to your notes or use it in your preferred contact channel.', top: 'Back to top',
 };
 
 const englishExperiences = [

@@ -66,15 +66,15 @@ npm.cmd run preview
 export const site = {
   brandName: 'ご自身の屋号',
   ownerName: '', // 個人名は表示しない,
-  contactUrl: 'mailto:discordworks2522@gmail.com',
-  contactLabel: 'メールで相談する',
+  contactUrl: '', // お問い合わせ先を公開しない
+  contactLabel: 'お問い合わせ',
   siteUrl: 'https://ご自身のプロジェクト.vercel.app',
   indexable: false,
   // その他の項目は維持
 };
 ```
 
-個人名は表示せず、Development Partnerをサイト名にしています。お問い合わせ先は `discordworks2522@gmail.com` です。メールボタンとメールアドレスのコピー、作成した相談文を宛先・件名・本文つきでメールアプリに開く機能があります。送信は利用者がメールアプリで確認して行います。このサイトのサーバーから送信する機能はありません。`contactUrl` は `https://` の問い合わせ先、または単一の宛先を持つ `mailto:` を設定できます。
+個人名は表示せず、Development Partnerをサイト名にしています。メールアドレスは公開していません。`contactUrl` は空欄で、外部への連絡ボタン・メールアドレスの表示・メールアプリを開くボタンは表示されません。相談文の作成とコピーは利用できます。入力内容は送信・保存しません。今後お問い合わせ先を公開する場合は、`contactUrl` に `https://` の問い合わせ先、または単一の宛先を持つ `mailto:` を設定できます。
 
 原稿・サイト名・連絡先・公開URLを確認した後に `indexable: true` にします。これにより検索エンジン向けの `robots` とサイトマップを切り替えます。`noindex` は閲覧制限ではないため、公開URLを知っている人は閲覧できます。
 

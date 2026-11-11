@@ -76,7 +76,8 @@ test('every bilingual route has a matching canonical, one heading, unique IDs an
     assert.equal(new Set(ids).size,ids.length,`Duplicate ID on ${path}`);
     assert.equal((html.match(/<h1\b/g)||[]).length,1,`Heading on ${path}`);
     assert.ok(html.includes(`rel="canonical" href="${site.siteUrl}${path}"`));
-    assert.ok(html.includes('href="mailto:discordworks2522@gmail.com"'));
+    assert.doesNotMatch(html, /mailto:|data-email=|[\w.+-]+@[\w.-]+\.[a-z]{2,}/i, `Public email on ${path}`);
+    assert.doesNotMatch(html, /href=""/, `Empty link on ${path}`);
     assert.ok(!html.includes('undefined') && !html.includes('[object Object]'));
     rendered.set(path,{html,ids:new Set(ids)});
   }
