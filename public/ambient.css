@@ -1,0 +1,69 @@
+/* Section surfaces sit below the fluid; text, images and controls stay above it. */
+.has-fluid-backdrop body {
+  isolation: isolate;
+}
+.ambient-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+  contain: strict;
+}
+:root.has-fluid-backdrop main > section,
+:root.has-fluid-backdrop .site-footer {
+  position: relative;
+  background: transparent;
+}
+:root.has-fluid-backdrop main > section::before,
+:root.has-fluid-backdrop .site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: var(--ambient-surface, var(--page));
+}
+.hero-section {
+  --ambient-surface: radial-gradient(ellipse at 85% 55%, #30bddd23, transparent 50%), radial-gradient(ellipse at 0 20%, #1883ed12, transparent 42%), var(--page);
+}
+.about-section, .projects-section, .faq-section {
+  --ambient-surface: var(--surface);
+}
+.journey-section {
+  --ambient-surface: #e6f0fa;
+}
+[data-theme="dark"] .journey-section {
+  --ambient-surface: #142135;
+}
+.stack-section {
+  --ambient-surface: var(--page);
+}
+.industries-section {
+  --ambient-surface: #0162b4;
+}
+.reviews-section {
+  --ambient-surface: #080d17;
+}
+.services-section {
+  --ambient-surface: #f3f5fa;
+}
+[data-theme="dark"] .services-section {
+  --ambient-surface: #121c2d;
+}
+.contact-section {
+  --ambient-surface: radial-gradient(ellipse at 0 100%, #073c61, transparent 65%), #070d1b;
+}
+.site-footer {
+  --ambient-surface: #040a14;
+}
+[data-motion="paused"] .ambient-canvas {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce), (any-hover: none), print {
+  .ambient-canvas {
+    display: none;
+  }
+}
