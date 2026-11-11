@@ -1,6 +1,6 @@
 # 制作実績の掲載情報と画像出典
 
-確認・取得日：2026年11月5日。掲載対象は、所有者が制作実績として提示したURLのうち、重複を除いた71ページです。同一ドメインでも採用トップと美容職採用など、異なるページは別の項目にしています。
+確認・取得日：2026年11月5日。掲載対象は、所有者が制作実績として提示したURLのうち、重複と掲載対象外の項目を除いた70ページです。同一ドメインでも採用トップと美容職採用など、異なるページは別の項目にしています。
 
 紹介文は公開サイトの目的・掲載内容を日本語と英語で要約しています。担当工程、制作時期、開発人数、成果数値、公開中のサイト全体を単独で制作したという主張は追加していません。WordPress・Shopify等のプラットフォーム表記は、所有者が提供した分類に基づきます。現在の公開サイトの構成や実装は変わっている可能性があります。
 
@@ -26,7 +26,6 @@
 | 出前館 採用サイト | [公開URL](https://recruit.demae-can.co.jp/) | [画像取得元](https://recruit.demae-can.co.jp/) | `/images/projects/demaecan-recruit.webp` | 公開ページの画面取得（1440 × 900） |
 | PARTNERS | [公開URL](https://partners-re.co.jp/) | [画像取得元](https://partners-re.co.jp/) | `/images/projects/partners.webp` | 公開ページの画面取得（1440 × 900） |
 | アートバンライン | [公開URL](https://www.artvanlines.co.jp/) | [画像取得元](https://www.artvanlines.co.jp/) | `/images/projects/artvanlines.webp` | 公開ページの画面取得（1440 × 900） |
-| 第一石鹸 法人向け卸サイト | [公開URL](https://b2b.daiichisekken.com/) | [画像取得元](https://b2b.daiichisekken.com/) | `/images/projects/daiichi-sekken.webp` | 公開ページの画面取得（1440 × 900） |
 | 博報堂テクノロジーズ 採用サイト | [公開URL](https://recruit.hakuhodo-technologies.co.jp/) | [画像取得元](https://recruit.hakuhodo-technologies.co.jp/) | `/images/projects/hakuhodo-technologies.webp` | 公開ページの画面取得（1440 × 900） |
 | プラスアール 採用サイト | [公開URL](https://www.plusr.jp/recruit/) | [画像取得元](https://www.plusr.jp/recruit/) | `/images/projects/plusr.webp` | 公開ページの画面取得（1440 × 900） |
 | オートテクニックジャパン 採用 | [公開URL](https://www.autotechnic.co.jp/recruit/) | [画像取得元](https://www.autotechnic.co.jp/recruit/) | `/images/projects/autotechnic.webp` | 公開ページの画面取得（1440 × 900） |
@@ -97,5 +96,5 @@
 1. `src/projects.mjs` の該当項目を編集します。`name` と `description` は `ja` / `en` の両方を揃えます。
 2. 画像を `public/images/projects/` に追加し、`image`・`imageWidth`・`imageHeight` を設定します。画面は `imageKind: 'screen'`、メイン画像は `'visual'`、記録画像は `'archive'` です。
 3. `categories` は複数指定できます。採用・ECなどの絞り込みと件数は自動計算します。
-4. トップページには注目事例3件と、`src/gallery.mjs` の `picks` で指定する6件を表示します。全71件は `/projects/` で9件ずつ追加表示します。
+4. トップページには注目事例3件と、`src/gallery.mjs` の `picks` で指定する6件を表示します。全70件は `/projects/` で9件ずつ追加表示します。
 5. `npm.cmd test` と `npm.cmd run build` を実行し、ローカル表示を確認後、GitHubの `main` にpushします。Vercelが自動で公開を更新します。

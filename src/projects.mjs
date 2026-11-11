@@ -167,27 +167,6 @@ export const projects = [
     "imageHeight": 900
   },
   {
-    "id": "daiichi-sekken",
-    "url": "https://b2b.daiichisekken.com/",
-    "categories": [
-      "corporate",
-      "ec"
-    ],
-    "platform": "",
-    "name": {
-      "ja": "第一石鹸 法人向け卸サイト",
-      "en": "Daiichi Sekken — B2B Store"
-    },
-    "description": {
-      "ja": "洗剤・石鹸・日用品を扱う法人向け卸サイト。ブランドや用途から商品を探せる構成です。",
-      "en": "A wholesale website for detergents, soap and household products, organized by brand and application."
-    },
-    "image": "/images/projects/daiichi-sekken.webp",
-    "imageKind": "screen",
-    "imageWidth": 1440,
-    "imageHeight": 900
-  },
-  {
     "id": "hakuhodo-technologies",
     "url": "https://recruit.hakuhodo-technologies.co.jp/",
     "categories": [

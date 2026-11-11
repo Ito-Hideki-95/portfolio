@@ -45,10 +45,10 @@ test('content escaping preserves text without allowing markup injection', () => 
   assert.equal(escapeHtml('<img src=x onerror="x"> & \'hi\''), '&lt;img src=x onerror=&quot;x&quot;&gt; &amp; &#39;hi&#39;');
 });
 
-test('all 71 supplied pages are unique, translated, linked, categorized and backed by local images', async () => {
-  assert.equal(projects.length, 71);
-  assert.equal(new Set(projects.map(p => p.id)).size, 71);
-  assert.equal(new Set(projects.map(p => p.url.replace(/\/$/, ''))).size, 71);
+test('all 70 published pages are unique, translated, linked, categorized and backed by local images', async () => {
+  assert.equal(projects.length, 70);
+  assert.equal(new Set(projects.map(p => p.id)).size, 70);
+  assert.equal(new Set(projects.map(p => p.url.replace(/\/$/, ''))).size, 70);
   for (const project of projects) {
     assert.equal(new URL(project.url).protocol, 'https:');
     assert.ok(project.categories.every(key => projectCategories[key]));
@@ -62,7 +62,7 @@ test('all 71 supplied pages are unique, translated, linked, categorized and back
   }
   for (const locale of ['ja', 'en']) {
     const html = renderPage(locale,'projects');
-    assert.equal((html.match(/class="project-card"/g) || []).length, 71);
+    assert.equal((html.match(/class="project-card"/g) || []).length, 70);
     assert.ok(html.includes('id="project-search"') && html.includes('id="project-dialog"'));
   }
 });
