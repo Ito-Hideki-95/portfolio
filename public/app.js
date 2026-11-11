@@ -206,29 +206,98 @@
   }
 
 
-  // A user-controlled image carousel: no automatic content changes.
+  // Rotate the complete portfolio, loading only the current and upcoming previews eagerly.
   const showcase = document.querySelector('.hero-showcase');
   if (showcase) {
     const slides = [...showcase.querySelectorAll('.hero-slide')];
-    const dots = [...showcase.querySelectorAll('[data-slide-to]')];
-    let slide = 0;
-    function showSlide(next) {
-      slide = (next + slides.length) % slides.length;
-      slides.forEach((item,index) => { item.hidden = index !== slide; });
-      dots.forEach((dot,index) => dot.setAttribute('aria-pressed', String(index === slide)));
+    const viewport = showcase.querySelector('.hero-slides');
+    const toggle = showcase.querySelector('.hero-autoplay');
+    const position = showcase.querySelector('.hero-position');
+    const announcement = showcase.querySelector('.hero-status');
+    const INTERVAL_MS = 2000;
+    let slide = 0, requested = 0, timer = 0, requestId = 0;
+    let playback = true, hovered = false, touching = false, visible = false, suspended = false;
+    const normalize = index => (index + slides.length) % slides.length;
+    const canPlay = () => playback && moving() && !document.hidden && visible && !suspended && !hovered && !touching &&
+      !root.classList.contains('project-preview-open') &&
+      (!showcase.contains(document.activeElement) || document.activeElement === toggle);
+    const stopTimer = () => { clearTimeout(timer); timer = 0; };
+    async function loadSlide(index) {
+      const image = slides[normalize(index)].querySelector('img');
+      image.loading = 'eager';
+      if (image.complete && image.naturalWidth) return true;
+      try { await image.decode(); return image.naturalWidth > 0; } catch { return false; }
+    }
+    function schedule() {
+      stopTimer();
+      const enabled = playback && moving();
+      toggle.disabled = !moving();
+      toggle.setAttribute('aria-label', !moving() ? (en ? 'Slideshow paused by motion settings' : '動きの設定によりスライドショーを停止中') : enabled ? (en ? 'Pause slideshow' : 'スライドショーを一時停止') : (en ? 'Play slideshow' : 'スライドショーを再生'));
+      toggle.title = toggle.getAttribute('aria-label');
+      toggle.querySelector('.hero-pause-icon').hidden = !enabled;
+      toggle.querySelector('.hero-play-icon').hidden = enabled;
+      if (!canPlay() || slides.length < 2) return;
+      void loadSlide(slide + 1);
+      timer = setTimeout(() => { timer = 0; void showSlide(slide + 1, false); }, INTERVAL_MS);
+    }
+    async function showSlide(next, manual = true) {
+      stopTimer();
+      requested = normalize(next);
+      const target = requested, request = ++requestId;
+      const ready = await loadSlide(target);
+      if (request !== requestId) return;
+      if (!manual && !canPlay()) { requested = slide; return; }
+      if (ready) {
+        slides[slide].hidden = true;
+        slide = target;
+        slides[slide].hidden = false;
+        position.textContent = String(slide + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+        if (manual) announcement.textContent = position.textContent + ' — ' + slides[slide].querySelector('strong').textContent;
+      } else {
+        requested = slide;
+        if (manual) announcement.textContent = en ? 'The preview could not be loaded. Please try again.' : '画像を読み込めませんでした。もう一度お試しください。';
+      }
+      schedule();
     }
     showcase.querySelector('.hero-carousel-controls').hidden = false;
-    showcase.querySelector('.hero-prev').addEventListener('click', () => showSlide(slide - 1));
-    showcase.querySelector('.hero-next').addEventListener('click', () => showSlide(slide + 1));
-    dots.forEach(dot => dot.addEventListener('click', () => showSlide(Number(dot.dataset.slideTo))));
+    showcase.querySelector('.hero-prev').addEventListener('click', () => void showSlide(requested - 1));
+    showcase.querySelector('.hero-next').addEventListener('click', () => void showSlide(requested + 1));
+    toggle.addEventListener('click', () => { playback = !playback; schedule(); });
+    viewport.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovered = true; schedule(); } });
+    viewport.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') { hovered = false; schedule(); } });
+    showcase.addEventListener('focusin', schedule);
+    showcase.addEventListener('focusout', () => queueMicrotask(schedule));
     let touchStart;
-    showcase.addEventListener('touchstart', event => { touchStart = {x:event.changedTouches[0].clientX,y:event.changedTouches[0].clientY}; }, {passive:true});
-    showcase.addEventListener('touchend', event => {
-      if (!touchStart) return;
-      const dx = event.changedTouches[0].clientX - touchStart.x, dy = event.changedTouches[0].clientY - touchStart.y;
-      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) showSlide(slide + (dx < 0 ? 1 : -1));
+    viewport.addEventListener('touchstart', event => {
+      touching = true; stopTimer();
+      touchStart = {x:event.changedTouches[0].clientX,y:event.changedTouches[0].clientY};
+    }, {passive:true});
+    viewport.addEventListener('touchend', event => {
+      touching = false;
+      if (touchStart) {
+        const dx = event.changedTouches[0].clientX - touchStart.x, dy = event.changedTouches[0].clientY - touchStart.y;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) void showSlide(requested + (dx < 0 ? 1 : -1));
+        else schedule();
+      }
       touchStart = null;
     }, {passive:true});
+    viewport.addEventListener('touchcancel', () => { touching = false; touchStart = null; schedule(); }, {passive:true});
+    const preferenceObserver = new MutationObserver(schedule);
+    preferenceObserver.observe(root, {attributes:true, attributeFilter:['data-motion','class']});
+    document.addEventListener('visibilitychange', schedule);
+    let visibilityObserver;
+    if ('IntersectionObserver' in window) {
+      visibilityObserver = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; schedule(); }, {threshold:0});
+      visibilityObserver.observe(showcase);
+    } else { visible = true; }
+    window.addEventListener('pageshow', () => { suspended = false; schedule(); });
+    window.addEventListener('pagehide', event => {
+      suspended = true; stopTimer(); requestId++;
+      if (event.persisted) return;
+      preferenceObserver.disconnect(); visibilityObserver?.disconnect();
+      document.removeEventListener('visibilitychange', schedule);
+    });
+    void loadSlide(0).then(schedule);
   }
   const sectionLinks = [...document.querySelectorAll('[data-nav-section]')];
   if ('IntersectionObserver' in window && document.body.dataset.page === 'home') {

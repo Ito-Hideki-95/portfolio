@@ -705,7 +705,12 @@ details[open]>summary .faq-plus {
 .hero-slide figcaption strong {
   font-size:1.15rem;
   grid-column:1;
-  line-height:1.45
+  line-height:1.45;
+  min-height:2.9em;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden
 }
 
 .hero-slide figcaption>a {
@@ -735,35 +740,49 @@ details[open]>summary .faq-plus {
   font-size:1rem
 }
 
-.hero-dots {
+.hero-playback {
   display:flex;
   align-items:center;
-  padding:0 9px;
+  gap:10px;
+  padding:4px 15px 4px 5px;
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:30px
 }
-
-.hero-dots button {
-  border:0;
-  min-width:32px;
-  min-height:38px;
-  padding:10px 7px;
+.hero-position {
+  min-width:7ch;
+  text-align:center;
+  font-size:.8rem;
+  font-variant-numeric:tabular-nums;
+  color:var(--muted)
+}
+.hero-autoplay svg {
+  width:17px;
+  height:17px
+}
+.hero-autoplay span {
   display:grid;
   place-items:center
 }
-
-.hero-dots span {
-  height:7px;
-  width:7px;
-  border-radius:8px;
-  background:#9daec3;
-  transition:width .25s
+.hero-autoplay:disabled {
+  opacity:.5;
+  cursor:default
 }
-
-.hero-dots button[aria-pressed=true] span {
-  width:22px;
-  background:var(--accent)
+.hero-slide {
+  animation:hero-preview-enter .4s ease-out both
+}
+@keyframes hero-preview-enter {
+  from {opacity:0}
+  to {opacity:1}
+}
+.showcase-browser>span:nth-child(2) {
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+.browser-dots,.showcase-browser>svg {
+  flex-shrink:0
 }
 
 .hero-caption {

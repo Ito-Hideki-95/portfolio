@@ -94,7 +94,8 @@ test('the introduction omits personal names and experience claims while real evi
   for (const locale of ['ja','en']) {
     const html=renderPage(locale);
     const hero=html.match(/<section id="top"[\s\S]*?<\/section>/)[0];
-    assert.ok(!hero.includes('11'));
+    const introduction=hero.slice(0,hero.indexOf('<div class="hero-showcase'));
+    assert.doesNotMatch(introduction,/11年|11 years|YEARS OF DEVELOPMENT/);
     assert.equal((html.match(/class="project-card(?: featured-case)?"/g)||[]).length,9);
     const voices=html.match(/<section id="reviews"[\s\S]*?<\/section>/)[0];
     assert.ok(!voices.includes('ランサーズ')&&!voices.includes('評価：満足'));

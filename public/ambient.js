@@ -6,7 +6,8 @@
   root.dataset.ambientInitialized = 'true';
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const mouseAvailable = matchMedia('(any-hover: hover) and (any-pointer: fine)');
-  const IDLE_MS = 5500;
+  const IDLE_MS = 10000;
+  const TRAIL_SPEED = 0.55;
   let canvas, renderer, frame = 0, lastFrame = 0, lastInput = 0;
   let previous = null, pending = null, distance = 0, sizeDirty = true, destroyed = false;
 
@@ -68,7 +69,7 @@
       catch { stop(); if (!useFallback()) return; renderer.resize(...dimensions()); sizeDirty = false; }
     }
     if (pending) { renderer.stroke(pending); pending = null; }
-    renderer.step(dt, root.dataset.theme === 'dark');
+    renderer.step(dt * TRAIL_SPEED, root.dataset.theme === 'dark');
     canvas.hidden = false;
     canvas.dataset.state = 'running';
     frame = requestAnimationFrame(tick);
@@ -83,7 +84,7 @@
     if (travel < 0.5) return;
     if (!initialize()) return;
     distance += Math.min(travel, 100);
-    pending = { from: pending?.from || previous, to: point, hue: 0.57 + 0.17 * Math.sin(distance / 750) };
+    pending = { from: pending?.from || previous, to: point, hue: 0.57 + 0.17 * Math.sin(distance / 1200) };
     previous = point;
     lastInput = performance.now();
     if (!frame) frame = requestAnimationFrame(tick);
@@ -269,7 +270,7 @@
           float up = abs(texture(rotation, uv + vec2(0, pixel.y)).x);
           vec2 gradient = vec2(right - left, up - down);
           vec2 tangent = vec2(gradient.y, -gradient.x) / max(length(gradient), 0.0001);
-          vec2 velocity = texture(flow, uv).xy + tangent * texture(rotation, uv).x * dt * 12.0;
+          vec2 velocity = texture(flow, uv).xy + tangent * texture(rotation, uv).x * dt * 10.0;
           result = vec4(clamp(velocity, -350.0, 350.0), 0, 0);
         }`);
       const calculateDivergence = program(`
@@ -332,11 +333,11 @@
           element.dataset.engine = 'webgl2'; clear();
         },
         stroke({ from, to, hue }) {
-          const force = [(to[0] - from[0]) / flowSize[0] * 48, (to[1] - from[1]) / flowSize[1] * 48, 0];
+          const force = [(to[0] - from[0]) / flowSize[0] * 32, (to[1] - from[1]) / flowSize[1] * 32, 0];
           const speed = Math.hypot(force[0], force[1]);
-          if (speed > 240) { force[0] *= 240 / speed; force[1] *= 240 / speed; }
-          draw(inject, velocity.write, { source: velocity.read, start: from, end: to, amount: force, aspect, radius: 0.055, limit: 350 }); velocity.swap();
-          draw(inject, dye.write, { source: dye.read, start: from, end: to, amount: pigment(hue).map(c => c * 1.15), aspect, radius: 0.032, limit: 3.0 }); dye.swap();
+          if (speed > 160) { force[0] *= 160 / speed; force[1] *= 160 / speed; }
+          draw(inject, velocity.write, { source: velocity.read, start: from, end: to, amount: force, aspect, radius: 0.10, limit: 350 }); velocity.swap();
+          draw(inject, dye.write, { source: dye.read, start: from, end: to, amount: pigment(hue).map(c => c * 1.15), aspect, radius: 0.065, limit: 3.0 }); dye.swap();
         },
         step(dt, dark) {
           draw(advect, velocity.write, { flow: velocity.read, source: velocity.read, flowTexel: flowSize, dt, decay: 0.95 }); velocity.swap();
@@ -375,8 +376,8 @@
           const along = (i + 1) / count;
           motes.push({ x: (from[0] + (to[0] - from[0]) * along) * width,
             y: (1 - from[1] - (to[1] - from[1]) * along) * height,
-            vx: dx * 1.8, vy: dy * 1.8, age: 0, hue: hue * 360,
-            turn: Math.sin(distance * 0.013 + i) * 2, radius: 27 + Math.min(length, 60) * 0.3 });
+            vx: dx * 1.1, vy: dy * 1.1, age: 0, hue: hue * 360,
+            turn: Math.sin(distance * 0.013 + i) * 2, radius: 54 + Math.min(length, 60) * 0.55 });
         }
         if (motes.length > 72) motes.splice(0, motes.length - 72);
       },
