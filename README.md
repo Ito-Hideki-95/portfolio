@@ -1,4 +1,4 @@
-﻿# Development Partner — ポートフォリオ
+# Development Partner — ポートフォリオ
 
 業務システム・AI・Web／アプリ開発者のポートフォリオサイトです。ソースコードはこのフォルダ内にあります。
 
@@ -123,4 +123,3 @@ git push
 `src/content.mjs` と `src/page.mjs` から `scripts/build.mjs` が静的HTMLを生成します。主要な本文とサービスはHTMLに含まれ、JavaScriptが無効でも閲覧できます。サイトマップは公開URLと `indexable: true` を設定した場合のみ生成されます。
 
 Vercelでは Framework Preset が **Other**、Build Command が **npm run build**、Output Directory が **dist** です。`vercel.json` に設定済みです。データベースや環境変数は不要です。
-
