@@ -84,6 +84,7 @@ test('every bilingual route has a matching canonical, one heading, unique IDs an
   }
   for (const [path,{html}] of rendered) for (const [,href] of html.matchAll(/\bhref="([^"]+)"/g)) {
     const target = new URL(href,new URL(path,site.siteUrl));
+    assert.ok(!/(^|\.)(lancers\.jp|crowdworks\.jp)$/i.test(target.hostname), 'Platform link remains: '+path+' → '+href);
     if (target.origin !== site.siteUrl || /\.(svg|webp|jpg|png|css)$/.test(target.pathname)) continue;
     assert.ok(rendered.has(target.pathname),`Missing internal page: ${path} → ${href}`);
     if (target.hash) assert.ok(rendered.get(target.pathname).ids.has(target.hash.slice(1)),`Missing anchor: ${path} → ${href}`);

@@ -1,4 +1,4 @@
-# Development Partner — ポートフォリオ
+﻿# Development Partner — ポートフォリオ
 
 業務システム・AI・Web／アプリ開発者のポートフォリオサイトです。ソースコードはこのフォルダ内にあります。
 
@@ -47,7 +47,7 @@ npm.cmd run preview
 | 制作実績のURL、日英の名称・紹介文、画像、カテゴリー | `src/projects.mjs` |
 | 各サイトの具体的な機能・技術・確認根拠 | `src/project-insights.mjs` |
 | 実装できることと評価・事例の対応 | `src/capabilities.mjs` / `public/capabilities.css` |
-| クライアントの声・機能詳細の表示 | `public/voices.css` / `public/evidence.css` |
+| クライアントの声・機能詳細の表示 | `public/voices.css` / `public/voices.js` / `public/evidence.css` |
 | 注目事例の説明・担当範囲 | `src/featured.mjs` |
 | 実績一覧の構成・文言、トップの9件 | `src/gallery.mjs` |
 | 実績一覧の見た目・検索・絞り込み・画像拡大 | `public/styles.css` / `public/gallery.js` |
@@ -123,3 +123,4 @@ git push
 `src/content.mjs` と `src/page.mjs` から `scripts/build.mjs` が静的HTMLを生成します。主要な本文とサービスはHTMLに含まれ、JavaScriptが無効でも閲覧できます。サイトマップは公開URLと `indexable: true` を設定した場合のみ生成されます。
 
 Vercelでは Framework Preset が **Other**、Build Command が **npm run build**、Output Directory が **dist** です。`vercel.json` に設定済みです。データベースや環境変数は不要です。
+
