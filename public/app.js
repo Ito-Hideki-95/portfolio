@@ -97,7 +97,7 @@
     function updateCarousel() {
       currentIndex = nearestSlide();
       previous.disabled = currentIndex === 0;
-      next.disabled = currentIndex === cards.length - 1;
+      next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
       const text = `${String(currentIndex + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
       if (position.textContent !== text) position.textContent = text;
     }

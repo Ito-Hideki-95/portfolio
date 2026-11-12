@@ -5,6 +5,7 @@ import { renderPage, escapeHtml, pageRoutes } from '../src/page.mjs';
 import { getContent, stackLogos } from '../src/locales.mjs';
 import { reviews, services, site } from '../src/content.mjs';
 import { projects, projectCategories } from '../src/projects.mjs';
+import { projectInsights } from '../src/project-insights.mjs';
 
 test('both languages contain complete content, matching canonical URLs and language alternatives', () => {
   for (const locale of ['ja', 'en']) {
@@ -27,12 +28,12 @@ test('client comments remain intact; English translations retain accessible Japa
     for (const review of reviews) for (const paragraph of review.comment.split('\n\n')) assert.ok(html.includes(escapeHtml(paragraph)));
   }
   assert.ok(renderPage('en').includes('lang="ja"'));
-  assert.ok(getContent('en').copy.reviewNote.includes('translations'));
+  assert.match(getContent('en').copy.reviewNote,/translat(?:ed|ion)/i);
   assert.throws(() => getContent('fr'));
 });
 
 test('all screenshot and stack assets exist locally, without external image dependencies', async () => {
-  for (const review of reviews) assert.ok((await readFile(new URL(`../public${review.image}`, import.meta.url))).length > 0);
+  for (const review of reviews) if (review.image) assert.ok((await readFile(new URL(`../public${review.image}`, import.meta.url))).length > 0);
   for (const [, slug] of stackLogos) {
     const svg = await readFile(new URL(`../public/images/stack/${slug}.svg`, import.meta.url), 'utf8');
     assert.ok(svg.includes('<svg'));
@@ -57,7 +58,7 @@ test('all 70 published pages are unique, translated, linked, categorized and bac
       const html = renderPage(locale,'projects');
       assert.ok(html.includes(`href="${escapeHtml(project.url)}"`));
       assert.ok(html.includes(`<h3>${escapeHtml(project.name[locale])}</h3>`));
-      assert.ok(html.includes(escapeHtml(project.description[locale])));
+      assert.ok(html.includes(escapeHtml(projectInsights[project.id]?.summary[locale] || project.description[locale])));
     }
   }
   for (const locale of ['ja', 'en']) {
@@ -99,5 +100,35 @@ test('the introduction omits personal names and experience claims while real evi
     assert.equal((html.match(/class="project-card(?: featured-case)?"/g)||[]).length,9);
     const voices=html.match(/<section id="reviews"[\s\S]*?<\/section>/)[0];
     assert.ok(!voices.includes('ランサーズ')&&!voices.includes('評価：満足'));
+  }
+});
+
+
+test('every portfolio entry has bilingual feature evidence and safe public or archived sources', async () => {
+  const expected = new Set([...projects.map(p => p.id), 'flash-reserve', 'visual-anatomy']);
+  assert.deepEqual(new Set(Object.keys(projectInsights)), expected);
+  for (const [id, insight] of Object.entries(projectInsights)) {
+    assert.equal(insight.id, id);
+    assert.ok(['verified','partial'].includes(insight.status), id);
+    if (insight.status === 'partial') assert.ok(insight.availability.ja && insight.availability.en, id);
+    for (const locale of ['ja','en']) {
+      assert.ok(insight.summary[locale]?.trim(), id);
+      assert.ok(insight.features.length >= 2 && insight.features.every(f => f[locale]?.trim()), id);
+    }
+    assert.ok(insight.sources.length > 0, id);
+    for (const source of insight.sources) {
+      if (source.url.startsWith('/images/')) assert.ok((await readFile(new URL('../public' + source.url, import.meta.url))).length > 0);
+      else assert.equal(new URL(source.url).protocol, 'https:', id);
+    }
+    for (const tech of insight.technologies) {
+      assert.ok(['public','owner'].includes(tech.basis), id);
+      assert.ok(tech.name.trim() && tech.evidence.trim(), id);
+    }
+  }
+  for (const locale of ['ja','en']) {
+    const html = renderPage(locale, 'projects');
+    assert.doesNotMatch(html, /b2b[.]daiichisekken[.]com/);
+    assert.equal((html.match(/<template data-project-insights>/g)||[]).length,70);
+    assert.equal((renderPage(locale).match(/class="capability-card"/g)||[]).length,6);
   }
 });

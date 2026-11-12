@@ -64,6 +64,8 @@
     dialog.querySelector('.dialog-site').href = card.querySelector('.project-site').href;
     const scope = card.querySelector('.project-scope');
     dialog.querySelector('.dialog-scope').replaceChildren(...(scope ? [scope.cloneNode(true)] : []));
+    const insights = card.querySelector('[data-project-insights]');
+    dialog.querySelector('.dialog-insights').replaceChildren(...(insights ? [insights.content.cloneNode(true)] : []));
     const voice = card.querySelector('.featured-voice');
     const voiceLink = dialog.querySelector('.dialog-voice');
     voiceLink.hidden = !voice;

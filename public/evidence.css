@@ -1,0 +1,30 @@
+﻿.project-functions { margin:0 0 20px; }
+.project-detail-label { margin:0 0 9px; color:var(--accent); font-size:.77rem; font-weight:700; letter-spacing:.04em; }
+.project-functions ul { list-style:none; padding:0; margin:0; display:grid; gap:9px; }
+.project-functions li { position:relative; padding-left:17px; font-size:.86rem; line-height:1.75; overflow-wrap:anywhere; }
+.project-functions li::before { content:''; position:absolute; left:0; top:.72em; width:5px; height:5px; border-radius:50%; background:var(--accent); }
+.project-technology { margin:0 0 22px; }
+.project-stack-list { display:flex; flex-wrap:wrap; gap:7px; list-style:none; margin:0; padding:0; }
+.project-stack-list li { font-size:.73rem; line-height:1.6; padding:5px 10px; border:1px solid var(--line); border-radius:7px; background:var(--page); overflow-wrap:anywhere; }
+.project-stack-list small { color:var(--muted); font-size:.7rem; margin-left:4px; }
+.project-card .project-description { margin-bottom:20px; }
+.project-card .project-tags { margin-top:0; }
+.project-stack-group { margin:0 0 20px; }
+.project-stack-group h3 { font-size:.85rem; margin:0 0 10px; }
+.project-insights { border-top:1px solid var(--line); padding-top:23px; margin-bottom:25px; }
+.project-insights .project-functions li { font-size:.95rem; }
+.project-source-note { margin-top:24px; border-top:1px solid var(--line); padding-top:15px; color:var(--muted); font-size:.8rem; line-height:1.8; }
+.project-source-note summary { cursor:pointer; padding:5px 0; font-weight:650; }
+.project-source-note p { margin:12px 0; }
+.project-source-note ul { padding-left:18px; }
+.project-source-note a { text-decoration:underline; text-underline-offset:3px; overflow-wrap:anywhere; }
+@media(max-width:600px) {
+ .project-functions li { font-size:.9rem; }
+ .project-stack-list li { font-size:.78rem; }
+ .project-detail-label { font-size:.8rem; }
+ .project-stack-list small { font-size:.73rem; }
+}
+
+.project-source-note summary { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.project-source-note summary span { font-size:1.1rem; }
+.project-source-note[open] summary span { transform:rotate(45deg); }
