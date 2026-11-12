@@ -4,8 +4,8 @@ export const projectInsights = {
   "one-pilates": {
     "id": "one-pilates",
     "summary": {
-      "ja": "女性向けピラティススタジオの案内サイト。地域別の店舗案内、プログラム・料金の比較から、hacomonoの体験予約・会員予約ページへ案内します。",
-      "en": "A Pilates studio website that connects regional studio information, exercise programs and pricing with trial and member booking links. Visitors can compare available facilities and follow a clear route to the external reservation service."
+      "ja": "女性向けピラティススタジオの案内サイトです。地域別の店舗案内、プログラム・料金の比較から、hacomonoの体験予約・会員予約ページへご案内しています。",
+      "en": "This Pilates studio website connects regional studio information, exercise programs and pricing with trial and member booking links. Visitors can compare available facilities and follow a clear route to the external reservation service."
     },
     "features": [
       {
@@ -17,7 +17,7 @@ export const projectInsights = {
         "en": "Programs, membership fees and trial information"
       },
       {
-        "ja": "hacomonoの体験・会員予約へ誘導",
+        "ja": "hacomonoの体験・会員予約への案内",
         "en": "Links to hacomono trial and member booking"
       }
     ],
@@ -55,8 +55,8 @@ export const projectInsights = {
   "pias-recruit": {
     "id": "pias-recruit",
     "summary": {
-      "ja": "総合職・販売職・美容サービス職の採用情報を整理する入口サイト。応募対象ごとの案内、年度別マイページへのリンク、採用ニュースをまとめています。",
-      "en": "A recruitment gateway for corporate, sales and beauty service roles. It organizes different applicant routes, links graduates to year-specific application portals, and publishes recruitment announcements so candidates can find the relevant next step."
+      "ja": "総合職・販売職・美容サービス職の採用情報をまとめたサイトです。応募対象ごとの案内、年度別マイページへのリンク、採用ニュースを掲載しています。",
+      "en": "This recruitment website provides information for corporate, sales and beauty service applicants. It organizes different applicant routes, links graduates to year-specific application portals, and publishes recruitment announcements so candidates can find the appropriate application information."
     },
     "features": [
       {
@@ -92,8 +92,8 @@ export const projectInsights = {
   "tasumo": {
     "id": "tasumo",
     "summary": {
-      "ja": "クロレラ食品のブランド紹介と通販をまとめたShopifyストア。商品写真・原材料の説明、内容量の選択、定期便の案内、カートへの追加を備えています。",
-      "en": "A Shopify food store combining the chlorella brand story with practical product selection. Product pages explain ingredients, present package-size choices and subscription information, and provide an add-to-cart route with customer account access."
+      "ja": "クロレラ食品のブランド紹介と通販をまとめたShopifyストアです。商品写真・原材料の説明、内容量の選択、定期便の案内、カートへの追加を備えています。",
+      "en": "This Shopify food store combines the chlorella brand story with practical product selection. Product pages explain ingredients, present package-size choices and subscription information, and provide an add-to-cart route with customer account access."
     },
     "features": [
       {
@@ -133,8 +133,8 @@ export const projectInsights = {
   "demaecan-recruit": {
     "id": "demaecan-recruit",
     "summary": {
-      "ja": "出前館の事業・プロダクトと働く環境を伝える採用サイト。社員インタビューや福利厚生を紹介し、キャリア採用と新卒採用それぞれのHRMOS求人へ案内します。",
-      "en": "A careers website explaining Demae-can’s products, business and working environment. Employee interviews and benefits information help candidates explore the company, while separate graduate and experienced-hire links lead to the relevant HRMOS recruitment pages."
+      "ja": "出前館の事業・プロダクトと働く環境を伝える採用サイトです。社員インタビューや福利厚生を紹介し、キャリア採用と新卒採用それぞれのHRMOS求人へご案内しています。",
+      "en": "This careers website explains Demae-can’s products, business and working environment. Employee interviews and benefits information help candidates explore the company, while separate graduate and experienced-hire links lead to the relevant HRMOS recruitment pages."
     },
     "features": [
       {
@@ -175,8 +175,8 @@ export const projectInsights = {
   "partners": {
     "id": "partners",
     "summary": {
-      "ja": "不動産売買・賃貸管理・資産運用サービスを案内する企業サイト。サービス別の詳細ページ、顧客インタビュー、ニュースから、問い合わせフォームへつなぎます。",
-      "en": "A property services website that separates sales, purchases, property management and other business areas. Dedicated service pages, customer stories and corporate news give prospective customers context before directing them to the inquiry form."
+      "ja": "不動産売買・賃貸管理・資産運用サービスを案内する企業サイトです。サービス別の詳細ページ、顧客インタビュー、ニュースから、問い合わせフォームへつなぎます。",
+      "en": "This property services website separates sales, purchases, property management and other business areas. Dedicated service pages, customer stories and corporate news give prospective customers context before directing them to the inquiry form."
     },
     "features": [
       {
@@ -222,8 +222,8 @@ export const projectInsights = {
   "artvanlines": {
     "id": "artvanlines",
     "summary": {
-      "ja": "物流サービス、輸送車両、全国の拠点を整理した企業サイト。荷物や輸送目的に応じたサービス情報と業界別の事例を示し、法人の問い合わせへ案内します。",
-      "en": "A logistics company website organizing transport services, vehicle information and its nationwide branch network. Service descriptions and industry-specific examples help business visitors identify relevant options before reaching the corporate inquiry route."
+      "ja": "物流サービス、輸送車両、全国の拠点を整理した企業サイトです。荷物や輸送目的に応じたサービス情報と業界別の事例を示し、法人の問い合わせへご案内しています。",
+      "en": "This logistics company website organizes transport services, vehicle information and its nationwide branch network. Service descriptions and industry-specific examples help business visitors identify relevant options before reaching the corporate inquiry route."
     },
     "features": [
       {
@@ -259,8 +259,8 @@ export const projectInsights = {
   "hakuhodo-technologies": {
     "id": "hakuhodo-technologies",
     "summary": {
-      "ja": "技術組織ごとの役割と募集情報を示す採用サイト。組織紹介、働き方・育成制度、社員インタビューをまとめ、求職者が希望する領域を調べられる構成です。",
-      "en": "A technology recruitment website organized around specialist teams and their roles. Department pages, workplace policies, development programs and employee stories help applicants explore relevant opportunities and understand the organization before following recruitment links."
+      "ja": "技術組織ごとの役割と募集情報を紹介する採用サイトです。組織紹介、働き方・育成制度、社員インタビューを通じて、応募を検討される方が希望する領域を確認できる構成です。",
+      "en": "This technology recruitment website is organized around specialist teams and their roles. Department pages, workplace policies, development programs and employee stories help applicants explore relevant opportunities and understand the organization before following recruitment links."
     },
     "features": [
       {
@@ -301,8 +301,8 @@ export const projectInsights = {
   "plusr": {
     "id": "plusr",
     "summary": {
-      "ja": "訪問リハビリ職の採用サイト。常勤・非常勤の働き方と社員の声を比較でき、希望勤務形態を選ぶ応募フォームとLINEの応募窓口を用意しています。",
-      "en": "A rehabilitation recruitment website with distinct full-time and part-time work information. Staff interviews support role comparison, while an application form captures employment preferences and a separate LINE link offers another contact route."
+      "ja": "訪問リハビリ職の採用サイトです。常勤・非常勤の働き方と社員インタビューを掲載し、希望勤務形態を選択できる応募フォームとLINEの応募窓口をご案内しています。",
+      "en": "This rehabilitation recruitment website provides distinct full-time and part-time work information. Staff interviews support role comparison, while an application form captures employment preferences and a separate LINE link offers another contact route."
     },
     "features": [
       {
@@ -347,8 +347,8 @@ export const projectInsights = {
   "autotechnic": {
     "id": "autotechnic",
     "summary": {
-      "ja": "自動車開発の職種と働く人を紹介する採用サイト。新卒・キャリア・再入社で入口を分け、説明会やインターン情報から外部の応募ページへ案内します。",
-      "en": "An automotive engineering careers website that distinguishes graduate, experienced and alumni recruitment. Role descriptions, employee profiles and event information connect visitors with company briefings, internships and the appropriate external application portal."
+      "ja": "自動車開発の職種と働く人を紹介する採用サイトです。新卒・キャリア・再入社で入口を分け、説明会やインターン情報から外部の応募ページへご案内しています。",
+      "en": "This automotive engineering careers website distinguishes graduate, experienced and alumni recruitment. Role descriptions, employee profiles and event information connect visitors with company briefings, internships and the appropriate external application portal."
     },
     "features": [
       {
@@ -394,8 +394,8 @@ export const projectInsights = {
   "hba": {
     "id": "hba",
     "summary": {
-      "ja": "社員・職種・職場を多角的に紹介するIT企業の採用サイト。複数拠点の360度オフィスツアー、対談記事、募集要項と応募導線をまとめています。",
-      "en": "An IT recruitment website presenting employees, job roles and working environments. Embedded 360-degree tours show several offices, while interview features, application requirements and distinct recruitment links help candidates explore their next steps."
+      "ja": "社員・職種・職場を多角的に紹介するIT企業の採用サイトです。複数拠点の360度オフィスツアー、対談記事、募集要項と応募導線をまとめています。",
+      "en": "This IT recruitment website presents employees, job roles and working environments. Embedded 360-degree tours show several offices, while interview features, application requirements and distinct recruitment links help candidates explore their next steps."
     },
     "features": [
       {
@@ -450,8 +450,8 @@ export const projectInsights = {
   "pias-ats": {
     "id": "pias-ats",
     "summary": {
-      "ja": "美容職の募集をブランドと職種から探せる採用サイト。社員の働き方を紹介し、新卒・中途・再入社・キャリア登録に応じた応募先へ案内します。",
-      "en": "A beauty careers website that organizes opportunities by brand and profession. Employee interviews and workplace information accompany separate routes for graduates, experienced applicants, returning employees and career registration, with external recruitment services clearly linked."
+      "ja": "美容職の募集をブランドと職種から探せる採用サイトです。社員の働き方を紹介し、新卒・中途・再入社・キャリア登録に応じた応募先へご案内しています。",
+      "en": "This beauty careers website organizes opportunities by brand and profession. Employee interviews and workplace information accompany separate routes for graduates, experienced applicants, returning employees and career registration, with external recruitment services clearly linked."
     },
     "features": [
       {
@@ -491,8 +491,8 @@ export const projectInsights = {
   "orange-life": {
     "id": "orange-life",
     "summary": {
-      "ja": "葬祭サービスの仕事と社風を紹介する採用サイト。職種別インタビュー、社員アンケート、仕事の一日を見せ、募集要項とエントリーへつなぐ構成です。",
-      "en": "A funeral services recruitment website explaining roles and company culture through employee interviews, staff survey results and a day-in-the-life feature. Recruitment requirements and entry links give prospective applicants a clear next step."
+      "ja": "葬祭サービスの仕事と社風を紹介する採用サイトです。職種別インタビュー、社員アンケート、仕事の一日を見せ、募集要項とエントリーへつなぐ構成です。",
+      "en": "This funeral services recruitment website explains roles and company culture through employee interviews, staff survey results and a day-in-the-life feature. Recruitment requirements and entry links give prospective applicants a clear next step."
     },
     "features": [
       {
@@ -528,8 +528,8 @@ export const projectInsights = {
   "jhca": {
     "id": "jhca",
     "summary": {
-      "ja": "ハウスコーティング協会の活動と加盟店を紹介するサイト。加盟店一覧、保証・技術に関する情報、更新記事、会員専用ページへの入口を整理しています。",
-      "en": "An industry association website presenting coating standards, support activities and member companies. A member directory, technical notices and an entrance to member-only content organize information for both consumers and participating businesses."
+      "ja": "ハウスコーティング協会の活動と加盟店を紹介するサイトです。加盟店一覧、保証・技術に関する情報、更新記事、会員専用ページへの案内を整理しています。",
+      "en": "This industry association website presents coating standards, support activities and member companies. A member directory, technical notices and an entrance to member-only content organize information for both consumers and participating businesses."
     },
     "features": [
       {
@@ -575,8 +575,8 @@ export const projectInsights = {
   "me-create": {
     "id": "me-create",
     "summary": {
-      "ja": "幼稚園の紹介を想定したWordPress・SWELLサイト。施設写真、年間行事、入園案内、よくある質問とお知らせを、保護者が目的別にたどれる構成です。",
-      "en": "A kindergarten information website using WordPress and SWELL. Facility introductions, annual events, admission guidance, frequently asked questions and dated notices are organized around the information families need when exploring the school."
+      "ja": "幼稚園の紹介を想定したWordPress・SWELLサイトです。施設写真、年間行事、入園案内、よくある質問、お知らせを、保護者の方が目的別に確認できる構成です。",
+      "en": "This kindergarten information website uses WordPress and SWELL. Facility introductions, annual events, admission guidance, frequently asked questions and dated notices are organized around the information families need when exploring the school."
     },
     "features": [
       {
@@ -622,8 +622,8 @@ export const projectInsights = {
   "wamu": {
     "id": "wamu",
     "summary": {
-      "ja": "業務用美容機器を用途別に紹介するメーカーサイト。製品詳細と導入サロンの事例を読み比べ、資料請求や無料デモの申し込み、導入後のサポートへ案内します。",
-      "en": "A professional beauty equipment website grouping products by treatment purpose. Product details, salon case studies and support information help business buyers compare options before following document-request and demonstration inquiry links."
+      "ja": "業務用美容機器を用途別に紹介するメーカーサイトです。製品詳細と導入サロンの事例を読み比べ、資料請求や無料デモの申し込み、導入後のサポートへご案内しています。",
+      "en": "This professional beauty equipment website groups products by treatment purpose. Product details, salon case studies and support information help business buyers compare options before following document-request and demonstration inquiry links."
     },
     "features": [
       {
@@ -659,8 +659,8 @@ export const projectInsights = {
   "sygnhouse": {
     "id": "sygnhouse",
     "summary": {
-      "ja": "バイク用品の製品情報と購入後サポートを集約したサイト。製品シリーズの紹介、販売店案内、説明書・更新情報、修理相談の会員ページへつながります。",
-      "en": "A motorcycle accessories website combining product discovery with after-sales support. Visitors can explore product families, find dealers, access manuals and software update information, or follow links to the member service for repair inquiries."
+      "ja": "バイク用品の製品情報と購入後サポートを集約したサイトです。製品シリーズの紹介、販売店案内、説明書・更新情報、修理相談の会員ページへつながります。",
+      "en": "This motorcycle accessories website combines product discovery with after-sales support. Visitors can explore product families, find dealers, access manuals and software update information, or follow links to the member service for repair inquiries."
     },
     "features": [
       {
@@ -701,8 +701,8 @@ export const projectInsights = {
   "wamu-school": {
     "id": "wamu-school",
     "summary": {
-      "ja": "エステスクールの特徴、カリキュラム、進路、コースを一ページで説明するLP。ページ内の申し込み欄には、氏名・性別・年齢・連絡先の入力項目があります。",
-      "en": "A beauty school landing page presenting course options, curriculum, qualifications and career routes in a single sequence. An on-page entry form collects the applicant’s name, age, gender and contact information without requiring a separate navigation step."
+      "ja": "エステスクールの特徴、カリキュラム、進路、コースを一ページで説明するランディングページです。ページ内の申し込み欄には、氏名・性別・年齢・連絡先の入力項目があります。",
+      "en": "This beauty school landing page presents course options, curriculum, qualifications and career routes in a single sequence. An on-page entry form collects the applicant’s name, age, gender and contact information without requiring a separate navigation step."
     },
     "features": [
       {
@@ -738,8 +738,8 @@ export const projectInsights = {
   "spice": {
     "id": "spice",
     "summary": {
-      "ja": "IRIAM配信者事務所のブランドサイト。所属ライバーの一覧から個別プロフィールへ進めるほか、イベントニュースとオーディションの応募窓口を案内しています。",
-      "en": "A virtual streamer agency website with a roster that links to individual performer profiles. Agency news, event reports and audition routes let visitors discover creators, follow activity updates and find information about joining the agency."
+      "ja": "IRIAM配信者事務所のブランドサイトです。所属ライバーの一覧から個別プロフィールへ進めるほか、イベントニュースとオーディションの応募窓口を案内しています。",
+      "en": "This virtual streamer agency website provides a roster linked to individual performer profiles. Agency news, event reports and audition information allow visitors to discover creators, review activity updates and find details about joining the agency."
     },
     "features": [
       {
@@ -775,12 +775,12 @@ export const projectInsights = {
   "orcasa": {
     "id": "orcasa",
     "summary": {
-      "ja": "リフォーム・リノベーションを紹介するLP。保存済みの掲載画面では、室内写真を大きく見せ、無料デザイン相談と電話窓口を目立つ位置に配置しています。",
-      "en": "An interior renovation landing page represented by the saved portfolio screenshot. The archived view emphasizes a large interior photograph, a prominent free design consultation button and telephone information; the original landing-page URL currently returns a not-found page."
+      "ja": "リフォーム・リノベーションを紹介するランディングページです。保存済みの掲載画面では、室内写真を大きく配置し、無料デザイン相談と電話窓口を確認しやすい位置に設けています。",
+      "en": "This interior renovation landing page is represented by the saved portfolio screenshot. The archived view emphasizes a large interior photograph, a prominent free design consultation button and telephone information; the original landing-page URL currently returns a not-found page."
     },
     "features": [
       {
-        "ja": "室内写真を大きく見せるファーストビュー",
+        "ja": "室内写真を大きく配置したファーストビュー",
         "en": "Large interior photography in the archived hero"
       },
       {
@@ -814,8 +814,8 @@ export const projectInsights = {
   "oliver": {
     "id": "oliver",
     "summary": {
-      "ja": "オフィス移転・改装を検討する企業向けLP。課題と解決策を対で示す事例紹介から、オフィス見学予約、無料相談、資料ダウンロードの各窓口へ案内します。",
-      "en": "An office relocation and refurbishment landing page for business customers. Case studies pair workplace challenges with proposed solutions, then offer distinct routes for office tours, free consultation and downloadable information about the service."
+      "ja": "オフィス移転・改装を検討する企業向けランディングページです。課題と解決策を対で示す事例紹介から、オフィス見学予約、無料相談、資料ダウンロードの各窓口へご案内しています。",
+      "en": "This office relocation and refurbishment landing page presents service information for business customers. Case studies pair workplace challenges with proposed solutions, then offer distinct routes for office tours, free consultation and downloadable information about the service."
     },
     "features": [
       {
@@ -856,8 +856,8 @@ export const projectInsights = {
   "tatsuei": {
     "id": "tatsuei",
     "summary": {
-      "ja": "型枠工事会社の事業と現場実績を伝えるWordPressサイト。施工事例とお役立ち記事を更新し、現場のInstagram投稿、求人情報、工事相談へつなぎます。",
-      "en": "A formwork contractor website using WordPress to present services and construction projects. Dated case studies and educational articles sit alongside an Instagram project feed, recruitment information and inquiry routes for prospective customers."
+      "ja": "型枠工事会社の事業と施工実績を紹介するWordPressサイトです。施工事例と解説記事を掲載し、現場のInstagram投稿、求人情報、工事相談への案内をまとめています。",
+      "en": "This formwork contractor website uses WordPress to present services and construction projects. Dated case studies and educational articles sit alongside an Instagram project feed, recruitment information and inquiry routes for prospective customers."
     },
     "features": [
       {
@@ -903,8 +903,8 @@ export const projectInsights = {
   "kouyo": {
     "id": "kouyo",
     "summary": {
-      "ja": "土木工事と建築工事を分けて案内する建設会社サイト。工事分野がわかる施工事例と写真を掲載し、対応業務の確認から採用情報や問い合わせへ進めます。",
-      "en": "A construction company website separating civil engineering and building services. Categorized project photographs and case pages help visitors identify relevant experience, with company details, recruitment information and inquiry links available from the main navigation."
+      "ja": "土木工事と建築工事を分けて紹介する建設会社サイトです。工事分野を確認できる施工事例と写真を掲載し、対応業務の確認から採用情報や問い合わせへ進める構成です。",
+      "en": "This construction company website separates civil engineering and building services. Categorized project photographs and case pages help visitors identify relevant experience, with company details, recruitment information and inquiry links available from the main navigation."
     },
     "features": [
       {
@@ -950,8 +950,8 @@ export const projectInsights = {
   "carche": {
     "id": "carche",
     "summary": {
-      "ja": "中古車買取の相談を受け付けるLP。査定事例と手続きの流れを画像で説明し、LINE相談の入口、電話、氏名・電話番号・地域を入力するフォームを配置しています。",
-      "en": "A used-car purchase inquiry landing page presenting valuation examples and the transaction process. Visitors can choose a LINE contact entry, telephone link or a short inquiry form collecting their name, phone number and area."
+      "ja": "中古車買取の相談を受け付けるランディングページです。査定事例と手続きの流れを画像で説明し、LINE相談への案内、電話、氏名・電話番号・地域を入力するフォームを設けています。",
+      "en": "This used-car purchase inquiry landing page presents valuation examples and the transaction process. Visitors can choose a LINE contact entry, telephone link or a short inquiry form collecting their name, phone number and area."
     },
     "features": [
       {
@@ -987,8 +987,8 @@ export const projectInsights = {
   "orisyanace": {
     "id": "orisyanace",
     "summary": {
-      "ja": "ボトルと装飾を選び、オリジナル商品の注文内容を組み立てる画面。テンプレート・本数・オプション・配送希望を整理し、LINEへ送る注文文を確認・コピーできます。",
-      "en": "A custom bottle order configurator with template, quantity, decoration and delivery choices. Customers can review the assembled order, copy its text and follow the LINE contact route, with age confirmation presented before alcohol-related browsing."
+      "ja": "ボトルと装飾を選び、オリジナル商品の注文内容を組み立てる画面です。テンプレート・本数・オプション・配送希望を整理し、LINEへ送る注文文を確認・コピーできます。",
+      "en": "This custom bottle order configurator provides template, quantity, decoration and delivery choices. Customers can review the assembled order, copy its text and follow the LINE contact route, with age confirmation presented before alcohol-related browsing."
     },
     "features": [
       {
@@ -1039,8 +1039,8 @@ export const projectInsights = {
   "the-golf-house": {
     "id": "the-golf-house",
     "summary": {
-      "ja": "個室インドアゴルフの店舗・料金・レッスンを案内するサイト。日本語・英語・中国語の入口があり、初回体験のLINE窓口と会員専用の外部予約ページを分けています。",
-      "en": "An indoor golf website presenting locations, plans and instructors, with Japanese, English and Chinese entry points. Trial visitors are directed to LINE, while existing members receive a separate link to the external booking service."
+      "ja": "個室インドアゴルフの店舗・料金・レッスンを紹介するサイトです。日本語・英語・中国語のページを案内し、初回体験のLINE窓口と会員専用の外部予約ページを分けています。",
+      "en": "This indoor golf website presents locations, plans and instructors, with Japanese, English and Chinese entry points. Trial visitors are directed to LINE, while existing members receive a separate link to the external booking service."
     },
     "features": [
       {
@@ -1091,8 +1091,8 @@ export const projectInsights = {
   "lounge-range": {
     "id": "lounge-range",
     "summary": {
-      "ja": "会員制インドアゴルフの店舗を地域別に探せるサイト。店舗一覧から各店の紹介へ進め、開業情報や会員向け情報、加盟・取材など目的別の相談窓口を設けています。",
-      "en": "A membership golf website with a regional location directory and individual venue pages. Opening announcements and membership information support discovery, while separate inquiry routes address franchise partnerships, media requests and event-space use."
+      "ja": "会員制インドアゴルフの店舗を地域別に探せるサイトです。店舗一覧から各店の紹介へ進め、開業情報や会員向け情報、加盟・取材など目的別の相談窓口を設けています。",
+      "en": "This membership golf website provides a regional location directory and individual venue pages. Opening announcements and membership information support discovery, while separate inquiry routes address franchise partnerships, media requests and event-space use."
     },
     "features": [
       {
@@ -1142,8 +1142,8 @@ export const projectInsights = {
   "loun9ine": {
     "id": "loun9ine",
     "summary": {
-      "ja": "ゴルフラウンジの設備・店舗・レッスンを紹介するサイト。設備動画や料金プランから利用を検討でき、体験予約の流れを説明して外部のhacomono予約へ案内します。",
-      "en": "A golf lounge website introducing facilities, locations, instructors and lesson options. Embedded facility videos and pricing information support comparison, while the trial-booking guide links visitors to the external hacomono reservation service."
+      "ja": "ゴルフラウンジの設備・店舗・レッスンを紹介するサイトです。設備動画や料金プランから利用を検討でき、体験予約の流れを説明して外部のhacomono予約へご案内しています。",
+      "en": "This golf lounge website introduces facilities, locations, instructors and lesson options. Embedded facility videos and pricing information support comparison, while the trial-booking guide links visitors to the external hacomono reservation service."
     },
     "features": [
       {
@@ -1189,8 +1189,8 @@ export const projectInsights = {
   "saucony": {
     "id": "saucony",
     "summary": {
-      "ja": "ランニングシューズのShopify公式ストア。性別・利用シーン・モデル別のカテゴリから商品へ進め、レビューやお気に入り、会員ページを使って購入を検討できます。",
-      "en": "A Shopify footwear store with product navigation by gender, activity and model family. Reviews, favorites and customer account routes support product comparison, while new-arrival and sale collections provide additional paths into the catalog."
+      "ja": "ランニングシューズのShopify公式ストアです。性別・利用シーン・モデル別のカテゴリから商品へ進め、レビューやお気に入り、会員ページを使って購入を検討できます。",
+      "en": "This Shopify footwear store provides product navigation by gender, activity and model family. Reviews, favorites and customer account routes support product comparison, while new-arrival and sale collections provide additional paths into the catalog."
     },
     "features": [
       {
@@ -1231,8 +1231,8 @@ export const projectInsights = {
   "ohora": {
     "id": "ohora",
     "summary": {
-      "ja": "ジェルネイルの商品を種類・長さ・用途から選べるShopifyストア。レビューやお気に入りを表示し、初心者向けセットと使い方ガイドからカートへ進める構成です。",
-      "en": "A Shopify nail store with collections organized by product type, length and use. Reviews and favorites support selection, while starter sets, application guidance and visible add-to-cart controls help visitors move from discovery toward purchase."
+      "ja": "ジェルネイルの商品を種類・長さ・用途から選べるShopifyストアです。レビューやお気に入りを表示し、初心者向けセットと使い方ガイドからカートへ進める構成です。",
+      "en": "This Shopify nail store provides collections organized by product type, length and use. Reviews and favorites support selection, while starter sets, application guidance and visible add-to-cart controls help visitors move from discovery toward purchase."
     },
     "features": [
       {
@@ -1278,8 +1278,8 @@ export const projectInsights = {
   "brighte": {
     "id": "brighte",
     "summary": {
-      "ja": "美容家電とケア用品のブランド・通販サイト。製品ごとの説明と価格から商品ページへ進み、カート・会員ページ、取扱店舗、FAQなど購入前後の情報を確認できます。",
-      "en": "A beauty device store combining detailed product presentations with shopping routes. Product pages and pricing lead toward the cart, while account access, retailer information and frequently asked questions support customers before and after purchase."
+      "ja": "美容家電とケア用品のブランド・通販サイトです。製品ごとの説明と価格から商品ページへ進み、カート・会員ページ、取扱店舗、FAQなど購入前後の情報を確認できます。",
+      "en": "This beauty device store combines detailed product presentations with shopping routes. Product pages and pricing lead toward the cart, while account access, retailer information and frequently asked questions support customers before and after purchase."
     },
     "features": [
       {
@@ -1325,8 +1325,8 @@ export const projectInsights = {
   "carome": {
     "id": "carome",
     "summary": {
-      "ja": "スキンケア・アクセサリーを扱うShopifyストア。商品一覧にレビュー・価格・在庫状態を表示し、単品の購入と定期購入の案内、会員ページへの入口を分けています。",
-      "en": "A Shopify beauty and accessories store showing product reviews, prices and stock status directly in the catalog. Product pages, customer account access and a separate subscription route organize both one-time shopping and recurring purchase information."
+      "ja": "スキンケア・アクセサリーを扱うShopifyストアです。商品一覧にレビュー・価格・在庫状態を表示し、単品の購入と定期購入の案内、会員ページへの入口を分けています。",
+      "en": "This Shopify beauty and accessories store displays product reviews, prices and stock status directly in the catalog. Product pages, customer account access and a separate subscription route organize both one-time shopping and recurring purchase information."
     },
     "features": [
       {
@@ -1367,8 +1367,8 @@ export const projectInsights = {
   "nemuli": {
     "id": "nemuli",
     "summary": {
-      "ja": "寝具の通販とマットレス選びを支援するShopifyサイト。体型・寝姿勢などを尋ねる診断ページ、商品カテゴリ、睡眠コラムを組み合わせて商品理解を助けます。",
-      "en": "A Shopify bedding website centered on a mattress recommendation questionnaire. Body and sleep-related questions, product categories, explanatory diagrams and sleep articles give visitors several ways to understand the range before exploring the relevant purchase options."
+      "ja": "寝具の通販とマットレス選びを支援するShopifyサイトです。体型・寝姿勢などを尋ねる診断ページ、商品カテゴリ、睡眠コラムを組み合わせて商品理解を助けます。",
+      "en": "This Shopify bedding website is centered on a mattress recommendation questionnaire. Body and sleep-related questions, product categories, explanatory diagrams and sleep articles give visitors several ways to understand the range before exploring the relevant purchase options."
     },
     "features": [
       {
@@ -1418,8 +1418,8 @@ export const projectInsights = {
   "nuset": {
     "id": "nuset",
     "summary": {
-      "ja": "スキンケア製品の特徴と購入導線をまとめたShopifyサイト。成分・容量・価格を商品ごとに示し、ブランド解説、購入ガイド、FAQ、カートと会員ページを備えています。",
-      "en": "A Shopify skincare website connecting brand information with product shopping. Ingredient explanations, product sizes and prices support comparison, while a shopping guide, FAQ, customer accounts and cart controls provide the practical information needed to place an order."
+      "ja": "スキンケア製品の特徴と購入導線をまとめたShopifyサイトです。成分・容量・価格を商品ごとに示し、ブランド解説、購入ガイド、FAQ、カートと会員ページを備えています。",
+      "en": "This Shopify skincare website connects brand information with product shopping. Ingredient explanations, product sizes and prices support comparison, while a shopping guide, FAQ, customer accounts and cart controls provide the practical information needed to place an order."
     },
     "features": [
       {
@@ -1455,8 +1455,8 @@ export const projectInsights = {
   "anker": {
     "id": "anker",
     "summary": {
-      "ja": "充電器・音響機器などを扱うShopify公式ストア。製品名や用途による検索、カテゴリ一覧、レビュー付き商品カード、会員サービスや法人窓口をまとめています。",
-      "en": "A Shopify electronics store spanning charging, audio and other product categories. Search by product name or use, review-bearing product cards, customer account services and a business customer route help different visitors navigate a broad catalog."
+      "ja": "充電器・音響機器などを扱うShopify公式ストアです。製品名や用途による検索、カテゴリ一覧、レビュー付き商品カード、会員サービスや法人窓口をまとめています。",
+      "en": "This Shopify electronics store covers charging, audio and other product categories. Search by product name or use, review-bearing product cards, customer account services and a business customer route help different visitors navigate a broad catalog."
     },
     "features": [
       {
@@ -1492,8 +1492,8 @@ export const projectInsights = {
   "moft": {
     "id": "moft",
     "summary": {
-      "ja": "スマートフォン・PC周辺用品のShopifyストア。対応機種と用途から商品・セットを探せ、カラーやレビューを確認しながら選べる構成で、予約販売も案内しています。",
-      "en": "A Shopify accessories store organizing products and bundles around device compatibility and everyday use. Product reviews and collection pages support comparison, while limited bundles and clearly labeled preorder campaigns give visitors distinct shopping options."
+      "ja": "スマートフォン・PC周辺用品のShopifyストアです。対応機種と用途から商品・セットを探せ、カラーやレビューを確認しながら選べる構成で、予約販売も案内しています。",
+      "en": "This Shopify accessories store organizes products and bundles around device compatibility and everyday use. Product reviews and collection pages support comparison, while limited bundles and clearly labeled preorder campaigns give visitors distinct shopping options."
     },
     "features": [
       {
@@ -1539,8 +1539,8 @@ export const projectInsights = {
   "laprotein": {
     "id": "laprotein",
     "summary": {
-      "ja": "プロテインの味・容量別の商品紹介から通常購入・定期購入へつなぐECサイト。商品画像、栄養情報、数量選択、購入者レビューをまとめ、購入前の比較を支える構成です。",
-      "en": "A protein storefront that connects flavor and pack-size information with one-off and subscription purchasing. Product galleries, nutrition information, quantity controls and customer reviews help shoppers compare the range before choosing a product."
+      "ja": "プロテインの味・容量別の商品紹介から通常購入・定期購入へつなぐECサイトです。商品画像、栄養情報、数量選択、購入者レビューをまとめ、購入前の比較を支える構成です。",
+      "en": "This protein storefront connects flavor and pack-size information with one-off and subscription purchasing. Product galleries, nutrition information, quantity controls and customer reviews help shoppers compare the range before choosing a product."
     },
     "features": [
       {
@@ -1580,8 +1580,8 @@ export const projectInsights = {
   "misshelly": {
     "id": "misshelly",
     "summary": {
-      "ja": "ヘアケア商品の単品・セット・詰め替えを紹介するブランドEC。商品画像の拡大、使用方法・成分の説明、レビュー、数量選択を一つの商品ページに集約しています。",
-      "en": "A haircare storefront covering individual products, bundles and refills. Its product pages combine zoomable photography, usage and ingredient information, customer reviews and quantity selection, connecting the brand story with an informed purchasing journey."
+      "ja": "ヘアケア商品の単品・セット・詰め替えを紹介するブランドECサイトです。商品画像の拡大、使用方法・成分の説明、レビュー、数量選択を一つの商品ページに集約しています。",
+      "en": "This haircare storefront covers individual products, bundles and refills. Its product pages combine zoomable photography, usage and ingredient information, customer reviews and quantity selection, connecting the brand story with an informed purchasing process."
     },
     "features": [
       {
@@ -1621,8 +1621,8 @@ export const projectInsights = {
   "revel": {
     "id": "revel",
     "summary": {
-      "ja": "革財布・小物を用途別に探せるECサイト。限定商品や人気商品の一覧から、素材・寸法の詳細、ラッピング・ロゴの選択、お気に入り登録へ進める構成です。",
-      "en": "A leather-goods store organized by product use, limited collections and popular items. Detailed pages explain materials and dimensions and expose gift-wrapping and logo choices, wishlist controls and product reviews to support purchase decisions."
+      "ja": "革財布・小物を用途別に探せるECサイトです。限定商品や人気商品の一覧から、素材・寸法の詳細、ラッピング・ロゴの選択、お気に入り登録へ進める構成です。",
+      "en": "This leather-goods store is organized by product use, limited collections and popular items. Detailed pages explain materials and dimensions and provide gift-wrapping and logo choices, wishlist features and product reviews to support purchase decisions."
     },
     "features": [
       {
@@ -1662,8 +1662,8 @@ export const projectInsights = {
   "mitsuboshi": {
     "id": "mitsuboshi",
     "summary": {
-      "ja": "天然素材の衣服とストールを扱うECサイト。衣類の種類別ナビゲーションに加え、自宅試着の案内、素材やものづくりのコラムを購入導線と組み合わせています。",
-      "en": "A clothing and stole storefront organized by garment type. Home-fitting guidance, material stories and editorial articles complement the product collections, while keyword search, account access and a shopping bag connect discovery with purchasing."
+      "ja": "天然素材の衣服とストールを扱うECサイトです。衣類の種類別ナビゲーションに加え、自宅試着の案内、素材やものづくりのコラムを購入導線と組み合わせています。",
+      "en": "This clothing and stole storefront is organized by garment type. Home-fitting guidance, material stories and editorial articles complement the product collections, while keyword search, account access and a shopping bag connect discovery with purchasing."
     },
     "features": [
       {
@@ -1749,8 +1749,8 @@ export const projectInsights = {
   "runtrip": {
     "id": "runtrip",
     "summary": {
-      "ja": "ランニング用品をキーワード・ブランド・特集から探せるECサイト。シューズやウェアの商品一覧に、用途に合わせた特集と関連マガジンを組み合わせています。",
-      "en": "A running-goods storefront combining keyword search, brand navigation and product collections. Shoe and apparel listings are supported by use-case features and links to related magazine articles, helping visitors move from running advice to suitable equipment."
+      "ja": "ランニング用品をキーワード・ブランド・特集から探せるECサイトです。シューズやウェアの商品一覧に、用途に合わせた特集と関連マガジンを組み合わせています。",
+      "en": "This running-goods storefront combines keyword search, brand navigation and product collections. Shoe and apparel listings are supported by use-case features and links to related magazine articles, helping visitors move from running advice to suitable equipment."
     },
     "features": [
       {
@@ -1786,8 +1786,8 @@ export const projectInsights = {
   "brooklyn": {
     "id": "brooklyn",
     "summary": {
-      "ja": "革製品をカテゴリー・色・革の種類から選べるECサイト。男女別ランキング、商品バリエーション、オーダーの案内、店舗紹介を横断して商品を検討できます。",
-      "en": "A leather-goods storefront with navigation by product category, color and leather type. Separate rankings, product variants, custom-order guidance and store information give shoppers several ways to compare products and explore the brand’s offering."
+      "ja": "革製品をカテゴリー・色・革の種類から選べるECサイトです。男女別ランキング、商品バリエーション、オーダーの案内、店舗紹介を横断して商品を検討できます。",
+      "en": "This leather-goods storefront provides navigation by product category, color and leather type. Separate rankings, product variants, custom-order guidance and store information give shoppers several ways to compare products and explore the brand’s offering."
     },
     "features": [
       {
@@ -1823,8 +1823,8 @@ export const projectInsights = {
   "fumikoda": {
     "id": "fumikoda",
     "summary": {
-      "ja": "バッグ・小物のECとブランド情報を統合したサイト。日本語・英語・中国語と通貨の切り替えに対応し、商品コレクション、お試し購入、素材や製造背景を紹介します。",
-      "en": "A bag and accessory storefront combining shopping with brand information. Visible language and currency selectors accompany product collections, trial-purchase guidance and stories about materials and manufacturing, supporting both domestic and international product discovery."
+      "ja": "バッグ・小物のECとブランド情報を統合したサイトです。日本語・英語・中国語と通貨の切り替えに対応し、商品コレクション、お試し購入、素材や製造背景を紹介しています。",
+      "en": "This bag and accessory storefront combines shopping with brand information. Visible language and currency selectors accompany product collections, trial-purchase guidance and stories about materials and manufacturing, supporting both domestic and international product discovery."
     },
     "features": [
       {
@@ -1860,8 +1860,8 @@ export const projectInsights = {
   "actus": {
     "id": "actus",
     "summary": {
-      "ja": "家具・雑貨をカテゴリー・ブランド・ランキングから探せるECサイト。お気に入りや閲覧履歴、スタッフのスタイリング、住所を知らずに贈れるeギフトの案内を備えています。",
-      "en": "A furniture and homewares store offering category, brand and ranking-based discovery. Wishlist and browsing-history controls sit alongside staff styling content and e-gift guidance, connecting inspiration, product comparison and gift selection within one shopping site."
+      "ja": "家具・雑貨をカテゴリー・ブランド・ランキングから探せるECサイトです。お気に入りや閲覧履歴、スタッフのスタイリング、住所を知らずに贈れるeギフトの案内を備えています。",
+      "en": "This furniture and homewares store offers category, brand and ranking-based discovery. Wishlist and browsing-history controls sit alongside staff styling content and e-gift guidance, connecting inspiration, product comparison and gift selection within one shopping site."
     },
     "features": [
       {
@@ -1897,8 +1897,8 @@ export const projectInsights = {
   "fashionwalker": {
     "id": "fashionwalker",
     "summary": {
-      "ja": "ブランド横断で服・靴・バッグを探せるファッションEC。カテゴリー検索、集計期間を変えられるランキング、お気に入りやマイブランドの導線を用意しています。",
-      "en": "A multi-brand fashion store with category and keyword discovery for clothing, footwear and accessories. Its public interface includes adjustable ranking periods, item favorites and personal-brand controls, enabling focused browsing across a broad product catalog."
+      "ja": "ブランド横断で服・靴・バッグを探せるファッションECサイトです。カテゴリー検索、集計期間を変えられるランキング、お気に入りやマイブランドの導線を用意しています。",
+      "en": "This multi-brand fashion store provides category and keyword discovery for clothing, footwear and accessories. Its public interface includes adjustable ranking periods, item favorites and personal-brand controls, enabling focused browsing across a broad product catalog."
     },
     "features": [
       {
@@ -1939,8 +1939,8 @@ export const projectInsights = {
   "magaseek": {
     "id": "magaseek",
     "summary": {
-      "ja": "レディース・メンズ・キッズ・スポーツをまとめたファッションEC。予約商品やクーポン対象商品を探せる導線、マイブランド、閲覧履歴、条件付きランキングを備えています。",
-      "en": "A multi-category fashion store spanning women, men, children and sports. Public navigation highlights preorder and coupon-eligible products, while personal-brand controls, browsing history and configurable rankings help users narrow the catalog to their shopping interests."
+      "ja": "レディース・メンズ・キッズ・スポーツをまとめたファッションECサイトです。予約商品やクーポン対象商品を探せる導線、マイブランド、閲覧履歴、条件付きランキングを備えています。",
+      "en": "This fashion store offers categories for women, men and children, as well as sportswear. Public navigation highlights preorder and coupon-eligible products, while personal-brand controls, browsing history and configurable rankings help users narrow the catalog to their shopping interests."
     },
     "features": [
       {
@@ -1981,7 +1981,7 @@ export const projectInsights = {
   "family-town": {
     "id": "family-town",
     "summary": {
-      "ja": "不二家のグッズや菓子を販売する公式EC。ぬいぐるみ・生活雑貨・冷凍スイーツなどの商品分類、新商品とランキング、会員ページや買い物かごを備えています。",
+      "ja": "不二家のグッズや菓子を販売する公式ECサイトです。ぬいぐるみ・生活雑貨・冷凍スイーツなどの商品分類、新商品とランキング、会員ページや買い物かごを備えています。",
       "en": "Fujiya’s official store groups character merchandise, confectionery and chilled or frozen products into distinct shopping categories. New-product and ranking sections complement member access and cart controls, with public guidance covering delivery and shopping conditions."
     },
     "features": [
@@ -2018,8 +2018,8 @@ export const projectInsights = {
   "vivum-sallier": {
     "id": "vivum-sallier",
     "summary": {
-      "ja": "ヘアサロンとフェイシャルスパの紹介に、ケア商品のECを組み合わせたサイト。メニュー・プロフィールから外部のSquare予約へ案内し、商品購入や記事閲覧へつなぎます。",
-      "en": "A hair-salon and facial-spa website combined with a care-product store. Service and profile information route visitors to an external Square appointment page, while product listings, cart access and journal content support a separate shopping journey."
+      "ja": "ヘアサロンとフェイシャルスパの紹介に、ケア商品のECを組み合わせたサイトです。メニュー・プロフィールから外部のSquare予約へ案内し、商品購入や記事閲覧へつなぎます。",
+      "en": "This website combines information about a hair salon and facial spa with a care-product store. Service and profile information route visitors to an external Square appointment page, while product listings, cart access and journal content support a separate shopping process."
     },
     "features": [
       {
@@ -2059,8 +2059,8 @@ export const projectInsights = {
   "tachibana": {
     "id": "tachibana",
     "summary": {
-      "ja": "警察実務・法律書の書籍EC。月刊誌・単行本・電子書籍を分け、分野別分類とキーワード検索、新刊・ランキングから目的の本を探せる構成です。文字サイズの変更も備えています。",
-      "en": "A specialist publishing store separating magazines, printed books and digital editions. Subject categories, keyword search, new releases and rankings guide readers to relevant titles, while text-size controls and cart totals support catalog browsing and purchasing."
+      "ja": "警察実務・法律書の書籍ECサイトです。月刊誌・単行本・電子書籍を分け、分野別分類とキーワード検索、新刊・ランキングから目的の本を探せる構成です。文字サイズの変更も備えています。",
+      "en": "This specialist publishing store separates magazines, printed books and digital editions. Subject categories, keyword search, new releases and rankings guide readers to relevant titles, while text-size controls and cart totals support catalog browsing and purchasing."
     },
     "features": [
       {
@@ -2096,8 +2096,8 @@ export const projectInsights = {
   "setoguchi": {
     "id": "setoguchi",
     "summary": {
-      "ja": "精肉の用途・部位・重量から商品を選べるギフトEC。商品詳細で包装・熨斗・名入れ・紙袋を選択でき、複数のお届け先設定や冷凍配送の案内へつなぎます。",
-      "en": "A meat and gift storefront organized by cooking use, cut and weight. Product pages expose wrapping, gift-label, name and bag options, with guidance for multiple delivery addresses and frozen shipping to support detailed gift orders."
+      "ja": "精肉の用途・部位・重量から商品を選べるギフトECサイトです。商品詳細で包装・熨斗・名入れ・紙袋を選択でき、複数のお届け先設定や冷凍配送の案内へつなぎます。",
+      "en": "This meat and gift storefront is organized by cooking use, cut and weight. Product pages provide wrapping, gift-label, name and bag options, with guidance for multiple delivery addresses and frozen shipping to support detailed gift orders."
     },
     "features": [
       {
@@ -2137,8 +2137,8 @@ export const projectInsights = {
   "koredake": {
     "id": "koredake",
     "summary": {
-      "ja": "プロテインの形状・栄養成分・原材料を比較しながら選べるブランドEC。大袋と個包装の商品導線に、栄養量の図表、原材料表示、FAQと会員ログインを組み合わせています。",
-      "en": "A protein brand storefront that presents pack formats, nutrient information and ingredients together. Separate powder and shake-pack routes, nutritional charts, ingredient references, FAQs and account access help visitors evaluate products before moving into the store."
+      "ja": "プロテインの形状・栄養成分・原材料を比較しながら選べるブランドECサイトです。大袋と個包装の商品導線に、栄養量の図表、原材料表示、FAQと会員ログインを組み合わせています。",
+      "en": "This protein brand storefront presents pack formats, nutrient information and ingredients together. Separate powder and shake-pack routes, nutritional charts, ingredient references, FAQs and account access help visitors evaluate products before moving into the store."
     },
     "features": [
       {
@@ -2178,8 +2178,8 @@ export const projectInsights = {
   "upt": {
     "id": "upt",
     "summary": {
-      "ja": "コスメ・スキンケアを商品種別とキーワードで探せるECサイト。単品・セット・定期コースを区別し、商品紹介から会員ページ、カート、取扱店舗の案内へつなぎます。",
-      "en": "A cosmetics and skincare storefront with keyword and category search. Individual items, sets and subscription offers are clearly separated, with routes to product information, account access, cart controls and retail stockists supporting different purchasing needs."
+      "ja": "コスメ・スキンケアを商品種別とキーワードで探せるECサイトです。単品・セット・定期コースを区別し、商品紹介から会員ページ、カート、取扱店舗の案内へつなぎます。",
+      "en": "This cosmetics and skincare storefront provides keyword and category search. Individual items, sets and subscription offers are clearly separated, with routes to product information, account access, cart controls and retail stockists supporting different purchasing needs."
     },
     "features": [
       {
@@ -2215,8 +2215,8 @@ export const projectInsights = {
   "kutoon": {
     "id": "kutoon",
     "summary": {
-      "ja": "子ども靴レンタルの検索カタログ。メーカーと普段のサイズから中敷き寸法の目安を示し、サイズ・ブランド・色・状態・貸出可否で商品を絞り込める構成です。",
-      "en": "A children’s shoe-rental catalog with a size-assistance interface based on the child’s existing shoe brand and size. Filters cover insole dimensions, brand, color, condition and rental availability, with product-level cart and availability controls."
+      "ja": "子ども靴レンタルの検索カタログです。メーカーと普段のサイズから中敷き寸法の目安を示し、サイズ・ブランド・色・状態・貸出可否で商品を絞り込める構成です。",
+      "en": "This children’s shoe-rental catalog provides a size-assistance interface based on the child’s existing shoe brand and size. Filters cover insole dimensions, brand, color, condition and rental availability, with product-level cart and availability controls."
     },
     "features": [
       {
@@ -2257,8 +2257,8 @@ export const projectInsights = {
   "japan-trend-shop": {
     "id": "japan-trend-shop",
     "summary": {
-      "ja": "日本の商品を海外へ紹介する越境ECの記録画面。商品検索と用途別カテゴリー、言語・通貨の選択、商品カードからのカート追加を確認できます。現行サイトの動作は未確認です。",
-      "en": "An archived view of an international store for Japanese goods shows product search, category navigation, language and currency selectors, and product-card cart buttons. The live site could not be inspected, so these describe the saved screen rather than current operation."
+      "ja": "日本の商品を海外へ紹介する越境ECの記録画面です。商品検索と用途別カテゴリー、言語・通貨の選択、商品カードからのカート追加を確認できます。現行サイトの動作は未確認です。",
+      "en": "The archived view of an international store for Japanese goods shows product search, category navigation, language and currency selectors, and product-card cart buttons. The live site could not be inspected, so these describe the saved screen rather than current operation."
     },
     "features": [
       {
@@ -2296,8 +2296,8 @@ export const projectInsights = {
   "carjurajah": {
     "id": "carjurajah",
     "summary": {
-      "ja": "複数店舗のスパメニューと料金を整理したサロンサイト。初回利用者向けの説明、店舗別キャンペーン、アクセス情報、テーマ別の美容コラムを一つの案内にまとめています。",
-      "en": "A multi-location spa website organizing treatment menus and price lists alongside first-visit guidance. Location-specific campaigns, shop information and categorized beauty columns help visitors compare services and find the appropriate branch before making contact."
+      "ja": "複数店舗のスパメニューと料金を整理したサロンサイトです。初回利用者向けの説明、店舗別キャンペーン、アクセス情報、テーマ別の美容コラムを一つの案内にまとめています。",
+      "en": "This multi-location spa website organizes treatment menus and price lists alongside first-visit guidance. Location-specific campaigns, shop information and categorized beauty columns help visitors compare services and find the appropriate branch before making contact."
     },
     "features": [
       {
@@ -2333,8 +2333,8 @@ export const projectInsights = {
   "kireisalone": {
     "id": "kireisalone",
     "summary": {
-      "ja": "サロンの体験申込と無料カウンセリングを中心に構成したサイト。店舗と希望日時を選ぶ申込導線、施術コースの案内、各店舗の地図と連絡先をまとめています。",
-      "en": "A salon website centered on trial visits and free consultations. Its public pages describe choosing a branch and preferred date for enquiries, with treatment-course information, location maps and contact details supporting the visit-planning process."
+      "ja": "サロンの体験申込と無料カウンセリングを中心に構成したサイトです。店舗と希望日時を選ぶ申込導線、施術コースの案内、各店舗の地図と連絡先をまとめています。",
+      "en": "This salon website is centered on trial visits and free consultations. Its public pages describe choosing a branch and preferred date for enquiries, with treatment-course information, location maps and contact details supporting the visit-planning process."
     },
     "features": [
       {
@@ -2375,8 +2375,8 @@ export const projectInsights = {
   "studio-breath": {
     "id": "studio-breath",
     "summary": {
-      "ja": "ヨガ・ピラティス・スタジオ貸出を分けて紹介する教室サイト。レッスン別の外部予約先、料金プラン、インストラクター情報、Instagram投稿をまとめて閲覧できます。",
-      "en": "A studio website separating yoga, Pilates and studio-rental services. Service-specific links route to external booking providers, while pricing, instructor profiles and embedded Instagram content help visitors choose a class and understand the studio before booking."
+      "ja": "ヨガ・ピラティス・スタジオ貸出を分けて紹介する教室サイトです。レッスン別の外部予約先、料金プラン、インストラクター情報、Instagram投稿をまとめて閲覧できます。",
+      "en": "This studio website separates yoga, Pilates and studio-rental services. Service-specific links route to external booking providers, while pricing, instructor profiles and embedded Instagram content help visitors choose a class and understand the studio before booking."
     },
     "features": [
       {
@@ -2417,8 +2417,8 @@ export const projectInsights = {
   "blackcat-pilates": {
     "id": "blackcat-pilates",
     "summary": {
-      "ja": "少人数ピラティスのサービス・料金・体験案内を整理したサイト。店舗ごとの外部体験予約へ誘導し、初心者向けFAQやブログでレッスン前の疑問を解消する構成です。",
-      "en": "A small-group Pilates website bringing service explanations, pricing and trial guidance together. Location-specific external trial links, beginner FAQs and regularly organized blog content help prospective participants understand the classes and prepare for a first visit."
+      "ja": "少人数ピラティスのサービス・料金・体験案内を整理したサイトです。店舗ごとの外部体験予約ページをご案内し、初めて利用される方向けのFAQやブログにより、受講前に必要な情報を確認できる構成です。",
+      "en": "This small-group Pilates website brings service explanations, pricing and trial guidance together. Location-specific external trial links, beginner FAQs and regularly organized blog content help prospective participants understand the classes and prepare for a first visit."
     },
     "features": [
       {
@@ -2459,8 +2459,8 @@ export const projectInsights = {
   "osaka-bc": {
     "id": "osaka-bc",
     "summary": {
-      "ja": "複数院の美容診療を施術名や悩みから探せるクリニックサイト。施術詳細・料金・院情報を整理し、外部のWeb予約ページや問い合わせへ進める構成です。",
-      "en": "A multi-clinic website organizing aesthetic treatments by procedure and visitor concern. Treatment information, price guidance and clinic details are linked with an external web-booking service and enquiry routes, helping visitors identify an appropriate consultation path."
+      "ja": "複数院の美容診療を施術名や悩みから探せるクリニックサイトです。施術詳細・料金・院情報を整理し、外部のWeb予約ページや問い合わせへ進める構成です。",
+      "en": "This multi-clinic website organizes aesthetic treatments by procedure and visitor concern. Treatment information, price guidance and clinic details are linked with an external web-booking service and enquiry routes, helping visitors identify an appropriate consultation path."
     },
     "features": [
       {
@@ -2496,8 +2496,8 @@ export const projectInsights = {
   "ttc": {
     "id": "ttc",
     "summary": {
-      "ja": "美容外科の施術・料金・症例・医師を整理したサイト。部位別の施術分類、症例写真の詳細表示、料金表やキャンペーン情報を組み合わせ、相談前の比較を支えます。",
-      "en": "A cosmetic-clinic website organizing procedures, prices, case photographs and doctor information. Body-area treatment categories, case-detail displays and campaign pages support comparison before consultation, with clearly separated information routes rather than a single undifferentiated service list."
+      "ja": "美容外科の施術・料金・症例・医師を整理したサイトです。部位別の施術分類、症例写真の詳細表示、料金表やキャンペーン情報を組み合わせ、相談前の比較を支えます。",
+      "en": "This cosmetic-clinic website organizes procedures, prices, case photographs and doctor information. Body-area treatment categories, case details and campaign pages support comparison before consultation, with clearly organized information and consultation links."
     },
     "features": [
       {
@@ -2533,8 +2533,8 @@ export const projectInsights = {
   "aloop": {
     "id": "aloop",
     "summary": {
-      "ja": "肌の悩みから施術を探せるクリニックサイト。悩みタグによるメニュー分類と、施術ごとのプラン・料金表示を備え、外部の予約ページへ案内する構成です。",
-      "en": "A dermatology-clinic website that organizes treatments around skin concerns. Concern tags, treatment-specific plan and price panels, doctor information and links to an external booking service connect information discovery with a suitable consultation route."
+      "ja": "肌の悩みから施術を探せるクリニックサイトです。悩みタグによるメニュー分類と、施術ごとのプラン・料金表示を備え、外部の予約ページへ案内する構成です。",
+      "en": "This dermatology-clinic website organizes treatments around skin concerns. Concern tags, treatment-specific plan and price panels, doctor information and links to an external booking service connect information discovery with a suitable consultation route."
     },
     "features": [
       {
@@ -2570,8 +2570,8 @@ export const projectInsights = {
   "hidaka-dental": {
     "id": "hidaka-dental",
     "summary": {
-      "ja": "マウスピース矯正の検討に必要な情報を一ページに整理したLP。治療例の詳細展開、矯正方法の比較、流れ・費用を掲載し、初診予約や無料相談へ案内します。",
-      "en": "A clear-aligner landing page that organizes treatment examples, comparison information, process and fees in a single journey. Expandable case details and repeated consultation links help visitors review the available information before opening the external first-visit booking route."
+      "ja": "マウスピース矯正の検討に必要な情報を一ページに整理したランディングページです。治療例の詳細展開、矯正方法の比較、流れ・費用を掲載し、初診予約や無料相談へご案内しています。",
+      "en": "This clear-aligner landing page organizes treatment examples, comparison information, process and fees on a single page. Expandable case details and repeated consultation links help visitors review the available information before opening the external first-visit booking route."
     },
     "features": [
       {
@@ -2607,8 +2607,8 @@ export const projectInsights = {
   "takaya-dental": {
     "id": "takaya-dental",
     "summary": {
-      "ja": "インプラントの治療方法・流れ・費用をまとめた専門LP。悩み別のページ内移動、治療選択肢の比較、医院情報を備え、Web予約と相談の導線へつなぎます。",
-      "en": "An implant-dentistry landing page covering treatment options, process and costs. Concern-based in-page navigation and comparison content help readers locate relevant explanations, while clinic information and external booking links provide a clear route toward consultation."
+      "ja": "インプラントの治療方法・流れ・費用をまとめた専門ランディングページです。悩み別のページ内移動、治療選択肢の比較、医院情報を備え、Web予約と相談の導線へつなぎます。",
+      "en": "This implant-dentistry landing page covers treatment options, process and costs. Concern-based in-page navigation and comparison content help readers locate relevant explanations, while clinic information and external booking links provide a clear route toward consultation."
     },
     "features": [
       {
@@ -2644,8 +2644,8 @@ export const projectInsights = {
   "fujisawa-dental": {
     "id": "fujisawa-dental",
     "summary": {
-      "ja": "マウスピース矯正の特長・治療例・費用を集約した専門ページ。ページ内ナビゲーションで説明をたどり、症例や治療手順を確認して矯正相談へ進める構成です。",
-      "en": "A clear-aligner treatment page combining procedure information, case examples and costs. In-page navigation guides visitors through the clinic’s approach and treatment steps, with consultation routes and clinic details placed alongside the information needed to prepare for an enquiry."
+      "ja": "マウスピース矯正の特長・治療例・費用を集約した専門ページです。ページ内ナビゲーションで説明をたどり、症例や治療手順を確認して矯正相談へ進める構成です。",
+      "en": "This clear-aligner treatment page combines procedure information, case examples and costs. In-page navigation guides visitors through the clinic’s approach and treatment steps, with consultation routes and clinic details placed alongside the information needed to prepare for an enquiry."
     },
     "features": [
       {
@@ -2681,8 +2681,8 @@ export const projectInsights = {
   "shelikes": {
     "id": "shelikes",
     "summary": {
-      "ja": "キャリアスクールのコース・料金・受講者事例を一つのLPにまとめたサイト。職種別のコース案内、プラン比較とFAQから、無料体験レッスンの申込へつなぎます。",
-      "en": "A career-school landing page combining role-based course introductions, pricing plans and learner stories. Comparison content, support explanations and FAQs guide visitors toward repeated trial-lesson calls to action within a long-form page focused on course discovery."
+      "ja": "キャリアスクールのコース・料金・受講者事例を一つのLPにまとめたサイトです。職種別のコース案内、プラン比較とFAQから、無料体験レッスンの申込へつなぎます。",
+      "en": "This career-school landing page combines role-based course introductions, pricing plans and learner stories. Comparison content, support explanations and FAQs guide visitors toward repeated trial-lesson calls to action within a long-form page focused on course discovery."
     },
     "features": [
       {
@@ -2723,8 +2723,8 @@ export const projectInsights = {
   "blue-square": {
     "id": "blue-square",
     "summary": {
-      "ja": "三つのヴィラを写真と設備情報で比較できる宿泊サイト。客室ごとの空室確認導線、宿泊検索、アクセス・周辺案内・FAQを組み合わせ、滞在検討から予約へ案内します。",
-      "en": "A villa website presenting three room types through photography and amenity information. Room-specific availability routes and an external accommodation-search widget sit alongside access guidance, nearby activities and FAQs to support stay planning before reservation."
+      "ja": "三つのヴィラを写真と設備情報で比較できる宿泊サイトです。客室ごとの空室確認導線、宿泊検索、アクセス・周辺案内・FAQを組み合わせ、滞在検討から予約へご案内しています。",
+      "en": "This villa website presents three room types through photography and amenity information. Room-specific availability routes and an external accommodation-search widget sit alongside access guidance, nearby activities and FAQs to support stay planning before reservation."
     },
     "features": [
       {
@@ -2765,8 +2765,8 @@ export const projectInsights = {
   "yroom": {
     "id": "yroom",
     "summary": {
-      "ja": "複数施設の客室を、施設・利用シーン・大人と子どもの人数で絞り込めるホテルサイト。価格順の並べ替え、設備やチェックインの説明、施設別の外部予約導線を備えています。",
-      "en": "An apartment-hotel website with room filters for property, trip purpose and adult/child counts. Price sorting, amenity details and check-in guidance complement property-specific external booking links, helping guests compare rooms and prepare for their stay."
+      "ja": "複数施設の客室を、施設・利用シーン・大人と子どもの人数で絞り込めるホテルサイトです。価格順の並べ替え、設備やチェックインの説明、施設別の外部予約導線を備えています。",
+      "en": "This apartment-hotel website provides room filters for property, trip purpose and adult/child counts. Price sorting, amenity details and check-in guidance complement property-specific external booking links, helping guests compare rooms and prepare for their stay."
     },
     "features": [
       {
@@ -2806,8 +2806,8 @@ export const projectInsights = {
   "oga-yamado": {
     "id": "oga-yamado",
     "summary": {
-      "ja": "自然・料理・客室・温泉をテーマ別に紹介する宿泊サイト。写真中心の滞在案内からTriplaの予約ウィジェットへ進め、館内情報や地図、問い合わせを確認できます。",
-      "en": "A resort website organizing the stay around nature, dining, rooms and hot springs. Photo-led content connects with a Tripla booking widget, facility information, maps and enquiry routes, enabling visitors to explore the property before starting a reservation."
+      "ja": "自然・料理・客室・温泉をテーマ別に紹介する宿泊サイトです。写真中心の滞在案内からTriplaの予約ウィジェットへ進め、館内情報や地図、問い合わせを確認できます。",
+      "en": "This resort website organizes the stay around nature, dining, rooms and hot springs. Photo-led content connects with a Tripla booking widget, facility information, maps and enquiry routes, enabling visitors to explore the property before starting a reservation."
     },
     "features": [
       {
@@ -2848,8 +2848,8 @@ export const projectInsights = {
   "yadoito": {
     "id": "yadoito",
     "summary": {
-      "ja": "一棟貸しの宿を歴史・客室・食事から紹介するサイト。建物の物語と写真による案内を組み合わせ、空室検索・外部予約、アクセスやFAQへつなぐ構成です。",
-      "en": "A private-villa website presenting the property through its history, rooms and dining. Illustrated storytelling and photography connect with availability search and external booking, while access details and FAQs provide practical support for planning the stay."
+      "ja": "一棟貸しの宿を歴史・客室・食事から紹介するサイトです。建物の物語と写真による案内を組み合わせ、空室検索・外部予約、アクセスやFAQへつなぐ構成です。",
+      "en": "This private-villa website presents the property through its history, rooms and dining. Illustrated storytelling and photography connect with availability search and external booking, while access details and FAQs provide practical support for planning the stay."
     },
     "features": [
       {
@@ -2890,8 +2890,8 @@ export const projectInsights = {
   "harvestclub": {
     "id": "harvestclub",
     "summary": {
-      "ja": "会員制リゾートの施設選びと利用案内を統合したサイト。各ホテルの写真ギャラリー、会員権の説明、会員向けの空室照会・予約・マイページへの入口を整理しています。",
-      "en": "A resort-membership website connecting destination discovery with member services. Hotel photo galleries and ownership information are separated from public entry points to availability checks, reservations and account access, helping visitors identify the appropriate information or member workflow."
+      "ja": "会員制リゾートの施設選びと利用案内を統合したサイトです。各ホテルの写真ギャラリー、会員権の説明、会員向けの空室照会・予約・マイページへの入口を整理しています。",
+      "en": "This resort-membership website connects destination discovery with member services. Hotel photo galleries and ownership information are separated from public entry points to availability checks, reservations and account access, helping visitors identify the appropriate information or member workflow."
     },
     "features": [
       {
@@ -2937,8 +2937,8 @@ export const projectInsights = {
   "flash-reserve": {
     "id": "flash-reserve",
     "summary": {
-      "ja": "飲食店予約サイトの空席を検知し、LINE・メールで知らせる通知サービス。LINEログイン、通知対象店舗・料金プランの案内を備えています。",
-      "en": "A restaurant availability notification service with LINE and email alerts, LINE sign-in, restaurant information and notification plans."
+      "ja": "飲食店予約サイトの空席を検知し、LINE・メールで知らせる通知サービスです。LINEログイン、通知対象店舗・料金プランの案内を備えています。",
+      "en": "This restaurant availability notification service provides LINE and email alerts, LINE sign-in, restaurant information and notification plans."
     },
     "features": [
       {
@@ -2974,8 +2974,8 @@ export const projectInsights = {
   "visual-anatomy": {
     "id": "visual-anatomy",
     "summary": {
-      "ja": "解剖学コンテンツを会員向けに公開するWordPressサイト。ログイン、会員登録・更新案内、キーワード検索を備えています。",
-      "en": "A WordPress anatomy resource with member-only content, sign-in, membership and renewal guidance, and keyword search."
+      "ja": "解剖学コンテンツを会員向けに公開するWordPressサイトです。ログイン、会員登録・更新案内、キーワード検索を備えています。",
+      "en": "This WordPress anatomy resource provides member-only content, sign-in, membership and renewal guidance, and keyword search."
     },
     "features": [
       {

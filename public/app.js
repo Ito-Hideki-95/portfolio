@@ -320,7 +320,7 @@
         await navigator.clipboard.writeText(copyEmail.dataset.email);
         emailStatus.textContent = en ? 'Email address copied.' : 'メールアドレスをコピーしました。';
       } catch {
-        emailStatus.textContent = en ? 'Please select and copy the email address above.' : '上のメールアドレスを選択してコピーしてください。';
+        emailStatus.textContent = en ? 'Please select and copy the email address above.' : '上記のメールアドレスを選択し、コピーしてご利用ください。';
       }
     });
   }
@@ -332,7 +332,7 @@
   document.querySelectorAll('[data-inquiry]').forEach(link => link.addEventListener('click', () => {
     topic.value = link.dataset.inquiry;
     result.hidden = true;
-    status.textContent = en ? `Selected: ${topic.value}. You can add your budget and timeline below.` : `「${topic.value}」を選択しました。ご予算やご希望を入力できます。`;
+    status.textContent = en ? `Selected: ${topic.value}. You can add your budget and timeline below.` : `「${topic.value}」を選択しました。ご予算やご希望の時期などをご入力いただけます。`;
   }));
   form.addEventListener('input', () => { result.hidden = true; status.textContent = ''; });
   form.addEventListener('submit', event => {
@@ -340,15 +340,15 @@
     const values = new FormData(form);
     const message = String(values.get('message') || '').trim();
     output.value = en ? [
-      'I saw your portfolio and would like to discuss a development project.', '',
+      'I have reviewed your portfolio and would like to discuss a development project.', '',
       `Project: ${values.get('topic')}`, `Budget: ${values.get('budget')}`, `Timeline: ${values.get('timing')}`, '',
-      'My challenge or idea:', message || 'I would like to explain my current situation and discuss how to move forward.', '',
+      'Current requirements and objectives:', message || 'I would like to explain my current situation and discuss how to move forward.', '',
       'Please let me know how you could help and what the next steps would be.',
     ].join('\n') : [
-      'ポートフォリオを拝見し、開発について相談したくご連絡しました。', '',
-      `【相談内容】${values.get('topic')}`, `【予算の目安】${values.get('budget')}`, `【希望時期】${values.get('timing')}`, '',
-      '【困っていること・実現したいこと】', message || 'まずは現状をお伝えし、進め方から相談したいです。', '',
-      '対応可能な範囲と、進め方についてご相談させてください。',
+      'ポートフォリオを拝見し、開発に関するご相談のためご連絡いたしました。', '',
+      `【ご相談内容】${values.get('topic')}`, `【予算の目安】${values.get('budget')}`, `【希望時期】${values.get('timing')}`, '',
+      '【現在の課題・実現したい内容】', message || '現在の状況をご説明したうえで、対応方法や進め方について相談できればと存じます。', '',
+      'ご対応可能な範囲と今後の進め方について、ご案内いただけますと幸いです。',
     ].join('\n');
     const emailDraft = document.querySelector('#email-brief');
     if (emailDraft) {
@@ -356,7 +356,7 @@
       emailDraft.href = 'mailto:' + emailDraft.dataset.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(output.value);
     }
     result.hidden = false;
-    status.textContent = en ? 'Your brief is ready to review and copy. It has not been sent.' : '相談文を作成しました。内容を確認してコピーできます。まだ送信されていません。';
+    status.textContent = en ? 'Your brief is ready to review and copy. It has not been sent.' : 'ご相談文を作成しました。内容をご確認のうえ、コピーしてご利用ください。この操作では送信されません。';
     output.focus({ preventScroll: true });
     result.scrollIntoView({ behavior: scrollBehavior(), block: 'nearest' });
   });
@@ -365,10 +365,10 @@
     try {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
       await navigator.clipboard.writeText(output.value);
-      status.textContent = en ? 'Copied. Paste the brief into your preferred contact channel.' : '相談文をコピーしました。ご利用の連絡先に貼り付けてお送りください。';
+      status.textContent = en ? 'Your project brief has been copied. You can paste it into your preferred contact channel.' : 'ご相談文をコピーしました。ご利用の連絡手段のメッセージ欄に貼り付けてお送りいただけます。';
     } catch {
       output.focus(); output.select();
-      status.textContent = en ? 'Automatic copying is unavailable. Please copy the selected text manually.' : '自動コピーを利用できませんでした。選択された相談文を、コピー操作でコピーしてください。';
+      status.textContent = en ? 'Automatic copying is unavailable. Please copy the selected text manually.' : '自動コピーを利用できませんでした。選択されているご相談文を手動でコピーしてご利用ください。';
     }
   });
 })();

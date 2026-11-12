@@ -54,8 +54,8 @@ export const projects = [
       "en": "ONE PILATES STUDIO"
     },
     "description": {
-      "ja": "女性向けマシンピラティスのスタジオサイト。プログラム・料金・店舗情報から体験予約へつながる構成です。",
-      "en": "A women's Pilates studio website, bringing programs, pricing and studio information together with trial booking."
+      "ja": "女性向けマシンピラティスのスタジオサイトです。プログラム・料金・店舗情報から体験予約へつながる構成です。",
+      "en": "This women's Pilates studio website presents programs, pricing and studio information, with links to trial booking."
     },
     "image": "/images/projects/one-pilates.webp",
     "imageKind": "screen",
@@ -75,8 +75,8 @@ export const projects = [
       "en": "PIAS Group — Graduate Recruitment"
     },
     "description": {
-      "ja": "美容・化粧品を手がけるピアスグループの採用サイト。職種や事業の魅力、応募情報を紹介しています。",
-      "en": "A graduate recruitment website for the beauty and cosmetics group, introducing careers, its businesses and application information."
+      "ja": "美容・化粧品を手がけるピアスグループの採用サイトです。職種や事業の魅力、応募情報を紹介しています。",
+      "en": "This graduate recruitment website presents career opportunities, business areas and application information for the beauty and cosmetics group."
     },
     "image": "/images/projects/pias-recruit-screen.jpg",
     "imageKind": "screen",
@@ -96,8 +96,8 @@ export const projects = [
       "en": "tasumo"
     },
     "description": {
-      "ja": "クロレラを使った食品ブランドの公式ストア。商品の世界観と日々の取り入れ方を伝えるECサイトです。",
-      "en": "An online store for a chlorella food brand, pairing product stories with ideas for everyday use."
+      "ja": "クロレラを使用した食品ブランドの公式ストアです。商品の特徴と日々の生活への取り入れ方を紹介しています。",
+      "en": "This chlorella food store introduces product features and practical ways to incorporate the range into everyday meals."
     },
     "image": "/images/projects/tasumo.webp",
     "imageKind": "screen",
@@ -117,8 +117,8 @@ export const projects = [
       "en": "Demae-can — Careers"
     },
     "description": {
-      "ja": "事業・プロダクト・働く環境を紹介する採用サイト。会社への理解から募集情報へ案内します。",
-      "en": "A careers website introducing the delivery platform's business, products and workplace, with routes to open positions."
+      "ja": "事業内容・プロダクト・職場環境を紹介する採用サイトです。会社情報の確認から募集情報へ進める構成です。",
+      "en": "This careers website introduces the delivery platform's business, products and workplace, with routes to open positions."
     },
     "image": "/images/projects/demaecan-recruit.webp",
     "imageKind": "screen",
@@ -138,8 +138,8 @@ export const projects = [
       "en": "PARTNERS"
     },
     "description": {
-      "ja": "不動産を中心とする資産運用の企業サイト。ブランドメッセージとサービス情報を伝える構成です。",
-      "en": "A corporate website for a real estate and asset advisory company, presenting its brand message and services."
+      "ja": "不動産を中心とする資産運用の企業サイトです。ブランドメッセージとサービス情報を伝える構成です。",
+      "en": "This corporate website presents the brand message and services of a real estate and asset advisory company."
     },
     "image": "/images/projects/partners.webp",
     "imageKind": "screen",
@@ -158,8 +158,8 @@ export const projects = [
       "en": "ART VAN LINES"
     },
     "description": {
-      "ja": "輸送・倉庫・人材サービスを紹介する物流企業のサイト。事業の強みや拠点情報を整理しています。",
-      "en": "A logistics company website covering transport, warehousing and staffing, with company strengths and location information."
+      "ja": "輸送・倉庫・人材サービスを紹介する物流企業のサイトです。事業の強みや拠点情報を整理しています。",
+      "en": "This logistics company website covers transport, warehousing and staffing, with company strengths and location information."
     },
     "image": "/images/projects/artvanlines.webp",
     "imageKind": "screen",
@@ -178,8 +178,8 @@ export const projects = [
       "en": "Hakuhodo Technologies — Careers"
     },
     "description": {
-      "ja": "テクノロジー戦略会社のキャリア採用サイト。事業領域や働く人を通して、仕事の魅力を伝えます。",
-      "en": "A technology company's recruitment website, introducing its business areas, people and career opportunities."
+      "ja": "テクノロジー戦略会社のキャリア採用サイトです。事業領域や社員紹介を通じて、業務内容や職場環境を伝えています。",
+      "en": "This technology recruitment website presents business areas, employee profiles and career opportunities."
     },
     "image": "/images/projects/hakuhodo-technologies.webp",
     "imageKind": "screen",
@@ -198,8 +198,8 @@ export const projects = [
       "en": "Plus R — Careers"
     },
     "description": {
-      "ja": "訪問リハビリを手がける企業の採用サイト。理学療法士・作業療法士の仕事や働く環境を紹介します。",
-      "en": "A rehabilitation company's careers website, introducing physical and occupational therapy roles and the working environment."
+      "ja": "訪問リハビリを手がける企業の採用サイトです。理学療法士・作業療法士の仕事や働く環境を紹介しています。",
+      "en": "This rehabilitation company's careers website introduces physical and occupational therapy roles and the working environment."
     },
     "image": "/images/projects/plusr.webp",
     "imageKind": "screen",
@@ -218,8 +218,8 @@ export const projects = [
       "en": "Auto Technic Japan — Careers"
     },
     "description": {
-      "ja": "自動車開発に携わるエンジニアの採用サイト。仕事・社員・制度の紹介から各採用窓口へ案内します。",
-      "en": "An engineering recruitment website for automotive development, connecting job, employee and workplace information with applications."
+      "ja": "自動車開発に携わるエンジニアの採用サイトです。仕事・社員・制度の紹介から各採用窓口へご案内しています。",
+      "en": "This automotive engineering recruitment website connects role descriptions, employee profiles and workplace information with application links."
     },
     "image": "/images/projects/autotechnic.webp",
     "imageKind": "screen",
@@ -238,8 +238,8 @@ export const projects = [
       "en": "HBA — Careers"
     },
     "description": {
-      "ja": "ITソリューション企業の採用ページ。社員や仕事、企業の取り組みを紹介しています。",
-      "en": "A recruitment website for an IT solutions company, presenting its people, work and company initiatives."
+      "ja": "ITソリューション企業の採用ページです。社員や仕事、企業の取り組みを紹介しています。",
+      "en": "This recruitment website presents the people, work and initiatives of an IT solutions company."
     },
     "image": "/images/projects/hba.webp",
     "imageKind": "screen",
@@ -258,8 +258,8 @@ export const projects = [
       "en": "PIAS Group — Beauty Careers"
     },
     "description": {
-      "ja": "美容サービス職に特化した採用サイト。ブランドや仕事の紹介から募集情報へつなげます。",
-      "en": "A dedicated recruitment website for beauty professionals, introducing brands, roles and current opportunities."
+      "ja": "美容サービス職に特化した採用サイトです。ブランドや職種の紹介と、募集情報への案内をまとめています。",
+      "en": "This beauty recruitment website introduces brands, professional roles and employment opportunities."
     },
     "image": "/images/projects/pias-ats-screen.jpg",
     "imageKind": "screen",
@@ -278,8 +278,8 @@ export const projects = [
       "en": "Orange Life — Careers"
     },
     "description": {
-      "ja": "葬祭サービス企業の採用サイト。仕事への想いと職場の情報を伝える構成です。",
-      "en": "A funeral services company's recruitment website, sharing its approach to the work and its workplace."
+      "ja": "葬祭サービス企業の採用サイトです。業務に対する考え方と職場環境を紹介しています。",
+      "en": "This funeral services recruitment website introduces the company's approach to its work and its workplace environment."
     },
     "image": "/images/projects/orange-life.jpg",
     "imageKind": "visual",
@@ -299,8 +299,8 @@ export const projects = [
       "en": "Japan House Coating Association"
     },
     "description": {
-      "ja": "ハウスコーティングの普及を支える協会サイト。活動内容や認定に関する情報を紹介しています。",
-      "en": "An association website introducing house coating, its activities and certification information."
+      "ja": "ハウスコーティングの普及を支える協会サイトです。活動内容や認定に関する情報を紹介しています。",
+      "en": "This association website introduces house coating, its activities and certification information."
     },
     "image": "/images/projects/jhca.webp",
     "imageKind": "screen",
@@ -319,8 +319,8 @@ export const projects = [
       "en": "ABC Kindergarten"
     },
     "description": {
-      "ja": "幼稚園の方針や園での生活を伝えるサイト。写真とやさしい配色で、園の雰囲気を紹介しています。",
-      "en": "A kindergarten website presenting its educational approach and daily life through photography and a gentle visual style."
+      "ja": "幼稚園の教育方針や園内での生活を紹介するサイトです。写真と落ち着いた配色で、施設の雰囲気を伝えています。",
+      "en": "This kindergarten website presents its educational approach and daily life through photography and a gentle visual style."
     },
     "image": "/images/projects/me-create.webp",
     "imageKind": "screen",
@@ -340,8 +340,8 @@ export const projects = [
       "en": "WAMU"
     },
     "description": {
-      "ja": "業務用エステ機器メーカーの公式サイト。製品情報・導入事例・サポートを紹介しています。",
-      "en": "A professional beauty equipment manufacturer's website, bringing together products, customer stories and support information."
+      "ja": "業務用エステ機器メーカーの公式サイトです。製品情報・導入事例・サポートを紹介しています。",
+      "en": "This professional beauty equipment manufacturer's website brings together products, customer stories and support information."
     },
     "image": "/images/projects/wamu.webp",
     "imageKind": "screen",
@@ -361,8 +361,8 @@ export const projects = [
       "en": "SYGNHOUSE"
     },
     "description": {
-      "ja": "バイク向けインターコムやアクセサリーの製品サイト。商品ラインナップとブランドの特徴を伝えます。",
-      "en": "A motorcycle accessories website presenting intercoms, mounting systems and the brand's product range."
+      "ja": "バイク向けインターコムやアクセサリーの製品サイトです。商品ラインナップとブランドの特徴を伝えます。",
+      "en": "This motorcycle accessories website presents intercoms, mounting systems and the brand's product range."
     },
     "image": "/images/projects/sygnhouse.webp",
     "imageKind": "screen",
@@ -381,8 +381,8 @@ export const projects = [
       "en": "Venus School"
     },
     "description": {
-      "ja": "エステスクールの紹介LP。学べる内容や講師の魅力を伝え、問い合わせへ案内します。",
-      "en": "A beauty training school landing page introducing courses and instructors, with an enquiry form."
+      "ja": "エステスクールの紹介ランディングページです。学べる内容や講師の魅力を伝え、問い合わせへご案内しています。",
+      "en": "This beauty training school landing page presents courses and instructors and includes an enquiry form."
     },
     "image": "/images/projects/wamu-school.webp",
     "imageKind": "screen",
@@ -401,8 +401,8 @@ export const projects = [
       "en": "Spice"
     },
     "description": {
-      "ja": "IRIAMで活動するVライバー事務所のサイト。所属ライバーの個性と、事務所の世界観を表現しています。",
-      "en": "A website for an IRIAM virtual streamer agency, showcasing its talent and the agency's distinctive identity."
+      "ja": "IRIAMで活動するVライバー事務所のサイトです。所属ライバーの特徴と、事務所のブランドイメージを紹介しています。",
+      "en": "This IRIAM virtual streamer agency website introduces its talent and brand identity."
     },
     "image": "/images/projects/spice.webp",
     "imageKind": "screen",
@@ -421,8 +421,8 @@ export const projects = [
       "en": "Orcasa — Renovation"
     },
     "description": {
-      "ja": "リフォーム・内装デザインのLP。住空間の写真を中心に、サービスの魅力を紹介しています。",
-      "en": "A home renovation and interior design landing page, using residential photography to introduce its services."
+      "ja": "リフォーム・内装デザインのランディングページです。住空間の写真を中心に、サービスの特徴を紹介しています。",
+      "en": "This home renovation and interior design landing page uses residential photography to introduce its services."
     },
     "image": "/images/projects/orcasa.webp",
     "imageKind": "screen",
@@ -441,8 +441,8 @@ export const projects = [
       "en": "Oliver — Place2.5"
     },
     "description": {
-      "ja": "オフィス移転・改装サービスのLP。空間の事例とともに、働く場づくりの考え方を伝えます。",
-      "en": "An office relocation and renovation landing page, presenting workplace ideas through photographs and examples."
+      "ja": "オフィス移転・改装サービスのランディングページです。空間の事例とともに、職場環境づくりの考え方を紹介しています。",
+      "en": "This office relocation and renovation landing page presents workplace concepts through photographs and case examples."
     },
     "image": "/images/projects/oliver.webp",
     "imageKind": "screen",
@@ -462,8 +462,8 @@ export const projects = [
       "en": "Tatsuei"
     },
     "description": {
-      "ja": "型枠工事会社の企業サイト。施工実績や事業内容を整理し、相談・採用へ案内しています。",
-      "en": "A formwork contractor's corporate website, presenting construction projects, services and recruitment information."
+      "ja": "型枠工事会社の企業サイトです。施工実績や事業内容を整理し、相談・採用へご案内しています。",
+      "en": "This formwork contractor's corporate website presents construction projects, services and recruitment information."
     },
     "image": "/images/projects/tatsuei.webp",
     "imageKind": "screen",
@@ -483,8 +483,8 @@ export const projects = [
       "en": "Kouyo"
     },
     "description": {
-      "ja": "土木・建築を手がける企業サイト。工事の対応範囲や施工例を写真とともに紹介しています。",
-      "en": "A civil engineering and construction company website, using project photography to explain its services."
+      "ja": "土木・建築を手がける企業サイトです。工事の対応範囲や施工例を写真とともに紹介しています。",
+      "en": "This civil engineering and construction company website uses project photography to explain its services."
     },
     "image": "/images/projects/kouyo.webp",
     "imageKind": "screen",
@@ -503,8 +503,8 @@ export const projects = [
       "en": "Auto Wonder"
     },
     "description": {
-      "ja": "中古車買取サービスのWebサイト。買取の案内から査定相談へつながる構成です。",
-      "en": "A used car purchasing service website, introducing the service and guiding visitors toward a valuation enquiry."
+      "ja": "中古車買取サービスのWebサイトです。買取の案内から査定相談へつながる構成です。",
+      "en": "This used car purchasing website explains the service and provides links to valuation enquiries."
     },
     "image": "/images/projects/carche.webp",
     "imageKind": "screen",
@@ -524,8 +524,8 @@ export const projects = [
       "en": "Orisyan Ace"
     },
     "description": {
-      "ja": "オリジナルシャンパンの注文サイト。仕様の選択からLINEでの相談へ進める注文フローです。",
-      "en": "A custom champagne ordering website, connecting product choices with consultation through LINE."
+      "ja": "オリジナルシャンパンの注文サイトです。仕様の選択からLINEでの相談へ進める構成です。",
+      "en": "This custom champagne ordering website connects product specification choices with consultation through LINE."
     },
     "image": "/images/projects/orisyanace.webp",
     "imageKind": "screen",
@@ -545,8 +545,8 @@ export const projects = [
       "en": "The Golf House"
     },
     "description": {
-      "ja": "会員制インドアゴルフのサイト。施設・レッスン・店舗情報を紹介し、体験予約へ案内します。",
-      "en": "A private indoor golf website presenting facilities, lessons and locations, with links to trial reservations."
+      "ja": "会員制インドアゴルフのサイトです。施設・レッスン・店舗情報を紹介し、体験予約へご案内しています。",
+      "en": "This private indoor golf website presents facilities, lessons and locations, with links to trial reservations."
     },
     "image": "/images/projects/the-golf-house.webp",
     "imageKind": "screen",
@@ -566,8 +566,8 @@ export const projects = [
       "en": "LoungeRange"
     },
     "description": {
-      "ja": "完全個室のインドアゴルフを紹介するサイト。空間の魅力と各店舗の情報を伝えています。",
-      "en": "An indoor golf website showcasing private playing spaces and information about individual locations."
+      "ja": "完全個室のインドアゴルフを紹介するサイトです。空間の魅力と各店舗の情報を伝えています。",
+      "en": "This indoor golf website presents private playing spaces and information about individual locations."
     },
     "image": "/images/projects/lounge-range.webp",
     "imageKind": "screen",
@@ -587,8 +587,8 @@ export const projects = [
       "en": "Loun9ine"
     },
     "description": {
-      "ja": "会員制ゴルフラウンジのサイト。施設写真を中心に、設備や利用案内を紹介しています。",
-      "en": "A membership golf lounge website, using facility photography to introduce its equipment and visitor information."
+      "ja": "会員制ゴルフラウンジのサイトです。施設写真を中心に、設備や利用案内を紹介しています。",
+      "en": "This membership golf lounge website uses facility photography to introduce its equipment and visitor information."
     },
     "image": "/images/projects/loun9ine.webp",
     "imageKind": "screen",
@@ -607,8 +607,8 @@ export const projects = [
       "en": "SAUCONY"
     },
     "description": {
-      "ja": "ランニングシューズブランドの公式EC。製品のビジュアルと用途別の商品情報を展開しています。",
-      "en": "A running footwear brand's online store, pairing product visuals with shopping by intended use."
+      "ja": "ランニングシューズブランドの公式ECサイトです。製品写真と用途別の商品情報を掲載しています。",
+      "en": "This running footwear store presents product photography and information organized by intended use."
     },
     "image": "/images/projects/saucony.webp",
     "imageKind": "screen",
@@ -627,8 +627,8 @@ export const projects = [
       "en": "ohora"
     },
     "description": {
-      "ja": "セルフネイルブランドの公式ストア。ネイルのデザインや使い方を伝えるECサイトです。",
-      "en": "A self-applied gel nail brand's online store, showcasing designs alongside guidance on how to use them."
+      "ja": "セルフネイルブランドの公式ストアです。ネイルのデザインや使い方を伝えるECサイトです。",
+      "en": "This self-applied gel nail brand's online store presents designs alongside guidance on how to use them."
     },
     "image": "/images/projects/ohora.webp",
     "imageKind": "screen",
@@ -647,8 +647,8 @@ export const projects = [
       "en": "Brighte"
     },
     "description": {
-      "ja": "美容機器ブランドの公式サイト。製品ビジュアルを軸に、商品情報と購入先を紹介しています。",
-      "en": "A beauty device brand website built around product imagery, specifications and shopping information."
+      "ja": "美容機器ブランドの公式サイトです。製品ビジュアルを軸に、商品情報と購入先を紹介しています。",
+      "en": "This beauty device brand website is built around product imagery, specifications and shopping information."
     },
     "image": "/images/projects/brighte.webp",
     "imageKind": "screen",
@@ -667,8 +667,8 @@ export const projects = [
       "en": "CAROME."
     },
     "description": {
-      "ja": "ビューティーブランドの公式サイト。ブランドの世界観とコスメの商品ラインナップを伝えます。",
-      "en": "A beauty brand website presenting its visual identity and cosmetics collection."
+      "ja": "ビューティーブランドの公式サイトです。ブランドの考え方とコスメの商品ラインナップを紹介しています。",
+      "en": "This beauty brand website presents its approach and cosmetics collection."
     },
     "image": "/images/projects/carome.webp",
     "imageKind": "screen",
@@ -687,8 +687,8 @@ export const projects = [
       "en": "nemuli"
     },
     "description": {
-      "ja": "パーソナルマットレスの公式EC。寝心地への考え方と商品情報、オンライン診断を紹介します。",
-      "en": "A personalized mattress store introducing its approach to comfort, products and online mattress selection."
+      "ja": "パーソナルマットレスの公式ECサイトです。寝心地への考え方と商品情報、オンライン診断を紹介しています。",
+      "en": "This personalized mattress store introduces its approach to comfort, products and online mattress selection."
     },
     "image": "/images/projects/nemuli.webp",
     "imageKind": "screen",
@@ -707,8 +707,8 @@ export const projects = [
       "en": "NUSET"
     },
     "description": {
-      "ja": "スキンケアブランドの公式ストア。ブランドの考え方と、日々のケアに使う商品を紹介しています。",
-      "en": "A skincare brand's online store, sharing its approach and products for everyday care."
+      "ja": "スキンケアブランドの公式ストアです。ブランドの考え方と、日々のケアに使う商品を紹介しています。",
+      "en": "This skincare brand's online store shares its approach and products for everyday care."
     },
     "image": "/images/projects/nuset.webp",
     "imageKind": "screen",
@@ -727,8 +727,8 @@ export const projects = [
       "en": "Anker Japan"
     },
     "description": {
-      "ja": "充電器・モバイルバッテリーなどを扱う公式EC。幅広い製品をカテゴリーや用途から探せます。",
-      "en": "An electronics store covering chargers, power banks and more, with shopping by product category and purpose."
+      "ja": "充電器・モバイルバッテリーなどを扱う公式ECサイトです。幅広い製品をカテゴリーや用途から探せます。",
+      "en": "This electronics store covers chargers, power banks and more, with shopping by product category and purpose."
     },
     "image": "/images/projects/anker.webp",
     "imageKind": "screen",
@@ -747,8 +747,8 @@ export const projects = [
       "en": "MOFT Japan"
     },
     "description": {
-      "ja": "スマートフォン・PCアクセサリーの公式EC。使用シーンの写真とともに、商品の特徴を伝えます。",
-      "en": "An online store for phone and computer accessories, explaining product features through everyday usage photography."
+      "ja": "スマートフォン・PCアクセサリーの公式ECサイトです。使用シーンの写真とともに、商品の特徴を伝えます。",
+      "en": "This phone and computer accessories store explains product features through photographs of practical uses."
     },
     "image": "/images/projects/moft.jpg",
     "imageKind": "visual",
@@ -767,8 +767,8 @@ export const projects = [
       "en": "La protein"
     },
     "description": {
-      "ja": "プロテインブランドの公式ストア。フレーバーの魅力や商品選びの情報を紹介しています。",
-      "en": "A protein brand's online store, introducing its flavors and helping visitors explore the product range."
+      "ja": "プロテインブランドの公式ストアです。フレーバーの特徴と商品選びに必要な情報を紹介しています。",
+      "en": "This protein store presents flavor information and details to support product selection."
     },
     "image": "/images/projects/laprotein.webp",
     "imageKind": "screen",
@@ -787,8 +787,8 @@ export const projects = [
       "en": "Misshelly"
     },
     "description": {
-      "ja": "ヘアケアブランドの公式ストア。やわらかなビジュアルでブランドの世界観と商品を紹介します。",
-      "en": "A haircare brand's online store, presenting its products through a soft, distinctive visual identity."
+      "ja": "ヘアケアブランドの公式ストアです。柔らかな配色と製品写真を用いて、ブランドの特徴と商品を紹介しています。",
+      "en": "This haircare store introduces the brand and its products through photography and a considered visual style."
     },
     "image": "/images/projects/misshelly.webp",
     "imageKind": "screen",
@@ -807,8 +807,8 @@ export const projects = [
       "en": "REVEL"
     },
     "description": {
-      "ja": "財布や革小物を扱うレザーブランドのEC。素材の質感や形の特徴が伝わる商品写真を掲載しています。",
-      "en": "A leather goods store featuring wallets and accessories, with photography that highlights materials and form."
+      "ja": "財布や革小物を扱うレザーブランドのECサイトです。素材の質感や形状を確認できる商品写真を掲載しています。",
+      "en": "This leather goods store presents wallets and accessories with photographs showing materials and product form."
     },
     "image": "/images/projects/revel.webp",
     "imageKind": "screen",
@@ -827,8 +827,8 @@ export const projects = [
       "en": "MITSUBOSHI 1887"
     },
     "description": {
-      "ja": "天然素材を生かしたアパレルブランドのEC。コレクションとものづくりの背景を紹介しています。",
-      "en": "An apparel store focused on natural fabrics, presenting its collections alongside the story of its craftsmanship."
+      "ja": "天然素材を生かしたアパレルブランドのECサイトです。コレクションとものづくりの背景を紹介しています。",
+      "en": "This apparel store is focused on natural fabrics, presenting its collections alongside the story of its craftsmanship."
     },
     "image": "/images/projects/mitsuboshi.webp",
     "imageKind": "screen",
@@ -847,8 +847,8 @@ export const projects = [
       "en": "Ramutei.com"
     },
     "description": {
-      "ja": "オンラインストアの制作実績。現在の公開先には、一時閉店のお知らせが掲載されています。",
-      "en": "An online store project. The public URL currently displays a temporary closure notice."
+      "ja": "オンラインストアの制作実績です。現在の公開先には、一時閉店のお知らせが掲載されています。",
+      "en": "The public URL for this online store project currently displays a temporary closure notice."
     },
     "image": "/images/projects/ramutei.webp",
     "imageKind": "screen",
@@ -868,8 +868,8 @@ export const projects = [
       "en": "Runtrip Store"
     },
     "description": {
-      "ja": "ランニングのある暮らしを提案するEC。ウェアや小物を、ブランド・用途別に紹介しています。",
-      "en": "A running lifestyle store, presenting apparel and accessories by brand and use."
+      "ja": "ランニングのある暮らしを提案するECサイトです。ウェアや小物を、ブランド・用途別に紹介しています。",
+      "en": "This running lifestyle store presents apparel and accessories by brand and use."
     },
     "image": "/images/projects/runtrip.webp",
     "imageKind": "screen",
@@ -888,8 +888,8 @@ export const projects = [
       "en": "BROOKLYN MUSEUM"
     },
     "description": {
-      "ja": "革製品ブランドの公式ストア。バッグや財布のコレクションと、ものづくりの魅力を伝えます。",
-      "en": "A leather goods brand's online store, showcasing bags, wallets and the craftsmanship behind them."
+      "ja": "革製品ブランドの公式ストアです。バッグや財布のコレクションと、製品づくりの特徴を紹介しています。",
+      "en": "This leather goods store presents bag and wallet collections alongside information about their production."
     },
     "image": "/images/projects/brooklyn.webp",
     "imageKind": "screen",
@@ -908,8 +908,8 @@ export const projects = [
       "en": "FUMIKODA"
     },
     "description": {
-      "ja": "ビジネスバッグブランドの公式EC。利用シーンや製品写真で、デザインと機能を紹介しています。",
-      "en": "A business bag brand's online store, using product and lifestyle photography to present design and functionality."
+      "ja": "ビジネスバッグブランドの公式ECサイトです。利用シーンや製品写真で、デザインと機能を紹介しています。",
+      "en": "This business bag brand's online store uses product and lifestyle photography to present design and functionality."
     },
     "image": "/images/projects/fumikoda.webp",
     "imageKind": "screen",
@@ -928,8 +928,8 @@ export const projects = [
       "en": "ACTUS online"
     },
     "description": {
-      "ja": "家具・インテリア・生活雑貨のオンラインストア。商品と暮らしのアイデアを紹介するECです。",
-      "en": "An online furniture, interior and homeware store, bringing products together with ideas for living spaces."
+      "ja": "家具・インテリア・生活雑貨のオンラインストアです。商品と暮らしのアイデアを紹介するECです。",
+      "en": "This online furniture, interior and homeware store brings products together with ideas for living spaces."
     },
     "image": "/images/projects/actus.webp",
     "imageKind": "screen",
@@ -948,8 +948,8 @@ export const projects = [
       "en": "FASHION WALKER"
     },
     "description": {
-      "ja": "複数ブランドを扱うファッションEC。カテゴリーやブランド、新着情報から商品を探せます。",
-      "en": "A multi-brand fashion store with browsing by category, brand and new arrivals."
+      "ja": "複数ブランドを扱うファッションECサイトです。カテゴリーやブランド、新着情報から商品を探せます。",
+      "en": "This multi-brand fashion store provides browsing by category, brand and new arrivals."
     },
     "image": "/images/projects/fashionwalker.webp",
     "imageKind": "screen",
@@ -968,8 +968,8 @@ export const projects = [
       "en": "MAGASEEK"
     },
     "description": {
-      "ja": "アパレル・バッグ・シューズを扱うファッションEC。ブランド別の商品や特集を展開しています。",
-      "en": "A fashion store covering clothing, bags and footwear, with brand collections and editorial features."
+      "ja": "アパレル・バッグ・シューズを扱うファッションECサイトです。ブランド別の商品や特集を展開しています。",
+      "en": "This fashion store covers clothing, bags and footwear, with brand collections and editorial features."
     },
     "image": "/images/projects/magaseek.webp",
     "imageKind": "screen",
@@ -988,7 +988,7 @@ export const projects = [
       "en": "Fujiya — Family Town"
     },
     "description": {
-      "ja": "ペコちゃんなどのキャラクターグッズを扱う公式ショップ。季節の商品や限定グッズを紹介します。",
+      "ja": "ペコちゃんなどのキャラクターグッズを扱う公式ショップ。季節の商品や限定グッズを紹介しています。",
       "en": "Fujiya's character goods store, featuring Peko-chan merchandise, seasonal items and special collections."
     },
     "image": "/images/projects/family-town.webp",
@@ -1009,8 +1009,8 @@ export const projects = [
       "en": "vivum · S’allier"
     },
     "description": {
-      "ja": "美容室の雰囲気を伝えるサイト。メニュー・予約・オンラインストアへ案内する構成です。",
-      "en": "A salon website presenting its atmosphere, with routes to services, appointments and the online store."
+      "ja": "美容室の雰囲気を伝えるサイトです。メニュー・予約・オンラインストアへ案内する構成です。",
+      "en": "This salon website presents its atmosphere, with routes to services, appointments and the online store."
     },
     "image": "/images/projects/vivum-sallier.webp",
     "imageKind": "screen",
@@ -1029,8 +1029,8 @@ export const projects = [
       "en": "Tachibana Shobo"
     },
     "description": {
-      "ja": "警察実務・法律関連の書籍を扱う出版社のEC。新刊や書籍カテゴリーから商品を探せます。",
-      "en": "A publisher's online store for policing and legal books, organized around new releases and book categories."
+      "ja": "警察実務・法律関連の書籍を扱う出版社のECサイトです。新刊や書籍カテゴリーから商品を探せます。",
+      "en": "This publishing store organizes policing and legal books by new releases and subject categories."
     },
     "image": "/images/projects/tachibana.webp",
     "imageKind": "screen",
@@ -1049,8 +1049,8 @@ export const projects = [
       "en": "Setoguchi Meat Shop"
     },
     "description": {
-      "ja": "黒毛和牛・黒豚などのギフト通販サイト。商品写真と用途別の案内で、贈り物選びを支えます。",
-      "en": "A meat and gift store featuring Japanese beef and pork, with product photography and gift shopping guidance."
+      "ja": "黒毛和牛・黒豚などのギフト通販サイトです。商品写真と用途別の案内を通じて、贈り物の選定に必要な情報を提供しています。",
+      "en": "This meat and gift store presents Japanese beef and pork with product photography and information to support gift selection."
     },
     "image": "/images/projects/setoguchi.webp",
     "imageKind": "screen",
@@ -1069,8 +1069,8 @@ export const projects = [
       "en": "KOREDAKE"
     },
     "description": {
-      "ja": "ウェルネスプロテインの公式ストア。ブランドコンセプトと商品ラインナップを紹介しています。",
-      "en": "A wellness protein store presenting its brand concept and product range."
+      "ja": "ウェルネスプロテインの公式ストアです。ブランドコンセプトと商品ラインナップを紹介しています。",
+      "en": "This wellness protein store presents its brand concept and product range."
     },
     "image": "/images/projects/koredake.webp",
     "imageKind": "screen",
@@ -1089,8 +1089,8 @@ export const projects = [
       "en": "Upt"
     },
     "description": {
-      "ja": "スキンケア・コスメブランドの公式サイト。商品写真とストーリーでブランドの世界観を伝えます。",
-      "en": "A skincare and cosmetics brand website, expressing its identity through product photography and storytelling."
+      "ja": "スキンケア・コスメブランドの公式サイトです。商品写真とブランドの紹介を通じて、その考え方を伝えています。",
+      "en": "This skincare and cosmetics website introduces the brand through product photography and its background."
     },
     "image": "/images/projects/upt.webp",
     "imageKind": "screen",
@@ -1109,8 +1109,8 @@ export const projects = [
       "en": "Kutoon"
     },
     "description": {
-      "ja": "子ども靴のレンタルサービスの商品ページ。サイズやブランドから、利用する靴を探せる構成です。",
-      "en": "A children's shoe rental catalog, helping visitors choose shoes by size and brand."
+      "ja": "子ども靴のレンタルサービスの商品ページです。サイズやブランドから、利用する靴を探せる構成です。",
+      "en": "This children's shoe rental catalog helps visitors choose shoes by size and brand."
     },
     "image": "/images/projects/kutoon.webp",
     "imageKind": "screen",
@@ -1129,8 +1129,8 @@ export const projects = [
       "en": "Japan Trend Shop"
     },
     "description": {
-      "ja": "日本の雑貨・ガジェットなどを海外へ届けるEC。多言語・多通貨の購入案内を備えています。",
-      "en": "An international store for Japanese gadgets and lifestyle goods, with multilingual shopping and currency options."
+      "ja": "日本の雑貨・ガジェットなどを海外へ届けるECサイトです。多言語・多通貨の購入案内を備えています。",
+      "en": "This international store presents Japanese gadgets and lifestyle goods, with multilingual shopping and currency options."
     },
     "image": "/images/projects/japan-trend-shop.png",
     "imageKind": "archive",
@@ -1149,8 +1149,8 @@ export const projects = [
       "en": "Carju Rajah The Beauty Spa"
     },
     "description": {
-      "ja": "スパ・エステティックサロンの公式サイト。空間写真とともに、メニューや店舗を紹介しています。",
-      "en": "A beauty spa website presenting treatments and locations alongside photography of its spaces."
+      "ja": "スパ・エステティックサロンの公式サイトです。空間写真とともに、メニューや店舗を紹介しています。",
+      "en": "This beauty spa website presents treatments and locations alongside photography of its spaces."
     },
     "image": "/images/projects/carjurajah.webp",
     "imageKind": "screen",
@@ -1169,8 +1169,8 @@ export const projects = [
       "en": "Kireisalone"
     },
     "description": {
-      "ja": "エステサロンの公式サイト。施術メニュー・店舗情報・体験の案内をまとめています。",
-      "en": "A beauty salon website bringing together treatment menus, location information and introductory visits."
+      "ja": "エステサロンの公式サイトです。施術メニュー・店舗情報・体験の案内をまとめています。",
+      "en": "This beauty salon website brings together treatment menus, location information and introductory visits."
     },
     "image": "/images/projects/kireisalone.webp",
     "imageKind": "screen",
@@ -1189,8 +1189,8 @@ export const projects = [
       "en": "STUDIO BREATH"
     },
     "description": {
-      "ja": "表参道のヨガ・ピラティススタジオのサイト。レッスンやインストラクター、施設を紹介します。",
-      "en": "A yoga and Pilates studio website in Omotesando, introducing classes, instructors and the studio."
+      "ja": "表参道のヨガ・ピラティススタジオのサイトです。レッスンやインストラクター、施設を紹介しています。",
+      "en": "This Omotesando yoga and Pilates studio website introduces its classes, instructors and facilities."
     },
     "image": "/images/projects/studio-breath.webp",
     "imageKind": "screen",
@@ -1209,8 +1209,8 @@ export const projects = [
       "en": "BLACK CAT"
     },
     "description": {
-      "ja": "京都・四条烏丸のピラティススタジオのサイト。洗練された空間とレッスンの魅力を伝えます。",
-      "en": "A Kyoto Pilates studio website showcasing its space and introducing its classes."
+      "ja": "京都・四条烏丸のピラティススタジオのサイトです。施設の写真とレッスンに関する情報を紹介しています。",
+      "en": "This Kyoto Pilates studio website presents facility photography and class information."
     },
     "image": "/images/projects/blackcat-pilates.webp",
     "imageKind": "screen",
@@ -1229,8 +1229,8 @@ export const projects = [
       "en": "Daibikai Clinic"
     },
     "description": {
-      "ja": "美容皮膚科・医療脱毛のクリニックサイト。診療メニューや各院の情報を紹介しています。",
-      "en": "An aesthetic dermatology clinic website, organizing treatment menus and information about its locations."
+      "ja": "美容皮膚科・医療脱毛のクリニックサイトです。診療メニューや各院の情報を紹介しています。",
+      "en": "This aesthetic dermatology clinic website organizes treatment menus and information about its locations."
     },
     "image": "/images/projects/osaka-bc.webp",
     "imageKind": "screen",
@@ -1249,8 +1249,8 @@ export const projects = [
       "en": "Tokyo Tensei Clinic"
     },
     "description": {
-      "ja": "美容外科の公式サイト。クリニックの紹介から、診療メニューやカウンセリングへ案内します。",
-      "en": "A cosmetic surgery clinic website, introducing the clinic, its services and consultation information."
+      "ja": "美容外科の公式サイトです。クリニックの紹介から、診療メニューやカウンセリングへご案内しています。",
+      "en": "This cosmetic surgery clinic website introduces the clinic, its services and consultation information."
     },
     "image": "/images/projects/ttc.webp",
     "imageKind": "screen",
@@ -1269,8 +1269,8 @@ export const projects = [
       "en": "ALOOP CLINIC & LAB"
     },
     "description": {
-      "ja": "銀座の美容皮膚科クリニックのサイト。肌分析への取り組みや診療情報を紹介しています。",
-      "en": "A Ginza dermatology clinic website presenting its approach to skin analysis and clinical services."
+      "ja": "銀座の美容皮膚科クリニックのサイトです。肌分析への取り組みや診療情報を紹介しています。",
+      "en": "This Ginza dermatology clinic website presents its approach to skin analysis and clinical services."
     },
     "image": "/images/projects/aloop.webp",
     "imageKind": "screen",
@@ -1290,8 +1290,8 @@ export const projects = [
       "en": "Hidaka Dental Clinic — Clear Aligners"
     },
     "description": {
-      "ja": "マウスピース矯正に特化した歯科LP。治療の案内・費用・相談予約の情報をまとめています。",
-      "en": "A dental landing page for clear aligners, bringing together treatment information, fees and consultation booking."
+      "ja": "マウスピース矯正に特化した歯科ランディングページです。治療の案内・費用・相談予約の情報をまとめています。",
+      "en": "This clear-aligner dental landing page presents treatment information, fees and consultation booking links."
     },
     "image": "/images/projects/hidaka-dental.webp",
     "imageKind": "screen",
@@ -1311,8 +1311,8 @@ export const projects = [
       "en": "Takaya Dental Clinic — Implants"
     },
     "description": {
-      "ja": "インプラント治療の専門LP。医院の方針と治療の流れ、費用、相談窓口を紹介しています。",
-      "en": "An implant dentistry landing page explaining the clinic's approach, treatment process, fees and enquiries."
+      "ja": "インプラント治療の専門ランディングページです。医院の方針と治療の流れ、費用、相談窓口を紹介しています。",
+      "en": "This implant dentistry landing page explains the clinic's approach, treatment process, fees and enquiries."
     },
     "image": "/images/projects/takaya-dental.webp",
     "imageKind": "screen",
@@ -1332,8 +1332,8 @@ export const projects = [
       "en": "Shimizu Dental Fujisawa — Orthodontics"
     },
     "description": {
-      "ja": "マウスピース矯正の紹介ページ。治療内容や流れ、費用の情報から相談へ案内します。",
-      "en": "A clear aligner treatment page introducing the process and costs, with a route to consultation."
+      "ja": "マウスピース矯正の紹介ページです。治療内容や流れ、費用の情報から相談へご案内しています。",
+      "en": "This clear aligner treatment page introduces the process and costs, with a route to consultation."
     },
     "image": "/images/projects/fujisawa-dental.webp",
     "imageKind": "screen",
@@ -1352,8 +1352,8 @@ export const projects = [
       "en": "SHElikes"
     },
     "description": {
-      "ja": "女性向けキャリアスクールのLP。学べるスキルや受講の魅力を伝え、体験レッスンへ案内します。",
-      "en": "A women's career school landing page, introducing the skills on offer and guiding visitors toward an introductory lesson."
+      "ja": "女性向けキャリアスクールのランディングページです。学習内容と受講に関する情報を整理し、体験レッスンへご案内しています。",
+      "en": "This women's career school landing page presents course information and provides links to introductory lessons."
     },
     "image": "/images/projects/shelikes.webp",
     "imageKind": "screen",
@@ -1372,8 +1372,8 @@ export const projects = [
       "en": "BLUE SQUARE"
     },
     "description": {
-      "ja": "福井・越前のオーシャンビューヴィラのサイト。海辺の景色と客室写真で、滞在の魅力を伝えます。",
-      "en": "An oceanfront villa website in Echizen, Fukui, presenting the stay through coastal views and room photography."
+      "ja": "福井・越前のオーシャンビューヴィラのサイトです。海辺の景色と客室写真を通じて、滞在環境を紹介しています。",
+      "en": "This oceanfront villa website in Echizen, Fukui, introduces the property through coastal views and room photography."
     },
     "image": "/images/projects/blue-square-main.jpg",
     "imageKind": "visual",
@@ -1392,8 +1392,8 @@ export const projects = [
       "en": "YOURROOM"
     },
     "description": {
-      "ja": "アパートメントホテルの公式サイト。客室・設備・アクセスを紹介し、宿泊予約へ案内しています。",
-      "en": "An apartment hotel website presenting rooms, amenities and access information, with links to reservations."
+      "ja": "アパートメントホテルの公式サイトです。客室・設備・アクセスを紹介し、宿泊予約へご案内しています。",
+      "en": "This apartment hotel website presents rooms, amenities and access information, with links to reservations."
     },
     "image": "/images/projects/yroom.webp",
     "imageKind": "screen",
@@ -1412,8 +1412,8 @@ export const projects = [
       "en": "YAMADO -oga-"
     },
     "description": {
-      "ja": "秋田・男鹿半島のリゾートホテルのサイト。自然や客室、食の写真を通じて滞在を紹介します。",
-      "en": "A resort website on Akita's Oga Peninsula, presenting the experience through nature, room and dining photography."
+      "ja": "秋田・男鹿半島のリゾートホテルのサイトです。自然や客室、食の写真を通じて滞在を紹介しています。",
+      "en": "This resort website on Akita's Oga Peninsula presents the property through nature, room and dining photography."
     },
     "image": "/images/projects/oga-yamado.webp",
     "imageKind": "screen",
@@ -1432,8 +1432,8 @@ export const projects = [
       "en": "Juhachiro Hanare — Yado Ito"
     },
     "description": {
-      "ja": "岐阜・長良川沿いの一棟貸し宿のサイト。歴史ある建物と客室、地域の魅力を紹介しています。",
-      "en": "A private villa website by the Nagara River in Gifu, introducing its historic buildings, rooms and surroundings."
+      "ja": "岐阜・長良川沿いの一棟貸し宿のサイトです。歴史ある建物と客室、地域の魅力を紹介しています。",
+      "en": "This private villa website by the Nagara River in Gifu introduces its historic buildings, rooms and surroundings."
     },
     "image": "/images/projects/yadoito.jpg",
     "imageKind": "visual",
@@ -1452,8 +1452,8 @@ export const projects = [
       "en": "Tokyu Harvest Club"
     },
     "description": {
-      "ja": "会員制リゾートホテルの公式サイト。各施設の魅力と、会員向けの利用情報を紹介しています。",
-      "en": "A resort membership website presenting hotel destinations and practical information for members."
+      "ja": "会員制リゾートホテルの公式サイトです。各施設の特徴と、会員向けの利用情報を紹介しています。",
+      "en": "This resort membership website presents hotel facilities and practical information for members."
     },
     "image": "/images/projects/harvestclub.webp",
     "imageKind": "screen",

@@ -1,97 +1,97 @@
 ﻿const capabilityCopy = {
   ja: {
-    heading: '実装できること',
-    intro: '実現したい機能から、必要な設計・実装・運用までご相談いただけます。',
+    heading: '対応できる機能・開発領域',
+    intro: 'ご検討中の機能や業務上の課題に応じて、設計・実装から公開後の運用まで対応します。',
     cards: [
       {
-        title: '会員情報を、証明書の発行までつなぐ',
-        body: 'ログイン、会員データのCSV入出力、PDF証明書の発行、QRコードを使う確認画面など、業務に必要な一連の機能を組み立てます。',
+        title: '会員管理・証明書発行の業務システム',
+        body: '業務の流れに合わせて、ログイン、会員データのCSV入出力、PDF証明書の発行、QRコードによる確認画面を設計・実装します。',
         tags: ['会員管理', 'CSV', 'PDF', 'QRコード'],
         href: '/#client-voice-5',
-        link: '会員・証明書システムの声'
+        link: '会員・証明書システムのご感想'
       },
       {
-        title: '異常時にも、安心して使える仕組みへ',
-        body: '権限と操作履歴を整理し、異常な状態では処理を止める設計に対応。不具合の原因調査から修正・テスト結果の共有まで進めます。',
+        title: '権限制御・障害対応・品質改善',
+        body: '利用権限や操作履歴を整理し、異常時に処理を停止する設計に対応します。不具合の原因調査から修正、テスト結果のご報告まで承ります。',
         tags: ['権限制御', '監査ログ', 'エラー処理', 'テスト'],
         href: '/#client-voice-6',
-        link: 'バックエンド改善の声'
+        link: 'バックエンド改善のご感想'
       },
       {
-        title: '予約・通知サービスを、継続して使いやすく',
-        body: '既存予約サービスの保守・改修に対応します。LINE・メール通知や、会員・決済まわりの連携もご相談いただけます。',
+        title: '予約サービスの保守・通知連携',
+        body: '既存の予約サービスの保守・改修に対応します。LINE・メール通知、会員管理、決済サービスとの連携についてもご相談を承ります。',
         tags: ['LINE Messaging API', 'Stripe', '保守・改修'],
         href: '/#client-voice-1',
-        link: '予約サービスの保守・運用の声'
+        link: '予約サービス保守のご感想'
       },
       {
-        title: '更新も販売も、運用しやすいサイトに',
-        body: 'CMSの移行・改修から、商品一覧や注文導線の構築まで対応。公開後の更新や商品管理を見据えて、サイトを整えます。',
+        title: 'CMS・ECサイトの構築と運用支援',
+        body: 'CMSの移行・改修、商品一覧や注文画面の構築に対応します。公開後の更新手順や商品管理を考慮し、運用しやすい構成をご提案します。',
         tags: ['WordPress', 'Shopify', 'EC-CUBE'],
         href: '/#client-voice-3',
-        link: 'CMS移行の声'
+        link: 'CMS移行のご感想'
       },
       {
-        title: '集計・検索・繰り返す作業を自動化する',
-        body: 'データ集計やAPI連携を自動化。生成AI・RAGを使う社内検索や業務支援ツールも、目的に合わせて設計します。',
+        title: 'データ連携・集計・定型業務の自動化',
+        body: 'データ集計やAPIを通じたシステム連携を自動化します。生成AI・RAGによる社内検索や業務支援ツールも、ご利用目的に合わせて設計します。',
         tags: ['Python', 'API', 'RAG', '生成AI'],
         href: '/services/',
-        link: '対応サービスを見る'
+        link: '対応サービスの詳細'
       },
       {
-        title: 'Webでもアプリでも、使いやすい画面へ',
-        body: 'スマートフォンでも使いやすいWeb画面やアプリを制作。既存APIとつなぎ、入力・検索・情報表示の流れを整えます。',
+        title: 'Web・モバイルアプリの画面開発',
+        body: 'スマートフォンでの操作性にも配慮したWeb画面・アプリを制作します。既存APIとの接続、入力・検索・情報表示の設計に対応します。',
         tags: ['TypeScript', 'React', 'Next.js', 'Flutter'],
         href: '/projects/',
-        link: '制作実績を見る'
+        link: '制作実績の一覧'
       }
     ]
   },
   en: {
-    heading: 'What I can build',
-    intro: 'Start with the functionality you need. I can help with the design, implementation and ongoing operation.',
+    heading: 'Development capabilities',
+    intro: 'I support the design, implementation and ongoing operation of systems that meet your business requirements.',
     cards: [
       {
-        title: 'From member records to certificates',
-        body: 'Connect login, CSV imports and exports, PDF certificate generation and QR verification screens into a workflow that fits your operations.',
+        title: 'Membership and certificate systems',
+        body: 'I design and implement login, member-data imports and exports, PDF certificate generation and QR verification screens to support your operational workflows.',
         tags: ['Member management', 'CSV', 'PDF', 'QR codes'],
         href: '/en/#client-voice-5',
-        link: 'Read the membership system feedback'
+        link: 'Client feedback on membership systems'
       },
       {
-        title: 'Reliable behavior when things go wrong',
-        body: 'Define permissions, keep audit records and stop processing when conditions are invalid. I investigate defects, implement fixes and share the test results.',
+        title: 'Access control and software reliability',
+        body: 'I define access permissions, audit records and controls that stop processing under invalid conditions. Support includes investigating defects, implementing corrections and reporting test results.',
         tags: ['Access control', 'Audit logs', 'Error handling', 'Testing'],
         href: '/en/#client-voice-6',
-        link: 'Read the backend improvement feedback'
+        link: 'Client feedback on backend improvements'
       },
       {
-        title: 'Keep booking services working smoothly',
-        body: 'Maintain and improve existing booking services. I also help with LINE and email notifications, membership features and payment connections.',
+        title: 'Booking maintenance and notifications',
+        body: 'I maintain and improve existing booking services, with support for LINE and email notifications, member management and payment-service connections.',
         tags: ['LINE Messaging API', 'Stripe', 'Maintenance'],
         href: '/en/#client-voice-1',
-        link: 'Read the booking maintenance feedback'
+        link: 'Client feedback on booking maintenance'
       },
       {
-        title: 'Make publishing and selling easier',
-        body: 'Migrate or improve your CMS and build product catalogs and ordering flows. Site updates and product management are part of the design from the start.',
+        title: 'CMS and e-commerce implementation',
+        body: 'I migrate and improve CMS platforms and develop product catalogs and ordering interfaces, taking ongoing content updates and product management into account.',
         tags: ['WordPress', 'Shopify', 'EC-CUBE'],
         href: '/en/#client-voice-3',
-        link: 'Read the CMS migration feedback'
+        link: 'Client feedback on CMS migration'
       },
       {
-        title: 'Automate reporting, search and routine work',
-        body: 'Automate data aggregation and API workflows. I can also design internal search and business tools using generative AI and RAG around your specific needs.',
+        title: 'Data integration and workflow automation',
+        body: 'I automate data aggregation and API-based workflows. Internal search and business-support tools using generative AI and RAG are designed around your requirements.',
         tags: ['Python', 'API', 'RAG', 'Generative AI'],
         href: '/en/services/',
-        link: 'Explore available services'
+        link: 'Service details'
       },
       {
-        title: 'Usable interfaces across web and mobile',
-        body: 'Build websites and apps that work comfortably on a phone. Connect existing APIs and organize data entry, search and information displays into clear user flows.',
+        title: 'Web and mobile interface development',
+        body: 'I develop web and mobile interfaces with attention to usability, including connections to existing APIs, data-entry workflows, search and information presentation.',
         tags: ['TypeScript', 'React', 'Next.js', 'Flutter'],
         href: '/en/projects/',
-        link: 'Explore the project library'
+        link: 'Project portfolio'
       }
     ]
   }
