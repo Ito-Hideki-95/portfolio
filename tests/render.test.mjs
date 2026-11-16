@@ -14,6 +14,13 @@ import { caseStudies } from '../src/project-case-studies.mjs';
 
 const selectedIds = ['digital-certificates', 'flash-reserve', 'backend-audit', 'vivum-sallier', 'visual-anatomy'];
 const cardFor = (html, id) => html.match(new RegExp('<article[^>]*data-project-id="' + id + '"[^>]*>[\\s\\S]*?</article>'))?.[0];
+const cardParts = card => {
+  const template = card.match(/<template data-project-insights>([\s\S]*?)<\/template>/);
+  assert.ok(template, 'Project details template is retained');
+  return { basic: card.replace(template[0], ''), details: template[1] };
+};
+const listItems = html => [...html.matchAll(/<li>([\s\S]*?)<\/li>/g)].map(match => match[1]);
+const displayedText = html => html.replace(/<[^>]*>/g, '');
 const countCards = html => (html.match(/class="project-card(?: featured-case)?"/g) || []).length;
 
 test('both languages have complete service and FAQ pages with a concise homepage', () => {
@@ -82,7 +89,7 @@ test('content escaping preserves text without permitting markup injection', () =
   assert.equal(escapeHtml('<img src=x onerror="x"> & \'hi\''), '&lt;img src=x onerror=&quot;x&quot;&gt; &amp; &#39;hi&#39;');
 });
 
-test('the 74-entry catalog retains the original 70 sites and adds complete bilingual case studies', () => {
+test('the 74-entry catalog keeps concise cards and complete bilingual project details', () => {
   assert.equal(projects.length, 70);
   assert.equal(new Set(projects.map(project => project.id)).size, 70);
   assert.equal(new Set(projects.map(project => project.url.replace(/\/$/, ''))).size, 70);
@@ -95,43 +102,67 @@ test('the 74-entry catalog retains the original 70 sites and adds complete bilin
     for (const project of catalog) {
       const card = cardFor(html, project.id);
       assert.ok(card, project.id);
-      assert.ok(card.includes(`id="project-${project.id}"`));
-      assert.ok(card.includes(`<h3>${escapeHtml(project.title)}</h3>`));
-      assert.ok(card.includes(escapeHtml(project.lead)));
+      const { basic, details } = cardParts(card);
+      assert.ok(basic.includes('id="project-' + project.id + '"'));
+      assert.ok(basic.includes('<h3>' + escapeHtml(project.title) + '</h3>'));
+      assert.ok(basic.includes('src="' + escapeHtml(project.image) + '"'), project.id);
+      const focus = basic.match(/<div class="case-focus-preview">[\s\S]*?<ul>([\s\S]*?)<\/ul>/);
+      assert.ok(focus, 'Visible project focus: ' + project.id);
+      assert.deepEqual(listItems(focus[1]), project.focus.map(escapeHtml), 'All focus items are visible: ' + project.id);
+      assert.doesNotMatch(basic, /class="(?:project-scope|project-description|case-kicker|project-image-tag|featured-voice|project-card-footer|dialog-voice|dialog-site)(?:\s|")/, project.id);
+      assert.ok(details.includes('<p class="dialog-description">' + escapeHtml(project.lead) + '</p>'), 'Lead stays in details: ' + project.id);
+      assert.ok(details.includes(escapeHtml(project.strength)), project.id);
+      for (const item of [...project.focus, ...project.deliverables]) assert.ok(details.includes('<li>' + escapeHtml(item) + '</li>'), project.id);
+      const basicTechnology = basic.match(/<div class="project-technology">[\s\S]*?<ul class="project-stack-list">([\s\S]*?)<\/ul>/)?.[1] || '';
+      const detailTechnology = details.match(/<ul class="project-stack-list">([\s\S]*?)<\/ul>/)?.[1] || '';
+      assert.deepEqual(listItems(basicTechnology), listItems(detailTechnology), 'All technology chips are visible: ' + project.id);
+      for (const name of project.study.technologies || []) assert.ok(listItems(basicTechnology).includes(escapeHtml(name)), project.id + ': ' + name);
+      assert.doesNotMatch(card, /class="(?:project-scope|dialog-scope)(?:\s|")/, 'Role summary is not displayed: ' + project.id);
       assert.ok(project.categories.every(key => projectCategories[key]), project.id);
       assert.ok(project.lead.trim() && project.strength.trim() && project.focus.length, project.id);
       if (project.url) assert.equal(new URL(project.url).protocol, 'https:');
-      if (project.url && project.websiteAvailable !== false && project.status !== 'paused') assert.ok(card.includes(`href="${escapeHtml(project.url)}"`), project.id);
-      else assert.doesNotMatch(card, /class="project-site /, 'Unavailable website must not be offered: ' + project.id);
-      for (const original of projects) assert.ok(catalog.some(item => item.id === original.id));
+      if (project.url && project.websiteAvailable !== false && project.status !== 'paused') {
+        assert.match(details, /class="dialog-site(?:\s|")/, project.id);
+        assert.ok(details.includes('href="' + escapeHtml(project.url) + '"'), project.id);
+      } else assert.doesNotMatch(card, /class="dialog-site(?:\s|")/, 'Unavailable website must not be offered: ' + project.id);
     }
+    for (const original of projects) assert.ok(catalog.some(item => item.id === original.id));
     assert.ok(html.includes('id="project-search"') && html.includes('id="project-dialog"'));
   }
 });
 
-test('selected contributions are identical on the homepage and in the library', () => {
+test('selected cards preserve detailed contributions, feedback and architecture across both pages', () => {
   for (const locale of ['ja', 'en']) {
     const home = renderPage(locale), library = renderPage(locale, 'projects'), catalog = getPortfolio(locale);
     for (const id of selectedIds) {
       const project = catalog.find(item => item.id === id);
-      assert.ok(project?.role, id);
-      for (const html of [home, library]) {
-        const card = cardFor(html, id);
-        assert.ok(card.includes(escapeHtml(project.role)), id);
-        assert.ok(card.includes(escapeHtml(project.lead)), id);
-        assert.ok(card.includes(`#client-voice-${project.featured.voice}`), id);
+      assert.ok(project?.role, 'Role remains in the internal project record: ' + id);
+      const homeParts = cardParts(cardFor(home, id)), libraryParts = cardParts(cardFor(library, id));
+      assert.equal(homeParts.details, libraryParts.details, id);
+      for (const { basic, details } of [homeParts, libraryParts]) {
+        assert.ok(!displayedText(basic + details).includes(escapeHtml(project.role)), 'Short role is not rendered: ' + id);
+        assert.ok(!displayedText(basic).includes(escapeHtml(project.lead)), 'Lead is not on the basic card: ' + id);
+        assert.ok(details.includes(escapeHtml(project.lead)), id);
+        assert.match(details, /class="dialog-voice(?:\s|")/, id);
+        assert.ok(details.includes('#client-voice-' + project.featured.voice), id);
+        assert.ok(!basic.includes('#client-voice-' + project.featured.voice), id);
       }
     }
     const flash = catalog.find(project => project.id === 'flash-reserve');
     assert.equal(flash.image, '/images/reviews/flash-reserve-screen.webp');
     assert.match(flash.role, /保守|maintenance/i);
     for (const html of [home, library]) {
-      const card = cardFor(html, flash.id), architecture = flash.study.architecture;
-      assert.ok(card.includes('class="case-architecture-preview" href="' + architecture.image + '"'));
-      assert.ok(card.includes(escapeHtml(architecture.alt[locale])));
-      assert.ok(card.includes(escapeHtml(flash.study.technologyLabel[locale])));
-      for (const name of flash.study.technologies) assert.ok(card.includes('<li>' + escapeHtml(name) + '</li>'));
-      assert.ok(!card.slice(0, card.indexOf('<template')).includes(architecture.image));
+      const { basic, details } = cardParts(cardFor(html, flash.id)), architecture = flash.study.architecture;
+      assert.ok(details.includes('class="case-architecture-preview" href="' + architecture.image + '"'));
+      assert.ok(details.includes(escapeHtml(architecture.alt[locale])));
+      assert.ok(basic.includes(escapeHtml(flash.study.technologyLabel[locale])));
+      assert.ok(details.includes(escapeHtml(flash.study.technologyLabel[locale])));
+      if (flash.study.contributionLabel?.[locale]) assert.ok(basic.includes('<p class="project-detail-label">' + escapeHtml(flash.study.contributionLabel[locale]) + '</p>'));
+      for (const name of flash.study.technologies) {
+        assert.ok(basic.includes('<li>' + escapeHtml(name) + '</li>'));
+        assert.ok(details.includes('<li>' + escapeHtml(name) + '</li>'));
+      }
+      assert.ok(!basic.includes(architecture.image));
     }
     for (const id of ['digital-certificates', 'backend-audit']) {
       const project = catalog.find(item => item.id === id);
@@ -156,7 +187,7 @@ test('the completed backend case separates delivery status from historical feedb
       const card = cardFor(renderPage(locale, page), project.id);
       for (const technology of project.study.technologies) assert.ok(card.includes('<li>' + escapeHtml(technology) + '</li>'));
       assert.ok(card.includes('RLS') && card.includes('SHA-256'));
-      assert.doesNotMatch(card, /class="project-site /);
+      assert.doesNotMatch(card, /class="dialog-site(?:\s|")/);
     }
     const review = getContent(locale).reviews.find(item => item.id === 'client-voice-6');
     assert.match(review.projectSummary, /完了|completed/i);

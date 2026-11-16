@@ -298,6 +298,7 @@ const studies = [
     {
       title: text('Flash Reserve－瞬約－', 'Flash Reserve'),
       role: text('Cloudflare・VPSで構成されたWebサービスの保守・運用環境整備', 'Maintenance and operating-environment improvements across Cloudflare and VPS infrastructure'),
+      contributionLabel: text('担当内容（保守・運用）', 'Maintenance & operations'),
       technologyLabel: text('保守・運用対象の技術', 'Technology in the maintained system'),
       technologies: ['Cloudflare Workers', 'Cloudflare D1 (SQLite)', 'Redis', 'TanStack Start', 'better-auth', 'ConoHa VPS', 'Stripe', 'microCMS', 'LINE Messaging API', 'Amazon SES', 'Caddy', 'PM2', 'Workers Builds', 'GitHub Actions'],
       architecture: {

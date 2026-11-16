@@ -55,17 +55,8 @@
     const image=dialog.querySelector('img');
     dialog.dataset.projectId=card.dataset.projectId;
     dialog.querySelector('h2').textContent=card.querySelector('h3').textContent;
-    dialog.querySelector('.dialog-description').textContent=card.querySelector('.project-description').textContent;
-    const website=card.querySelector('.project-site'), siteLink=dialog.querySelector('.dialog-site');
-    siteLink.hidden=!website;
-    if(website)siteLink.href=website.href;else siteLink.removeAttribute('href');
-    const scope=card.querySelector('.project-scope');
-    dialog.querySelector('.dialog-scope').replaceChildren(...(scope?[scope.cloneNode(true)]:[]));
     const insights=card.querySelector('[data-project-insights]');
     dialog.querySelector('.dialog-insights').replaceChildren(...(insights?[insights.content.cloneNode(true)]:[]));
-    const voice=card.querySelector('.featured-voice'), voiceLink=dialog.querySelector('.dialog-voice');
-    voiceLink.hidden=!voice;
-    if(voice)voiceLink.href=voice.href;else voiceLink.removeAttribute('href');
     image.src=original.src;image.alt=original.alt;image.width=original.naturalWidth||original.width;image.height=original.naturalHeight||original.height;
     if(!dialog.open)dialog.showModal();dialog.scrollTop=0;
     document.documentElement.classList.add('project-preview-open');
@@ -78,19 +69,16 @@
     const link=card.querySelector('[data-project-preview]');
     link.setAttribute('aria-haspopup','dialog');link.setAttribute('aria-controls','project-dialog');
     link.addEventListener('click',event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||event.button)return;event.preventDefault();show(card,link);});
-    const button=card.querySelector('[data-open-project]');
-    button.hidden=false;button.setAttribute('aria-haspopup','dialog');button.setAttribute('aria-controls','project-dialog');
-    button.addEventListener('click',()=>show(card,button));
   });
   function openHash(){
     const card=cards.find(card=>'#'+card.id===location.hash);
     if(!card)return;
     revealCard(card);
-    requestAnimationFrame(()=>{card.scrollIntoView({block:'start',behavior:'instant'});openProject(card,card.querySelector('[data-open-project]'));});
+    requestAnimationFrame(()=>{card.scrollIntoView({block:'start',behavior:'instant'});openProject(card,card.querySelector('[data-project-preview]'));});
   }
   window.addEventListener('hashchange',openHash);
   dialog.querySelector('.project-dialog-close').addEventListener('click',()=>dialog.close());
-  dialog.querySelector('.dialog-voice').addEventListener('click',()=>dialog.close());
+  dialog.querySelector('.dialog-insights').addEventListener('click',event=>{if(event.target.closest('.dialog-voice'))dialog.close();});
   dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const box=dialog.getBoundingClientRect();if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)dialog.close();});
   dialog.addEventListener('close',()=>{document.documentElement.classList.remove('project-preview-open');opener?.focus({preventScroll:true});});
   openHash();
