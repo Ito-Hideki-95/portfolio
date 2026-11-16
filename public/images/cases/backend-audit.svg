@@ -1,1 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900"><defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#081c37"/><stop offset="1" stop-color="#014f93"/></linearGradient><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#b4dfff" stroke-opacity=".06"/></pattern></defs><rect width="1440" height="900" fill="url(#bg)"/><rect width="1440" height="900" fill="url(#grid)"/><circle cx="1260" cy="120" r="300" fill="#42c5ec" opacity=".05"/><g font-family="Arial, sans-serif"><text x="84" y="103" font-size="18" letter-spacing="5" fill="#72d7f3">FUNCTIONAL WORKFLOW</text><text x="84" y="174" font-size="47" font-weight="700" fill="#fff">Clear decisions. Traceable operations.</text><text x="84" y="220" font-size="22" fill="#aac9e6">Fail-closed logic / Audit logs / Verification and handover</text><rect x="84" y="330" width="345" height="180" rx="24" fill="#102e4e" stroke="#508bb5"/><text x="112" y="372" font-size="18" fill="#63cee7">01</text><text x="112" y="422" font-size="27" font-weight="700" fill="#fff">REQUEST</text><text x="112" y="467" font-size="20" fill="#b5cde2">Validate the conditions</text><path d="M450 420h54m-13-10 13 10-13 10" fill="none" stroke="#75dbed" stroke-width="3"/><rect x="530" y="330" width="380" height="180" rx="24" fill="#102e4e" stroke="#508bb5"/><text x="558" y="372" font-size="18" fill="#63cee7">02</text><text x="558" y="422" font-size="27" font-weight="700" fill="#fff">CONTROL</text><text x="558" y="467" font-size="20" fill="#b5cde2">Stop when checks fail</text><path d="M930 420h54m-13-10 13 10-13 10" fill="none" stroke="#75dbed" stroke-width="3"/><rect x="1010" y="330" width="346" height="180" rx="24" fill="#102e4e" stroke="#508bb5"/><text x="1038" y="372" font-size="18" fill="#63cee7">03</text><text x="1038" y="422" font-size="27" font-weight="700" fill="#fff">AUDIT LOG</text><text x="1038" y="467" font-size="20" fill="#b5cde2">Keep an operation record</text><path d="M720 510v65" stroke="#76d8e8" stroke-width="3"/><rect x="84" y="590" width="600" height="130" rx="24" fill="#fff" fill-opacity=".06" stroke="#80b9e7" stroke-opacity=".3"/><rect x="716" y="590" width="640" height="130" rx="24" fill="#fff" fill-opacity=".06" stroke="#80b9e7" stroke-opacity=".3"/><text x="118" y="641" font-size="24" font-weight="700" fill="#fff">MILESTONE 01</text><text x="118" y="683" font-size="21" fill="#bdd3e7">Delivery · Acceptance review · Issue resolution</text><text x="750" y="641" font-size="24" font-weight="700" fill="#fff">VERIFICATION</text><text x="750" y="683" font-size="21" fill="#bdd3e7">Test documentation · Clear technical reporting</text><path d="M84 810H1356" stroke="#80b9e7" stroke-opacity=".3"/><text x="84" y="852" font-size="17" letter-spacing="3" fill="#abcce7">DEVELOPMENT PARTNER</text><text x="1356" y="852" text-anchor="end" font-size="17" fill="#abcce7">SYSTEM OVERVIEW</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="backend-title backend-description" xml:lang="ja">
+  <title id="backend-title">バックエンドの処理制御と監査ログの構成図</title>
+  <desc id="backend-description">処理の要求と条件確認、異常時の処理停止、監査ログの設計、および第1段階の納品とテスト資料を示す構成イメージです。</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#081c37"/><stop offset="1" stop-color="#014f93"/></linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#b4dfff" stroke-opacity=".06"/></pattern>
+  </defs>
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <rect width="1440" height="900" fill="url(#grid)"/>
+  <circle cx="1260" cy="120" r="300" fill="#42c5ec" opacity=".05"/>
+  <g font-family="'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', Meiryo, system-ui, sans-serif">
+    <text x="84" y="103" font-size="22" letter-spacing="3" fill="#72d7f3">機能構成図</text>
+    <text x="84" y="174" font-size="46" font-weight="700" fill="#fff">処理の条件を確認し、操作の履歴を残す。</text>
+    <text x="84" y="224" font-size="24" fill="#aac9e6">異常時の処理停止と監査ログを備えたバックエンドの設計</text>
+
+    <rect x="84" y="330" width="345" height="194" rx="24" fill="#102e4e" stroke="#508bb5"/>
+    <text x="112" y="374" font-size="20" fill="#63cee7">処理の入口</text>
+    <text x="112" y="427" font-size="32" font-weight="700" fill="#fff">処理の要求</text>
+    <text x="112" y="476" font-size="22" fill="#b5cde2">操作・処理の開始</text>
+    <path d="M450 425h54m-13-10 13 10-13 10" fill="none" stroke="#75dbed" stroke-width="3"/>
+
+    <rect x="530" y="330" width="380" height="194" rx="24" fill="#102e4e" stroke="#508bb5"/>
+    <text x="558" y="374" font-size="20" fill="#63cee7">異常時の制御</text>
+    <text x="558" y="427" font-size="32" font-weight="700" fill="#fff">条件の確認</text>
+    <text x="558" y="469" font-size="22" fill="#b5cde2">条件を満たさない場合は</text>
+    <text x="558" y="501" font-size="22" fill="#b5cde2">処理を進めずに停止</text>
+
+    <rect x="1010" y="330" width="346" height="194" rx="24" fill="#102e4e" stroke="#508bb5"/>
+    <text x="1038" y="374" font-size="20" fill="#63cee7">操作の記録</text>
+    <text x="1038" y="427" font-size="32" font-weight="700" fill="#fff">監査ログ</text>
+    <text x="1038" y="476" font-size="22" fill="#b5cde2">操作の履歴を記録</text>
+
+    <rect x="84" y="602" width="600" height="142" rx="24" fill="#fff" fill-opacity=".06" stroke="#80b9e7" stroke-opacity=".3"/>
+    <rect x="716" y="602" width="640" height="142" rx="24" fill="#fff" fill-opacity=".06" stroke="#80b9e7" stroke-opacity=".3"/>
+    <text x="118" y="655" font-size="27" font-weight="700" fill="#fff">第1段階の納品（M1）</text>
+    <text x="118" y="701" font-size="24" fill="#bdd3e7">納品・検収・不具合の修正</text>
+    <text x="750" y="655" font-size="27" font-weight="700" fill="#fff">テスト資料と対応報告</text>
+    <text x="750" y="701" font-size="24" fill="#bdd3e7">テスト資料の更新・対応内容のご報告</text>
+    <path d="M84 810H1356" stroke="#80b9e7" stroke-opacity=".3"/>
+    <text x="84" y="852" font-size="20" fill="#abcce7">バックエンド開発・検証</text>
+    <text x="1356" y="852" text-anchor="end" font-size="20" fill="#abcce7">機能の構成イメージ</text>
+  </g>
+</svg>

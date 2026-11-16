@@ -117,8 +117,11 @@ test('selected contributions are identical on the homepage and in the library', 
     for (const id of ['digital-certificates', 'backend-audit']) {
       const project = catalog.find(item => item.id === id);
       assert.equal(project.imageKind, 'diagram');
-      assert.equal(project.websiteAvailable, false);
-      assert.equal(project.url, '');
+      assert.equal(project.websiteAvailable, id === 'digital-certificates');
+      assert.equal(project.url, id === 'digital-certificates' ? 'https://ssi-sake.jp/' : '');
+    }
+    for (const page of ['', 'projects', 'about']) {
+      assert.ok(renderPage(locale, page).includes('href="https://ssi-sake.jp/"'), locale + '/' + page);
     }
   }
 });
