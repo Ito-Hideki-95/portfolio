@@ -8,7 +8,7 @@ export const site = {
   contactLabel: 'お問い合わせ',
   siteUrl: 'https://emoto-negitoro-portfolio.vercel.app',
   indexable: false, // 内容の確認・連絡先の設定後に true にすると検索登録を許可
-  description: '業務内容を把握したうえで、業務システム・AI・Web／アプリの設計・実装・テスト・公開・保守まで一貫してご支援します。対応領域、制作実績、クライアントからいただいた評価をご紹介します。',
+  description: '業務内容を把握したうえで、業務システム・AI・Web／アプリの設計・実装・テスト・公開・保守まで一貫してご支援します。対応領域、制作実績、お客様からいただいた評価をご紹介します。',
   experienceYears: 11,
 };
 
