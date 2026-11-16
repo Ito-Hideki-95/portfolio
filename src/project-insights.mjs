@@ -2960,7 +2960,7 @@ export const projectInsights = {
         "note": "公開ページでサービス説明、料金、対象店舗、登録の導線を確認。"
       }
     ],
-    "limitations": "サイトの公開機能と、本人の保守・運用担当範囲は区別。フレームワークや決済基盤は非公開。"
+    "limitations": "所有者提供のシステム構成図（2026-11-16）で、Cloudflare・VPS・D1・Redis・認証・決済・通知・デプロイの連携構成を確認。技術一覧はproject-case-studies.mjsに記録。本人の担当範囲は既存サービスの保守・運用環境整備とし、全体の新規構築とは表現しない。"
   },
   "visual-anatomy": {
     "id": "visual-anatomy",

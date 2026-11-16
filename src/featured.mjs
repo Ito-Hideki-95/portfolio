@@ -22,15 +22,15 @@ const cases = [
     id: 'flash-reserve', reviewId: 'client-voice-1', category: 'WEB SERVICE / OPERATIONS',
     ja: {
       title: 'Flash Reserve－瞬約－',
-      description: '飲食店予約サービスの保守・運用環境の整備を担当しました。ご要望と課題を確認し、技術的な内容もわかりやすくご説明しながら対応しました。',
-      scope: 'Webサービスの保守・運用環境の整備',
-      focus: '技術内容のわかりやすいご説明と、継続運用への配慮',
+      description: 'Cloudflare Workers・D1とVPSを組み合わせた空席通知サービスの保守・運用環境を整備しました。Web・管理画面、情報収集、LINE・メール通知の連携を把握し、ご要望や技術的な課題をわかりやすく共有しながら対応しました。',
+      scope: 'Cloudflare・VPSで構成されたWebサービスの保守・運用環境整備',
+      focus: 'Web・情報収集・通知をまたぐ構成の理解と、継続運用への対応',
     },
     en: {
       title: 'Flash Reserve',
-      description: 'I handled maintenance and operating-environment improvements for a restaurant reservation service, explaining technical issues clearly and addressing the client’s requirements.',
-      scope: 'Web service maintenance and operating-environment improvements',
-      focus: 'Clear technical communication and consideration for ongoing operations',
+      description: 'I maintained a restaurant-availability notification service built around Cloudflare Workers, D1 and VPS infrastructure. My work on the operating environment drew on the connections between the web application, dashboard, data collection and LINE/email notifications, with clear communication of requirements and technical issues.',
+      scope: 'Maintenance and operating-environment improvements across Cloudflare and VPS infrastructure',
+      focus: 'Understanding the web, collection and notification components to support ongoing operations',
     },
   },
   {

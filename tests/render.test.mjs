@@ -62,6 +62,14 @@ test('supplied client comments remain exact and English translations retain Japa
 test('all original screenshots and technology assets remain local and present', async () => {
   for (const review of reviews) if (review.image) assert.ok((await readFile(new URL(`../public${review.image}`, import.meta.url))).length > 0);
   for (const project of getPortfolio('ja')) assert.ok((await readFile(new URL(`../public${project.image}`, import.meta.url))).length > (project.imageKind === 'diagram' ? 0 : 1000), project.id);
+  for (const project of getPortfolio('ja')) if (project.study.architecture) {
+    const { image, width, height } = project.study.architecture;
+    assert.ok(image.startsWith('/images/cases/') && !image.includes('..'));
+    const svg = await readFile(new URL('../public' + image, import.meta.url), 'utf8');
+    assert.ok(svg.includes('width="' + width + '"') && svg.includes('height="' + height + '"'));
+    assert.ok(svg.includes('xml:lang="ja"'));
+    assert.doesNotMatch(svg, /<script|<foreignObject|\bon\w+\s*=/i);
+  }
   for (const [, slug] of stackLogos) {
     const svg = await readFile(new URL(`../public/images/stack/${slug}.svg`, import.meta.url), 'utf8');
     assert.ok(svg.includes('<svg'));
@@ -113,6 +121,17 @@ test('selected contributions are identical on the homepage and in the library', 
         assert.ok(card.includes(escapeHtml(project.lead)), id);
         assert.ok(card.includes(`#client-voice-${project.featured.voice}`), id);
       }
+    }
+    const flash = catalog.find(project => project.id === 'flash-reserve');
+    assert.equal(flash.image, '/images/reviews/flash-reserve-screen.webp');
+    assert.match(flash.role, /保守|maintenance/i);
+    for (const html of [home, library]) {
+      const card = cardFor(html, flash.id), architecture = flash.study.architecture;
+      assert.ok(card.includes('class="case-architecture-preview" href="' + architecture.image + '"'));
+      assert.ok(card.includes(escapeHtml(architecture.alt[locale])));
+      assert.ok(card.includes(escapeHtml(flash.study.technologyLabel[locale])));
+      for (const name of flash.study.technologies) assert.ok(card.includes('<li>' + escapeHtml(name) + '</li>'));
+      assert.ok(!card.slice(0, card.indexOf('<template')).includes(architecture.image));
     }
     for (const id of ['digital-certificates', 'backend-audit']) {
       const project = catalog.find(item => item.id === id);

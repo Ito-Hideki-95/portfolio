@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1100" viewBox="0 0 1440 1100" role="img" aria-labelledby="flash-title flash-description" xml:lang="ja">
+  <title id="flash-title">Flash ReserveのWeb・管理・空席通知の技術構成図</title>
+  <desc id="flash-description">利用者と管理者はCloudflare Workers上のWebサービスと管理画面を利用します。TanStack Startとbetter-authを使用し、LINEログイン、Stripe決済、microCMSと連携します。Cloudflare D1をWeb側とConoHa VPSの取得基盤で共有します。VPSは予約サイトから空席情報を取得し、Redisでタスクと空席状態を管理します。CaddyはTLSで接続を保護し、PM2で管理する監視処理により稼働状況を確認します。管理画面から稼働状況を確認できます。空席の通知はLINE Messaging APIとAmazon SESを通して利用者に届きます。</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#081c37"/><stop offset="1" stop-color="#014f93"/></linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#b4dfff" stroke-opacity=".06"/></pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 9 5 1 9" fill="none" stroke="#75dbed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="1440" height="1100" fill="url(#bg)"/>
+  <rect width="1440" height="1100" fill="url(#grid)"/>
+  <circle cx="1280" cy="120" r="340" fill="#42c5ec" opacity=".05"/>
+  <g font-family="'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', Meiryo, system-ui, sans-serif">
+    <text x="64" y="78" font-size="22" letter-spacing="3" fill="#72d7f3">Flash Reserve｜技術構成図</text>
+    <text x="64" y="140" font-size="42" font-weight="700" fill="#fff">空席の取得・通知を支えるシステム構成</text>
+    <text x="64" y="188" font-size="24" fill="#aac9e6">Web・管理画面と情報収集基盤の役割、データと通知の流れ</text>
+
+    <g fill="none" stroke="#75dbed" stroke-width="2.5" stroke-linejoin="round">
+      <path d="M344 352H388" marker-end="url(#arrow)"/>
+      <path d="M940 352H1032" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+      <path d="M663 466V509" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+      <path d="M663 647V710" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+      <path d="M440 466V488H364V780H386" stroke-dasharray="7 7" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+      <path d="M344 802H386" marker-end="url(#arrow)"/>
+      <path d="M940 802H1032" marker-end="url(#arrow)"/>
+      <path d="M1207 886V920" marker-end="url(#arrow)"/>
+    </g>
+    <text x="340" y="568" text-anchor="end" font-size="22" fill="#a9d7eb">管理画面から</text>
+    <text x="340" y="600" text-anchor="end" font-size="22" fill="#a9d7eb">稼働状況を確認</text>
+    <text x="690" y="685" font-size="22" fill="#a9d7eb">データ参照・通知状態の更新</text>
+
+    <g id="browser-access">
+      <rect x="64" y="286" width="280" height="132" rx="22" fill="#102e4e" stroke="#508bb5"/>
+      <text x="88" y="337" font-size="32" font-weight="700" fill="#fff">利用者・管理者</text>
+      <text x="88" y="383" font-size="22" fill="#bdd3e7">ブラウザーから利用</text>
+    </g>
+    <g id="web-platform">
+      <rect x="392" y="244" width="542" height="216" rx="24" fill="#123957" stroke="#75dbed"/>
+      <text x="420" y="296" font-size="32" font-weight="700" fill="#fff">Cloudflare Workers</text>
+      <text x="420" y="344" font-size="26" fill="#b5e4f3">Webサービス・管理画面</text>
+      <path d="M420 366H906" stroke="#80b9e7" stroke-opacity=".3"/>
+      <text x="420" y="411" font-size="26" fill="#d0e5f5">TanStack Start / better-auth</text>
+    </g>
+    <g id="web-services">
+      <rect x="1038" y="244" width="338" height="216" rx="24" fill="#102e4e" stroke="#508bb5"/>
+      <text x="1066" y="290" font-size="32" font-weight="700" fill="#fff">外部サービス</text>
+      <text x="1066" y="336" font-size="24" fill="#c6deee">LINEログイン</text>
+      <text x="1066" y="380" font-size="24" fill="#c6deee">Stripe 決済</text>
+      <text x="1066" y="424" font-size="24" fill="#c6deee">microCMS コンテンツ</text>
+    </g>
+
+    <g id="shared-database">
+      <rect x="392" y="515" width="542" height="126" rx="24" fill="#123957" stroke="#75dbed"/>
+      <text x="420" y="564" font-size="32" font-weight="700" fill="#fff">Cloudflare D1（SQLite）</text>
+      <text x="420" y="609" font-size="22" fill="#bdd3e7">Web・管理と取得基盤でデータを共有</text>
+    </g>
+
+    <g id="reservation-sources">
+      <rect x="64" y="716" width="280" height="164" rx="22" fill="#102e4e" stroke="#508bb5"/>
+      <text x="88" y="768" font-size="32" font-weight="700" fill="#fff">予約サイト</text>
+      <text x="88" y="816" font-size="22" fill="#bdd3e7">対象サイトから</text>
+      <text x="88" y="850" font-size="22" fill="#bdd3e7">空席情報を取得</text>
+    </g>
+    <g id="collection-platform">
+      <rect x="392" y="716" width="542" height="247" rx="24" fill="#123957" stroke="#75dbed"/>
+      <text x="420" y="768" font-size="34" font-weight="700" fill="#fff">ConoHa VPS</text>
+      <text x="420" y="811" font-size="24" fill="#b5e4f3">空席情報の取得・状態管理・監視</text>
+      <g id="task-state">
+        <rect x="420" y="836" width="216" height="100" rx="16" fill="#081f3b" stroke="#508bb5" stroke-opacity=".6"/>
+        <text x="440" y="873" font-size="28" font-weight="700" fill="#fff">Redis</text>
+        <text x="440" y="911" font-size="22" fill="#bdd3e7">タスク・空席状態</text>
+      </g>
+      <g id="operational-monitoring">
+        <rect x="646" y="836" width="260" height="100" rx="16" fill="#081f3b" stroke="#508bb5" stroke-opacity=".6"/>
+        <text x="666" y="873" font-size="28" font-weight="700" fill="#fff">Caddy・PM2</text>
+        <text x="666" y="911" font-size="22" fill="#bdd3e7">接続の保護・稼働監視</text>
+      </g>
+    </g>
+    <g id="notification-services">
+      <rect x="1038" y="716" width="338" height="164" rx="24" fill="#102e4e" stroke="#508bb5"/>
+      <text x="1066" y="764" font-size="32" font-weight="700" fill="#fff">空席情報の通知</text>
+      <text x="1066" y="810" font-size="24" fill="#c6deee">LINE Messaging API</text>
+      <text x="1066" y="850" font-size="24" fill="#c6deee">Amazon SES</text>
+    </g>
+    <g id="notification-recipient">
+      <rect x="1038" y="926" width="338" height="70" rx="20" fill="#163f5c" stroke="#75dbed"/>
+      <text x="1066" y="971" font-size="26" font-weight="700" fill="#fff">利用者（LINE・メール）</text>
+    </g>
+
+    <path d="M64 1030H1376" stroke="#80b9e7" stroke-opacity=".3"/>
+    <text x="64" y="1072" font-size="22" fill="#abcce7">デプロイ：Workers Builds・GitHub Actions</text>
+    <text x="1376" y="1072" text-anchor="end" font-size="22" fill="#abcce7">システム構成概要</text>
+  </g>
+</svg>

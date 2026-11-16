@@ -31,8 +31,8 @@ export const reviews = [
     "comment": "この度は、Webサービスのシステム保守・運用環境の整備にご尽力いただき、誠にありがとうございました。\n\n技術的な知識と問題解決能力に優れており、こちらの要望や課題を的確に理解したうえで、丁寧かつ誠実に対応していただきました。\n\n特に、専門的な内容についてもわかりやすく説明いただけるため、安心して仕事をお任せできるエンジニアの方です。\n\n技術力だけでなく、責任感やコミュニケーション能力の面でも大変信頼できる方だと感じています。\n\n今後もぜひ継続してお仕事をご一緒したいと思っています。",
     "theme": "わかりやすい技術説明",
     "highlight": "特に、専門的な内容についてもわかりやすく説明いただけるため、安心して仕事をお任せできるエンジニアの方です。",
-    "projectSummary": "Webサービスの保守と運用環境の整備を担当しました。",
-    "functionTags": ["システム保守","運用環境の整備"],
+    "projectSummary": "Cloudflare・VPSを利用した空席通知サービスの保守・運用環境を整備しました。",
+    "functionTags": ["Cloudflare","VPS","空席通知","運用保守"],
     "sourceUrl": "https://www.lancers.jp/profile/negitoro256?ref=header_menu",
     "commentIsExcerpt": false
   },

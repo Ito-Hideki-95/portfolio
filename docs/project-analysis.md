@@ -801,7 +801,7 @@
 
 公開確認：LINE。
 
-[確認元](https://flash-reserve.com/ja/)。サイトの公開機能と、本人の保守・運用担当範囲は区別。フレームワークや決済基盤は非公開。
+[公開情報の確認元](https://flash-reserve.com/ja/)。2026-11-16に所有者提供のシステム構成図を追加確認。Cloudflare Workers・D1、TanStack Start、better-auth、ConoHa VPS、Redis、LINE・Stripe・microCMS・Amazon SES、Caddy・PM2、Workers Builds・GitHub Actionsの連携を整理しました。担当範囲は既存サービスの保守・運用環境整備です。公開用には主要な役割を示す日本語の構成図を用意し、サイトの実画面に加えて実績詳細内で表示します。
 
 ### visual-anatomy
 
