@@ -2029,8 +2029,8 @@ export const projectInsights = {
     "technologies": [
       {
         "name": "カラーミーショップ",
-        "basis": "public",
-        "evidence": "img21.shop-pro.jpのテーマ資産とshop-pro.jp内の商品・コンテンツ導線"
+        "basis": "owner",
+        "evidence": "所有者が2026-11-16に、お客様提供デザインに基づくカラーミーショップでの制作を確認。公開HTMLでもimg21.shop-pro.jpのテーマ資産とshop-pro.jp内の導線を確認。"
       }
     ],
     "checkedAt": "2026-11-12",
@@ -2045,7 +2045,7 @@ export const projectInsights = {
         "note": "トップのReserveリンク先。外部予約へのリンクを確認し、独自予約システムやAPI連携とは表現しない。"
       }
     ],
-    "limitations": "公開ページ上の機能・導線と取得可能なフロントエンドを確認。管理画面、決済完了処理、非公開API、本人の担当範囲は未確認。"
+    "limitations": "お客様提供デザインに基づくカラーミーショップサイトの制作は所有者確認済み。予約は外部ページへの導線。管理画面、決済完了処理、非公開APIは公開ページから確認していない。"
   },
   "tachibana": {
     "id": "tachibana",

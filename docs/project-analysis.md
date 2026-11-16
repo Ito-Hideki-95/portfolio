@@ -542,7 +542,7 @@
 - Squareの外部予約ページへの導線
 - ケア商品の一覧・カートとジャーナル
 
-技術：公開確認 — カラーミーショップ。
+技術：制作時・公開確認 — カラーミーショップ。担当内容：お客様提供デザインに基づくサイト制作（2026-11-16所有者確認）。
 
 追加資料：[確認ページ](https://book.squareup.com/appointments/ptdjn1y7twc8gp/location/LJB3A8YC4635J/services)。
 

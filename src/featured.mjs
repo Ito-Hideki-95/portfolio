@@ -52,15 +52,15 @@ const cases = [
     id: 'vivum-sallier', reviewId: 'client-voice-2', category: 'SALON / E-COMMERCE',
     ja: {
       title: 'vivum・S’allier',
-      description: '美容室の予約サイト兼ECサイトにおいて、テスト・最終調整・リリースを担当しました。ご要望を丁寧に伺い、必要な調整に対応しました。',
-      scope: 'テスト・最終調整・リリース',
-      focus: 'ご要望の確認と、細部にわたる調整',
+      description: 'お客様からご提供いただいたデザインをもとに、カラーミーショップで美容室の予約サイト兼ECサイトを制作しました。ご要望を丁寧に伺い、細部の調整にも対応しました。',
+      scope: 'ご提供デザインに基づくカラーミーショップサイトの制作',
+      focus: 'ご提供デザインの実装と、ご要望に応じた細部の調整',
     },
     en: {
       title: 'vivum · S’allier',
-      description: 'I handled testing, final adjustments and release for a salon booking and e-commerce website, clarifying the client’s requirements and addressing the necessary refinements.',
-      scope: 'Testing, final adjustments and release',
-      focus: 'Clarifying requirements and addressing detailed adjustments',
+      description: 'I built the salon website on Color Me Shop using designs supplied by the client. The site combines booking links with e-commerce, with detailed refinements made in response to the client’s requirements.',
+      scope: 'Color Me Shop development from designs supplied by the client',
+      focus: 'Implementing the supplied designs and refining the site to the client’s requirements',
     },
   },
   {

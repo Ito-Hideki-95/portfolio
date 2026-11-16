@@ -1016,8 +1016,8 @@ export const projects = [
       "en": "vivum · S’allier"
     },
     "description": {
-      "ja": "美容室の雰囲気を伝えるサイトです。メニュー・予約・オンラインストアへ案内する構成です。",
-      "en": "This salon website presents its atmosphere, with routes to services, appointments and the online store."
+      "ja": "お客様からご提供いただいたデザインをもとに、カラーミーショップで制作した美容室のサイトです。メニュー・予約・オンラインストアへご案内します。",
+      "en": "Built on Color Me Shop from designs supplied by the client, this salon website connects service information with booking links and the online store."
     },
     "image": "/images/projects/vivum-sallier.webp",
     "imageKind": "screen",

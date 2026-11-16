@@ -52,8 +52,8 @@ export const reviews = [
     "comment": "丁寧なヒアリングで細かな調整も適切な対応いただきありがとうございます。",
     "theme": "ご要望に沿った調整",
     "highlight": "丁寧なヒアリングで細かな調整も適切な対応いただきありがとうございます。",
-    "projectSummary": "予約・ECサイトのテスト、最終調整、リリースに対応しました。",
-    "functionTags": ["テスト","最終調整","リリース"],
+    "projectSummary": "お客様からご提供いただいたデザインをもとに、カラーミーショップでサイトを制作しました。",
+    "functionTags": ["カラーミーショップ","デザイン実装","ECサイト制作"],
     "sourceUrl": "https://www.lancers.jp/profile/negitoro256?ref=header_menu",
     "commentIsExcerpt": false
   },
