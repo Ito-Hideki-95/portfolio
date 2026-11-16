@@ -41,7 +41,7 @@
 .project-dialog-info { padding-top:65px; }
 .project-dialog-info .project-scope { margin-bottom:24px; }
 .project-dialog .dialog-site[hidden],.project-dialog .dialog-voice[hidden] { display:none; }
-.profile-summary { background:#0162b4; --ink:#fff; --muted:#dcecff; --accent:#b8eeff; color:var(--ink); }
+.profile-summary { --ambient-surface:#0162b4; background:var(--ambient-surface); --ink:#fff; --muted:#dcecff; --accent:#b8eeff; color:var(--ink); }
 .profile-summary-layout { display:grid; grid-template-columns:.9fr 1.1fr; gap:80px; }
 .profile-summary h2 { margin:20px 0 28px; }
 .profile-summary .eyebrow { color:#b8eeff; }
