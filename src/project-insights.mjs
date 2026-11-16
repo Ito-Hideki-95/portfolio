@@ -775,13 +775,13 @@ export const projectInsights = {
   "orcasa": {
     "id": "orcasa",
     "summary": {
-      "ja": "リフォーム・リノベーションを紹介するランディングページです。保存済みの掲載画面では、室内写真を大きく配置し、無料デザイン相談と電話窓口を確認しやすい位置に設けています。",
-      "en": "This interior renovation landing page is represented by the saved portfolio screenshot. The archived view emphasizes a large interior photograph, a prominent free design consultation button and telephone information; the original landing-page URL currently returns a not-found page."
+      "ja": "リフォーム・リノベーションを紹介するランディングページです。室内写真を大きく配置し、無料デザイン相談と電話窓口をわかりやすく案内していました。",
+      "en": "The interior renovation landing page featured a large interior photograph, a prominent free design consultation button, and telephone information with opening hours."
     },
     "features": [
       {
         "ja": "室内写真を大きく配置したファーストビュー",
-        "en": "Large interior photography in the archived hero"
+        "en": "Large interior photography in the hero"
       },
       {
         "ja": "無料デザイン相談へのボタン",
@@ -789,7 +789,7 @@ export const projectInsights = {
       },
       {
         "ja": "電話番号・受付時間の表示",
-        "en": "Visible telephone contact and opening hours"
+        "en": "Telephone contact and opening hours"
       }
     ],
     "technologies": [],
@@ -1703,8 +1703,8 @@ export const projectInsights = {
   "ramutei": {
     "id": "ramutei",
     "summary": {
-      "ja": "らむ亭の公開先は現在、一時閉店のお知らせページです。ブランド表示、営業状況の告知、関連サイトへの導線を確認でき、過去のEC機能は公開情報から確認できません。",
-      "en": "The current Ramutei address displays a temporary closure notice. Its public page presents the brand, business-status information and related-site links with animated decoration; former e-commerce functions cannot be verified from the page now available."
+      "ja": "現在は一時閉店のお知らせを掲載しています。ブランドロゴと雲のアニメーション、関連サイトへのリンクを備えたページです。",
+      "en": "The website currently displays a temporary closure notice, with the brand logo, animated clouds and links to related websites."
     },
     "features": [
       {
@@ -1898,7 +1898,7 @@ export const projectInsights = {
     "id": "fashionwalker",
     "summary": {
       "ja": "ブランド横断で服・靴・バッグを探せるファッションECサイトです。カテゴリー検索、集計期間を変えられるランキング、お気に入りやマイブランドの導線を用意しています。",
-      "en": "This multi-brand fashion store provides category and keyword discovery for clothing, footwear and accessories. Its public interface includes adjustable ranking periods, item favorites and personal-brand controls, enabling focused browsing across a broad product catalog."
+      "en": "This multi-brand fashion store provides category and keyword discovery for clothing, footwear and accessories. The interface includes adjustable ranking periods, item favorites and personal-brand controls, enabling focused browsing across a broad product catalog."
     },
     "features": [
       {
@@ -1940,7 +1940,7 @@ export const projectInsights = {
     "id": "magaseek",
     "summary": {
       "ja": "レディース・メンズ・キッズ・スポーツをまとめたファッションECサイトです。予約商品やクーポン対象商品を探せる導線、マイブランド、閲覧履歴、条件付きランキングを備えています。",
-      "en": "This fashion store offers categories for women, men and children, as well as sportswear. Public navigation highlights preorder and coupon-eligible products, while personal-brand controls, browsing history and configurable rankings help users narrow the catalog to their shopping interests."
+      "en": "This fashion store offers categories for women, men and children, as well as sportswear. The navigation highlights preorder and coupon-eligible products, while personal-brand controls, browsing history and configurable rankings help users narrow the catalog to their shopping interests."
     },
     "features": [
       {
@@ -1982,7 +1982,7 @@ export const projectInsights = {
     "id": "family-town",
     "summary": {
       "ja": "不二家のグッズや菓子を販売する公式ECサイトです。ぬいぐるみ・生活雑貨・冷凍スイーツなどの商品分類、新商品とランキング、会員ページや買い物かごを備えています。",
-      "en": "Fujiya’s official store groups character merchandise, confectionery and chilled or frozen products into distinct shopping categories. New-product and ranking sections complement member access and cart controls, with public guidance covering delivery and shopping conditions."
+      "en": "Fujiya’s official store groups character merchandise, confectionery and chilled or frozen products into distinct shopping categories. New-product and ranking sections complement member access and cart controls, with guidance covering delivery and shopping conditions."
     },
     "features": [
       {
@@ -2257,21 +2257,21 @@ export const projectInsights = {
   "japan-trend-shop": {
     "id": "japan-trend-shop",
     "summary": {
-      "ja": "日本の商品を海外へ紹介する越境ECの記録画面です。商品検索と用途別カテゴリー、言語・通貨の選択、商品カードからのカート追加を確認できます。現行サイトの動作は未確認です。",
-      "en": "The archived view of an international store for Japanese goods shows product search, category navigation, language and currency selectors, and product-card cart buttons. The live site could not be inspected, so these describe the saved screen rather than current operation."
+      "ja": "日本の商品を海外へ紹介する越境ECサイトです。商品検索、用途別カテゴリー、言語・通貨の選択、価格表示とカート追加ボタンを備えていました。",
+      "en": "The international store for Japanese goods featured product search, category navigation, language and currency selectors, and product cards displaying prices and add-to-cart buttons."
     },
     "features": [
       {
-        "ja": "記録画面：商品検索とカテゴリー分類",
-        "en": "Archived screen: product search and category navigation"
+        "ja": "商品検索とカテゴリー分類",
+        "en": "Product search and category navigation"
       },
       {
-        "ja": "記録画面：言語・通貨セレクター",
-        "en": "Archived screen: language and currency selectors"
+        "ja": "言語・通貨セレクター",
+        "en": "Language and currency selectors"
       },
       {
-        "ja": "記録画面：価格表示とカート追加ボタン",
-        "en": "Archived screen: prices and add-to-cart buttons"
+        "ja": "価格表示とカート追加ボタン",
+        "en": "Prices and add-to-cart buttons"
       }
     ],
     "technologies": [],
@@ -2334,7 +2334,7 @@ export const projectInsights = {
     "id": "kireisalone",
     "summary": {
       "ja": "サロンの体験申込と無料カウンセリングを中心に構成したサイトです。店舗と希望日時を選ぶ申込導線、施術コースの案内、各店舗の地図と連絡先をまとめています。",
-      "en": "This salon website is centered on trial visits and free consultations. Its public pages describe choosing a branch and preferred date for enquiries, with treatment-course information, location maps and contact details supporting the visit-planning process."
+      "en": "This salon website is centered on trial visits and free consultations. The website explains how to select a branch and preferred date for enquiries, with treatment-course information, location maps and contact details supporting the visit-planning process."
     },
     "features": [
       {
@@ -2891,7 +2891,7 @@ export const projectInsights = {
     "id": "harvestclub",
     "summary": {
       "ja": "会員制リゾートの施設選びと利用案内を統合したサイトです。各ホテルの写真ギャラリー、会員権の説明、会員向けの空室照会・予約・マイページへの入口を整理しています。",
-      "en": "This resort-membership website connects destination discovery with member services. Hotel photo galleries and ownership information are separated from public entry points to availability checks, reservations and account access, helping visitors identify the appropriate information or member workflow."
+      "en": "This resort-membership website connects destination discovery with member services. Hotel photo galleries and ownership information are separated from links to availability checks, reservations and account access, helping visitors identify the appropriate information or member workflow."
     },
     "features": [
       {

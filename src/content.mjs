@@ -87,7 +87,7 @@ export const reviews = [
     "comment": "丁寧かつ誠実に、専門的な知識や経験を持ってご提案をいただき大変好印象でした。",
     "theme": "専門知識に基づくご提案",
     "highlight": "丁寧かつ誠実に、専門的な知識や経験を持ってご提案をいただき大変好印象でした。",
-    "projectSummary": "旅行パッケージ価格データの自動取得・API解析に関する案件です。画像はサービス紹介用です。",
+    "projectSummary": "旅行パッケージ価格データの自動取得・API解析に関する案件です。",
     "sourceUrl": "https://www.lancers.jp/profile/negitoro256?ref=header_menu",
     "commentIsExcerpt": false
   },

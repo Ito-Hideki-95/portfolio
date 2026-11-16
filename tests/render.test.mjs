@@ -28,7 +28,7 @@ test('client comments remain intact; English translations retain accessible Japa
     for (const review of reviews) for (const paragraph of review.comment.split('\n\n')) assert.ok(html.includes(escapeHtml(paragraph)));
   }
   assert.ok(renderPage('en').includes('lang="ja"'));
-  assert.match(getContent('en').copy.reviewNote,/translat(?:ed|ion)/i);
+  assert.match(getContent('en').copy.reviewTranslation,/translat(?:ed|ion)/i);
   assert.throws(() => getContent('fr'));
 });
 
