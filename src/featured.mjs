@@ -1,6 +1,6 @@
 import { getContent } from './locales.mjs';
 
-// Scope comes from the supplied project names and client comments.
+// Scope comes from owner-confirmed project records, delivery materials and client comments.
 // Stable review IDs keep case links independent of the display order.
 const cases = [
   {
@@ -37,15 +37,15 @@ const cases = [
     id: 'backend-audit', reviewId: 'client-voice-6', category: 'BACKEND / QUALITY',
     ja: {
       title: 'バックエンド開発・監査ログ設計',
-      description: 'M1（第1段階）の納品で、異常時に処理を停止するFail-Closedと監査ログを設計しました。検収時の不具合1件について、原因特定・修正・報告を当日中に行い、テスト資料も更新しました。',
-      scope: 'M1：バックエンド設計・不具合の調査と修正・テスト資料の更新',
-      focus: '異常時の処理を考慮した設計と、検証で見つかった課題への対応',
+      description: '組織ごとの権限制御、監査ログ、トランザクション処理、実ファイルのSHA-256検証を実装しました。データベース移行の再現性確認と回帰テストを行い、ソースコード・検証結果・技術資料の最終納品を完了しました。',
+      scope: 'バックエンドの設計・実装・検証・最終納品（完了）',
+      focus: 'データベース側で権限と更新条件を検証し、操作履歴とデータの整合性を確保',
     },
     en: {
       title: 'Backend logic & audit logging',
-      description: 'For the M1 delivery, I designed fail-closed logic and audit logging. One issue found during acceptance testing was investigated, fixed and reported on the same day, with the test documentation also updated.',
-      scope: 'M1: backend design, defect investigation and fixes, and updated test documentation',
-      focus: 'Design for abnormal conditions and a documented response to issues found during testing',
+      description: 'I implemented organization-scoped access controls, audit logs, transactional updates and server-side SHA-256 verification of stored files. I verified database migration reproducibility, performed regression testing and completed final delivery of the source code, verification results and technical documentation.',
+      scope: 'Backend design, implementation, verification and final delivery — completed',
+      focus: 'Database-enforced permissions and update conditions, with traceable operations and data integrity controls',
     },
   },
   {

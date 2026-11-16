@@ -8,7 +8,11 @@ const text = {
 };
 function technologies(project) {
  const unique = values => [...new Map(values.map(item => [item.name.toLowerCase(), item])).values()];
- const original = (project.insight?.technologies || []).filter(item => item.basis === 'owner');
+ // Case-study technology is verified from owner-supplied delivery materials.
+ const original = [
+  ...(project.study.technologies || []).map(name => ({ name, basis:'owner' })),
+  ...(project.insight?.technologies || []).filter(item => item.basis === 'owner'),
+ ];
  if (project.platform && !original.some(item => item.name.toLowerCase() === project.platform.toLowerCase())) original.push({name:project.platform,basis:'owner'});
  const current = (project.insight?.technologies || []).filter(item => item.basis === 'public');
  return { items:unique(original.length ? original : current), original:original.length > 0 };

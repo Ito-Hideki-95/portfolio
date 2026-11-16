@@ -301,10 +301,25 @@ const studies = [
     text('複数の業務機能をまとめて実装し、仕様調整から納品後の操作マニュアルまで対応した開発経験。', 'Experience combining several business functions with specification refinements and an operations manual for ongoing use.'),
     { title: text('デジタル認定証明書・会員証システム', 'Digital certificates and membership credentials'), role: text('Webシステム開発・仕様調整・運用マニュアル作成', 'Web system development, specification refinements and an operations manual'), deliverables: [text('CSV取込・ログイン・PDF発行・QR照合のWebシステム', 'Web system for CSV imports, login, PDF certificates and QR verification'), text('変更手順・トラブル対応をまとめた運用マニュアル', 'Operations manual covering changes and troubleshooting')] }),
   study('backend-audit',
-    text('異常時の処理停止と監査ログを設計し、検収時の修正・テスト資料更新まで対応したバックエンド開発。', 'Backend development covering fail-closed logic, audit logging, acceptance-stage fixes and updated test documentation.'),
-    [text('異常な状態で処理を進めないFail-Closed設計', 'Fail-closed controls that stop processing under invalid conditions'), text('監査ログとバックエンドの処理設計', 'Audit logging and backend processing logic'), text('検収不具合の原因特定・修正・テスト資料更新', 'Acceptance-defect investigation, correction and test-document updates')],
-    text('設計書を踏まえた処理の実装に加え、検収時の不具合を当日中に原因特定・修正・報告した対応力。', 'Implementation aligned with the design documents, with an acceptance defect investigated, fixed and reported on the same day.'),
-    { title: text('バックエンド開発・監査ログ設計', 'Backend logic and audit logging'), role: text('M1納品範囲のバックエンド設計・実装・検証対応', 'Backend design, implementation and verification within the M1 delivery'), deliverables: [text('Fail-Closed・監査ログを含むバックエンド処理', 'Backend processing with fail-closed controls and audit logging'), text('検収時の修正と更新済みテスト資料', 'Acceptance-stage correction and updated test documentation')] }),
+    text('組織ごとの権限制御・監査ログ・ファイル検証を備えたバックエンドを開発し、検証資料とともに最終納品を完了しました。', 'Completed backend development and final delivery, including organization-scoped access controls, audit logging, file verification and verification documentation.'),
+    [
+      text('組織ごとのデータ分離と行単位のアクセス制御（RLS）', 'Organization-scoped data isolation and row-level security (RLS)'),
+      text('異常時の処理停止とトランザクションによる更新の整合性確保', 'Fail-closed controls and transactional updates for data consistency'),
+      text('状態遷移の制御・確定後の更新制限・操作履歴の記録', 'Controlled state transitions, restrictions on finalized data and operation logs'),
+      text('サーバー側での実ファイルのSHA-256照合', 'Server-side SHA-256 verification against stored file contents'),
+      text('データベース移行の再現性確認とSQL・HTTPによる回帰検証', 'Reproducible database migrations and SQL/HTTP regression checks'),
+    ],
+    text('画面上の制御に加えてデータベース側でも権限と更新条件を検証し、操作を追跡できるバックエンドを実装しました。', 'Permissions and update conditions are enforced in the database as well as the interface, with audit records that make operations traceable.'),
+    {
+      title: text('バックエンド開発・監査ログ設計', 'Backend logic and audit logging'),
+      role: text('バックエンドの設計・実装・検証・最終納品（完了）', 'Backend design, implementation, verification and final delivery — completed'),
+      technologies: ['PostgreSQL', 'Supabase', 'TypeScript', 'Next.js', 'React', 'Deno', 'Vitest'],
+      deliverables: [
+        text('権限制御・監査ログ・ファイル検証の実装', 'Access controls, audit logging and file-verification implementation'),
+        text('データベース移行SQL・検証SQL・自動テスト', 'Database migration scripts, verification SQL and automated tests'),
+        text('ソースコード・検証結果・技術資料の最終納品', 'Final delivery of source code, verification results and technical documentation'),
+      ],
+    }),
 ];
 
 export const caseStudies = Object.fromEntries(studies.map(item => [item.id, item]));

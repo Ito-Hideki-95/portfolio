@@ -126,6 +126,30 @@ test('selected contributions are identical on the homepage and in the library', 
   }
 });
 
+test('the completed backend case separates delivery status from historical feedback', async () => {
+  for (const locale of ['ja', 'en']) {
+    const project = getPortfolio(locale).find(item => item.id === 'backend-audit');
+    assert.equal(project.role, project.study.role[locale]);
+    assert.match(project.role, /完了|completed/i);
+    assert.doesNotMatch([project.lead, project.role, project.strength, ...project.focus, ...project.deliverables].join(' '), /\bM[12]\b|第1段階|milestone/i);
+    assert.ok(project.study.technologies.includes('PostgreSQL') && project.study.technologies.includes('Supabase'));
+    for (const page of ['', 'projects']) {
+      const card = cardFor(renderPage(locale, page), project.id);
+      for (const technology of project.study.technologies) assert.ok(card.includes('<li>' + escapeHtml(technology) + '</li>'));
+      assert.ok(card.includes('RLS') && card.includes('SHA-256'));
+      assert.doesNotMatch(card, /class="project-site /);
+    }
+    const review = getContent(locale).reviews.find(item => item.id === 'client-voice-6');
+    assert.match(review.projectSummary, /完了|completed/i);
+    assert.match(review.theme, /開発途中|during development/i);
+    assert.match(review.comment, /M1/);
+    assert.match(review.comment, /M2/);
+  }
+  const diagram = await readFile(new URL('../public/images/cases/backend-audit.svg', import.meta.url), 'utf8');
+  assert.doesNotMatch(diagram, /\bM[12]\b|第1段階|milestone/i);
+  assert.ok(diagram.includes('SHA-256') && diagram.includes('完了'));
+});
+
 test('every route has one main heading, unique IDs and valid internal links without personal contact details', () => {
   const rendered = new Map();
   for (const locale of ['ja', 'en']) for (const page of pageRoutes) {

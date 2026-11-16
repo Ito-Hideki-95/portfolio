@@ -7,3 +7,6 @@ dist/
 *.log
 Thumbs.db
 .DS_Store
+
+# Private reference archives
+/*.zip

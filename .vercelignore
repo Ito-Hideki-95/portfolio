@@ -7,3 +7,6 @@ dist/
 docs/
 README.md
 *.log
+
+# Private reference archives
+/*.zip
