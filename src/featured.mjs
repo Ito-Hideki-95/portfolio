@@ -1,12 +1,27 @@
 import { getContent } from './locales.mjs';
 
 // Scope comes from the supplied project names and client comments.
-// No project-specific technology, delivery dates or outcome metrics are inferred.
+// Stable review IDs keep case links independent of the display order.
 const cases = [
   {
-    id: 'flash-reserve', review: 0, category: 'WEB SERVICE / OPERATIONS',
+    id: 'digital-certificates', reviewId: 'client-voice-5', category: 'MEMBERSHIP / CERTIFICATES',
     ja: {
-      title: 'Flash Reserve－瞬間－',
+      title: 'デジタル認定証・会員証システム',
+      description: '会員ログイン、CSV一括取込、PDF認定証の発行、QRコードによる第三者確認を備えたWebシステムを開発しました。運用マニュアルには、文言・URLの変更やトラブル時の対応手順もまとめました。',
+      scope: '認定証・会員証システムの開発と運用資料の整備',
+      focus: '仕様の確認と調整を重ね、納品後の更新・運用まで引き継ぎ',
+    },
+    en: {
+      title: 'Digital certificates & membership system',
+      description: 'I developed a web system with member login, bulk CSV imports, PDF certificates and third-party verification via QR codes. The operating manual covered content and URL changes as well as troubleshooting.',
+      scope: 'Web system development and operating documentation',
+      focus: 'Specification reviews and adjustments, followed by guidance for ongoing operation and updates',
+    },
+  },
+  {
+    id: 'flash-reserve', reviewId: 'client-voice-1', category: 'WEB SERVICE / OPERATIONS',
+    ja: {
+      title: 'Flash Reserve－瞬約－',
       description: '飲食店予約サービスの保守・運用環境の整備を担当しました。ご要望と課題を確認し、技術的な内容もわかりやすくご説明しながら対応しました。',
       scope: 'Webサービスの保守・運用環境の整備',
       focus: '技術内容のわかりやすいご説明と、継続運用への配慮',
@@ -19,7 +34,22 @@ const cases = [
     },
   },
   {
-    id: 'vivum-sallier', review: 1, category: 'SALON / E-COMMERCE',
+    id: 'backend-audit', reviewId: 'client-voice-6', category: 'BACKEND / QUALITY',
+    ja: {
+      title: 'バックエンド開発・監査ログ設計',
+      description: 'M1（第1段階）の納品で、異常時に処理を停止するFail-Closedと監査ログを設計しました。検収時の不具合1件について、原因特定・修正・報告を当日中に行い、テスト資料も更新しました。',
+      scope: 'M1：バックエンド設計・不具合の調査と修正・テスト資料の更新',
+      focus: '異常時の処理を考慮した設計と、検証で見つかった課題への対応',
+    },
+    en: {
+      title: 'Backend logic & audit logging',
+      description: 'For the M1 delivery, I designed fail-closed logic and audit logging. One issue found during acceptance testing was investigated, fixed and reported on the same day, with the test documentation also updated.',
+      scope: 'M1: backend design, defect investigation and fixes, and updated test documentation',
+      focus: 'Design for abnormal conditions and a documented response to issues found during testing',
+    },
+  },
+  {
+    id: 'vivum-sallier', reviewId: 'client-voice-2', category: 'SALON / E-COMMERCE',
     ja: {
       title: 'vivum・S’allier',
       description: '美容室の予約サイト兼ECサイトにおいて、テスト・最終調整・リリースを担当しました。ご要望を丁寧に伺い、必要な調整に対応しました。',
@@ -34,7 +64,7 @@ const cases = [
     },
   },
   {
-    id: 'visual-anatomy', review: 2, category: 'WORDPRESS / MIGRATION',
+    id: 'visual-anatomy', reviewId: 'client-voice-3', category: 'WORDPRESS / MIGRATION',
     ja: {
       title: 'Visual Anatomy',
       description: '既存の静的HTMLサイトからWordPressへのデータ移植を担当しました。',
@@ -52,5 +82,9 @@ const cases = [
 
 export function getFeatured(locale) {
   const { reviews } = getContent(locale);
-  return cases.map(item => ({ id: item.id, ...item[locale], category: item.category, review: reviews[item.review], voice: item.review + 1 }));
+  return cases.map(item => {
+    const review = reviews.find(review => review.id === item.reviewId);
+    if (!review) throw new Error('Missing featured review: ' + item.reviewId);
+    return { id: item.id, ...item[locale], category: item.category, review: { ...review, image: review.image || null }, voice: Number(item.reviewId.split('-').at(-1)), features: review.functionTags };
+  });
 }

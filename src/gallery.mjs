@@ -1,66 +1,45 @@
-import { projects, projectCategories } from './projects.mjs';
-import { getFeatured } from './featured.mjs';
-import { projectInsights } from './project-insights.mjs';
+import { projectCategories } from './projects.mjs';
+import { getPortfolio, orderPortfolio, selectedProjectIds } from './portfolio.mjs';
 const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg>';
-export const pagePath = (locale, page = '') => `${locale === 'en' ? '/en/' : '/'}${page ? `${page}/` : ''}`;
-const copy = {
-  ja: { heading: '制作実績と\n対応内容のご紹介', all: '制作実績一覧', visit: '公開サイトを確認', preview: '実績の詳細', close: '詳細を閉じる', role: '担当業務', focus: '対応のポイント', voice: 'この案件に寄せられたご感想', category: 'カテゴリー', search: '機能・技術・サイト名で検索', more: 'ほかの実績を表示', empty: '条件に一致する制作実績はありません。', reset: '絞り込みを解除', library: '制作実績一覧', detail: '掲載サイト・ページ', newTab: '新しいタブで開きます', paused: '公開先は休止中', image: '公開サイトの画像' },
-  en: { heading: 'Projects and\ncontributions', all: 'All projects', visit: 'Visit the website', preview: 'Project details', close: 'Close details', role: 'Scope of my work', focus: 'Approach', voice: 'Client feedback on this project', category: 'Category', search: 'Search by feature, technology or site', more: 'Load more projects', empty: 'No projects match the selected criteria.', reset: 'Clear filters', library: 'Project portfolio', detail: 'WEBSITES & PAGES', newTab: 'Opens in a new tab', paused: 'Website temporarily closed', image: 'Public website image' },
+export const pagePath = (locale, page = '') => (locale === 'en' ? '/en/' : '/') + (page ? page + '/' : '');
+const text = {
+ ja: { heading:'実績から伝える、\n開発のかたち。', library:'制作・開発実績', all:'すべての実績を見る', visit:'公開サイトを見る', preview:'担当内容・制作のポイント', close:'詳細を閉じる', role:'担当内容', focus:'制作・開発のポイント', strength:'この実績で活かした視点', deliverables:'対応内容・納品物', voice:'この案件のお客様の声', category:'カテゴリー', search:'実現したい機能・技術・サイト名で検索', more:'ほかの実績を表示', empty:'条件に一致する実績はありません。', reset:'絞り込みを解除', detail:'件の掲載実績', newTab:'新しいタブで開きます', image:'サイト画面', visual:'サイトのメインビジュアル', diagram:'機能構成図', stack:'技術・構成', originalStack:'制作時の環境', original:'制作時', allLabel:'すべて', overview:'会員システム、継続運用、Web・EC。具体的な対応内容から、ご検討中のプロジェクトに近い実績をご覧いただけます。' },
+ en: { heading:'The work.\nThe thinking behind it.', library:'Project portfolio', all:'Explore all projects', visit:'Visit website', preview:'Explore the work', close:'Close details', role:'My contribution', focus:'Development & design focus', strength:'What this work brings together', deliverables:'Work delivered', voice:'Feedback on this project', category:'Category', search:'Search by feature, technology or site', more:'Load more projects', empty:'No projects match your search.', reset:'Clear filters', detail:'PORTFOLIO ENTRIES', newTab:'Opens in a new tab', image:'Website screen', visual:'Website visual', diagram:'Functional diagram', stack:'Technology & structure', originalStack:'Project technology', original:'Project', allLabel:'All', overview:'Membership systems, ongoing operations, websites and commerce. Explore concrete contributions and find work relevant to your project.' },
 };
-
-const labels = {
-  ja:{features:'サイトの主な機能',stack:'技術・サービス',publicStack:'サイトの技術・サービス',originalStack:'制作時の技術・サービス',original:'制作時'},
-  en:{features:'Website features',stack:'Technologies & services',publicStack:'Website technologies & services',originalStack:'Original project technologies',original:'Original'},
-};
-function technologyGroups(insight) {
-  const unique = list => [...new Map(list.map(item=>[item.name.toLowerCase(),item])).values()];
-  const observed=unique(insight?.technologies?.filter(item=>item.basis==='public')||[]);
-  const names=new Set(observed.map(item=>item.name.toLowerCase()));
-  const original=unique((insight?.technologies||[]).filter(item=>item.basis==='owner'&&!names.has(item.name.toLowerCase())));
-  return {observed,original};
+function technologies(project) {
+ const unique = values => [...new Map(values.map(item => [item.name.toLowerCase(), item])).values()];
+ const original = (project.insight?.technologies || []).filter(item => item.basis === 'owner');
+ if (project.platform && !original.some(item => item.name.toLowerCase() === project.platform.toLowerCase())) original.push({name:project.platform,basis:'owner'});
+ const current = (project.insight?.technologies || []).filter(item => item.basis === 'public');
+ return { items:unique(original.length ? original : current), original:original.length > 0 };
 }
-function featureList(insight,locale,e) {
-  const c=labels[locale];
-  return insight?.features?.length ? '<div class="project-functions"><p class="project-detail-label">'+c.features+'</p><ul>'+insight.features.map(feature=>'<li>'+e(feature[locale])+'</li>').join('')+'</ul></div>' : '';
+function details(project, locale, e) {
+ const c=text[locale], tech=technologies(project);
+ const list=(title,items)=>items.length ? '<div class="case-detail-block"><h3>'+e(title)+'</h3><ul>'+items.map(item=>'<li>'+e(item)+'</li>').join('')+'</ul></div>' : '';
+ return '<div class="case-detail-block case-strength"><h3>'+e(c.strength)+'</h3><p>'+e(project.strength)+'</p></div>'+list(c.focus,project.focus)+list(c.deliverables,project.deliverables)+(tech.items.length ? '<div class="case-detail-block"><h3>'+e(tech.original?c.originalStack:c.stack)+'</h3><ul class="project-stack-list">'+tech.items.map(item=>'<li>'+e(item.name)+'</li>').join('')+'</ul></div>' : '');
 }
-function detailContent(insight,locale,e) {
-  if (!insight) return '';
-  const c=labels[locale],{observed,original}=technologyGroups(insight);
-  const stack=(title,items)=>items.length?'<div class="project-stack-group"><h3>'+title+'</h3><ul class="project-stack-list">'+items.map(item=>'<li>'+e(item.name)+'</li>').join('')+'</ul></div>':'';
-  return '<div class="project-insights">'+featureList(insight,locale,e)+stack(c.publicStack,observed)+stack(c.originalStack,original)+'</div>';
+export function projectCard(project, locale, e, spotlight=false, index=0) {
+ const c=text[locale], categories=project.categories.map(key=>projectCategories[key][locale]);
+ const tech=technologies(project), diagram=project.imageKind==='diagram';
+ const available=project.url && project.websiteAvailable!==false && project.status!=='paused';
+ const featured=project.featured;
+ const keywords=[project.title,project.name.ja,project.name.en,project.url,project.platform,project.lead,project.strength,project.role,...project.focus,...project.deliverables,...tech.items.map(item=>item.name),...Object.values(project.study.lead),...project.study.focus.flatMap(item=>Object.values(item)),...project.categories.flatMap(key=>Object.values(projectCategories[key]))].filter(Boolean).join(' ');
+ const badge=diagram?c.diagram:categories[0];
+ const role=project.role?'<dl class="project-scope"><div><dt>'+e(c.role)+'</dt><dd>'+e(project.role)+'</dd></div></dl>':'';
+ const voice=featured?'<a class="featured-voice text-link" href="'+pagePath(locale)+'#client-voice-'+featured.voice+'">'+e(c.voice)+arrow+'</a>':'';
+ return '<article class="project-card'+(spotlight?' featured-case':'')+'" id="project-'+e(project.id)+'" data-project-id="'+e(project.id)+'" data-project-categories="'+e(project.categories.join(' '))+'" data-project-search="'+e(keywords)+'">'+
+ '<div class="project-window"><a class="project-preview" href="'+e(project.image)+'" target="_blank" rel="noopener noreferrer" data-project-preview aria-label="'+e(project.title+' — '+c.preview)+'"><img src="'+e(project.image)+'" alt="'+e(project.imageAlt || project.title+' — '+(diagram?c.diagram:project.imageKind==='visual'?c.visual:c.image))+'" width="'+project.imageWidth+'" height="'+project.imageHeight+'" loading="lazy" decoding="async"><span class="project-image-tag">'+e(badge)+'</span><span class="project-preview-label">'+e(c.preview)+' '+arrow+'</span></a></div>'+
+ '<div class="project-copy"><div class="case-kicker"><span>'+String(index+1).padStart(2,'0')+'</span><span>'+e(categories.join(' / '))+'</span></div><h3>'+e(project.title)+'</h3>'+role+'<p class="project-description">'+e(project.lead)+'</p><div class="case-focus-preview"><p class="project-detail-label">'+e(c.focus)+'</p><ul>'+project.focus.slice(0,2).map(item=>'<li>'+e(item)+'</li>').join('')+'</ul></div>'+
+ (tech.items.length?'<div class="project-technology"><p class="project-detail-label">'+e(tech.original?c.originalStack:c.stack)+'</p><ul class="project-stack-list">'+tech.items.slice(0,3).map(item=>'<li>'+e(item.name)+'</li>').join('')+'</ul></div>':'')+
+ '<template data-project-insights>'+details(project,locale,e)+'</template>'+voice+'<div class="project-card-footer"><button type="button" class="text-link project-details-button" data-open-project hidden>'+e(c.preview)+arrow+'</button>'+(available?'<a class="project-site icon-link" href="'+e(project.url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+e(c.visit+' — '+project.title+' ('+c.newTab+')')+'">'+arrow+'</a>':'')+'</div></div></article>';
 }
-
-export function projectCard(p, locale, e, featured = false) {
-  const c = copy[locale], home = pagePath(locale);
-  const name = featured ? p.title : p.name[locale];
-  const insight = projectInsights[p.id];
-  const description = featured ? p.description : insight?.summary[locale] || p.description[locale];
-  const groups = technologyGroups(insight);
-  const technology = [...groups.observed,...groups.original].slice(0,3);
-  const image = featured ? p.review.image : p.image;
-  const url = featured ? p.review.projectUrl : p.url;
-  const category = featured ? p.category : projectCategories[p.categories[0]][locale];
-  const platform = !featured && p.platform ? ({ 'ペライチ': 'Peraichi', 'カラーミーショップ': 'Color Me Shop' }[p.platform] || p.platform) : '';
-  const alt = featured ? p.review.imageAlt : `${name} — ${c.image}`;
-  const search = featured ? '' : [p.name.ja,p.name.en,p.description.ja,p.description.en,p.url,p.platform,...(insight?.features||[]).flatMap(feature=>[feature.ja,feature.en]),...(insight?.technologies||[]).map(item=>item.name),insight?.summary.ja||'',insight?.summary.en||'',...p.categories.flatMap(key=>Object.values(projectCategories[key]))].join(' ');
-  return `<article class="project-card${featured ? ' featured-case' : ''}" data-project-id="${e(p.id)}"${featured ? '' : ` data-project-categories="${e(p.categories.join(' '))}" data-project-search="${e(search)}"`}>
-    <div class="project-window"><a class="project-preview" href="${e(image)}" target="_blank" rel="noopener noreferrer" data-project-preview aria-label="${e(name)} — ${e(c.preview)}"><img src="${e(image)}" alt="${e(alt)}" width="${featured ? p.review.imageWidth : p.imageWidth || 1440}" height="${featured ? p.review.imageHeight : p.imageHeight || 900}" loading="lazy" decoding="async"><span class="project-image-tag">${e(category)}</span><span class="project-preview-label">${e(c.preview)} ${arrow}</span></a></div>
-    <div class="project-copy"><p class="project-domain">${e(new URL(url).hostname.replace(/^www\./,''))}</p><h3>${e(name)}</h3><p class="project-description">${e(description)}</p>${featureList(insight,locale,e)}${technology.length?`<div class="project-technology"><p class="project-detail-label">${labels[locale].stack}</p><ul class="project-stack-list">${technology.map(item=>`<li>${e(item.name)}${item.basis==='owner'?` <small>${labels[locale].original}</small>`:''}</li>`).join('')}</ul></div>`:''}<template data-project-insights>${detailContent(insight,locale,e)}</template>
-    ${featured ? `<dl class="project-scope"><div><dt>${e(c.role)}</dt><dd>${e(p.scope)}</dd></div><div><dt>${e(c.focus)}</dt><dd>${e(p.focus)}</dd></div></dl><a class="featured-voice text-link" href="${home}#client-voice-${p.voice}">${e(c.voice)} ${arrow}</a>` : `<div class="project-tags"><span>${e(category)}</span>${platform && !insight ? `<span>${e(platform)}</span>` : ''}${p.status === 'paused' ? `<span>${e(c.paused)}</span>` : ''}</div>`}
-    <div class="project-card-footer"><button type="button" class="text-link project-details-button" data-open-project hidden>${e(c.preview)} ${arrow}</button><a class="project-site icon-link" href="${e(url)}" target="_blank" rel="noopener noreferrer" aria-label="${e(c.visit)} — ${e(name)} (${e(c.newTab)})">${arrow}</a></div></div>
-  </article>`;
-}
-export function renderGallery(locale, e, full = false) {
-  const c = copy[locale];
-  const picks = ['one-pilates','blue-square','anker','hakuhodo-technologies','ohora','partners'];
-  const ordered = [...picks.map(id => projects.find(p => p.id === id)), ...projects.filter(p => !picks.includes(p.id))];
-  const categories = {all:{ja:'すべて',en:'All projects'}, ...projectCategories};
-  return `<section id="projects" class="section projects-section" aria-labelledby="projects-heading" data-catalog="${full}"><div class="container">
-    <div class="project-heading reveal"><div><p class="eyebrow">${full ? 'PROJECT LIBRARY' : 'SELECTED WORK'}</p><h2 id="projects-heading">${e(full ? c.library : c.heading).replace(/\n/g,'<br>')}</h2></div><aside class="discipline-panel"><p class="eyebrow">${full ? `${projects.length} ${c.detail}` : 'DISCIPLINES'}</p><p>${locale === 'ja' ? '業務システム、AI・自動化、Web・EC、アプリ開発の各領域に対応します。' : 'I support projects across business systems, AI and automation, websites, e-commerce and application development.'}</p><div class="pill-list">${['Business systems','AI & automation','Web & commerce','Applications'].map(x=>`<span>${x}</span>`).join('')}</div></aside></div>
-
-    ${full ? `<div class="project-toolbar" hidden><div class="project-filters" role="group" aria-label="${e(c.category)}">${Object.entries(categories).map(([key,value])=>`<button type="button" class="project-filter${key==='all'?' active':''}" data-project-filter="${key}" aria-pressed="${key==='all'}">${e(value[locale])}<span>${key==='all'?projects.length:projects.filter(p=>p.categories.includes(key)).length}</span></button>`).join('')}</div><div class="project-search-row"><label class="project-category-select"><span class="sr-only">${e(c.category)}</span><select id="project-category" aria-controls="project-grid">${Object.entries(categories).map(([key,value])=>`<option value="${key}">${e(value[locale])}</option>`).join('')}</select></label><label class="project-search"><span class="sr-only">${e(c.search)}</span><input type="search" id="project-search" placeholder="${e(c.search)}" autocomplete="off" maxlength="120" aria-controls="project-grid"></label><p class="project-count" role="status" aria-live="polite"></p></div></div>` : ''}
-    <div class="project-grid" id="project-grid">${full ? ordered.map(p=>projectCard(p,locale,e)).join('') : getFeatured(locale).map(p=>projectCard(p,locale,e,true)).join('')+ordered.slice(0,6).map(p=>projectCard(p,locale,e)).join('')}</div>
-    ${full ? `<div class="project-empty" hidden><p>${e(c.empty)}</p><button class="text-link" id="project-reset" type="button">${e(c.reset)}</button></div><div class="projects-more" hidden><button class="button button-outline" id="project-more" type="button" aria-controls="project-grid">${e(c.more)} <span class="project-more-count"></span> +</button></div>` : `<div class="section-action"><a class="button button-dark" href="${pagePath(locale,'projects')}">${e(c.all)} <span>${projects.length}</span>${arrow}</a></div>`}
-    </div>
-    <dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title"><div class="project-dialog-shell"><button type="button" class="icon-button project-dialog-close" aria-label="${e(c.close)}" autofocus>×</button><div class="project-dialog-media"><img alt=""></div><div class="project-dialog-info"><p class="eyebrow">PROJECT DETAILS</p><h2 id="project-dialog-title"></h2><p class="dialog-description"></p><div class="dialog-scope"></div><div class="dialog-insights"></div><a class="dialog-voice text-link" hidden>${e(c.voice)} ${arrow}</a><a class="dialog-site button button-dark" target="_blank" rel="noopener noreferrer">${e(c.visit)} ${arrow}<span class="sr-only"> (${e(c.newTab)})</span></a></div></div></dialog></section>`;
+export function renderGallery(locale,e,full=false) {
+ const c=text[locale], catalog=orderPortfolio(getPortfolio(locale));
+ const visible=full?catalog:selectedProjectIds.map(id=>catalog.find(project=>project.id===id));
+ const categories={all:{ja:'すべて',en:'All'},...projectCategories};
+ return '<section id="projects" class="section projects-section" aria-labelledby="projects-heading" data-catalog="'+full+'"><div class="container"><div class="project-heading reveal"><div><p class="eyebrow">'+(full?'PROJECT LIBRARY':'SELECTED WORK')+'</p><h2 id="projects-heading">'+e(full?c.library:c.heading).replace(/\n/g,'<br>')+'</h2></div><div class="case-heading-intro"><p>'+e(c.overview)+'</p><span class="case-total">'+catalog.length+' '+e(c.detail)+'</span></div></div>'+
+ (full?'<div class="project-toolbar" hidden><div class="project-filters" role="group" aria-label="'+e(c.category)+'">'+Object.entries(categories).map(([key,value])=>'<button type="button" class="project-filter'+(key==='all'?' active':'')+'" data-project-filter="'+key+'" aria-pressed="'+(key==='all')+'">'+e(value[locale])+'<span>'+(key==='all'?catalog.length:catalog.filter(project=>project.categories.includes(key)).length)+'</span></button>').join('')+'</div><div class="project-search-row"><label class="project-category-select"><span class="sr-only">'+e(c.category)+'</span><select id="project-category" aria-controls="project-grid">'+Object.entries(categories).map(([key,value])=>'<option value="'+key+'">'+e(value[locale])+'</option>').join('')+'</select></label><label class="project-search"><span class="sr-only">'+e(c.search)+'</span><input type="search" id="project-search" placeholder="'+e(c.search)+'" autocomplete="off" maxlength="120" aria-controls="project-grid"></label><p class="project-count" role="status" aria-live="polite"></p></div></div>':'')+
+ '<div class="project-grid'+(full?'':' selected-project-grid')+'" id="project-grid">'+visible.map((project,index)=>projectCard(project,locale,e,!full,index)).join('')+'</div>'+
+ (full?'<div class="project-empty" hidden><p>'+e(c.empty)+'</p><button class="text-link" id="project-reset" type="button">'+e(c.reset)+'</button></div><div class="projects-more" hidden><button class="button button-outline" id="project-more" type="button" aria-controls="project-grid">'+e(c.more)+' <span class="project-more-count"></span> +</button></div>':'<div class="section-action"><a class="button button-dark" href="'+pagePath(locale,'projects')+'">'+e(c.all)+' <span>'+catalog.length+'</span>'+arrow+'</a></div>')+'</div>'+
+ '<dialog class="project-dialog" id="project-dialog" aria-labelledby="project-dialog-title"><div class="project-dialog-shell"><button type="button" class="icon-button project-dialog-close" aria-label="'+e(c.close)+'" autofocus>×</button><div class="project-dialog-media"><img alt=""></div><div class="project-dialog-info"><p class="eyebrow">PROJECT DETAILS</p><h2 id="project-dialog-title"></h2><div class="dialog-scope"></div><p class="dialog-description"></p><div class="dialog-insights"></div><a class="dialog-voice text-link" hidden>'+e(c.voice)+' '+arrow+'</a><a class="dialog-site button button-dark" target="_blank" rel="noopener noreferrer" hidden>'+e(c.visit)+' '+arrow+'<span class="sr-only"> ('+e(c.newTab)+')</span></a></div></div></dialog></section>';
 }

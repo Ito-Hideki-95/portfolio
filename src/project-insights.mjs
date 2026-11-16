@@ -576,7 +576,7 @@ export const projectInsights = {
     "id": "me-create",
     "summary": {
       "ja": "幼稚園の紹介を想定したWordPress・SWELLサイトです。施設写真、年間行事、入園案内、よくある質問、お知らせを、保護者の方が目的別に確認できる構成です。",
-      "en": "This kindergarten information website uses WordPress and SWELL. Facility introductions, annual events, admission guidance, frequently asked questions and dated notices are organized around the information families need when exploring the school."
+      "en": "This kindergarten website concept uses WordPress and SWELL. Example facility introductions, annual events, admission guidance, frequently asked questions and notices demonstrate how information for families can be organized."
     },
     "features": [
       {
@@ -1703,21 +1703,13 @@ export const projectInsights = {
   "ramutei": {
     "id": "ramutei",
     "summary": {
-      "ja": "現在は一時閉店のお知らせを掲載しています。ブランドロゴと雲のアニメーション、関連サイトへのリンクを備えたページです。",
-      "en": "The website currently displays a temporary closure notice, with the brand logo, animated clouds and links to related websites."
+      "ja": "Shopifyを使用したオンラインストアの制作実績です。現在は休止しているため、過去のECサイト事例として掲載しています。",
+      "en": "An archived Shopify online-store project. The storefront is currently unavailable, so this entry presents the project as past e-commerce work."
     },
     "features": [
       {
-        "ja": "一時閉店のお知らせと営業状況の表示",
-        "en": "Temporary closure and business-status notice"
-      },
-      {
-        "ja": "ロゴと雲のCSSアニメーション",
-        "en": "Logo presentation and CSS cloud animation"
-      },
-      {
-        "ja": "関連サイトへのリンク",
-        "en": "Links to related websites"
+        "ja": "Shopifyを使用したオンラインストア",
+        "en": "Online storefront using Shopify"
       }
     ],
     "technologies": [
@@ -1725,11 +1717,6 @@ export const projectInsights = {
         "name": "Shopify",
         "basis": "owner",
         "evidence": "ポートフォリオ所有者が提供した制作実績の分類。現在の公開ソースで同基盤を確認できたという意味ではない。"
-      },
-      {
-        "name": "CSS Animations",
-        "basis": "public",
-        "evidence": "公開CSSに@keyframes floatCloudとanimation指定"
       }
     ],
     "checkedAt": "2026-11-12",
@@ -1737,13 +1724,17 @@ export const projectInsights = {
     "sources": [
       {
         "url": "https://ramutei.com/",
-        "note": "公開本文・ナビゲーション・リンク・HTML資産を確認。"
+        "note": "所有者提供のShopify制作実績一覧に掲載されたURL。2026-11-12の公開先は一時閉店のお知らせ。"
+      },
+      {
+        "url": "/images/projects/ramutei.webp",
+        "note": "保存画像は休止のお知らせで、運営当時のEC画面ではありません。"
       }
     ],
-    "limitations": "2026-02-25付の一時閉店告知を確認。現行の保存画像も告知ページ。Shopifyは本人申告の過去スタックであり現行ページからは未確認。",
+    "limitations": "Shopifyの過去EC事例という所有者提供情報のみを掲載。保存画像は閉店告知のため、元ストアの検索・購入・決済・管理機能や担当範囲は推定していません。現行告知ページの装飾や関連リンクも制作実績の機能として扱いません。",
     "availability": {
-      "ja": "現在の公開ページは休止のお知らせです。以前の構成と現在確認できる情報を区別して紹介しています。",
-      "en": "The current site displays a temporary closure notice. Historical technology is listed separately."
+      "ja": "過去のECサイト事例です。現在の公開先は休止しており、保存画像も休止のお知らせです。",
+      "en": "Archived online-store project. The original storefront is unavailable; the saved image shows a closure notice."
     }
   },
   "runtrip": {

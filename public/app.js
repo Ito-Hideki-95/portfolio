@@ -59,7 +59,9 @@
     const current = [...sections].reverse().find(section => section.getBoundingClientRect().top <= 160);
     const target = new URL(link.href);
     target.search = location.search;
-    target.hash = current && current.id !== 'top' ? current.id : '';
+    const selectedProject = document.querySelector('#project-dialog[open]')?.dataset.projectId;
+    target.hash = selectedProject ? 'project-' + selectedProject : current && current.id !== 'top' ? current.id : '';
+    if (selectedProject) target.pathname = link.dataset.language === 'en' ? '/en/projects/' : '/projects/';
     link.href = target.href;
   }));
 
@@ -240,14 +242,21 @@
       void loadSlide(slide + 1);
       timer = setTimeout(() => { timer = 0; void showSlide(slide + 1, false); }, INTERVAL_MS);
     }
-    async function showSlide(next, manual = true) {
+    async function showSlide(next, manual = true, direction = 1) {
       stopTimer();
       requested = normalize(next);
-      const target = requested, request = ++requestId;
-      const ready = await loadSlide(target);
-      if (request !== requestId) return;
-      if (!manual && !canPlay()) { requested = slide; return; }
+      const request = ++requestId;
+      let target = requested, ready = false;
+      // A failed preview must not block the remaining portfolio. Try each slide once.
+      for (let attempt = 0; attempt < slides.length; attempt++) {
+        ready = await loadSlide(target);
+        if (request !== requestId) return;
+        if (!manual && !canPlay()) { requested = slide; return; }
+        if (ready) break;
+        target = normalize(target + direction);
+      }
       if (ready) {
+        requested = target;
         slides[slide].hidden = true;
         slide = target;
         slides[slide].hidden = false;
@@ -260,7 +269,7 @@
       schedule();
     }
     showcase.querySelector('.hero-carousel-controls').hidden = false;
-    showcase.querySelector('.hero-prev').addEventListener('click', () => void showSlide(requested - 1));
+    showcase.querySelector('.hero-prev').addEventListener('click', () => void showSlide(requested - 1, true, -1));
     showcase.querySelector('.hero-next').addEventListener('click', () => void showSlide(requested + 1));
     toggle.addEventListener('click', () => { playback = !playback; schedule(); });
     viewport.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovered = true; schedule(); } });
@@ -276,7 +285,7 @@
       touching = false;
       if (touchStart) {
         const dx = event.changedTouches[0].clientX - touchStart.x, dy = event.changedTouches[0].clientY - touchStart.y;
-        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) void showSlide(requested + (dx < 0 ? 1 : -1));
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) void showSlide(requested + (dx < 0 ? 1 : -1), true, dx < 0 ? 1 : -1);
         else schedule();
       }
       touchStart = null;

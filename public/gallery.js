@@ -1,98 +1,97 @@
 (() => {
   'use strict';
-  const root = document.querySelector('#projects');
-  if (!root) return;
-  const en = document.documentElement.lang === 'en';
-  const cards = [...root.querySelectorAll('.project-card')];
-  const search = root.querySelector('#project-search');
-  if (search) {
-    const filters = [...root.querySelectorAll('[data-project-filter]')];
-    const categorySelect = root.querySelector('#project-category');
-    const more = root.querySelector('#project-more');
-    const count = root.querySelector('.project-count');
-    const normalize = text => text.normalize('NFKC').toLocaleLowerCase().trim();
-    const searchIndex = new Map(cards.map(card => [card, normalize(card.dataset.projectSearch)]));
-    const params = new URLSearchParams(location.search);
-    let category = filters.some(f => f.dataset.projectFilter === params.get('category')) ? params.get('category') : 'all';
-    let limit = 9;
-    let matches = cards;
-    function update(reset = false) {
-      if (reset) limit = 9;
-      const terms = normalize(search.value).split(/\s+/).filter(Boolean);
-      matches = cards.filter(card => (category === 'all' || card.dataset.projectCategories.split(' ').includes(category)) && terms.every(term => searchIndex.get(card).includes(term)));
-      const visible = new Set(matches.slice(0,limit));
-      for (const card of cards) card.hidden = !visible.has(card);
-      for (const filter of filters) {
-        const active = filter.dataset.projectFilter === category;
-        filter.classList.toggle('active',active);
-        filter.setAttribute('aria-pressed',String(active));
-      }
-      categorySelect.value = category;
-      count.textContent = en ? `${visible.size} of ${matches.length} projects` : `${matches.length}件中 ${visible.size}件を表示`;
-      more.parentElement.hidden = visible.size >= matches.length;
-      more.querySelector('.project-more-count').textContent = en ? `${matches.length-visible.size} remaining` : `残り${matches.length-visible.size}件`;
-      root.querySelector('.project-empty').hidden = matches.length > 0;
+  const root=document.querySelector('#projects');
+  if(!root)return;
+  const en=document.documentElement.lang==='en';
+  const cards=[...root.querySelectorAll('.project-card')];
+  const search=root.querySelector('#project-search');
+  let revealCard=()=>{};
+  if(search){
+    const filters=[...root.querySelectorAll('[data-project-filter]')];
+    const select=root.querySelector('#project-category');
+    const more=root.querySelector('#project-more');
+    const count=root.querySelector('.project-count');
+    const normalize=text=>text.normalize('NFKC').toLocaleLowerCase().trim();
+    const index=new Map(cards.map(card=>[card,normalize(card.dataset.projectSearch)]));
+    const params=new URLSearchParams(location.search);
+    let category=filters.some(f=>f.dataset.projectFilter===params.get('category'))?params.get('category'):'all';
+    search.value=params.get('search')||'';
+    let limit=9, matches=cards;
+    function update(reset=false){
+      if(reset)limit=9;
+      const terms=normalize(search.value).split(/\s+/).filter(Boolean);
+      matches=cards.filter(card=>(category==='all'||card.dataset.projectCategories.split(' ').includes(category))&&terms.every(term=>index.get(card).includes(term)));
+      const visible=new Set(matches.slice(0,limit));
+      cards.forEach(card=>card.hidden=!visible.has(card));
+      filters.forEach(filter=>{const active=filter.dataset.projectFilter===category;filter.classList.toggle('active',active);filter.setAttribute('aria-pressed',String(active));});
+      select.value=category;
+      count.textContent=en?visible.size+' of '+matches.length+' projects':matches.length+'件中 '+visible.size+'件を表示';
+      more.parentElement.hidden=visible.size>=matches.length;
+      more.querySelector('.project-more-count').textContent=en?(matches.length-visible.size)+' remaining':'残り'+(matches.length-visible.size)+'件';
+      root.querySelector('.project-empty').hidden=matches.length>0;
     }
-    function selectCategory(value) {
-      category = value;
-      const url = new URL(location.href);
-      if (category === 'all') url.searchParams.delete('category'); else url.searchParams.set('category',category);
-      history.replaceState(null,'',url);
-      update(true);
+    function syncURL(){
+      const url=new URL(location.href);
+      category==='all'?url.searchParams.delete('category'):url.searchParams.set('category',category);
+      search.value.trim()?url.searchParams.set('search',search.value.trim()):url.searchParams.delete('search');
+      url.hash='';history.replaceState(null,'',url);
     }
-    filters.forEach(filter => filter.addEventListener('click',() => selectCategory(filter.dataset.projectFilter)));
-    search.addEventListener('input',() => update(true));
-    search.addEventListener('search',() => update(true));
-    categorySelect.addEventListener('change',() => selectCategory(categorySelect.value));
-    more.addEventListener('click',() => {
-      const firstNew = matches[limit]; limit += 9; update();
-      firstNew?.querySelector('a')?.focus({preventScroll:true});
-    });
-    root.querySelector('#project-reset').addEventListener('click',() => {search.value='';selectCategory('all');search.focus({preventScroll:true});});
-    root.querySelector('.project-toolbar').hidden = false;
-    update();
+    function selectCategory(value){category=value;syncURL();update(true);}
+    filters.forEach(filter=>filter.addEventListener('click',()=>selectCategory(filter.dataset.projectFilter)));
+    search.addEventListener('input',()=>{syncURL();update(true);});
+    search.addEventListener('search',()=>{syncURL();update(true);});
+    select.addEventListener('change',()=>selectCategory(select.value));
+    more.addEventListener('click',()=>{const next=matches[limit];limit+=9;update();next?.querySelector('a')?.focus({preventScroll:true});});
+    root.querySelector('#project-reset').addEventListener('click',()=>{search.value='';selectCategory('all');search.focus({preventScroll:true});});
+    revealCard=card=>{category='all';search.value='';limit=Math.max(9,Math.ceil((cards.indexOf(card)+1)/9)*9);update();};
+    root.querySelector('.project-toolbar').hidden=false;update();
   }
-  const dialog = root.querySelector('#project-dialog');
-  if (typeof dialog.showModal !== 'function') return;
+  const dialog=root.querySelector('#project-dialog');
+  if(typeof dialog.showModal!=='function')return;
   let opener;
-  function openProject(card, trigger) {
-    opener = trigger;
-    const original = card.querySelector('.project-preview img');
-    const image = dialog.querySelector('img');
-    dialog.querySelector('h2').textContent = card.querySelector('h3').textContent;
-    dialog.querySelector('.dialog-description').textContent = card.querySelector('.project-description').textContent;
-    dialog.querySelector('.dialog-site').href = card.querySelector('.project-site').href;
-    const scope = card.querySelector('.project-scope');
-    dialog.querySelector('.dialog-scope').replaceChildren(...(scope ? [scope.cloneNode(true)] : []));
-    const insights = card.querySelector('[data-project-insights]');
-    dialog.querySelector('.dialog-insights').replaceChildren(...(insights ? [insights.content.cloneNode(true)] : []));
-    const voice = card.querySelector('.featured-voice');
-    const voiceLink = dialog.querySelector('.dialog-voice');
-    voiceLink.hidden = !voice;
-    if (voice) voiceLink.href = voice.href;
-    image.src = original.src; image.alt = original.alt;
-    image.width = original.naturalWidth || original.width;
-    image.height = original.naturalHeight || original.height;
-    dialog.showModal(); dialog.scrollTop=0;
+  function openProject(card,trigger){
+    opener=trigger;
+    const original=card.querySelector('.project-preview img');
+    const image=dialog.querySelector('img');
+    dialog.dataset.projectId=card.dataset.projectId;
+    dialog.querySelector('h2').textContent=card.querySelector('h3').textContent;
+    dialog.querySelector('.dialog-description').textContent=card.querySelector('.project-description').textContent;
+    const website=card.querySelector('.project-site'), siteLink=dialog.querySelector('.dialog-site');
+    siteLink.hidden=!website;
+    if(website)siteLink.href=website.href;else siteLink.removeAttribute('href');
+    const scope=card.querySelector('.project-scope');
+    dialog.querySelector('.dialog-scope').replaceChildren(...(scope?[scope.cloneNode(true)]:[]));
+    const insights=card.querySelector('[data-project-insights]');
+    dialog.querySelector('.dialog-insights').replaceChildren(...(insights?[insights.content.cloneNode(true)]:[]));
+    const voice=card.querySelector('.featured-voice'), voiceLink=dialog.querySelector('.dialog-voice');
+    voiceLink.hidden=!voice;
+    if(voice)voiceLink.href=voice.href;else voiceLink.removeAttribute('href');
+    image.src=original.src;image.alt=original.alt;image.width=original.naturalWidth||original.width;image.height=original.naturalHeight||original.height;
+    if(!dialog.open)dialog.showModal();dialog.scrollTop=0;
     document.documentElement.classList.add('project-preview-open');
   }
-  for (const card of cards) {
-    const link = card.querySelector('[data-project-preview]');
-    link.setAttribute('aria-haspopup','dialog'); link.setAttribute('aria-controls','project-dialog');
-    link.addEventListener('click',event => {
-      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button) return;
-      event.preventDefault(); openProject(card,link);
-    });
-    const button = card.querySelector('[data-open-project]');
-    button.hidden = false; button.setAttribute('aria-haspopup','dialog'); button.setAttribute('aria-controls','project-dialog');
-    button.addEventListener('click',() => openProject(card,button));
+  function show(card,trigger){
+    const url=new URL(location.href);url.hash=card.id;history.replaceState(null,'',url);
+    openProject(card,trigger);
   }
-  dialog.querySelector('.project-dialog-close').addEventListener('click',() => dialog.close());
-  dialog.querySelector('.dialog-voice').addEventListener('click',() => dialog.close());
-  dialog.addEventListener('click',event => {
-    if (event.target !== dialog) return;
-    const box=dialog.getBoundingClientRect();
-    if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close();
+  cards.forEach(card=>{
+    const link=card.querySelector('[data-project-preview]');
+    link.setAttribute('aria-haspopup','dialog');link.setAttribute('aria-controls','project-dialog');
+    link.addEventListener('click',event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||event.button)return;event.preventDefault();show(card,link);});
+    const button=card.querySelector('[data-open-project]');
+    button.hidden=false;button.setAttribute('aria-haspopup','dialog');button.setAttribute('aria-controls','project-dialog');
+    button.addEventListener('click',()=>show(card,button));
   });
-  dialog.addEventListener('close',() => {document.documentElement.classList.remove('project-preview-open');opener?.focus({preventScroll:true});});
+  function openHash(){
+    const card=cards.find(card=>'#'+card.id===location.hash);
+    if(!card)return;
+    revealCard(card);
+    requestAnimationFrame(()=>{card.scrollIntoView({block:'start',behavior:'instant'});openProject(card,card.querySelector('[data-open-project]'));});
+  }
+  window.addEventListener('hashchange',openHash);
+  dialog.querySelector('.project-dialog-close').addEventListener('click',()=>dialog.close());
+  dialog.querySelector('.dialog-voice').addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const box=dialog.getBoundingClientRect();if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)dialog.close();});
+  dialog.addEventListener('close',()=>{document.documentElement.classList.remove('project-preview-open');opener?.focus({preventScroll:true});});
+  openHash();
 })();

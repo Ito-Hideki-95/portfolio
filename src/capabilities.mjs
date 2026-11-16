@@ -1,97 +1,149 @@
-﻿const capabilityCopy = {
-  ja: {
-    heading: '対応できる機能・開発領域',
-    intro: 'ご検討中の機能や業務上の課題に応じて、設計・実装から公開後の運用まで対応します。',
-    cards: [
+const capabilityCopy = {
+  "ja": {
+    "heading": "対応できる機能・開発領域",
+    "intro": "ご検討中の機能や業務上の課題に応じて、設計・実装から公開後の運用まで対応します。関連する実績やご感想もあわせてご確認いただけます。",
+    "cards": [
       {
-        title: '会員管理・証明書発行の業務システム',
-        body: '業務の流れに合わせて、ログイン、会員データのCSV入出力、PDF証明書の発行、QRコードによる確認画面を設計・実装します。',
-        tags: ['会員管理', 'CSV', 'PDF', 'QRコード'],
-        href: '/#client-voice-5',
-        link: '会員・証明書システムのご感想'
+        "title": "会員管理・証明書発行の業務システム",
+        "body": "会員データのCSV一括登録、ログイン、PDF証明書の発行、QRコードによる検証機能に対応します。公開後の運用を見据え、操作資料まで整備します。",
+        "tags": [
+          "会員管理",
+          "CSV",
+          "PDF",
+          "QRコード"
+        ],
+        "href": "/projects/#project-digital-certificates",
+        "link": "会員・証明書システムの対応事例"
       },
       {
-        title: '権限制御・障害対応・品質改善',
-        body: '利用権限や操作履歴を整理し、異常時に処理を停止する設計に対応します。不具合の原因調査から修正、テスト結果のご報告まで承ります。',
-        tags: ['権限制御', '監査ログ', 'エラー処理', 'テスト'],
-        href: '/#client-voice-6',
-        link: 'バックエンド改善のご感想'
+        "title": "バックエンドの設計・障害対応",
+        "body": "監査ログや、異常時に処理を停止する設計に対応します。不具合の原因調査から修正、テスト資料の更新、ご報告まで承ります。",
+        "tags": [
+          "監査ログ",
+          "エラー処理",
+          "不具合調査",
+          "テスト"
+        ],
+        "href": "/projects/#project-backend-audit",
+        "link": "バックエンド改善の対応事例"
       },
       {
-        title: '予約サービスの保守・通知連携',
-        body: '既存の予約サービスの保守・改修に対応します。LINE・メール通知、会員管理、決済サービスとの連携についてもご相談を承ります。',
-        tags: ['LINE Messaging API', 'Stripe', '保守・改修'],
-        href: '/#client-voice-1',
-        link: '予約サービス保守のご感想'
+        "title": "Webサービスの保守・運用支援",
+        "body": "既存サービスの保守、運用環境の整備、不具合の調査・改修に対応します。技術的な内容や対応方針をわかりやすくご説明します。",
+        "tags": [
+          "保守・運用",
+          "環境整備",
+          "技術説明"
+        ],
+        "href": "/projects/#project-flash-reserve",
+        "link": "予約サービスの保守事例"
       },
       {
-        title: 'CMS・ECサイトの構築と運用支援',
-        body: 'CMSの移行・改修、商品一覧や注文画面の構築に対応します。公開後の更新手順や商品管理を考慮し、運用しやすい構成をご提案します。',
-        tags: ['WordPress', 'Shopify', 'EC-CUBE'],
-        href: '/#client-voice-3',
-        link: 'CMS移行のご感想'
+        "title": "既存コンテンツのCMS移行",
+        "body": "静的HTMLサイトのデータをWordPressへ移行するなど、既存コンテンツを活用したCMSへの移行・改修に対応します。",
+        "tags": [
+          "WordPress",
+          "HTML",
+          "データ移行"
+        ],
+        "href": "/projects/#project-visual-anatomy",
+        "link": "WordPressへの移行事例"
       },
       {
-        title: 'データ連携・集計・定型業務の自動化',
-        body: 'データ集計やAPIを通じたシステム連携を自動化します。生成AI・RAGによる社内検索や業務支援ツールも、ご利用目的に合わせて設計します。',
-        tags: ['Python', 'API', 'RAG', '生成AI'],
-        href: '/services/',
-        link: '対応サービスの詳細'
+        "title": "情報取得・データ処理の設計",
+        "body": "Pythonによる情報取得やAPI解析について、データの利用条件と業務上の目的を整理し、実装方針をご提案します。",
+        "tags": [
+          "Python",
+          "API",
+          "要件整理"
+        ],
+        "href": "/#client-voice-4",
+        "link": "データ自動取得の提案へのご感想"
       },
       {
-        title: 'Web・モバイルアプリの画面開発',
-        body: 'スマートフォンでの操作性にも配慮したWeb画面・アプリを制作します。既存APIとの接続、入力・検索・情報表示の設計に対応します。',
-        tags: ['TypeScript', 'React', 'Next.js', 'Flutter'],
-        href: '/projects/',
-        link: '制作実績の一覧'
+        "title": "Web・ECサイトの画面制作",
+        "body": "WordPressやShopifyなどによるWeb・ECサイトの制作に対応します。公開サイトの画面事例から、情報整理や商品紹介の構成をご確認いただけます。",
+        "tags": [
+          "WordPress",
+          "Shopify",
+          "HTML・CSS"
+        ],
+        "href": "/projects/?search=Shopify",
+        "link": "ECサイトの画面事例"
       }
     ]
   },
-  en: {
-    heading: 'Development capabilities',
-    intro: 'I support the design, implementation and ongoing operation of systems that meet your business requirements.',
-    cards: [
+  "en": {
+    "heading": "Development capabilities",
+    "intro": "I support the design, implementation and ongoing operation of systems that meet your business requirements. Related project examples and client feedback are available below.",
+    "cards": [
       {
-        title: 'Membership and certificate systems',
-        body: 'I design and implement login, member-data imports and exports, PDF certificate generation and QR verification screens to support your operational workflows.',
-        tags: ['Member management', 'CSV', 'PDF', 'QR codes'],
-        href: '/en/#client-voice-5',
-        link: 'Client feedback on membership systems'
+        "title": "Membership and certificate systems",
+        "body": "I implement bulk member imports, sign-in, PDF certificates and QR-code verification, with operating documentation to support use after delivery.",
+        "tags": [
+          "Member management",
+          "CSV",
+          "PDF",
+          "QR codes"
+        ],
+        "href": "/en/projects/#project-digital-certificates",
+        "link": "Membership and certificate case study"
       },
       {
-        title: 'Access control and software reliability',
-        body: 'I define access permissions, audit records and controls that stop processing under invalid conditions. Support includes investigating defects, implementing corrections and reporting test results.',
-        tags: ['Access control', 'Audit logs', 'Error handling', 'Testing'],
-        href: '/en/#client-voice-6',
-        link: 'Client feedback on backend improvements'
+        "title": "Backend design and troubleshooting",
+        "body": "I implement audit logging and controls that stop processing under invalid conditions. Support includes defect investigation, fixes, test-document updates and reporting.",
+        "tags": [
+          "Audit logs",
+          "Error handling",
+          "Troubleshooting",
+          "Testing"
+        ],
+        "href": "/en/projects/#project-backend-audit",
+        "link": "Backend improvement case study"
       },
       {
-        title: 'Booking maintenance and notifications',
-        body: 'I maintain and improve existing booking services, with support for LINE and email notifications, member management and payment-service connections.',
-        tags: ['LINE Messaging API', 'Stripe', 'Maintenance'],
-        href: '/en/#client-voice-1',
-        link: 'Client feedback on booking maintenance'
+        "title": "Web service maintenance and operations",
+        "body": "I maintain existing services, improve operating environments and investigate defects, explaining technical issues and the proposed response clearly.",
+        "tags": [
+          "Maintenance",
+          "Operating environments",
+          "Technical communication"
+        ],
+        "href": "/en/projects/#project-flash-reserve",
+        "link": "Booking service maintenance case study"
       },
       {
-        title: 'CMS and e-commerce implementation',
-        body: 'I migrate and improve CMS platforms and develop product catalogs and ordering interfaces, taking ongoing content updates and product management into account.',
-        tags: ['WordPress', 'Shopify', 'EC-CUBE'],
-        href: '/en/#client-voice-3',
-        link: 'Client feedback on CMS migration'
+        "title": "Existing content migration to a CMS",
+        "body": "I migrate and adapt existing content for a CMS, including moving data from static HTML websites into WordPress.",
+        "tags": [
+          "WordPress",
+          "HTML",
+          "Data migration"
+        ],
+        "href": "/en/projects/#project-visual-anatomy",
+        "link": "WordPress migration case study"
       },
       {
-        title: 'Data integration and workflow automation',
-        body: 'I automate data aggregation and API-based workflows. Internal search and business-support tools using generative AI and RAG are designed around your requirements.',
-        tags: ['Python', 'API', 'RAG', 'Generative AI'],
-        href: '/en/services/',
-        link: 'Service details'
+        "title": "Data collection and processing design",
+        "body": "I propose implementation approaches for Python-based data collection and API analysis after reviewing source conditions and the intended business use.",
+        "tags": [
+          "Python",
+          "API",
+          "Requirements"
+        ],
+        "href": "/en/#client-voice-4",
+        "link": "Feedback on a data collection proposal"
       },
       {
-        title: 'Web and mobile interface development',
-        body: 'I develop web and mobile interfaces with attention to usability, including connections to existing APIs, data-entry workflows, search and information presentation.',
-        tags: ['TypeScript', 'React', 'Next.js', 'Flutter'],
-        href: '/en/projects/',
-        link: 'Project portfolio'
+        "title": "Website and e-commerce interfaces",
+        "body": "I develop websites and e-commerce interfaces using platforms such as WordPress and Shopify. Public website examples illustrate content organization and product presentation.",
+        "tags": [
+          "WordPress",
+          "Shopify",
+          "HTML & CSS"
+        ],
+        "href": "/en/projects/?search=Shopify",
+        "link": "E-commerce interface examples"
       }
     ]
   }

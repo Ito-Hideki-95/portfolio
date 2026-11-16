@@ -341,3 +341,41 @@
 .reviews-section .review-text-toggle:hover { background: color-mix(in srgb, var(--voice-accent) 8%, transparent); }
 .reviews-section .review-text-toggle:focus-visible { outline: 3px solid var(--voice-accent); outline-offset: 4px; }
 .reviews-section .review-text-toggle[aria-expanded="true"] { font-size: .85rem; }
+
+/* Show the delivered scope before the original customer comment. */
+.reviews-section .review-scope {
+  margin: 0 0 22px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--voice-line);
+}
+.reviews-section .review-scope-label {
+  margin: 0 0 6px;
+  color: var(--voice-muted);
+  font-size: .85rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.reviews-section .review-scope-summary {
+  margin: 0;
+  color: var(--voice-ink);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.reviews-section .review-function-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.reviews-section .review-function-tags li {
+  max-width: 100%;
+  padding: 5px 10px;
+  border: 1px solid var(--voice-line);
+  border-radius: 8px;
+  color: var(--voice-ink);
+  font-size: .88rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}

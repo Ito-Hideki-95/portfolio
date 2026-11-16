@@ -2,6 +2,10 @@
 // Descriptions describe the public websites, not unverified delivery scope or results.
 // Image provenance: docs/project-sources.md
 export const projectCategories = {
+  "systems": {
+    "ja": "業務システム",
+    "en": "Business systems"
+  },
   "corporate": {
     "ja": "コーポレート",
     "en": "Corporate"
@@ -316,11 +320,11 @@ export const projects = [
     "platform": "SWELL",
     "name": {
       "ja": "ABC幼稚園",
-      "en": "ABC Kindergarten"
+      "en": "ABC Kindergarten — website concept"
     },
     "description": {
       "ja": "幼稚園の教育方針や園内での生活を紹介するサイトです。写真と落ち着いた配色で、施設の雰囲気を伝えています。",
-      "en": "This kindergarten website presents its educational approach and daily life through photography and a gentle visual style."
+      "en": "This kindergarten website concept presents example educational information and daily activities through photography and a gentle visual style."
     },
     "image": "/images/projects/me-create.webp",
     "imageKind": "screen",
@@ -427,7 +431,9 @@ export const projects = [
     "image": "/images/projects/orcasa.webp",
     "imageKind": "screen",
     "imageWidth": 1440,
-    "imageHeight": 900
+    "imageHeight": 900,
+    "status": "archived",
+    "websiteAvailable": false
   },
   {
     "id": "oliver",
@@ -847,14 +853,15 @@ export const projects = [
       "en": "Ramutei.com"
     },
     "description": {
-      "ja": "オンラインストアの制作実績です。現在の公開先には、一時閉店のお知らせが掲載されています。",
-      "en": "The public URL for this online store project currently displays a temporary closure notice."
+      "ja": "Shopifyを使用したオンラインストアの制作実績です。現在は休止しているため、過去のECサイト事例として掲載しています。",
+      "en": "An archived Shopify online-store project. The storefront is currently unavailable, so this entry presents the project as past e-commerce work."
     },
     "image": "/images/projects/ramutei.webp",
     "imageKind": "screen",
     "imageWidth": 1440,
     "imageHeight": 900,
-    "status": "paused"
+    "status": "paused",
+    "websiteAvailable": false
   },
   {
     "id": "runtrip",
