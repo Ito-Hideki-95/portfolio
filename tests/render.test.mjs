@@ -105,6 +105,8 @@ test('the 74-entry catalog keeps concise cards and complete bilingual project de
       const { basic, details } = cardParts(card);
       assert.ok(basic.includes('id="project-' + project.id + '"'));
       assert.ok(basic.includes('<h3>' + escapeHtml(project.title) + '</h3>'));
+      assert.ok(project.study.siteType?.[locale]?.trim(), 'Site context is provided: ' + project.id);
+      assert.ok(basic.includes('<p class="project-type">' + escapeHtml(project.study.siteType[locale]) + '</p>'));
       assert.ok(basic.includes('src="' + escapeHtml(project.image) + '"'), project.id);
       const focus = basic.match(/<div class="case-focus-preview">[\s\S]*?<ul>([\s\S]*?)<\/ul>/);
       assert.ok(focus, 'Visible project focus: ' + project.id);
@@ -123,8 +125,13 @@ test('the 74-entry catalog keeps concise cards and complete bilingual project de
       if (project.url) assert.equal(new URL(project.url).protocol, 'https:');
       if (project.url && project.websiteAvailable !== false && project.status !== 'paused') {
         assert.match(details, /class="dialog-site(?:\s|")/, project.id);
+        const liveLink = basic.match(/<a class="project-visit[^"]*"[^>]*>/)?.[0];
+        assert.ok(liveLink, 'Live site is available directly from the card: ' + project.id);
+        assert.ok(liveLink.includes('href="' + escapeHtml(project.url) + '"'));
+        assert.ok(liveLink.includes('target="_blank"') && liveLink.includes('rel="noopener noreferrer"'));
+        assert.ok(liveLink.includes('aria-label="') && liveLink.includes(escapeHtml(project.title)));
         assert.ok(details.includes('href="' + escapeHtml(project.url) + '"'), project.id);
-      } else assert.doesNotMatch(card, /class="dialog-site(?:\s|")/, 'Unavailable website must not be offered: ' + project.id);
+      } else assert.doesNotMatch(card, /class="(?:dialog-site|project-visit)(?:\s|")/, 'Unavailable website must not be offered: ' + project.id);
     }
     for (const original of projects) assert.ok(catalog.some(item => item.id === original.id));
     assert.ok(html.includes('id="project-search"') && html.includes('id="project-dialog"'));

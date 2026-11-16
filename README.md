@@ -46,11 +46,12 @@ npm.cmd run preview
 | 日本語・英語の紹介文、見出し、仕事の進め方、英訳、ロゴ一覧 | `src/locales.mjs` |
 | 制作実績のURL、日英の名称・紹介文、画像、カテゴリー | `src/projects.mjs` |
 | 各サイトの具体的な機能・技術・確認根拠 | `src/project-insights.mjs` |
+| 全74件のサイト種別・担当した実装・詳細説明・構成図 | `src/project-case-studies.mjs` |
 | 実装できることと評価・事例の対応 | `src/capabilities.mjs` / `public/capabilities.css` |
 | クライアントの声・機能詳細の表示 | `public/voices.css` / `public/voices.js` / `public/evidence.css` |
 | 注目事例の説明・担当範囲 | `src/featured.mjs` |
-| 実績一覧の構成・文言、トップの9件 | `src/gallery.mjs` |
-| 実績一覧の見た目・検索・絞り込み・画像拡大 | `public/styles.css` / `public/gallery.js` |
+| 実績カード・公開サイト閲覧リンク・詳細画面、トップの5件 | `src/gallery.mjs` |
+| 実績一覧の見た目・検索・絞り込み・画像拡大 | `public/styles.css` / `public/case-studies.css` / `public/gallery.js` |
 | ページ構成、各セクションのHTML | `src/page.mjs` / `src/sections.mjs` |
 | 色、余白、フォント、スマートフォン表示 | `public/styles.css` |
 | 表示設定、スワイプ、演出、絞り込み、メニュー、相談文の生成 | `public/app.js` |
