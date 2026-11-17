@@ -1,0 +1,150 @@
+/* First-view artwork and its live, localized technology caption. */
+.hero {
+  padding-top: 48px;
+  padding-bottom: 44px;
+}
+.hero-copy {
+  min-width: 0;
+}
+.hero-greeting {
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 4vw, 3.3rem);
+  margin-bottom: 24px;
+}
+.hero-expertise-banner {
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid #254662;
+  border-radius: 22px;
+  background: #091b2e;
+  color: #f2f7ff;
+  box-shadow: 0 16px 44px #09244220;
+}
+.hero-expertise-image {
+  width: 100%;
+  height: 232px;
+  object-fit: cover;
+  object-position: 50% 55%;
+}
+.hero-expertise-banner figcaption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 15px 20px 18px;
+  border-top: 1px solid #294158;
+}
+.hero-banner-label {
+  margin-bottom: 6px;
+  color: #b1cee8;
+  font-size: .78rem;
+  line-height: 1.5;
+}
+.hero-banner-stack {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 2px 14px;
+  margin: 0;
+  font-size: .86rem;
+  font-weight: 550;
+  line-height: 1.65;
+}
+.hero-banner-deployment {
+  max-width: 150px;
+  padding-left: 18px;
+  border-left: 1px solid #36516a;
+}
+.hero-banner-pipeline {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: .86rem;
+  font-weight: 600;
+  line-height: 1.65;
+  white-space: nowrap;
+}
+.hero-banner-pipeline > [aria-hidden] {
+  color: #7cc8ff;
+}
+.hero-specialty {
+  margin-bottom: 10px;
+}
+.hero-description {
+  margin-bottom: 0;
+  line-height: 1.8;
+}
+.hero-actions {
+  margin-top: 22px;
+}
+@media (min-width: 801px) and (max-width: 1080px) {
+  .hero-expertise-banner figcaption {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+  .hero-banner-deployment {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 14px;
+    max-width: none;
+    padding: 10px 0 0;
+    border-left: 0;
+    border-top: 1px solid #36516a;
+  }
+  .hero-banner-deployment .hero-banner-label {
+    margin: 0;
+  }
+}
+@media (max-width: 800px) {
+  .hero {
+    padding-top: 32px;
+    gap: 42px;
+  }
+  .hero h1 {
+    font-size: clamp(2.1rem, 7.3vw, 3.3rem);
+    margin-bottom: 22px;
+  }
+  .hero-expertise-image {
+    height: auto;
+    aspect-ratio: 1672 / 941;
+  }
+}
+@media (max-width: 520px) {
+  .hero {
+    padding-top: 26px;
+  }
+  .hero-greeting {
+    margin-bottom: 12px;
+  }
+  .hero-expertise-banner {
+    border-radius: 18px;
+    margin-bottom: 22px;
+  }
+  .hero-expertise-banner figcaption {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px 16px 16px;
+  }
+  .hero-banner-label {
+    font-size: .82rem;
+  }
+  .hero-banner-stack, .hero-banner-pipeline {
+    font-size: .92rem;
+  }
+  .hero-banner-deployment {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 14px;
+    max-width: none;
+    padding: 10px 0 0;
+    border-left: 0;
+    border-top: 1px solid #36516a;
+  }
+  .hero-banner-deployment .hero-banner-label {
+    margin: 0;
+  }
+}
