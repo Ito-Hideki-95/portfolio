@@ -1,29 +1,26 @@
-# First-view photographic background
+# First-view 3D development environment
 
-The complete first-view section uses a photorealistic workspace image as its background, including the baseline at the bottom. The raster contains visual interface shapes, charts and product imagery, with no readable lettering or numbers. The previous image card and technology caption panel have been removed. The introduction, buttons and project slideshow remain separate HTML content.
+The entire first-view section uses a cinematic 3D development studio as its background, including the bottom baseline. A central workstation, transparent workflow panels, desktop/mobile interfaces and server/data elements occupy distinct depths in an architectural space. The image contains no readable text. Headings, buttons and the project slideshow remain independent HTML content.
 
-- Generation/editing: built-in `image_gen` tool, editing the previous photographic workspace.
-- Published image: `public/images/hero/development-workspace-background.webp` (1672 × 941, 197,326 bytes).
-- Original PNG retained locally in `.local/hero-banner/development-workspace-background.png`.
-- Image is an AI-generated visual concept, not a photograph of the owner's actual office or customer systems.
-- Background uses `cover`, so its crop adapts to the viewport. The same local image is preloaded on the Japanese and English homepages only.
-- `public/hero-banner.css` sets the existing `--ambient-surface` layer. When the mouse-fluid effect is active, the photo stays below the fluid canvas and page content stays above it.
-- Contrast gradients protect the live page text. Carousel surface/text colors retain the existing day/night theme.
-- The separate 72-project screenshot carousel retains its two-second timing and controls.
+- Generation/editing: built-in `image_gen` tool, reimagining the preceding workspace background as a photorealistic 3D environment.
+- Published image: `public/images/hero/development-environment-3d.webp` (1672 × 941, 186,940 bytes).
+- Original PNG retained locally in `.local/hero-banner/development-environment-3d.png`.
+- This is a generated spatial concept, not a photograph of the owner's actual office or customer infrastructure.
+- Background uses `cover` for responsive cropping and is preloaded on the Japanese and English homepages only.
+- `public/hero-banner.css` uses the existing `--ambient-surface` layer, preserving the background → mouse-fluid canvas → foreground content order.
+- The gradient is lighter than the earlier daylight-photo version to retain the darker scene's depth while keeping foreground copy readable.
+- The existing 72-project screenshot carousel, two-second timing, theme/language controls and layout are retained.
 
-## Final edit prompt
+## Final generation prompt
 
 ```text
-Use case: precise-object-edit.
-Asset type: full-width first-view background photograph for a software developer portfolio.
-Input image: the supplied image is the edit target.
-Primary request: preserve this believable, photorealistic workspace and remove EVERY piece of text from the entire image. The finished raster must contain no letters, no numerals, no words, no code characters, no logos and no watermark.
-Keep unchanged: the desk composition, realistic monitor/laptop/smartphone, device proportions, camera angle, daylight, warm wood, plants, cup, notebook, materials, shadows, color palette and photographic quality.
-Screen edits:
-- On the large monitor, replace the code-editor text with a credible visual software-workflow editor composed only of small solid colored blocks, lines and connections. The adjacent business dashboard should contain clean charts, unlabelled geometric cards and table-like rows of shapes. Remove all Japanese/English labels, file names, code, numbers, browser addresses, menu text, ticks and axis labels.
-- On the laptop, show a restrained visual AI/automation workflow with connected nodes, unlabelled panels and simple document-shaped icons. No writing, numbers, words, pseudo-writing, or text-like marks anywhere.
-- On the smartphone, keep a photographic product image, color swatches, simple icons and a plain blue button, with absolutely no product name, price, rating numbers, status-bar time, letters or words.
-- Remove lettering/numbers from all keyboard keycaps, hardware, book spines, notebook and any tiny peripheral details. Keys can have realistic blank matte surfaces.
-All screen content must remain perspective-correct and physically confined to the real displays. Use clean visual forms to imply web, business, mobile commerce and automation capabilities. Do not add any floating graphics, badges, text overlay, headline, caption, decorative typography, brand marks or 3D illustrations. The final result must still look like a natural professional photograph.
-Output: preserve wide 16:9 framing and high resolution. No baked-in gradients or dark overlay; the website will apply its own contrast layer.
+Use case: style-transfer.
+Asset type: cinematic 3D development-environment image, used as the background of an entire first-view section of a professional software developer portfolio.
+Input image: existing workspace background, a supporting subject reference and edit target to reimagine.
+Primary request: transform the flat, close-up office presentation into a sophisticated THREE-DIMENSIONAL DEVELOPMENT SPACE. Make the spatial depth immediately evident: an architectural virtual studio with a foreground, a central workstation and an environment receding into the distance. Keep the recognizable concept of software development across desktop, mobile, business systems and AI automation, while redesigning the spatial composition.
+Art direction: premium photorealistic 3D architectural/product rendering, physically based graphite, brushed aluminum and clear glass, realistic reflections and soft global illumination, excellent geometry and coherent perspective. Serious professional technology art, not a toy-like isometric cartoon. Midnight navy, graphite, silver, clean white screen surfaces and restrained azure blue matching rgb(1,98,180).
+Scene: a spacious, minimal dark architectural studio. A real-looking slim monitor on a sculptural desk is the central development station, with a correctly proportioned laptop and upright phone. A few transparent glass interface planes sit at distinct depths around the workstation, slightly rotated in perspective, organized rather than cluttered. Show abstract software workflow nodes, an unlabelled dashboard with charts, a small mobile commerce preview, a compact physical server cabinet and a restrained stack of translucent data blocks farther back, connected with very thin subdued blue light paths in the ground plane. Devices and modules must feel dimensional and grounded in a single coherent space. Architectural ceiling light strips and floor edges create strong vanishing lines and a clear depth direction. A few soft foreground reflections and gentle atmospheric falloff separate layers.
+Composition: wide landscape 16:9, natural three-quarter perspective from slightly above seated eye height, not a flat front-on photograph and not an overhead isometric diorama. The principal monitor/workflow area must sit near the center, with enough of the environment visible around it to communicate scale. Keep important imagery away from the outer edges for responsive background cropping. Left half slightly quieter and darker so white HTML page text can be read over it; the image itself must contain no headline or caption. The existing website slideshow will occupy the right foreground, so don't concentrate every interesting object only at the far right.
+ABSOLUTE TEXT-FREE REQUIREMENT: no letters, no numbers, no words, no code text, no logos, no watermark, no label badges anywhere, including screens, menus, phone status bars, hardware, keyboard keys and floor. All interfaces consist solely of unlabelled geometry, icons, color swatches, charts with no axes labels, blocks and connections. Blank keycaps.
+Avoid cheap plastic materials, giant clouds or brains, robots, readable text, garbled lettering, oversaturated neon, rainbow lighting, excessive bloom, impossible device proportions, chaotic overlapping panels, a flat collage and a literal photo of the previous wooden desk. Deliver a polished, high-detail 3D spatial scene with believable materials and restrained technical visual storytelling.
 ```
