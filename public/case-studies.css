@@ -2,9 +2,10 @@
 .case-heading-intro { max-width:550px; justify-self:end; color:var(--muted); font-size:1rem; line-height:1.9; }
 .case-total { display:inline-flex; margin-top:22px; font-family:var(--mono); font-size:.8rem; letter-spacing:.04em; color:var(--accent); }
 .project-grid { gap:28px; align-items:stretch; }
-.project-grid:not(.selected-project-grid) { align-items:start; }
 .project-card { border-radius:22px; scroll-margin-top:110px; }
 .project-copy { padding:28px; }
+.project-overview { display:flow-root; min-width:0; }
+.project-card:hover { transform:none; }
 .case-kicker { display:flex; align-items:center; gap:13px; margin-bottom:15px; font-size:.76rem; color:var(--muted); }
 .case-kicker>span:first-child { color:var(--accent); font-family:var(--mono); font-size:.85rem; }
 .project-type { margin-top:8px; color:var(--muted); font-size:.86rem; line-height:1.65; }
@@ -22,7 +23,7 @@
 .case-focus-preview li::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--accent); position:absolute; left:0; top:.78em; }
 .project-detail-label { font-size:.78rem; margin-bottom:10px; }
 .project-stack-list li { font-size:.78rem; padding:5px 10px; }
-.project-technology { margin-top:auto; padding-top:18px; border-top:1px solid var(--line); }
+.project-technology { margin-top:0; padding-top:18px; border-top:1px solid var(--line); }
 .case-detail-actions { display:flex; flex-direction:column; align-items:flex-start; gap:20px; margin-top:30px; }
 .case-detail-actions .dialog-voice,.case-detail-actions .dialog-site { margin:0; }
 .project-preview:focus-visible { outline:3px solid var(--accent); outline-offset:-3px; }
@@ -108,3 +109,38 @@ body[data-page=home] .capability-grid { margin-bottom:0; }
 .reviews-section .review-track:has(.review-highlight.is-expanded),.reviews-section .review-track:has(.original-review[open]) { align-items:flex-start; }
 
 @media(hover:none) { .project-preview-label { opacity:1; transform:none; } }
+
+/* Each visible card row shares the divider position, regardless of tag or button count. */
+@supports (grid-template-rows:subgrid) {
+ @media(min-width:601px) {
+  .project-grid>.project-card,
+  .selected-project-grid>.project-card:first-child {
+   display:grid;
+   grid-template-columns:minmax(0,1fr);
+   grid-template-rows:subgrid;
+   grid-row:span 4;
+   row-gap:0;
+  }
+  .project-grid>.project-card>.project-window { grid-row:1; }
+  .project-grid>.project-card>.project-copy {
+   display:grid;
+   grid-template-columns:minmax(0,1fr);
+   grid-template-rows:subgrid;
+   grid-row:2 / span 3;
+   row-gap:0;
+  }
+  .project-overview { grid-row:1; }
+  .project-technology { grid-row:2; align-self:start; margin:0; }
+  .project-actions { grid-row:3; align-self:start; }
+ }
+ @media(min-width:801px) {
+  .selected-project-grid>.project-card:first-child {
+   grid-template-columns:1.05fr 1fr;
+   grid-template-rows:auto;
+   grid-row:auto;
+  }
+  .selected-project-grid>.project-card:first-child>.project-copy { display:flex; grid-row:auto; }
+  .selected-project-grid>.project-card:first-child .project-technology,
+  .selected-project-grid>.project-card:first-child .project-actions { align-self:stretch; }
+ }
+}
