@@ -1,7 +1,7 @@
-/* Full-section 3D development environment; live page content stays above the image. */
+/* Full-section virtual coding environment; live page content stays above the image. */
 .hero-section {
   --hero-shade: linear-gradient(90deg, rgba(4, 14, 26, .68) 0%, rgba(4, 14, 26, .65) 52%, rgba(4, 14, 26, .38) 100%);
-  --ambient-surface: var(--hero-shade), url('/images/hero/development-environment-3d.webp') center 48% / cover no-repeat #071624;
+  --ambient-surface: var(--hero-shade), url('/images/hero/development-virtual-space.webp') center 48% / cover no-repeat #071624;
   background: var(--ambient-surface);
 }
 [data-theme="dark"] .hero-section {
@@ -75,7 +75,7 @@
 @media (max-width: 800px) {
   .hero-section {
     --hero-shade: linear-gradient(180deg, rgba(4, 14, 26, .68), rgba(4, 14, 26, .65) 55%, rgba(4, 14, 26, .76));
-    --ambient-surface: var(--hero-shade), url('/images/hero/development-environment-3d.webp') 59% center / cover no-repeat #071624;
+    --ambient-surface: var(--hero-shade), url('/images/hero/development-virtual-space.webp') 59% center / cover no-repeat #071624;
   }
   [data-theme="dark"] .hero-section {
     --hero-shade: linear-gradient(180deg, rgba(4, 14, 26, .74), rgba(4, 14, 26, .70) 55%, rgba(4, 14, 26, .82));
