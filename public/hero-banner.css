@@ -1,10 +1,22 @@
-/* First-view artwork and its live, localized technology caption. */
+/* First-view workspace with a localized overview of development capabilities. */
 .hero {
-  padding-top: 48px;
+  align-items: start;
+  padding-top: 32px;
   padding-bottom: 44px;
 }
 .hero-copy {
   min-width: 0;
+}
+.hero-projects {
+  display: grid;
+  gap: 28px;
+  min-width: 0;
+}
+.hero-overview {
+  min-width: 0;
+}
+.hero-copy > .hero-expertise-banner:last-child {
+  margin-bottom: 0;
 }
 .hero-greeting {
   margin-bottom: 14px;
@@ -24,37 +36,47 @@
 }
 .hero-expertise-image {
   width: 100%;
-  height: 232px;
-  object-fit: cover;
-  object-position: 50% 55%;
+  height: auto;
 }
 .hero-expertise-banner figcaption {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 18px;
-  padding: 15px 20px 18px;
+  padding: 18px 20px 16px;
   border-top: 1px solid #294158;
 }
-.hero-banner-label {
-  margin-bottom: 6px;
-  color: #b1cee8;
-  font-size: .78rem;
-  line-height: 1.5;
-}
-.hero-banner-stack {
+.hero-banner-capabilities {
   display: grid;
-  grid-template-columns: repeat(3, max-content);
-  gap: 2px 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 18px;
   margin: 0;
-  font-size: .86rem;
-  font-weight: 550;
-  line-height: 1.65;
+}
+.hero-banner-capability {
+  min-width: 0;
+}
+.hero-banner-capability dt {
+  margin-bottom: 4px;
+  font-size: .88rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+.hero-banner-capability dd {
+  color: #b9d1e6;
+  font-size: .8rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 .hero-banner-deployment {
-  max-width: 150px;
-  padding-left: 18px;
-  border-left: 1px solid #36516a;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 14px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #36516a;
+}
+.hero-banner-label {
+  color: #b9d1e6;
+  font-size: .8rem;
+  line-height: 1.5;
 }
 .hero-banner-pipeline {
   display: flex;
@@ -62,7 +84,7 @@
   gap: 9px;
   font-size: .86rem;
   font-weight: 600;
-  line-height: 1.65;
+  line-height: 1.5;
   white-space: nowrap;
 }
 .hero-banner-pipeline > [aria-hidden] {
@@ -80,22 +102,11 @@
 }
 @media (min-width: 801px) and (max-width: 1080px) {
   .hero-expertise-banner figcaption {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 14px 16px;
+    padding: 16px;
   }
-  .hero-banner-deployment {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 4px 14px;
-    max-width: none;
-    padding: 10px 0 0;
-    border-left: 0;
-    border-top: 1px solid #36516a;
-  }
-  .hero-banner-deployment .hero-banner-label {
-    margin: 0;
+  .hero-banner-capabilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 16px;
   }
 }
 @media (max-width: 800px) {
@@ -106,10 +117,6 @@
   .hero h1 {
     font-size: clamp(2.1rem, 7.3vw, 3.3rem);
     margin-bottom: 22px;
-  }
-  .hero-expertise-image {
-    height: auto;
-    aspect-ratio: 1672 / 941;
   }
 }
 @media (max-width: 520px) {
@@ -124,27 +131,24 @@
     margin-bottom: 22px;
   }
   .hero-expertise-banner figcaption {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 14px 16px 16px;
+    padding: 16px;
   }
+  .hero-banner-capabilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 14px;
+  }
+  .hero-banner-capability dt {
+    font-size: .88rem;
+  }
+  .hero-banner-capability dd,
   .hero-banner-label {
     font-size: .82rem;
   }
-  .hero-banner-stack, .hero-banner-pipeline {
-    font-size: .92rem;
-  }
   .hero-banner-deployment {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 4px 14px;
-    max-width: none;
-    padding: 10px 0 0;
-    border-left: 0;
-    border-top: 1px solid #36516a;
+    margin-top: 14px;
+    padding-top: 10px;
   }
-  .hero-banner-deployment .hero-banner-label {
-    margin: 0;
+  .hero-banner-pipeline {
+    font-size: .9rem;
   }
 }
