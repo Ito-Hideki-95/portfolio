@@ -84,7 +84,7 @@
     if (travel < 0.5) return;
     if (!initialize()) return;
     distance += Math.min(travel, 100);
-    pending = { from: pending?.from || previous, to: point, hue: 0.57 + 0.17 * Math.sin(distance / 1200) };
+    pending = { from: pending?.from || previous, to: point, hue: 0.435 + 0.075 * Math.sin(distance / 1200) };
     previous = point;
     lastInput = performance.now();
     if (!frame) frame = requestAnimationFrame(tick);
@@ -120,7 +120,7 @@
   });
 
   function pigment(hue) {
-    // A cyan / blue / violet palette; phase changes with distance, not wall-clock time.
+    // Shift gently from green to teal as the pointer travels.
     return [0, 2 / 3, 1 / 3].map(phase => {
       const wave = Math.abs(((hue + phase) % 1) * 6 - 3) - 1;
       return 0.16 + 0.76 * Math.max(0, Math.min(1, wave));

@@ -4,7 +4,6 @@
   const en = root.lang === 'en';
   const read = key => { try { return localStorage.getItem(key); } catch { return null; } };
   const save = (key, value) => { try { localStorage.setItem(key, value); } catch {} };
-  const themeMedia = matchMedia('(prefers-color-scheme: dark)');
   const reducedMedia = matchMedia('(prefers-reduced-motion: reduce)');
   let themeChoice = read('portfolio-theme');
   let motionChoice = read('portfolio-motion');
@@ -13,11 +12,11 @@
   const moving = () => root.dataset.motion === 'running';
   const scrollBehavior = () => moving() ? 'smooth' : 'instant';
   function syncPreferences() {
-    const dark = ['dark', 'light'].includes(themeChoice) ? themeChoice === 'dark' : themeMedia.matches;
+    const dark = themeChoice !== 'light';
     const paused = reducedMedia.matches || motionChoice === 'paused';
     root.dataset.theme = dark ? 'dark' : 'light';
     root.dataset.motion = paused ? 'paused' : 'running';
-    document.querySelector('meta[name="theme-color"]').content = dark ? '#101a2a' : '#edf6ff';
+    document.querySelector('meta[name="theme-color"]').content = dark ? '#070b1a' : '#f3f8f4';
     themeButton.querySelector('.theme-label').textContent = dark ? themeButton.dataset.night : themeButton.dataset.day;
     themeButton.setAttribute('aria-label', dark ? themeButton.dataset.toDay : themeButton.dataset.toNight);
     themeButton.title = themeButton.getAttribute('aria-label');
@@ -33,16 +32,25 @@
     themeButton.hidden = false;
   }
   themeButton.addEventListener('click', () => {
-    themeChoice = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    save('portfolio-theme', themeChoice);
-    syncPreferences();
+    if (root.classList.contains('theme-revealing')) return;
+    const toggle = () => {
+      themeChoice = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      save('portfolio-theme', themeChoice);
+      syncPreferences();
+    };
+    if (!document.startViewTransition || !moving()) { toggle(); return; }
+    const box = themeButton.getBoundingClientRect();
+    root.style.setProperty('--theme-x', (box.left + box.width / 2) + 'px');
+    root.style.setProperty('--theme-y', (box.top + box.height / 2) + 'px');
+    root.classList.add('theme-revealing');
+    const transition = document.startViewTransition(toggle);
+    transition.finished.finally(() => root.classList.remove('theme-revealing'));
   });
   for (const button of motionButtons) button.addEventListener('click', () => {
     motionChoice = moving() ? 'paused' : 'running';
     save('portfolio-motion', motionChoice);
     syncPreferences();
   });
-  themeMedia.addEventListener('change', syncPreferences);
   reducedMedia.addEventListener('change', syncPreferences);
   window.addEventListener('storage', event => {
     if (event.key === 'portfolio-theme' || event.key === null) themeChoice = read('portfolio-theme');
@@ -335,6 +343,12 @@
   }
   const form = document.querySelector('#brief-form');
   const topic = document.querySelector('#brief-topic');
+  if (!form) {
+    if (document.querySelector('#direct-inquiry')) {
+      document.querySelectorAll('[data-inquiry]').forEach(link => link.addEventListener('click', () => { topic.value = link.dataset.inquiry; }));
+    }
+    return;
+  }
   const output = document.querySelector('#brief-output');
   const result = document.querySelector('.brief-result');
   const status = document.querySelector('.brief-status');

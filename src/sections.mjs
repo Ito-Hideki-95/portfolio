@@ -1,3 +1,4 @@
+import { renderInquiryForm } from './inquiry-form.mjs';
 import { site } from './content.mjs';
 import { getContent } from './locales.mjs';
 const e = (value = '') => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -30,7 +31,8 @@ export function renderReviews(locale) {
 }
 
 export function renderContact(locale) {
-const { copy: c, reviews, services } = getContent(locale);
+const { copy: c, services } = getContent(locale);
+if (site.contactFormEndpoint) return renderInquiryForm(locale, site.contactFormEndpoint, c, services, e);
 const newTab = '<span class="sr-only"> (' + e(c.newTab) + ')</span>';
 const isEmail = site.contactUrl.startsWith('mailto:');
 const emailAddress = isEmail ? decodeURIComponent(site.contactUrl.slice(7).split('?')[0]) : '';

@@ -4,7 +4,8 @@ export const site = {
   brandName: 'Development Partner',
   ownerName: '',
   role: '業務システム・AI・Web / アプリ開発',
-  contactUrl: '', // 空欄のときは外部への連絡ボタンを表示しません
+  contactFormEndpoint: process.env.PORTFOLIO_FORM_ENDPOINT?.trim() || '',
+  contactUrl: process.env.PORTFOLIO_INQUIRY_URL?.trim() || '', // 空欄のときは外部への連絡ボタンを表示しません
   contactLabel: 'お問い合わせ',
   siteUrl: 'https://emoto-negitoro-portfolio.vercel.app',
   indexable: false, // 内容の確認・連絡先の設定後に true にすると検索登録を許可

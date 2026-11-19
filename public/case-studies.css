@@ -144,3 +144,76 @@ body[data-page=home] .capability-grid { margin-bottom:0; }
   .selected-project-grid>.project-card:first-child .project-actions { align-self:stretch; }
  }
 }
+
+/* Catalog discovery panel */
+.project-toolbar {
+  padding: clamp(1rem, 2.5vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  background: var(--surface);
+  box-shadow: 0 .5rem 2rem color-mix(in srgb, var(--ink) 5%, transparent);
+}
+.project-toolbar .project-search-row { margin: 0 0 1.1rem; }
+.project-stack-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .65rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+.stack-select-label, .project-toolbar .project-category-select { font-weight: 650; font-size: .875rem; }
+.stack-select-label { color: var(--ink); }
+#project-stack {
+  max-width: 100%;
+  min-height: 44px;
+  padding: .6rem 2rem .6rem .8rem;
+  border: 1px solid var(--line);
+  border-radius: .7rem;
+  background-color: var(--page);
+  color: var(--ink);
+  font: inherit;
+  font-size: .9rem;
+}
+.stack-shortcuts { display: flex; flex-wrap: wrap; gap: .35rem; }
+.stack-shortcut { min-height: 40px; }
+.project-actions { display: flex; flex-wrap: wrap; gap: .65rem; }
+.project-actions > .button { flex: 1 1 11rem; width: auto; justify-content: center; min-height: 48px; text-align: center; }
+.project-open-case { color: var(--surface); background: var(--ink); border: 1px solid var(--ink); }
+.project-open-case:hover { background: var(--ink); color: var(--surface); box-shadow: 0 0 0 2px var(--accent); }
+@media (max-width: 800px) {
+  .stack-shortcuts { display: none; }
+  #project-stack { display: block; width: 100%; }
+  .project-toolbar .project-category-select select { display: block; margin-top: .3rem; }
+  .project-toolbar .project-category-select { max-width: none; }
+}
+
+.catalog-discovery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  align-items: flex-end;
+  margin: 0 0 2rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: var(--surface);
+}
+.catalog-discovery label { display: grid; gap: .4rem; flex: 1 1 12rem; min-width: 0; color: var(--ink); font-size: .875rem; font-weight: 650; }
+.catalog-discovery label:first-child { flex-grow: 2; }
+.catalog-discovery input, .catalog-discovery select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: .7rem;
+  padding: .6rem .85rem;
+  background-color: var(--page);
+  color: var(--ink);
+  font: inherit;
+}
+.catalog-discovery .button { min-height: 46px; }
+@media (max-width: 600px) {
+  .catalog-discovery { display: grid; }
+  .catalog-discovery .button { width: 100%; }
+}

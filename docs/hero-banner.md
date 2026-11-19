@@ -3,6 +3,7 @@
 The entire first-view section uses an immersive virtual coding space as its background, including the bottom baseline. A floating editor, component canvas, API workflow, database, cloud modules, AI/automation graph and responsive commerce interfaces occupy distinct depths in a purely digital environment. There is no physical desk, hardware or office, and no readable lettering or numbers. Existing headings, buttons and the project slideshow remain independent HTML content.
 
 - Generation/editing: built-in `image_gen` tool; reimagined the preceding 3D office background, followed by a targeted edit removing numeric editor line markers.
+- Cinematic layer: `public/images/hero/virtual-studio-loop.mp4`, a silent 1280 × 720 loop created from the original portfolio artwork. Offscreen playback pauses. Reduced motion and data saving use the still background.
 - Published image: `public/images/hero/development-virtual-space.webp` (1672 × 941, 142,414 bytes, WebP quality 0.90).
 - Final original PNG retained locally in `.local/hero-banner/development-virtual-space.png`.
 - Nonverbal React and Python symbols represent the owner's stated frontend and backend skills. Connected modules represent database engineering, cloud delivery, API integration, AI/automation and responsive commerce development.
