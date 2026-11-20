@@ -229,6 +229,40 @@ test('every route has one main heading, unique IDs and valid internal links with
   }
 });
 
+test('both languages limit outbound links to published work and forms to project browsing', () => {
+  const publicSites = new Set(getPortfolio('ja')
+    .filter(project => project.url && project.websiteAvailable !== false && project.status !== 'paused')
+    .map(project => new URL(project.url).href));
+  function attribute(tag, name) {
+    const match = tag.match(new RegExp(`\\s${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i'));
+    return match ? (match[1] ?? match[2] ?? match[3]).replaceAll('&amp;', '&') : null;
+  }
+  for (const locale of ['ja', 'en']) for (const page of pageRoutes) {
+    const base = new URL(locale === 'en' ? '/en/' : '/', site.siteUrl);
+    const current = new URL(page ? page + '/' : '', base);
+    const html = renderPage(locale, page);
+    for (const [tag] of html.matchAll(/<(?:a|area)\b[^>]*>/gi)) {
+      const href = attribute(tag, 'href');
+      if (href === null) continue;
+      const target = new URL(href, current);
+      assert.ok(['http:', 'https:'].includes(target.protocol), current.pathname + ' → ' + href);
+      assert.ok(target.origin === base.origin || publicSites.has(target.href), current.pathname + ' → ' + href);
+    }
+    assert.doesNotMatch(html, /\sform(?:action|method)\s*=/i, current.pathname);
+    for (const [tag] of html.matchAll(/<form\b[^>]*>/gi)) {
+      const method = (attribute(tag, 'method') || 'get').toLowerCase();
+      const action = attribute(tag, 'action');
+      if (method === 'dialog') {
+        assert.equal(action, null, current.pathname);
+        continue;
+      }
+      assert.equal(method, 'get', current.pathname);
+      assert.equal(new URL(action ?? current.href, current).href, new URL('projects/', base).href, current.pathname);
+      assert.equal(attribute(tag, 'role'), 'search', current.pathname);
+    }
+  }
+});
+
 test('the hero covers every site using its selected screenshot without exposing unavailable external websites', () => {
   assert.equal(site.ownerName, '');
   for (const locale of ['ja', 'en']) {
