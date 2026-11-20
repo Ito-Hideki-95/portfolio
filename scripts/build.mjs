@@ -14,18 +14,8 @@ const oldOutput = await lstat(output).catch(error => { if (error.code !== 'ENOEN
 if (oldOutput?.isSymbolicLink()) throw new Error('dist must not be a symbolic link');
 
 if (site.siteUrl && new URL(site.siteUrl).protocol !== 'https:') throw new Error('siteUrl must be an https:// URL');
-if (site.contactFormEndpoint) {
-  const endpoint = new URL(site.contactFormEndpoint);
-  if (endpoint.protocol !== 'https:' || endpoint.username || endpoint.password || endpoint.hash)
-    throw new Error('PORTFOLIO_FORM_ENDPOINT must be a public HTTPS form action without credentials or a fragment.');
-}
-if (site.contactUrl) {
-  const contact = new URL(site.contactUrl);
-  const validEmail = contact.protocol === 'mailto:' && /^[^\s@<>?,;]+@[^\s@<>?,;]+\.[^\s@<>?,;]+$/.test(contact.pathname) && !contact.search && !contact.hash;
-  if (contact.protocol !== 'https:' && !validEmail) throw new Error('contactUrl must be an https:// URL or a single mailto: email address');
-}
-if (site.indexable && (!site.brandName || (!site.contactUrl && !site.contactFormEndpoint) || !site.siteUrl)) {
-  throw new Error('検索公開前に src/content.mjs の brandName / contactUrl / siteUrl を設定してください。');
+if (site.indexable && (!site.brandName || !site.siteUrl)) {
+  throw new Error('検索公開前に src/content.mjs の brandName / siteUrl を設定してください。');
 }
 for (const work of [...experiences, ...reviews]) {
   if (work.image) {
@@ -67,5 +57,4 @@ if (canonical && site.indexable) {
 }
 await writeFile(path.join(output, '404.html'), '<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>ページが見つかりません</title><link rel="stylesheet" href="/styles.css"><main class="container section"><p class="eyebrow">404 / NOT FOUND</p><h1 class="error-title">ページが見つかりません。</h1><p>URLをご確認いただくか、トップページからご覧ください。</p><a class="button button-dark" href="/">トップページへ</a></main></html>', 'utf8');
 console.log('Build complete: dist/');
-if (!site.contactUrl && !site.contactFormEndpoint) console.log('Contact uses the local project-brief flow.');
 if (!site.indexable) console.log('Search indexing: disabled (indexable: false)');

@@ -15,7 +15,7 @@
 
 Vercelのプロジェクト作成とGitHub連携は完了しています。以降の通常更新では手順4の初回設定を繰り返す必要はありません。手順6のcommit / pushで更新します。
 
-公開名とお問い合わせ先は `src/content.mjs` で設定できます。現在は `indexable: false` のため検索エンジンへの登録を抑止していますが、上記URLを知っている方はログインなしで閲覧できます。
+公開名は `src/content.mjs` で設定できます。現在は `indexable: false` のため検索エンジンへの登録を抑止していますが、上記URLを知っている方はログインなしで閲覧できます。
 
 ## 1. ローカルで内容を確認する
 
@@ -24,9 +24,9 @@ cd "D:\04 portfolio"
 npm.cmd run dev
 ```
 
-<http://localhost:3000> を開きます。画面の表示、文章、スマートフォンのレイアウト、サービスの絞り込み、相談文の作成を確認します。保存するとブラウザが自動更新されます。
+<http://localhost:3000> を開きます。画面の表示、文章、スマートフォンのレイアウト、サービスの絞り込みを確認します。保存するとブラウザが自動更新されます。
 
-公開前に `src/content.mjs` の `brandName`、`contactUrl`、`contactLabel` を実際の情報へ変更します。`siteUrl` はVercelの初回デプロイ後に設定できます。
+公開前に `src/content.mjs` の `brandName` を確認します。`siteUrl` はVercelの初回デプロイ後に設定できます。
 
 ## 2. 自分のGitHubにリポジトリを作る
 
@@ -86,7 +86,7 @@ Git操作に慣れていない場合は [GitHub Desktop](https://desktop.github.
 ## 5. 公開URL・検索設定を仕上げる
 
 1. `src/content.mjs` の `siteUrl` に、実際に発行された本番URLを設定します。
-2. 表示名、連絡先、実績の公開範囲、文章を確認します。
+2. 表示名、実績の公開範囲、文章を確認します。
 3. 検索エンジンに公開する段階で `indexable: true` に変更します。
 4. `npm.cmd run check` と `npm.cmd run build` を実行します。
 5. commit / pushします。
@@ -139,9 +139,3 @@ GitHubでPull Requestを作り、Vercelが表示するPreview URLを確認しま
 - GitHubの連携権限やコミット作成者のVercelプロジェクトへのアクセスも確認します。
 
 初回連携が済んだら、リポジトリURLと公開URLを共有いただくと、その構成に合わせて次の修正とデプロイ確認を進められます。
-
-## お問い合わせ先の接続
-
-Vercelの本番環境に `PORTFOLIO_FORM_ENDPOINT` を設定し、再デプロイすると、日英両方に直接送信フォームが表示されます。値には、ご自身が受信・管理でき、ブラウザーからの通常のフォームPOSTと受付完了画面に対応した公開HTTPS送信先を指定します。送信項目は `name`、`email`、`topic`、`message` です。フォームのHTMLに公開される値なので、秘密鍵やトークンは含めないでください。スパム対策と受付通知は受信サービスで設定してください。
-
-外部の問い合わせフォームへのリンクを使用する場合は、代わりに `PORTFOLIO_INQUIRY_URL` に公開フォームのHTTPS URLを設定します。どちらも未設定の場合は従来どおり、ブラウザー内で相談文を作成・コピーできます。

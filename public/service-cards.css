@@ -79,7 +79,6 @@
 .service-detail-content { display: grid; justify-items: start; gap: 1rem; padding-top: .8rem; }
 .service-detail-content p { color: var(--muted); font-size: 1rem; line-height: 1.85; }
 .service-detail-content .text-link { font-size: .91rem; }
-.service-detail-content .button { margin-top: .25rem; }
 @media (min-width: 1000px) and (prefers-reduced-motion:no-preference) {
   :root:not([data-motion="paused"]) body[data-page="home"] .services-grid {
     gap: clamp(1.4rem, 3vw, 3rem);

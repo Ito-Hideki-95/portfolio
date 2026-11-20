@@ -4,11 +4,8 @@ export const site = {
   brandName: 'Development Partner',
   ownerName: '',
   role: '業務システム・AI・Web / アプリ開発',
-  contactFormEndpoint: process.env.PORTFOLIO_FORM_ENDPOINT?.trim() || '',
-  contactUrl: process.env.PORTFOLIO_INQUIRY_URL?.trim() || '', // 空欄のときは外部への連絡ボタンを表示しません
-  contactLabel: 'お問い合わせ',
   siteUrl: 'https://emoto-negitoro-portfolio.vercel.app',
-  indexable: false, // 内容の確認・連絡先の設定後に true にすると検索登録を許可
+  indexable: false, // 公開内容の確認後に true にすると検索登録を許可
   description: '会員管理・帳票出力・API連携などの業務システムを中心に、Web・EC・アプリ開発とAI活用に対応します。設計・実装から公開後の運用までの対応内容と、お客様からいただいた声をご紹介します。',
   experienceYears: 11,
 };

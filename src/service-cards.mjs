@@ -51,7 +51,6 @@ export function renderServiceCards(locale, services, copy, escape) {
         <div class="service-detail-content">
           <p>${escape(service.scope)}</p>
           ${relatedLink}
-          <a class="button button-dark" href="#contact" data-inquiry="${title}">${escape(copy.serviceContact)}<span aria-hidden="true">→</span></a>
         </div>
       </details>
     </article>`;

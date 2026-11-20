@@ -53,9 +53,6 @@
 [data-theme="dark"] .services-section {
   --ambient-surface: #121c2d;
 }
-.contact-section {
-  --ambient-surface: radial-gradient(ellipse at 0 100%, #073c61, transparent 65%), #070d1b;
-}
 .site-footer {
   --ambient-surface: #040a14;
 }

@@ -22,7 +22,6 @@
       restoreContent();
       disclosure = details;
       title.textContent = details.closest('.service-item').querySelector('h3').textContent;
-      // Move the existing content so inquiry selection uses the same link and event handler.
       panel.append(details.querySelector('.service-detail-content'));
       dialog.showModal();
     });

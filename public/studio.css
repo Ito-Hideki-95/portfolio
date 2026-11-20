@@ -48,9 +48,8 @@
   color:var(--on-action); background:var(--action); border-color:var(--action); box-shadow:none;
 }
 .button-dark:hover,.button-dark:focus-visible { background:color-mix(in srgb,var(--action) 87%,var(--ink)); }
-.site-header #main-nav a:last-child { border-color:var(--line); color:var(--accent); }
-.section-heading h2,.project-heading h2,.contact-intro h2,.route-intro h1,.profile-summary h2,
-.heading-row h2,.footer-brand .brand-name,.service-item h3,.approach-card h3,.brief-panel h3 {
+.section-heading h2,.project-heading h2,.route-intro h1,.profile-summary h2,
+.heading-row h2,.footer-brand .brand-name,.service-item h3,.approach-card h3 {
   font-family:var(--display); font-weight:600; letter-spacing:-.042em;
 }
 .eyebrow { letter-spacing:.16em; }
@@ -78,7 +77,7 @@ body .profile-summary, body .industries-section {
 .profile-summary .eyebrow,.explorer-copy .eyebrow,.profile-summary a { color:#bbf2c5; }
 .profile-promises li,.profile-summary-metrics span { color:#d7e8de; }
 .profile-promises li::before { color:#b6ee9b; }
-body .reviews-section, body .contact-section, body .site-footer {
+body .reviews-section, body .site-footer {
   --ink:#edf2ff; --muted:#b8c6d4; --surface:#122130; --page:#0b1421; --line:#334954; --accent:#9de6ba;
   --action:#adeb9a; --on-action:#10241a;
   --ambient-surface:radial-gradient(ellipse at 5% 85%,#143b335e,transparent 50%),linear-gradient(120deg,#0c1221,#070b16);
@@ -91,11 +90,8 @@ body .reviews-section {
   --voice-surface:#101b28; --voice-ink:#eef3ff; --voice-muted:#b8c7d3; --voice-accent:#94e6b7; --voice-line:#344655;
 }
 .review-card .review-highlight { font-family:var(--display); }
-.footer-explore .eyebrow,.footer-connect .eyebrow { color:#aadcb9; }
+.footer-explore .eyebrow { color:#aadcb9; }
 .site-footer .brand-name small { color:#bed0c8; }
-.brief-panel { background:linear-gradient(145deg,#192c30eb,#121c2deb); border-color:#405857; }
-.brief-panel :is(select,textarea) { background-color:#0d1921; border-color:#45605c; }
-.contact-arrow { display:none; }
 .project-card,.capability-card,.service-item,.approach-card {
   border-color:var(--line); box-shadow:var(--shadow);
 }
@@ -177,9 +173,4 @@ body .reviews-section {
   .site-header .brand-name small { display:none; }
   .site-header .brand-name strong { max-width:none; overflow-wrap:anywhere; }
   .site-header .header-controls { flex:none; }
-}
-
-#direct-inquiry input {
-  width:100%; background:#0d1921; border:1px solid #45605c; color:#f3f7ff; border-radius:10px;
-  padding:.72rem; font-size:1rem; margin-bottom:1rem;
 }
