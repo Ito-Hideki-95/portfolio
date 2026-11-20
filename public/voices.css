@@ -119,7 +119,7 @@
 
 .reviews-section .review-quote .review-highlight {
   color: var(--voice-ink);
-  font-size: clamp(1.2rem, 1.75vw, 1.45rem);
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.85;
   letter-spacing: .005em;
@@ -138,7 +138,7 @@
   margin-top: 20px;
   padding-top: 16px;
   border-top: 1px solid var(--voice-line);
-  font-size: .95rem;
+  font-size: max(16px, .9rem);
   line-height: 1.9;
 }
 
@@ -263,10 +263,6 @@
   .reviews-section .review-card {
     flex-basis: 100%;
     padding: 30px;
-  }
-
-  .reviews-section .review-quote .review-highlight {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
   }
 }
 
